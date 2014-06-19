@@ -7,7 +7,7 @@
 <title>MediaServer API</title>
 </head>
 <body id="content" onload="prettyPrint()">
-    <div class="api" id="::Speech">
+    <div class="api" id="::MediaServer">
         <div class="title">
             <h1>MediaServer API</h1>
         </div>
@@ -22,7 +22,7 @@
                     </li>
                     <li>1.2. <a href="#::MediaServerManager">MediaServerManager</a>
                     </li>
-                    <li>1.3. <a href="#::MediaServer">MediaServer</a>
+                    <li>1.3. <a href="#::MediaServer::MediaServer">MediaServer</a>
                     </li>
                     <li>1.4. <a href="#::MediaServerError">MediaServerError</a>
                     </li>
@@ -57,9 +57,9 @@
                             scanNetwork(MediaServerFoundServerCallback successCallback, optional MediaServerErrorCallback errorCallback);</a></td>
                 </tr>
                 <tr>
-                    <td><a href="#::MediaServer"> MediaServer</a></td>
-                    <td><a href="#::MediaServer::browse">browse(DOMString containerId, DOMString sortMode, unsigned long count, unsigned long offset, MediaServerBrowseFindCallback successCallback, optional MediaServerErrorCallback errorCallback);</a> <br>
-                        <a href="#::MediaServer::find">find(DOMString containerId, DOMString searchFilter, DOMString sortMode, unsigned long count, unsigned long offset, MediaServerBrowseFindCallback successCallback, optional MediaServerErrorCallback errorCallback);</a></td>
+                    <td><a href="#::MediaServer::MediaServer"> MediaServer</a></td>
+                    <td><a href="#::MediaServer::MediaServer::browse">browse(DOMString containerId, DOMString sortMode, unsigned long count, unsigned long offset, MediaServerBrowseFindCallback successCallback, optional MediaServerErrorCallback errorCallback);</a> <br>
+                        <a href="#::MediaServer::MediaServer::find">find(DOMString containerId, DOMString searchFilter, DOMString sortMode, unsigned long count, unsigned long offset, MediaServerBrowseFindCallback successCallback, optional MediaServerErrorCallback errorCallback);</a></td>
                 </tr>
                <tr>
                     <td><a href="#::MediaServerFoundServerCallback"> MediaServerFoundServerCallback</a></td>
@@ -149,7 +149,7 @@ void scanNetwork(<a href="#::MediaServerFoundServerCallback"><span class="typ">M
                     </dl>
                 </div>
             </div>
-            <div class="interface" id="::MediaServer">
+            <div class="interface" id="::MediaServer::MediaServer">
                 <h3>1.3. MediaServer</h3>
                 <div class="brief">The MediaServer interface. </div>
 <pre class="webidl prettyprint">
@@ -170,15 +170,15 @@ void scanNetwork(<a href="#::MediaServerFoundServerCallback"><span class="typ">M
                 <div class="attributes">
                     <h4>Attributes</h4>
                     <ul>
-                        <li class="attribute" id="::MediaServer::id"><span
+                        <li class="attribute" id="::MediaServer::MediaServer::id"><span
                             class="attrName"><span class="readonly">readonly </span><span class="type">DOMString
                             </span><span class="name">id</span></span>
                             <div class="brief">An opaque unique ID.</div></li>
-                        <li class="attribute" id="::MediaServer::friendlyName"><span
+                        <li class="attribute" id="::MediaServer::MediaServer::friendlyName"><span
                             class="attrName"><span class="readonly">readonly </span><span class="type">DOMString </span><span
                                 class="name">friendlyName</span></span>
                             <div class="brief"> A user-friendly name for the device.</div></li>
-                        <li class="attribute" id="::MediaServer::root"><span
+                        <li class="attribute" id="::MediaServer::MediaServer::root"><span
                             class="attrName"><span class="readonly">readonly </span><span class="type">object </span><span
                                 class="name">root</span></span>
                             <div class="brief">Media server root folder.</div></li>
@@ -188,7 +188,7 @@ void scanNetwork(<a href="#::MediaServerFoundServerCallback"><span class="typ">M
                     <h4>Methods</h4>
 
                     <dl>
-                        <dt class="method" id="::MediaServer::browse">
+                        <dt class="method" id="::MediaServer::MediaServer::browse">
                             <span class="methodName">browse</span>
                         </dt>
                         <dd>
@@ -233,7 +233,7 @@ void browse(DOMString containerId, DOMString sortMode, unsigned long count, unsi
                                 </ul>
                             </div>
                         </dd>
-                        <dt class="method" id="::MediaServer::find">
+                        <dt class="method" id="::MediaServer::MediaServer::find">
                             <span class="methodName">find</span>
                         </dt>
                         <dd>

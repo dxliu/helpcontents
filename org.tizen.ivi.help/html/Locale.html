@@ -7,7 +7,7 @@
 <title>Locale API</title>
 </head>
 <body id="content" onload="prettyPrint()">
-    <div class="api" id="::Speech">
+    <div class="api" id="::Locale">
         <div class="title">
             <h1>Locale API</h1>
         </div>
@@ -18,11 +18,11 @@
         <ul class="toc">
             <li>1. <a href="#interfaces">Interfaces</a>
                 <ul class="toc">
-                    <li>1.1. <a href="#::LocaleManagerObject">LocaleManagerObject</a>
+                    <li>1.1. <a href="#::Locale::LocaleManagerObject">LocaleManagerObject</a>
                     </li>
-                    <li>1.2. <a href="#::Locale">Locale</a>
+                    <li>1.2. <a href="#::Locale::Locale">Locale</a>
                     </li>
-                    <li>1.3. <a href="#::LocaleChangedCallback">LocaleChangedCallback</a>
+                    <li>1.3. <a href="#::Locale::LocaleChangedCallback">LocaleChangedCallback</a>
                     </li>
                 </ul>
             </li>
@@ -40,18 +40,18 @@
                     <th>Method</th>
                 </tr>
                 <tr>
-                    <td><a href="#::LocaleManagerObject"> LocaleManagerObject</a></td>
+                    <td><a href="#::Locale::LocaleManagerObject"> LocaleManagerObject</a></td>
                     <td></td>
                 </tr>
                 <tr>
-                    <td><a href="#::Locale"> Locale</a></td>
-                    <td><a href="#::Locale::getLocale">DOMString getLocale;</a> <br>
-                        <a href="#::Locale::setLocale">void setLocale(DOMString
-                            newLocale);;</a> <br> <a href="#::Locale::localeChanged">void
+                    <td><a href="#::Locale::Locale"> Locale</a></td>
+                    <td><a href="#::Locale::Locale::getLocale">DOMString getLocale;</a> <br>
+                        <a href="#::Locale::Locale::setLocale">void setLocale(DOMString
+                            newLocale);;</a> <br> <a href="#::Locale::Locale::localeChanged">void
                             localeChanged(LocaleChangedCallback cb);</a> <br></td>
                 </tr>
                 <tr>
-                    <td><a href="#::LocaleChangedCallback"> LocaleChangedCallback</a></td>
+                    <td><a href="#::Locale::LocaleChangedCallback"> LocaleChangedCallback</a></td>
                     <td></td>
                 </tr>
             </thead>
@@ -61,20 +61,20 @@
         <div class="interfaces" id="interfaces">
             <h2>1. Interfaces</h2>
 
-            <div class="interface" id="::LocaleManagerObject">
+            <div class="interface" id="::Locale::LocaleManagerObject">
                 <h3>1.1. LocaleManagerObject</h3>
                 <div class="brief"></div>
 <pre class="webidl prettyprint">
 [NoInterfaceObject] interface LocaleManagerObject {
-    readonly attribute <a href="#::Locale"><span class="typ">Locale</span></a> locale;
+    readonly attribute <a href="#::Locale::Locale"><span class="typ">Locale</span></a> locale;
 };
 </pre>
-<pre class="webidl prettyprint">  3 characters. 
+<pre class="webidl prettyprint">
 Tizen implements Locale;
 </pre>
             </div>
 
-            <div class="interface" id="::Locale">
+            <div class="interface" id="::Locale::Locale">
                 <h3>1.2. Locale</h3>
                 <div class="brief">The Vehicle interface defines access to locale functionality.</div>
 <pre class="webidl prettyprint">
@@ -84,14 +84,14 @@ Tizen implements Locale;
     
     void setLocale(DOMString newLocale);
      
-    void localeChanged(<a href="#::LocaleChangedCallback"><span class="typ">LocaleChangedCallback</span></a> cb);
+    void localeChanged(<a href="#::Locale::LocaleChangedCallback"><span class="typ">LocaleChangedCallback</span></a> cb);
 
 };
 </pre>
                 <div class="methods">
                     <h4>Methods</h4>
                     <dl>
-                        <dt class="method" id="::Locale::getLocale">
+                        <dt class="method" id="::Locale::Locale::getLocale">
                             <span class="methodName">getLocale</span>
                         </dt>
                         <dd>
@@ -109,7 +109,7 @@ DOMString getLocale();
                                 Current locale in ISO 639-2 format (i.e., en_US for English US).
                             </div>
                         </dd>
-                        <dt class="method" id="::Locale::setLocale">
+                        <dt class="method" id="::Locale::Locale::setLocale">
                             <span class="methodName">setLocale</span>
                         </dt>
                         <dd>
@@ -130,7 +130,7 @@ void setLocale(DOMString newLocale);
                                 </ul>
                             </div>
                         </dd>
-                        <dt class="method" id="::Locale::localeChanged">
+                        <dt class="method" id="::Locale::Locale::localeChanged">
                             <span class="methodName">localeChanged</span>
                         </dt>
                         <dd>
@@ -153,8 +153,8 @@ void localeChanged(<a href="#::LocaleChangedCallback"><span class="typ">LocaleCh
                         </dd>
                     </dl>
                 </div>
-                
-                <div class="interface" id="::LocaleChangedCallback">
+
+                <div class="interface" id="::Locale::LocaleChangedCallback">
                 <h3>1.3. LocaleChangedCallback</h3>
                 <div class="brief">This interface specified a success callback that is invoked when current locale is changed.</div>
 <pre class="webidl prettyprint">
@@ -168,7 +168,7 @@ void localeChanged(<a href="#::LocaleChangedCallback"><span class="typ">LocaleCh
                     <h4>Methods</h4>
 
                     <dl>
-                        <dt class="method" id="::LocaleChangedCallback::onsuccess">
+                        <dt class="method" id="::Locale::LocaleChangedCallback::onsuccess">
                             <span class="methodName">onsuccess</span>
                         </dt>
                         <dd>
@@ -191,7 +191,8 @@ void onsuccess(DOMString newLocale);
                     </dl>
                 </div>
             </div>
-        </div>   
+        </div>
+        </div>
 
                 <!-- -------------------------------- -->
                 <h2 id="full-webidl">2. Full WebIDL</h2>
@@ -233,6 +234,7 @@ module Locale {
                             href="https://www.tizen.org/content-license" target="_blank">Content
                             License</a>.
                     </div>
+                </div>
                     <script type="text/javascript">
                         var _gaq = _gaq || [];
                         _gaq.push([ '_setAccount', 'UA-25976949-1' ]);
@@ -250,7 +252,7 @@ module Locale {
                             s.parentNode.insertBefore(ga, s);
                         })();
                     </script>
-                </div>
+             </div>
 </body>
 </html>
 

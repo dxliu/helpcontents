@@ -636,6 +636,7 @@ sequence&lt;unsigned short> listZones(DOMString objectType);
                                 A array.
                             </div>
                         </dd>
+                     </dl>
                 </div>
             </div>
             
@@ -664,7 +665,7 @@ sequence&lt;unsigned short> listZones(DOMString objectType);
                         <li class="attribute" id="::Vehicle::VehiclePropertyType::zone"><span class="attrName"><span
                                 class="type">short </span><span class="name">zone</span></span>
                             <div class="brief">An attribute to set zone of the vehicle property. By default, this attribute is set to 0.</div></li>
-                        <li class="attribute" id="::Vehicle::VehiclePropertyType::time"><span class="attrName"><span
+                        <li class="attribute" id="::Vehicle::VehiclePropertyType::source"><span class="attrName"><span
                                 class="type">DOMString </span><span class="name">source</span></span>
                             <div class="brief">An attribute to set source of the vehicle property. By default, this attribute is set to 0.</div></li>
                     </ul>
@@ -1169,7 +1170,7 @@ sequence&lt;unsigned short> listZones(DOMString objectType);
                         <li class="attribute" id="::Vehicle::Fuel::instantEconomy"><span class="attrName"><span
                                 class="type">unsigned short</span><span class="name"> instantEconomy</span></span>
                             <div class="brief">An attribute to return instant fuel economy in kilometers per liter of fuel. </div></li>
-                        <li class="attribute" id="::Vehicle::Fuel::level"><span class="attrName"><span
+                        <li class="attribute" id="::Vehicle::Fuel::averageEconomy"><span class="attrName"><span
                                 class="type">unsigned short</span><span class="name"> averageEconomy</span></span>
                             <div class="brief">An attribute to return average fuel economy in kilometers per liter of fuel since last reset. 
                             Setting this to any value should reset the counter to 0.</div></li>
@@ -1928,10 +1929,10 @@ sequence&lt;unsigned short> listZones(DOMString objectType);
                 <div class="attributes">
                     <h4>Attributes</h4>
                     <ul>
-                        <li class="attribute" id="odometer"><span class="attrName"><span
+                        <li class="attribute" id="::Vehicle::Odometer::odometer"><span class="attrName"><span
                                 class="type">unsigned long</span><span class="name"> odometer</span></span>
                             <div class="brief">
-                            An attribute to return Distance traveled in km 
+                            An attribute to return Distance traveled in km.
                             </div>
                         </li>
                     </ul>
@@ -1955,22 +1956,22 @@ sequence&lt;unsigned short> listZones(DOMString objectType);
                 <div class="attributes">
                     <h4>Attributes</h4>
                     <ul>
-                        <li class="attribute" id="transmission"><span class="attrName"><span
+                        <li class="attribute" id="::Vehicle::Fluid::transmission"><span class="attrName"><span
                                 class="type">unsigned short</span><span class="name"> transmission</span></span>
                             <div class="brief">
-                            An attribute to return Transmission fluid level percentage. 0-100. 
+                            An attribute to return Transmission fluid level percentage (0 - 100).
                             </div>
                         </li>
-                        <li class="attribute" id="brake"><span class="attrName"><span
+                        <li class="attribute" id="::Vehicle::Fluid::brake"><span class="attrName"><span
                                 class="type">unsigned short</span><span class="name"> brake</span></span>
                             <div class="brief">
-                            An attribute to return Brake fluid level percentage. 0-100. 
+                            An attribute to return Brake fluid level percentage (0 - 100).
                             </div>
                         </li>
-                        <li class="attribute" id="washer"><span class="attrName"><span
+                        <li class="attribute" id="::Vehicle::Fluid::washer"><span class="attrName"><span
                                 class="type">unsigned short</span><span class="name"> washer</span></span>
                             <div class="brief">
-                            An attribute to return Washer fluid level percentage. 0-100. 
+                            An attribute to return Washer fluid level percentage (0 - 100).
                             </div>
                         </li>
                     </ul>
@@ -1992,16 +1993,16 @@ sequence&lt;unsigned short> listZones(DOMString objectType);
                 <div class="attributes">
                     <h4>Attributes</h4>
                     <ul>
-                        <li class="attribute" id="voltage"><span class="attrName"><span
+                        <li class="attribute" id="::Vehicle::Battery::voltage"><span class="attrName"><span
                                 class="type">double</span><span class="name"> voltage</span></span>
                             <div class="brief">
                             An attribute to return battery voltage.  
                             </div>
                         </li>
-                        <li class="attribute" id="current"><span class="attrName"><span
+                        <li class="attribute" id="::Vehicle::Battery::current"><span class="attrName"><span
                                 class="type">double</span><span class="name"> current</span></span>
                             <div class="brief">
-                            An attribute to return battery current in Amperes 
+                            An attribute to return battery current in amperes.
                             </div>
                         </li>
                     </ul>
@@ -2027,28 +2028,28 @@ sequence&lt;unsigned short> listZones(DOMString objectType);
                 <div class="attributes">
                     <h4>Attributes</h4>
                     <ul>
-                        <li class="attribute" id="leftFront"><span class="attrName"><span
+                        <li class="attribute" id="::Vehicle::TirePressure::leftFront"><span class="attrName"><span
                                 class="type">double</span><span class="name"> leftFront</span></span>
                             <div class="brief">
-                            An attribute to return left front tire pressure in kPa. 
+                            An attribute to return left front tire pressure in kpa.
                             </div>
                         </li>
-                        <li class="attribute" id="rightFront"><span class="attrName"><span
+                        <li class="attribute" id="::Vehicle::TirePressure::rightFront"><span class="attrName"><span
                                 class="type">double</span><span class="name"> rightFront</span></span>
                             <div class="brief">
-                            An attribute to return right front tire pressure in kPa. 
+                            An attribute to return right front tire pressure in kpa.
                             </div>
                         </li>
-                        <li class="attribute" id="leftRear"><span class="attrName"><span
+                        <li class="attribute" id="::Vehicle::TirePressure::leftRear"><span class="attrName"><span
                                 class="type">double</span><span class="name"> leftRear</span></span>
                             <div class="brief">
-                            An attribute to return left rear tire pressure in kPa. 
+                            An attribute to return left rear tire pressure in kpa.
                             </div>
                         </li>
-                        <li class="attribute" id="rightRear"><span class="attrName"><span
+                        <li class="attribute" id="::Vehicle::TirePressure::rightRear"><span class="attrName"><span
                                 class="type">double</span><span class="name"> rightRear</span></span>
                             <div class="brief">
-                            An attribute to return right rear tire pressure in kPa. 
+                            An attribute to return right rear tire pressure in kpa.
                             </div>
                         </li>
                     </ul>
@@ -2076,28 +2077,28 @@ sequence&lt;unsigned short> listZones(DOMString objectType);
                 <div class="attributes">
                     <h4>Attributes</h4>
                     <ul>
-                        <li class="attribute" id="leftFront"><span class="attrName"><span
+                        <li class="attribute" id="::Vehicle::TireTemperature::leftFront"><span class="attrName"><span
                                 class="type">double</span><span class="name"> leftFront</span></span>
                             <div class="brief">
-                            An attribute to return left front tire temperature in Celcius. 
+                            An attribute to return left front tire temperature in celcius.
                             </div>
                         </li>
-                        <li class="attribute" id="rightFront"><span class="attrName"><span
+                        <li class="attribute" id="::Vehicle::TireTemperature::rightFront"><span class="attrName"><span
                                 class="type">double</span><span class="name"> rightFront</span></span>
                             <div class="brief">
-                            An attribute to return right front tire temperature in Celcius.
+                            An attribute to return right front tire temperature in celcius.
                             </div>
                         </li>
-                        <li class="attribute" id="leftRear"><span class="attrName"><span
+                        <li class="attribute" id="::Vehicle::TireTemperature::leftRear"><span class="attrName"><span
                                 class="type">double</span><span class="name"> leftRear</span></span>
                             <div class="brief">
-                            An attribute to return left rear tire temperature in Celcius.  
+                            An attribute to return left rear tire temperature in celcius.
                             </div>
                         </li>
-                        <li class="attribute" id="rightRear"><span class="attrName"><span
+                        <li class="attribute" id="::Vehicle::TireTemperature::rightRear"><span class="attrName"><span
                                 class="type">double</span><span class="name"> rightRear</span></span>
                             <div class="brief">
-                            An attribute to return right rear tire temperature in Celcius. 
+                            An attribute to return right rear tire temperature in celcius.
                             </div>
                         </li>
                     </ul>
@@ -2114,8 +2115,19 @@ sequence&lt;unsigned short> listZones(DOMString objectType);
 
 };
 </pre>
+                <div class="attributes">
+                    <h4>Attributes</h4>
+                    <ul>
+                        <li class="attribute" id="::Vehicle::SecurityAlert::securityAlert"><span class="attrName"><span
+                                class="type">boolean</span><span class="name"> securityAlert</span></span>
+                            <div class="brief">
+                                An attribute to return security alert status.
+                            </div>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            
+
             <div class="interface" id="::Vehicle::ParkingBrake">
                 <h3>1.40. ParkingBrake</h3>
                 <div class="brief">The interface defines parking brake of vehicle property type.</div>
@@ -2129,10 +2141,10 @@ sequence&lt;unsigned short> listZones(DOMString objectType);
                 <div class="attributes">
                     <h4>Attributes</h4>
                     <ul>
-                        <li class="attribute" id="parkingBrake"><span class="attrName"><span
+                        <li class="attribute" id="::Vehicle::ParkingBrake::parkingBrake"><span class="attrName"><span
                                 class="type">boolean</span><span class="name"> parkingBrake</span></span>
                             <div class="brief">
-                            An attribute to return status of parking brake:  Engaged = true, Disengaged = false.
+                            An attribute to return status of parking brake, engaged(true) or disengaged(false).
                             </div>
                         </li>
                     </ul>
@@ -2152,10 +2164,10 @@ sequence&lt;unsigned short> listZones(DOMString objectType);
                 <div class="attributes">
                     <h4>Attributes</h4>
                     <ul>
-                        <li class="attribute" id="parkingLight"><span class="attrName"><span
+                        <li class="attribute" id="::Vehicle::ParkingLight::parkingLight"><span class="attrName"><span
                                 class="type">boolean</span><span class="name"> parkingLight</span></span>
                             <div class="brief">
-                            An attribute to return status of parking light:  Engaged = true, Disengaged = false.
+                            An attribute to return status of parking light, engaged(true) or disengaged(false).
                             </div>
                         </li>
                     </ul>
@@ -2175,10 +2187,10 @@ sequence&lt;unsigned short> listZones(DOMString objectType);
                 <div class="attributes">
                     <h4>Attributes</h4>
                     <ul>
-                        <li class="attribute" id="hazardLight"><span class="attrName"><span
+                        <li class="attribute" id="::Vehicle::HazardLight::hazardLight"><span class="attrName"><span
                                 class="type">boolean</span><span class="name"> hazardLight</span></span>
                             <div class="brief">
-                            An attribute to return status of hazard light:  Engaged = true, Disengaged = false. 
+                            An attribute to return status of hazard light, engaged(true) or disengaged(false).
                             </div>
                         </li>
                     </ul>
@@ -2198,10 +2210,10 @@ sequence&lt;unsigned short> listZones(DOMString objectType);
                 <div class="attributes">
                     <h4>Attributes</h4>
                     <ul>
-                        <li class="attribute" id="antilockBrakingSystem"><span class="attrName"><span
+                        <li class="attribute" id="::Vehicle::AntilockBrakingSystem::antilockBrakingSystem"><span class="attrName"><span
                                 class="type">boolean</span><span class="name"> antilockBrakingSystem</span></span>
                             <div class="brief">
-                            An attribute to return whether Antilock Braking System is Idle (false) or Engaged (true)
+                            An attribute to return whether Antilock Braking System is idle(false) or engaged(true).
                             </div>
                         </li>
                     </ul>
@@ -2221,10 +2233,10 @@ sequence&lt;unsigned short> listZones(DOMString objectType);
                 <div class="attributes">
                     <h4>Attributes</h4>
                     <ul>
-                        <li class="attribute" id="tractionControlSystem"><span class="attrName"><span
+                        <li class="attribute" id="::Vehicle::TractionControlSystem::tractionControlSystem"><span class="attrName"><span
                                 class="type">boolean</span><span class="name"> tractionControlSystem</span></span>
                             <div class="brief">
-                             An attribute to return whether Traction Control System is Off (false) or On (true)
+                             An attribute to return whether Traction Control System is off(false) or on(true).
                             </div>
                         </li>
                     </ul>
@@ -2244,10 +2256,10 @@ sequence&lt;unsigned short> listZones(DOMString objectType);
                 <div class="attributes">
                     <h4>Attributes</h4>
                     <ul>
-                        <li class="attribute" id="vehicleTopSpeedLimit"><span class="attrName"><span
+                        <li class="attribute" id="::Vehicle::VehicleTopSpeedLimit::vehicleTopSpeedLimit"><span class="attrName"><span
                                 class="type">unsigned short</span><span class="name"> vehicleTopSpeedLimit</span></span>
                             <div class="brief">
-                            An attribute to returns top rated speed in km/h. 0 = no limit 
+                            An attribute to returns top rated speed in km/h (0 = no limit).
                             </div>
                         </li>
                     </ul>
@@ -2270,13 +2282,28 @@ sequence&lt;unsigned short> listZones(DOMString objectType);
 
 };
 </pre>
+                <div class="consts">
+                    <h4>Constants</h4>
+                    <ul>
+                        <li class="const" id="::Vehicle::AirbagStatus::AIRBAGSTATUS_INACTIVE"><span
+                                class="name">AIRBAGSTATUS_INACTIVE</span>
+                            <div class="brief">It defines the inactive airbag status.</div></li>
+                        <li class="const" id="::Vehicle::AirbagStatus::AIRBAGSTATUS_ACTIVE"><span
+                                class="name">AIRBAGSTATUS_ACTIVE</span>
+                            <div class="brief">It defines the active airbag status.</div></li>
+                        <li class="const" id="::Vehicle::AirbagStatus::AIRBAGSTATUS_DEPLOYED"><span
+                                class="name">AIRBAGSTATUS_DEPLOYED</span>
+                            <div class="brief">It defines the deployed airbag status.</div></li>
+                    </ul>
+                </div>
+
                 <div class="attributes">
                     <h4>Attributes</h4>
                     <ul>
-                        <li class="attribute" id="airbagStatus"><span class="attrName"><span
+                        <li class="attribute" id="::Vehicle::AirbagStatus::airbagStatus"><span class="attrName"><span
                                 class="type">unsigned short</span><span class="name"> airbagStatus</span></span>
                             <div class="brief">
-                            An attribute to return Airbag deployment status (see AIRBAGSTATUS*)
+                            An attribute to return Airbag deployment status (see AIRBAGSTATUS Constants).
                             </div>
                         </li>
                     </ul>
@@ -2303,27 +2330,41 @@ sequence&lt;unsigned short> listZones(DOMString objectType);
 
 };
 </pre>
+                <div class="consts">
+                    <h4>Constants</h4>
+                    <ul>
+                        <li class="const" id="::Vehicle::DoorStatus::DOORSTATUS_CLOSED"><span
+                                class="name">DOORSTATUS_CLOSED</span>
+                            <div class="brief">It defines the closed door status.</div></li>
+                        <li class="const" id="::Vehicle::DoorStatus::DOORSTATUS_OPEN"><span
+                                class="name">DOORSTATUS_OPEN</span>
+                            <div class="brief">It defines the open door status.</div></li>
+                        <li class="const" id="::Vehicle::DoorStatus::DOORSTATUS_AJAR"><span
+                                class="name">DOORSTATUS_AJAR</span>
+                            <div class="brief">It defines the ajar door status.</div></li>
+                    </ul>
+                </div>
+
                 <div class="attributes">
                     <h4>Attributes</h4>
                     <ul>
-                        <li class="attribute" id="doorStatus"><span class="attrName"><span
+                        <li class="attribute" id="::Vehicle::DoorStatus::doorStatus"><span class="attrName"><span
                                 class="type">unsigned short</span><span class="name"> doorStatus</span></span>
                             <div class="brief">
-                            An attribute to returns Door status (byte).  See DOORSTATUS_*
+                            An attribute to returns door status (see DOORSTATUS Constants).
                             </div>
                         </li>
-                        <li class="attribute" id="doorLockStatus"><span class="attrName"><span
+                        <li class="attribute" id="::Vehicle::DoorStatus::doorLockStatus"><span class="attrName"><span
                                 class="type">boolean</span><span class="name"> doorLockStatus</span></span>
                             <div class="brief">
-                            An attribute to returns Door status (bool locked = true, unlocked = false).
+                            An attribute to returns door status, locked(true) or unlocked(false).
                             </div>
                         </li>
-                        <li class="attribute" id="childLockStatus"><span class="attrName"><span
+                        <li class="attribute" id="::Vehicle::DoorStatus::childLockStatus"><span class="attrName"><span
                                 class="type">boolean</span><span class="name"> childLockStatus</span></span>
                             <div class="brief">
-                            An attribute to returns Child lock status of rear doors.  active = true, inactive = false.    
-        Setting this to 'true' will prevent the rear doors from being opened    
-        from the inside.
+                            An attribute to returns child lock status of rear doors, active(true) or inactive(false).
+                            Setting this to 'true' will prevent the rear doors from being opened from the inside.
                             </div>
                         </li>
                     </ul>
@@ -2343,10 +2384,10 @@ sequence&lt;unsigned short> listZones(DOMString objectType);
                 <div class="attributes">
                     <h4>Attributes</h4>
                     <ul>
-                        <li class="attribute" id="seatBeltStatus"><span class="attrName"><span
+                        <li class="attribute" id="::Vehicle::SeatBeltStatusseatBeltStatus"><span class="attrName"><span
                                 class="type">boolean</span><span class="name"> seatBeltStatus</span></span>
                             <div class="brief">
-                            An attribute to return Seat Belt status (bool: Fasten = true, Unfastened = false)
+                            An attribute to return seat belt status, fasten(true) or unfastened(false).
                             </div>
                         </li>
                     </ul>
@@ -2369,13 +2410,28 @@ sequence&lt;unsigned short> listZones(DOMString objectType);
 
 };
 </pre>
+                <div class="consts">
+                    <h4>Constants</h4>
+                    <ul>
+                        <li class="const" id="::Vehicle::OccupantStatus::OCCUPANTSTATUS_VACANT"><span
+                                class="name">OCCUPANTSTATUS_VACANT</span>
+                            <div class="brief">It defines the vacant occupant status.</div></li>
+                        <li class="const" id="::Vehicle::OccupantStatus::OCCUPANTSTATUS_CHILD"><span
+                                class="name">OCCUPANTSTATUS_CHILD</span>
+                            <div class="brief">It defines the child occupant status.</div></li>
+                        <li class="const" id="::Vehicle::OccupantStatus::OCCUPANTSTATUS_ADULT"><span
+                                class="name">OCCUPANTSTATUS_ADULT</span>
+                            <div class="brief">It defines the adult occupant status.</div></li>
+                    </ul>
+                </div>
+
                 <div class="attributes">
                     <h4>Attributes</h4>
                     <ul>
-                        <li class="attribute" id="occupantStatus"><span class="attrName"><span
+                        <li class="attribute" id="::Vehicle::OccupantStatus::occupantStatus"><span class="attrName"><span
                                 class="type">unsigned short</span><span class="name"> occupantStatus</span></span>
                             <div class="brief">
-                            An attribute to returns Occupant status (byte, see OCCUPANTSTATUS)
+                            An attribute to returns occupant status (see OCCUPANTSTATUS Constants).
                             </div>
                         </li>
                     </ul>
@@ -2404,13 +2460,37 @@ sequence&lt;unsigned short> listZones(DOMString objectType);
 
 };
 </pre>
+                <div class="consts">
+                    <h4>Constants</h4>
+                    <ul>
+                        <li class="const" id="::Vehicle::ObstacleDistance::DISTANCESENSORLOCATION_LEFTFRONT"><span
+                                class="name">DISTANCESENSORLOCATION_LEFTFRONT</span>
+                            <div class="brief">It defines the left front distance sensor location.</div></li>
+                        <li class="const" id="::Vehicle::ObstacleDistance::DISTANCESENSORLOCATION_RIGHTFRONT"><span
+                                class="name">DISTANCESENSORLOCATION_RIGHTFRONT</span>
+                            <div class="brief">It defines the right front distance sensor location.</div></li>
+                        <li class="const" id="::Vehicle::ObstacleDistance::DISTANCESENSORLOCATION_LEFTREAR"><span
+                                class="name">DISTANCESENSORLOCATION_LEFTREAR</span>
+                            <div class="brief">It defines the left rear distance sensor location.</div></li>
+                        <li class="const" id="::Vehicle::ObstacleDistance::DISTANCESENSORLOCATION_RIGHTREAR"><span
+                                class="name">DISTANCESENSORLOCATION_RIGHTREAR</span>
+                            <div class="brief">It defines the right rear distance sensor location.</div></li>
+                        <li class="const" id="::Vehicle::ObstacleDistance::DISTANCESENSORLOCATION_LEFTBLINDSPOT"><span
+                                class="name">DISTANCESENSORLOCATION_LEFTBLINDSPOT</span>
+                            <div class="brief">It defines the left blind spot distance sensor location.</div></li>
+                        <li class="const" id="::Vehicle::ObstacleDistance::DISTANCESENSORLOCATION_RIGHTBLINDSPOT"><span
+                                class="name">DISTANCESENSORLOCATION_RIGHTBLINDSPOT</span>
+                            <div class="brief">It defines the right blind spot distance sensor location.</div></li>
+                    </ul>
+                </div>
+
                 <div class="attributes">
                     <h4>Attributes</h4>
                     <ul>
-                        <li class="attribute" id="obstacleDistance"><span class="attrName"><span
+                        <li class="attribute" id="::Vehicle::ObstacleDistance::obstacleDistance"><span class="attrName"><span
                                 class="type">double</span><span class="name"> obstacleDistance</span></span>
                             <div class="brief">
-                            An attribute to returns Distance Sensor distance (Double) in m.
+                            An attribute to returns distance sensor distance in m.
                             </div>
                         </li>
                     </ul>
@@ -2430,10 +2510,10 @@ sequence&lt;unsigned short> listZones(DOMString objectType);
                 <div class="attributes">
                     <h4>Attributes</h4>
                     <ul>
-                        <li class="attribute" id="nightMode"><span class="attrName"><span
+                        <li class="attribute" id="::Vehicle::NightMode::nightMode"><span class="attrName"><span
                                 class="type">boolean</span><span class="name"> nightMode</span></span>
                             <div class="brief">
-                            An attribute to return whether or not the system is in NightMode or not.  True = Night time, False = Day time
+                            An attribute to return whether or not the system is in night mode(true) or not. False is day mode.
                             </div>
                         </li>
                     </ul>
@@ -2453,10 +2533,10 @@ sequence&lt;unsigned short> listZones(DOMString objectType);
                 <div class="attributes">
                     <h4>Attributes</h4>
                     <ul>
-                        <li class="attribute" id="drivingMode"><span class="attrName"><span
+                        <li class="attribute" id="::Vehicle::DrivingMode::drivingMode"><span class="attrName"><span
                                 class="type">unsigned short</span><span class="name"> drivingMode</span></span>
                             <div class="brief">
-                            An attribute to return whether or not the system is in DrivingMode or not.  1 = Driving, 0 = Not Driving
+                            An attribute to return whether or not the system is in driving mode(1) or not. 0 represents no driving mode.
                             </div>
                         </li>
                     </ul>
@@ -2499,6 +2579,7 @@ void onsuccess(VehiclePropertyType value);
                         </dd>
                     </dl>
                 </div>
+            </div>
                 
                 <div class="interface" id="::Vehicle::VehiclePropertyErrorCallback">
                 <h3>1.54. VehiclePropertyErrorCallback</h3>
@@ -2535,6 +2616,7 @@ void onfailure(VehiclePropertyError error);
                             </div>
                         </dd>
                     </dl>
+                </div>
                 </div>
                 
                 <div class="interface" id="::Vehicle::VehiclePropertyListCallback">
@@ -2573,6 +2655,7 @@ void onfailure(VehiclePropertyError error);
                         </dd>
                     </dl>
                 </div>
+             </div>
                 
                 <div class="interface" id="::Vehicle::SupportedPropertiesCallback">
                 <h3>1.56. SupportedPropertiesCallback</h3>
@@ -2610,6 +2693,7 @@ void onsuccess(sequence&lt;DOMString> properties);
                         </dd>
                     </dl>
                 </div>
+             </div>
                 
                 <div class="interface" id="::Vehicle::DefrostDictionary">
                 <h3>1.57. DefrostDictionary</h3>
@@ -2651,7 +2735,7 @@ module Vehicle {
 
         const unsigned short ZONE_Center = 0x20;
 
-        sequence<DOMString> supported();
+        sequence&lt;DOMString> supported();
 
         any get(DOMString objectType, optional short zone);
 
@@ -3258,6 +3342,7 @@ module Vehicle {
                 href="https://www.tizen.org/content-license" target="_blank">Content
                 License</a>.
         </div>
+    </div>
         <script type="text/javascript">
             var _gaq = _gaq || [];
             _gaq.push([ '_setAccount', 'UA-25976949-1' ]);

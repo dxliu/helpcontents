@@ -1,0 +1,954 @@
+<!DOCTYPE html PUBLIC "html">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="tizen.css" media="screen">
+<script type="text/javascript" src="snippet.js"></script>
+<title>Speech API</title>
+</head>
+<body id="content" onload="prettyPrint()">
+    <div class="api" id="::Speech">
+        <div class="title">
+            <h1>Speech API</h1>
+        </div>
+        <div class="description">
+            <p>The Web Speech API aims to enable web developers to provide, in a web browser, speech-input and text-to-speech output 
+            features that are typically not available when using standard speech-recognition or screen-reader software.</p>
+        </div>
+        <h2>Table of Contents</h2>
+        <ul class="toc">
+            <li>1. <a href="#typedefs">Type Definitions</a>
+                <ul class="toc">
+                    <li>1.1. <a href="#::ErrorCode">ErrorCode</a>
+                    </li>
+                </ul>
+            </li>
+            <li>2. <a href="#interfaces">Interfaces</a>
+                <ul class="toc">
+                    <li>2.1. <a href="#::SpeechManagerObject">SpeechManagerObject</a>
+                    </li>
+                    <li>2.2. <a href="#::SpeechManager">SpeechManager</a>
+                    </li>
+                    <li>2.3. <a href="#::SpeechRecognition">SpeechRecognition</a>
+                    </li>
+                    <li>2.4. <a href="#::SpeechRecognitionError">SpeechRecognitionError</a>
+                    </li>
+                    <li>2.5. <a href="#::SpeechRecognitionAlternative">SpeechRecognitionAlternative</a>
+                    </li>
+                    <li>2.6. <a href="#::SpeechRecognitionResult">SpeechRecognitionResult</a>
+                    </li>
+                    <li>2.7. <a href="#::SpeechRecognitionResultList">SpeechRecognitionResultList</a>
+                    </li>
+                    <li>2.8. <a href="#::SpeechRecognitionEvent">SpeechRecognitionEvent</a>
+                    </li>
+                    <li>2.9. <a href="#::SpeechGrammar">SpeechGrammar</a>
+                    </li>
+                    <li>2.10. <a href="#::SpeechGrammarList">SpeechGrammarList</a>
+                    </li>
+                </ul>
+            </li>
+            <li>3. <a href="#full-webidl">Full WebIDL</a>
+            </li>
+        </ul>
+
+        <hr>
+
+        <h2 id="method-summary">Summary of Interfaces and Methods</h2>
+        <table class="informaltable">
+            <thead>
+                <tr>
+                    <th>Interface</th>
+                    <th>Method</th>
+                </tr>
+                <tr>
+                    <td><a href="#::SpeechManagerObject"> SpeechManagerObject</a></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><a href="#::SpeechManager"> SpeechManager</a></td>
+                    <td><a href="#::SpeechManager::vocalizeString">void
+                            vocalizeString(DOMString speakString);</a></td>
+                </tr>
+                <tr>
+                    <td><a href="#::SpeechRecognition"> SpeechRecognition</a></td>
+                    <td><a href="#::SpeechRecognition::start">void start();</a> <br>
+                        <a href="#::SpeechRecognition::stop">void stop();</a> <br> <a
+                        href="#::SpeechRecognition::abort">void abort();</a> <br></td>
+                </tr>
+                <tr>
+                    <td><a href="#::SpeechRecognitionError">
+                            SpeechRecognitionError</a></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><a href="#::SpeechRecognitionAlternative">
+                            SpeechRecognitionAlternative</a></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><a href="#::SpeechRecognitionResult">
+                            SpeechRecognitionResult</a></td>
+                    <td><a href="#::SpeechRecognitionResult::item">SpeechRecognitionAlternative item(unsigned long index);</a> <br></td>
+                </tr>
+                <tr>
+                    <td><a href="#::SpeechRecognitionResultList">
+                            SpeechRecognitionResultList</a></td>
+                    <td><a href="#::SpeechRecognitionResultList::item">SpeechRecognitionResult item(unsigned long index);</a> <br></td>
+                </tr>
+                <tr>
+                    <td><a href="#::SpeechRecognitionEvent">
+                            SpeechRecognitionEvent</a></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><a href="#::SpeechGrammar"> SpeechGrammar</a></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><a href="#::SpeechGrammarList"> SpeechGrammarList</a></td>
+                    <td><a href="#::SpeechGrammarList::item">SpeechGrammar item(unsigned long index);</a> <br> <a
+                        href="#::SpeechGrammarList::addFromURI">void
+                            addFromURI(DOMString src, optional float weight);</a> <br> <a
+                        href="#::SpeechGrammarList::addFromString">void
+                            addFromString(DOMString string, optional float weight);</a> <br></td>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+        <!-- -------------------------------- -->
+
+        <div class="typedefs" id="typedefs">
+            <h2>1. Type Definitions</h2>
+            <div class="enum" id="::ErrorCode">
+                <h3>1.1. ErrorCode</h3>
+                <div class="brief">Error codes for <a href="#::SpeechRecognitionError"><span class="typ">SpeechRecognitionError</span></a>.</div>
+<pre class="webidl prettyprint">
+enum ErrorCode {"no-speech", "aborted", "audio-capture", "network", "not-allowed", "service-not-allowed", "bad-grammar", "language-not-supported"};
+</pre>
+            </div>
+        </div>
+        <!-- -------------------------------- -->
+        <div class="interfaces" id="interfaces">
+            <h2>2. Interfaces</h2>
+            <div class="interface" id="::SpeechManagerObject">
+                <h3>2.1. SpeechManagerObject</h3>
+                <div class="brief">This interface defines what is instantiated
+                    by the Tizen object by the Tizen Platform. There will be a
+                    tizen.speech object that allows access to the functionality of the
+                    SpeechManager API.</div>
+<pre class="webidl prettyprint">
+[NoInterfaceObject] interface SpeechManagerObject {
+    readonly attribute <a href="#::SpeechManager"><span class="typ">SpeechManager</span></a> speech;
+};
+</pre>
+<pre class="webidl prettyprint">
+Tizen implements SpeechManagerObject;
+</pre>
+            </div>
+            <div class="interface" id="::SpeechManager">
+                <h3>2.2. SpeechManager</h3>
+                <div class="brief">This section defines the speech manager interface.</div>
+<pre class="webidl prettyprint">
+[NoInterfaceObject] interface SpeechManager  { 
+
+    void vocalizeString(DOMString speakString);
+
+};
+</pre>
+                <div class="methods">
+                    <h4>Methods</h4>
+
+                    <dl>
+                        <dt class="method" id="::SpeechManager::vocalizeString">
+                            <span class="methodName">vocalizeString</span>
+                        </dt>
+                        <dd>
+                            <div class="brief">Achieves text-to-speech feature.</div>
+                            <div class="synopsis">
+<pre class="signature prettyprint">
+void vocalizeString(DOMString speakString);
+<span class="pln"></span>
+</pre>
+                            </div>
+                            <div class="parameters">
+                                <p>
+                                    <span class="param">Parameters:</span>
+                                </p>
+                                <ul>
+                                    <li class="param"><span class="name">speakString</span>: A text.</li>
+                                </ul>
+                            </div>
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+            <div class="interface" id="::SpeechRecognition">
+                <h3>2.3. SpeechRecognition</h3>
+                <div class="brief"></div>
+<pre class="webidl prettyprint">
+[Constructor()]
+
+interface SpeechRecognition : EventTarget {
+
+    attribute <a href="#::SpeechGrammarList"><span class="typ">SpeechGrammarList</span></a> grammars;
+
+    attribute DOMString lang;
+
+    attribute boolean continuous;
+
+    attribute boolean interimResults;
+
+    attribute unsigned long maxAlternatives;
+
+    attribute DOMString serviceURI;
+
+    void start();
+
+    void stop();
+
+    void abort();
+
+    attribute EventHandler onaudiostart;
+
+    attribute EventHandler onsoundstart;
+
+    attribute EventHandler onspeechstart;
+
+    attribute EventHandler onspeechend;
+
+    attribute EventHandler onsoundend;
+
+    attribute EventHandler onaudioend;
+
+    attribute EventHandler onresult;
+
+    attribute EventHandler onnomatch;
+
+    attribute EventHandler onerror;
+
+    attribute EventHandler onstart;
+
+    attribute EventHandler onend;
+
+};
+</pre>
+                <div class="attributes">
+                    <h4>Attributes</h4>
+                    <ul>
+                        <li class="attribute" id="::SpeechRecognition::grammars"><span
+                            class="attrName"><span class="type">SpeechGrammarList
+                            </span><span class="name">grammars</span></span>
+                            <div class="brief">An attribute to stores the collection of
+                                SpeechGrammar objects which represent the grammars that are
+                                active for this recognition.</div></li>
+                        <li class="attribute" id="::SpeechRecognition::lang"><span
+                            class="attrName"><span class="type">DOMString </span><span
+                                class="name">lang</span></span>
+                            <div class="brief">An attribute to set the language of the
+                                recognition for the request.</div></li>
+                        <li class="attribute" id="::SpeechRecognition::continuous"><span
+                            class="attrName"><span class="type">DOMString </span><span
+                                class="name">continuous</span></span>
+                            <div class="brief">The default value is false.</div></li>
+                        <li class="attribute" id="::SpeechRecognition::interimResults"><span
+                            class="attrName"><span class="type">boolean </span><span
+                                class="name">interimResults</span></span>
+                            <div class="brief">An attribute to control whether interim
+                                results are returned. The default value is false.</div></li>
+                        <li class="attribute" id="::SpeechRecognition::maxAlternatives"><span
+                            class="attrName"><span class="type">unsigned long </span><span
+                                class="name">maxAlternatives</span></span>
+                            <div class="brief">An attribute to set the maximum number
+                                of SpeechRecognitionAlternatives per result. The default value
+                                is 1.</div></li>
+                        <li class="attribute" id="::SpeechRecognition::serviceURI"><span
+                            class="attrName"><span class="type">DOMString </span><span
+                                class="name">serviceURI</span></span>
+                            <div class="brief">An attribute to specifies the location
+                                of the speech recognition service that the web application
+                                wishes to use.</div></li>
+                        <li class="attribute" id="::SpeechRecognition::onaudiostart"><span
+                            class="attrName"><span class="type">EventHandler </span><span
+                                class="name">onaudiostart</span></span>
+                            <div class="brief">Fired when the user agent has started to capture audio.
+                            </div></li>
+                        <li class="attribute" id="::SpeechRecognition::onsoundstart"><span
+                            class="attrName"><span class="type">EventHandler </span><span
+                                class="name">onsoundstart</span></span>
+                            <div class="brief">Fired when some sound, possibly speech, has been detected. 
+                            </div></li>
+                        <li class="attribute" id="::SpeechRecognition::onspeechstart"><span
+                            class="attrName"><span class="type">EventHandler </span><span
+                                class="name">onspeechstart</span></span>
+                            <div class="brief">Fired when the speech that will be used for speech recognition has started.
+                            </div></li>
+                         <li class="attribute" id="::SpeechRecognition::speechend"><span
+                            class="attrName"><span class="type">EventHandler </span><span
+                                class="name">speechend</span></span>
+                            <div class="brief">Fired when the speech that will be used for speech recognition has ended. 
+                            The speechstart event must always have been fire before speechend.
+                            </div></li>
+                         <li class="attribute" id="::SpeechRecognition::soundend"><span
+                            class="attrName"><span class="type">EventHandler </span><span
+                                class="name">soundend</span></span>
+                            <div class="brief">Fired when some sound is no longer detected. 
+                            The soundstart event must always have been fired before soundend.
+                            </div></li>
+                        <li class="attribute" id="::SpeechRecognition::audioend"><span
+                            class="attrName"><span class="type">EventHandler </span><span
+                                class="name">audioend</span></span>
+                            <div class="brief">Fired when the user agent has finished capturing audio. 
+                            The audiostart event must always have been fired before audioend.
+                            </div></li>
+                        <li class="attribute" id="::SpeechRecognition::onresult"><span
+                            class="attrName"><span class="type">EventHandler </span><span
+                                class="name">onresult</span></span>
+                            <div class="brief">Fired when the speech recognizer returns a result. 
+                            </div></li>
+                         <li class="attribute" id="::SpeechRecognition::onnomatch"><span
+                            class="attrName"><span class="type">EventHandler </span><span
+                                class="name">onnomatch</span></span>
+                            <div class="brief">Fired when the speech recognizer returns a final result with no recognition 
+                            hypothesis that meet or exceed the confidence threshold. 
+                            </div></li>
+                        <li class="attribute" id="::SpeechRecognition::onerror"><span
+                            class="attrName"><span class="type">EventHandler </span><span
+                                class="name">onerror</span></span>
+                            <div class="brief">Fired when a speech recognition error occurs. 
+                            </div></li>
+                       <li class="attribute" id="::SpeechRecognition::onstart"><span
+                            class="attrName"><span class="type">EventHandler </span><span
+                                class="name">onstart</span></span>
+                            <div class="brief">Fired when the recognition service has begun to listen to the audio with the intention of recognizing. 
+                            </div></li>
+                       <li class="attribute" id="::SpeechRecognition::onend"><span
+                            class="attrName"><span class="type">EventHandler </span><span
+                                class="name">onend</span></span>
+                            <div class="brief">Fired when the service has disconnected. 
+                            </div></li>
+                    </ul>
+                </div>
+                <div class="methods">
+                    <h4>Methods</h4>
+
+                    <dl>
+                        <dt class="method" id="::SpeechRecognition::start">
+                            <span class="methodName">start</span>
+                        </dt>
+                        <dd>
+                            <div class="brief">When the start method is called it
+                                represents the moment in time the web application wishes to
+                                begin recognition. Once the system is successfully listening to
+                                the recognition the user agent must raise a start event.</div>
+                            <div class="synopsis">
+<pre class="signature prettyprint">
+void start();
+<span class="pln"></span>
+</pre>
+                            </div>
+                            <div class="exceptionlist">
+                                <p>
+                                    <span class="except">Exceptions:</span>
+                                </p>
+                                <ul class="exception">
+                                    <li>WebAPIException
+                                        <ul>
+                                            <li class="list"><p>with error type
+                                                    InvalidStateError, if the start method is called on an
+                                                    already started object.
+                                                </p></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </dd>
+                        <dt class="method" id="::SpeechRecognition::stop">
+                            <span class="methodName">stop</span>
+                        </dt>
+                        <dd>
+                            <div class="brief">The stop method represents an
+                                instruction to the recognition service to stop listening to more
+                                audio, and to try and return a result using just the audio that
+                                it has already received for this recognition.</div>
+                            <div class="synopsis">
+<pre class="signature prettyprint">
+void stop();
+<span class="pln"></span>
+</pre>
+                            </div>
+                        </dd>
+                        <dt class="method" id="::SpeechRecognition::abort">
+                            <span class="methodName">abort</span>
+                        </dt>
+                        <dd>
+                            <div class="brief"> The abort method is a request to immediately
+                                stop listening and stop recognizing and do not return any
+                                information but that the system is done. When the abort method
+                                is called, the speech service must stop recognizing. The user
+                                agent must raise an end event once the speech service is no
+                                longer connected.</div>
+                            <div class="synopsis">
+<pre class="signature prettyprint">
+void abort();
+<span class="pln"></span>
+</pre>
+                            </div>
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+
+            <div class="interface" id="::SpeechRecognitionError">
+                <h3>2.4. SpeechRecognitionError</h3>
+                <div class="brief">The SpeechRecognitionError event is the
+                    interface used for the error event.</div>
+<pre class="webidl prettyprint">
+[NoInterfaceObject] interface SpeechRecognitionError : Event {
+
+    readonly attribute <a href="#::ErrorCode"><span class="typ">ErrorCode</span></a> error;
+
+    readonly attribute DOMString message;
+
+};
+</pre>
+                <div class="attributes">
+                    <h4>Attributes</h4>
+                    <ul>
+                        <li class="attribute" id="::SpeechRecognitionError::error"><span
+                            class="attrName"><span class="readonly">readonly </span><span class="type">ErrorCode </span><span
+                                class="name">error</span></span>
+                            <div class="brief">An attribute to get error code.</div></li>
+                        <li class="attribute" id="::SpeechRecognitionError::message"><span
+                            class="attrName"><span class="readonly">readonly </span><span class="type">DOMString </span><span
+                                class="name">message</span></span>
+                            <div class="brief">An attribute to get error message.</div></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="interface" id="::SpeechRecognitionAlternative">
+            <h3>2.5. SpeechRecognitionAlternative</h3>
+            <div class="brief">The SpeechRecognitionAlternative represents
+                a simple view of the response that gets used in a n-best list.</div>
+<pre class="webidl prettyprint">
+[NoInterfaceObject] interface SpeechRecognitionAlternative {
+
+    readonly attribute DOMString transcript;
+
+    readonly attribute float confidence;
+
+};
+</pre>
+            <div class="attributes">
+                <h4>Attributes</h4>
+                <ul>
+                    <li class="attribute"
+                        id="::SpeechRecognitionAlternative::transcript"><span
+                        class="attrName"><span class="readonly">readonly </span><span class="type">DOMString </span><span
+                            class="name">transcript</span></span>
+                        <div class="brief">An attribute to get the raw words that
+                            the user spoke.</div></li>
+                    <li class="attribute"
+                        id="::SpeechRecognitionAlternative::confidence"><span
+                        class="attrName"><span class="readonly">readonly </span><span class="type">float </span><span
+                            class="name">confidence</span></span>
+                        <div class="brief">An attribute to get a numeric estimate
+                            between 0 and 1 of how confident the recognition system is that
+                            the recognition is correct. A higher number means the system is
+                            more confident.</div></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="interface" id="::SpeechRecognitionResult">
+        <h3>2.6. SpeechRecognitionResult</h3>
+        <div class="brief">The SpeechRecognitionResult object represents
+            a single one-shot recognition match, either as one small part of a
+            continuous recognition or as the complete return result of a
+            non-continuous recognition.</div>
+<pre class="webidl prettyprint">
+[NoInterfaceObject] interface SpeechRecognitionResult {
+
+    readonly attribute unsigned long length;
+
+    <a href="#::SpeechRecognitionAlternative"><span class="typ">SpeechRecognitionAlternative</span></a> item(unsigned long index);
+
+    readonly attribute boolean final;
+
+};
+</pre>
+        <div class="attributes">
+            <h4>Attributes</h4>
+            <ul>
+                <li class="attribute" id="::SpeechRecognitionResult::length"><span
+                    class="attrName"><span class="readonly">readonly </span><span class="type">unsigned long </span><span
+                        class="name">length</span></span>
+                    <div class="brief">An attribute to represent how many n-best
+                        alternatives are represented in the item array.</div></li>
+                <li class="attribute" id="::SpeechRecognitionResult::final"><span
+                    class="attrName"><span class="readonly">readonly </span><span class="type">boolean </span><span
+                        class="name">final</span></span>
+                    <div class="brief">An attribute to control whether or not an  3 characters. 
+                        interim result cannot be changed.</div></li>
+            </ul>
+        </div>
+
+        <div class="methods">
+            <h4>Methods</h4>
+
+            <dl>
+                <dt class="method" id="::SpeechRecognitionResult::item">
+                    <span class="methodName">item</span>
+                </dt>
+                <dd>
+                    <div class="brief">Returns a SpeechRecognitionAlternative
+                        from the index into an array of n-best values. If index is greater
+                        than or equal to length, returns null.</div>
+                    <div class="synopsis">
+<pre class="signature prettyprint">
+SpeechRecognitionAlternative item(unsigned long index);
+<span class="pln"></span>
+</pre>
+</div>
+                    <div class="parameters">
+                        <p>
+                            <span class="param">Parameters:</span>
+                        </p>
+                        <ul>
+                            <li class="param"><span class="name">index</span>: An index of the <a href="#::SpeechRecognitionAlternative"><span class="typ">SpeechRecognitionAlternative</span></a> array.</li>
+                        </ul>
+                    </div>
+                    <div class="returntype">
+                        <p>
+                            <span class="return">Return value:</span>
+                        </p>
+                        A <a href="#::SpeechRecognitionAlternative"><span class="typ">SpeechRecognitionAlternative</span></a> object.
+                    </div>
+                </dd>
+            </dl>
+        </div>
+    </div>
+    </div>
+
+    <div class="interface" id="::SpeechRecognitionResultList">
+        <h3>2.7. SpeechRecognitionResultList</h3>
+        <div class="brief">The SpeechRecognitionResult object represents
+            a single one-shot recognition match, either as one small part of a
+            continuous recognition or as the complete return result of a
+            non-continuous recognition.</div>
+<pre class="webidl prettyprint">
+[NoInterfaceObject] interface SpeechRecognitionResultList {
+
+    readonly attribute unsigned long length;
+
+    <a href="#::SpeechRecognitionResult"><span class="typ">SpeechRecognitionResult</span></a> item(unsigned long index);
+
+};
+</pre>
+        <div class="attributes">
+            <h4>Attributes</h4>
+            <ul>
+                <li class="attribute" id="::SpeechRecognitionResultList::length"><span
+                    class="attrName"><span class="readonly">readonly </span><span class="type">unsigned long </span><span
+                        class="name">length</span></span>
+                    <div class="brief">An attribute to indicate how many results
+                        are represented in the item array.</div></li>
+            </ul>
+        </div>
+
+        <div class="methods">
+            <h4>Methods</h4>
+
+            <dl>
+                <dt class="method" id="::SpeechRecognitionResultList::item">
+                    <span class="methodName">item</span>
+                </dt>
+                <dd>
+                    <div class="brief">Returns a SpeechRecognitionResult from the
+                        index into an array of result values. If index is greater than or
+                        equal to length, returns null.</div>
+                    <div class="synopsis">
+<pre class="signature prettyprint">
+SpeechRecognitionResult item(unsigned long index);
+<span class="pln"></span>
+</pre>
+                    </div>
+                    <div class="parameters">
+                        <p>
+                            <span class="param">Parameters:</span>
+                        </p>
+                        <ul>
+                            <li class="param"><span class="name">index</span>: An index of the <a href="#::SpeechRecognitionResult"><span class="typ">SpeechRecognitionResult</span></a> array.</li>
+                        </ul>
+                    </div>
+                    <div class="returntype">
+                        <p>
+                            <span class="return">Return value:</span>
+                        </p>
+                        A <a href="#::SpeechRecognitionResult"><span class="typ">SpeechRecognitionResult</span></a> object.
+                    </div>
+                </dd>
+            </dl>
+        </div>
+    </div>
+    </div>
+
+    <div class="interface" id="::SpeechRecognitionEvent">
+        <h3>2.8. SpeechRecognitionEvent</h3>
+        <div class="brief">The SpeechRecognitionEvent is the event that
+            is raised each time there are any changes to interim or final
+            results.</div>
+<pre class="webidl prettyprint">
+[NoInterfaceObject] interface SpeechRecognitionEvent : Event {
+
+    readonly attribute unsigned long resultIndex;
+
+    readonly attribute <a href="#::SpeechRecognitionResultList"><span class="typ">SpeechRecognitionResultList</span></a> results;
+
+    readonly attribute any interpretation;
+
+    readonly attribute Document emma;
+
+};
+</pre>
+        <div class="attributes">
+            <h4>Attributes</h4>
+            <ul>
+                <li class="attribute" id="::SpeechRecognitionEvent::length"><span
+                    class="attrName"><span class="readonly">readonly </span><span class="type">unsigned long </span><span
+                        class="name">resultIndex</span></span>
+                    <div class="brief">An attribute to get the lowest index in
+                        the results array that has changed.</div></li>
+                <li class="attribute" id="::SpeechRecognitionEvent::results"><span
+                    class="attrName"><span class="readonly">readonly </span><span class="type">SpeechRecognitionResultList
+                    </span><span class="name">results</span></span>
+                    <div class="brief">An attribute to get all current
+                        recognition results for this session.</div></li>
+                <li class="attribute" id="::SpeechRecognitionEvent::interpretation"><span
+                    class="attrName"><span class="readonly">readonly </span><span class="type">any </span><span
+                        class="name">interpretation</span></span>
+                    <div class="brief">An attribute to represent the semantic
+                        meaning from what the user said.</div></li>
+                <li class="attribute" id="::SpeechRecognitionEvent::emma"><span
+                    class="attrName"><span class="readonly">readonly </span><span class="type">Document </span><span
+                        class="name">emma</span></span>
+                    <div class="brief">An attribute to get emma.</div></li>
+            </ul>
+        </div>
+    </div>
+    </div>
+
+    <div class="interface" id="::SpeechGrammar">
+        <h3>2.9. SpeechGrammar</h3>
+        <div class="brief">The SpeechGrammar object represents a
+            container for a grammar.</div>
+<pre class="webidl prettyprint">
+[Constructor()]
+
+interface SpeechGrammar {
+
+    attribute DOMString src;
+
+    attribute float weight;
+
+};
+</pre>
+        <div class="attributes">
+            <h4>Attributes</h4>
+            <ul>
+                <li class="attribute" id="::SpeechGrammar::src"><span
+                    class="attrName"><span class="type">DOMString </span><span
+                        class="name">src</span></span>
+                    <div class="brief">An attribute to get the URI for the
+                        grammar.</div></li>
+                <li class="attribute" id="::SpeechGrammar::weight"><span
+                    class="attrName"><span class="type">float </span><span
+                        class="name">weight</span></span>
+                    <div class="brief">An attribute to control the weight that
+                        the speech recognition service should use with this grammar. By
+                        default, a grammar has a weight of 1.</div></li>
+            </ul>
+        </div>
+    </div>
+    </div>
+
+    <div class="interface" id="::SpeechGrammarList">
+        <h3>2.10. SpeechGrammarList</h3>
+        <div class="brief">The SpeechGrammarList object represents a
+            collection of SpeechGrammar objects.</div>
+<pre class="webidl prettyprint">
+[Constructor()]
+
+interface SpeechGrammarList {
+
+    readonly attribute unsigned long length;
+
+    <a href="#::SpeechGrammar"><span class="typ">SpeechGrammar</span></a> item(unsigned long index);
+
+    void addFromURI(DOMString src, optional float weight);
+
+    void addFromString(DOMString string, optional float weight);
+
+};
+</pre>
+        <div class="attributes">
+            <h4>Attributes</h4>
+            <ul>
+                <li class="attribute" id="::SpeechGrammarList::length"><span
+                    class="attrName"><span class="readonly">readonly </span><span class="type">unsigned long </span><span
+                        class="name">length</span></span>
+                    <div class="brief">An attribute to represent how many
+                        grammars are currently in the array.</div></li>
+            </ul>
+        </div>
+
+        <div class="methods">
+            <h4>Methods</h4>
+
+            <dl>
+                <dt class="method" id="::SpeechGrammarList::item">
+                    <span class="methodName">item</span>
+                </dt>
+                <dd>
+                    <div class="brief">Returns a SpeechGrammar from the index
+                        into an array of grammars.</div>
+                    <div class="synopsis">
+<pre class="signature prettyprint">
+SpeechGrammar item(unsigned long index);
+<span class="pln"></span>
+</pre>
+                    </div>
+                    <div class="parameters">
+                        <p>
+                            <span class="param">Parameters:</span>
+                        </p>
+                        <ul>
+                            <li class="param"><span class="name">index</span>: An index of the <a href="#::SpeechGrammar"><span class="typ">SpeechGrammar</span></a> array.</li>
+                        </ul>
+                    </div>
+                    <div class="returntype">
+                        <p>
+                            <span class="return">Return value:</span>
+                        </p>
+                        A <a href="#::SpeechGrammar"><span class="typ">SpeechGrammar</span></a> object.
+                    </div>
+                </dd>
+                <dt class="method" id="::SpeechGrammarList::addFromURI">
+                    <span class="methodName">addFromURI</span>
+                </dt>
+                <dd>
+                    <div class="brief">Appends a grammar to the grammars array
+                        parameter based on URI.</div>
+                    <div class="synopsis">
+<pre class="signature prettyprint">
+void addFromURI(DOMString src, optional float weight);
+<span class="pln"></span>
+</pre>
+                    </div>
+                    <div class="parameters">
+                        <p>
+                            <span class="param">Parameters:</span>
+                        </p>
+                        <ul>
+                            <li class="param"><span class="name">src</span>: The URI for the grammar.</li>
+                            <li class="param"><span class="name">weight[optional]</span>: The weight the grammar.</li>
+                        </ul>
+                    </div>
+                </dd>
+                <dt class="method" id="::SpeechGrammarList::addFromString">
+                    <span class="methodName">addFromString</span>
+                </dt>
+                <dd>
+                    <div class="brief">Appends a grammar to the grammars array
+                        parameter based on text.</div>
+                    <div class="synopsis">
+<pre class="signature prettyprint">
+void addFromString(DOMString string, optional float weight);
+<span class="pln"></span>
+</pre>
+                    </div>
+                    <div class="parameters">
+                        <p>
+                            <span class="param">Parameters:</span>
+                        </p>
+                        <ul>
+                            <li class="param"><span class="name">string</span>: The string for the grammar.</li>
+                            <li class="param"><span class="name">weight[optional]</span>: The weight the grammar.</li>
+                        </ul>
+                    </div>
+                </dd>
+            </dl>
+        </div>
+    </div>
+    </div>
+
+    <!-- -------------------------------- -->
+    <h2 id="full-webidl">3. Full WebIDL</h2>
+<pre class="webidl prettyprint">
+module Speech {
+
+    enum ErrorCode {"no-speech", "aborted", "audio-capture", "network", "not-allowed", "service-not-allowed", "bad-grammar", "language-not-supported"};
+
+    [NoInterfaceObject] interface SpeechManagerObject {
+        readonly attribute SpeechManager speech;
+    };
+
+    Tizen implements SpeechManagerObject;
+
+    [NoInterfaceObject] interface SpeechManager  { 
+
+        void vocalizeString(DOMString speakString);
+
+    };
+
+    [Constructor()]
+
+    interface SpeechRecognition : EventTarget {
+
+        attribute SpeechGrammarList grammars;
+
+        attribute DOMString lang;
+
+        attribute boolean continuous;
+
+        attribute boolean interimResults;
+
+        attribute unsigned long maxAlternatives;
+
+        attribute DOMString serviceURI;
+
+        void start();
+
+        void stop();
+
+        void abort();
+
+        attribute EventHandler onaudiostart;
+
+        attribute EventHandler onsoundstart;
+
+        attribute EventHandler onspeechstart;
+
+        attribute EventHandler onspeechend;
+
+        attribute EventHandler onsoundend;
+
+        attribute EventHandler onaudioend;
+
+        attribute EventHandler onresult;
+
+        attribute EventHandler onnomatch;
+
+        attribute EventHandler onerror;
+
+        attribute EventHandler onstart;
+
+        attribute EventHandler onend;
+
+    };
+
+    [NoInterfaceObject] interface SpeechRecognitionError : Event {
+
+        readonly attribute ErrorCode error;
+
+        readonly attribute DOMString message;
+
+    };
+
+    [NoInterfaceObject] interface SpeechRecognitionAlternative {
+
+        readonly attribute DOMString transcript;
+
+        readonly attribute float confidence;
+
+    };
+
+    [NoInterfaceObject] interface SpeechRecognitionResult {
+
+        readonly attribute unsigned long length;
+
+        SpeechRecognitionAlternative item(unsigned long index);
+
+        readonly attribute boolean final;
+
+    };
+
+    [NoInterfaceObject] interface SpeechRecognitionResultList {
+
+        readonly attribute unsigned long length;
+
+        SpeechRecognitionResult item(unsigned long index);
+
+    };
+
+    [NoInterfaceObject] interface SpeechRecognitionEvent : Event {
+
+        readonly attribute unsigned long resultIndex;
+
+        readonly attribute SpeechRecognitionResultList results;
+
+        readonly attribute any interpretation;
+
+        readonly attribute Document emma;
+
+    };
+
+    [Constructor()]
+
+    interface SpeechGrammar {
+
+        attribute DOMString src;
+
+        attribute float weight;
+
+    };
+
+    [Constructor()]
+
+    interface SpeechGrammarList {
+
+        readonly attribute unsigned long length;
+
+        SpeechGrammar item(unsigned long index);
+
+        void addFromURI(DOMString src, optional float weight);
+
+        void addFromString(DOMString string, optional float weight);
+
+    };
+};
+</pre>
+    <div id="footer">
+        <div class="copyright" align="center">
+            Except as noted, this content - excluding the Code Examples - is
+            licensed under <a
+                href="http://creativecommons.org/licenses/by/3.0/legalcode"
+                target="_blank">Creative Commons Attribution 3.0</a> and all of the
+            Code Examples contained herein are licensed under <a
+                href="https://www.tizen.org/bsd-3-clause-license" target="_blank">BSD-3-Clause</a>.
+            <br>For details, see the <a
+                href="https://www.tizen.org/content-license" target="_blank">Content
+                License</a>.
+        </div>
+        <script type="text/javascript">
+                var _gaq = _gaq || [];
+                _gaq.push([ '_setAccount', 'UA-25976949-1' ]);
+                _gaq.push([ '_setDomainName', 'tizen.org' ]);
+                _gaq.push([ '_trackPageview' ]);
+
+                (function() {
+                    var ga = document.createElement('script');
+                    ga.type = 'text/javascript';
+                    ga.async = true;
+                    ga.src = ('https:' == document.location.protocol ? 'https://ssl'
+                            : 'http://www')
+                            + '.google-analytics.com/ga.js';
+                    var s = document.getElementsByTagName('script')[0];
+                    s.parentNode.insertBefore(ga, s);
+                })();
+            </script>
+    </div>
+</body>
+</html>  3 characters. 

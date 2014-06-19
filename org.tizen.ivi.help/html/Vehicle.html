@@ -1,0 +1,3280 @@
+<!DOCTYPE html PUBLIC "html">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="tizen.css" media="screen">
+<script type="text/javascript" src="snippet.js"></script>
+<title>Vehicle API</title>
+</head>
+<body id="content" onload="prettyPrint()">
+    <div class="api" id="::Vehicle">
+        <div class="title">
+            <h1>Vehicle API</h1>
+        </div>
+        <div class="description">
+            <p>Allows access to the vehicle API.</p>
+        </div>
+        <!-- -------------------------------- -->
+        <h2>Table of Contents</h2>
+        <ul class="toc">
+            <li>1. <a href="#interfaces">Interfaces</a>
+                <ul class="toc">
+                    <li>1.1. <a href="#::Vehicle::VehicleManagerObject">VehicleManagerObject</a>
+                    </li>
+                    <li>1.2. <a href="#::Vehicle::Vehicle">Vehicle</a>
+                    </li>
+                    <li>1.3. <a href="#::Vehicle::VehiclePropertyType">VehiclePropertyType</a>
+                    </li>
+                    <li>1.4. <a href="#::Vehicle::VehiclePropertyError">VehiclePropertyError</a>
+                    </li>
+                    <li>1.5. <a href="#::Vehicle::VehicleSpeed">VehicleSpeed</a>
+                    </li>
+                    <li>1.6. <a href="#::Vehicle::EngineSpeed">EngineSpeed</a>
+                    </li>
+                    <li>1.7. <a href="#::Vehicle::VehiclePowerMode">VehiclePowerMode</a>
+                    </li>
+                    <li>1.8. <a href="#::Vehicle::TripMeter">TripMeter</a>
+                    </li>
+                    <li>1.9. <a href="#::Vehicle::Acceleration">Acceleration</a>
+                    </li>
+                    <li>1.10. <a href="#::Vehicle::Transmission">Transmission</a>
+                    </li>
+                    <li>1.11. <a href="#::Vehicle::CruiseControlStatus">CruiseControlStatus</a>
+                    </li>
+                    <li>1.12. <a href="#::Vehicle::WheelBrake">WheelBrake</a>
+                    </li>
+                    <li>1.13. <a href="#::Vehicle::LightStatus">LightStatus</a>
+                    </li>
+                    <li>1.14. <a href="#::Vehicle::InteriorLightStatus">InteriorLightStatus</a>
+                    </li>
+                    <li>1.15. <a href="#::Vehicle::Horn">Horn</a>
+                    </li>
+                    <li>1.16. <a href="#::Vehicle::Fuel">Fuel</a>
+                    </li>
+                    <li>1.17. <a href="#::Vehicle::EngineOil">EngineOil</a>
+                    </li>
+                    <li>1.18. <a href="#::Vehicle::Location">Location</a>
+                    </li>
+                    <li>1.19. <a href="#::Vehicle::ExteriorBrightness">ExteriorBrightness</a>
+                    </li>
+                    <li>1.20. <a href="#::Vehicle::Temperature">Temperature</a>
+                    </li>
+                    <li>1.21. <a href="#::Vehicle::RainSensor">RainSensor</a>
+                    </li>
+                    <li>1.22. <a href="#::Vehicle::WindshieldWiper">WindshieldWiper</a>
+                    </li>
+                    <li>1.23. <a href="#::Vehicle::HVAC">HVAC</a>
+                    </li>
+                    <li>1.24. <a href="#::Vehicle::WindowStatus">WindowStatus</a>
+                    </li>
+                    <li>1.25. <a href="#::Vehicle::Sunroof">Sunroof</a>
+                    </li>
+                    <li>1.26. <a href="#::Vehicle::ConvertibleRoof">ConvertibleRoof</a>
+                    </li>
+                    <li>1.27. <a href="#::Vehicle::VehicleId">VehicleId</a>
+                    </li>
+                    <li>1.28. <a href="#::Vehicle::Size">Size</a>
+                    </li>
+                    <li>1.29. <a href="#::Vehicle::FuelInfo">FuelInfo</a>
+                    </li>
+                    <li>1.30. <a href="#::Vehicle::VehicleType">VehicleType</a>
+                    </li>
+                    <li>1.31. <a href="#::Vehicle::Doors">Doors</a>
+                    </li>
+                    <li>1.32. <a href="#::Vehicle::TransmissionGearType">TransmissionGearType</a>
+                    </li>
+                    <li>1.33. <a href="#::Vehicle::WheelInformation">WheelInformation</a>
+                    </li>
+                    <li>1.34. <a href="#::Vehicle::Odometer">Odometer</a>
+                    </li>
+                    <li>1.35. <a href="#::Vehicle::Fluid">Fluid</a>
+                    </li>
+                    <li>1.36. <a href="#::Vehicle::Battery">Battery</a>
+                    </li>
+                    <li>1.37. <a href="#::Vehicle::TirePressure">TirePressure</a>
+                    </li>
+                    <li>1.38. <a href="#::Vehicle::TireTemperature">TireTemperature</a>
+                    </li>
+                    <li>1.39. <a href="#::Vehicle::SecurityAlert">SecurityAlert</a>
+                    </li>
+                    <li>1.40. <a href="#::Vehicle::ParkingBrake">ParkingBrake</a>
+                    </li>
+                    <li>1.41. <a href="#::Vehicle::ParkingLight">ParkingLight</a>
+                    </li>
+                    <li>1.42. <a href="#::Vehicle::HazardLight">HazardLight</a>
+                    </li>
+                    <li>1.43. <a href="#::Vehicle::AntilockBrakingSystem">AntilockBrakingSystem</a>
+                    </li>
+                    <li>1.44. <a href="#::Vehicle::TractionControlSystem">TractionControlSystem</a>
+                    </li>
+                    <li>1.45. <a href="#::Vehicle::VehicleTopSpeedLimit">VehicleTopSpeedLimit</a>
+                    </li>
+                    <li>1.46. <a href="#::Vehicle::AirbagStatus">AirbagStatus</a>
+                    </li>
+                    <li>1.47. <a href="#::Vehicle::DoorStatus">DoorStatus</a>
+                    </li>
+                    <li>1.48. <a href="#::Vehicle::SeatBeltStatus">SeatBeltStatus</a>
+                    </li>
+                    <li>1.49. <a href="#::Vehicle::OccupantStatus">OccupantStatus</a>
+                    </li>
+                    <li>1.50. <a href="#::Vehicle::ObstacleDistance">ObstacleDistance</a>
+                    </li>
+                    <li>1.51. <a href="#::Vehicle::NightMode">NightMode</a>
+                    </li>
+                    <li>1.52. <a href="#::Vehicle::DrivingMode">DrivingMode</a>
+                    </li>
+                    <li>1.53. <a href="#::Vehicle::VehiclePropertyCallback">VehiclePropertyCallback</a>
+                    </li>
+                    <li>1.54. <a href="#::Vehicle::VehiclePropertyErrorCallback">VehiclePropertyErrorCallback</a>
+                    </li>
+                    <li>1.55. <a href="#::Vehicle::VehiclePropertyListCallback">VehiclePropertyListCallback</a>
+                    </li>
+                    <li>1.56. <a href="#::Vehicle::SupportedPropertiesCallback">SupportedPropertiesCallback</a>
+                    </li>
+                    <li>1.57. <a href="#::Vehicle::DefrostDictionary">DefrostDictionary</a>
+                    </li>
+                </ul>
+            </li>
+            <li>2. <a href="#full-webidl">Full WebIDL</a>
+            </li>
+        </ul>
+
+        <hr>
+        <!-- -------------------------------- -->
+
+        <h2 id="method-summary">Summary of Interfaces and Methods</h2>
+        <table class="informaltable">
+            <thead>
+                <tr>
+                    <th>Interface</th>
+                    <th>Method</th>
+                </tr>
+                <tr>
+                    <td><a href="#::Vehicle::VehicleManagerObject"> VehicleManagerObject</a></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><a href="#::Vehicle::Vehicle"> Vehicle</a></td>
+                    <td>
+                    <a href="#::Vehicle::Vehicle::supported">sequence&lt;DOMString> supported();</a> <br> 
+                    <a href="#::Vehicle::Vehicle::get">any get(DOMString objectType, optional short zone);</a> <br> 
+                    <a href="#::Vehicle::Vehicle::getAsync">void getAsync(DOMString objectType, VehiclePropertyCallback successCallback, optional VehiclePropertyErrorCallback errorCallback, optional short zone);</a> <br> 
+                    <a href="#::Vehicle::Vehicle::subscribe">void subscribe(DOMString objectType, VehiclePropertyCallback successCallback, optional unsigned short zone, optional VehiclePropertyErrorCallback errorCallback);</a> <br> 
+                    <a href="#::Vehicle::Vehicle::set">void set(DOMString objectType, object value, optional VehiclePropertyErrorCallback errorCallback);</a> <br> 
+                    <a href="#::Vehicle::Vehicle::getHistory">void getHistory(DOMString objectType, unsigned short zone, Date startTime, Date endTime, VehiclePropertyListCallback successCallback, optional VehiclePropertyErrorCallback errorCallback);</a> <br> 
+                    <a href="#::Vehicle::Vehicle::listZones">sequence&lt;unsigned short> listZones(DOMString objectType);</a></td>
+                </tr>
+                <tr>
+                    <td><a href="#::Vehicle::VehiclePropertyType"> VehiclePropertyType</a></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><a href="#::Vehicle::VehiclePropertyError"> VehiclePropertyError</a></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><a href="#::Vehicle::VehicleSpeed"> VehicleSpeed</a></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><a href="#::Vehicle::EngineSpeed"> EngineSpeed</a></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><a href="#::Vehicle::VehiclePowerMode"> VehiclePowerMode</a></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><a href="#::Vehicle::TripMeter"> TripMeter</a></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><a href="#::Vehicle::Acceleration"> Acceleration</a></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><a href="#::Vehicle::Transmission"> Transmission</a></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><a href="#::Vehicle::CruiseControlStatus"> CruiseControlStatus</a></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><a href="#::Vehicle::WheelBrake"> WheelBrake</a></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><a href="#::Vehicle::LightStatus"> LightStatus</a></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><a href="#::Vehicle::InteriorLightStatus"> InteriorLightStatus</a></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><a href="#::Vehicle::Horn"> Horn</a></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><a href="#::Vehicle::Fuel"> Fuel</a></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><a href="#::Vehicle::EngineOil"> EngineOil</a></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><a href="#::Vehicle::Location"> Location</a></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><a href="#::Vehicle::ExteriorBrightness"> ExteriorBrightness</a></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><a href="#::Vehicle::Temperature"> Temperature</a></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><a href="#::Vehicle::RainSensor"> RainSensor</a></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><a href="#::Vehicle::WindshieldWiper"> WindshieldWiper</a></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><a href="#::Vehicle::HVAC"> HVAC</a></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><a href="#::Vehicle::WindowStatus"> WindowStatus</a></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><a href="#::Vehicle::Sunroof"> Sunroof</a></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><a href="#::Vehicle::ConvertibleRoof"> ConvertibleRoof</a></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><a href="#::Vehicle::VehicleId"> VehicleId</a></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><a href="#::Vehicle::Size"> Size</a></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><a href="#::Vehicle::FuelInfo"> FuelInfo</a></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><a href="#::Vehicle::VehicleType"> VehicleType</a></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><a href="#::Vehicle::Doors"> Doors</a></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><a href="#::Vehicle::TransmissionGearType"> TransmissionGearType</a></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><a href="#::Vehicle::WheelInformation"> WheelInformation</a></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><a href="#::Vehicle::Odometer"> Odometer</a></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><a href="#::Vehicle::Fluid"> Fluid</a></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><a href="#::Vehicle::Battery"> Battery</a></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><a href="#::Vehicle::TirePressure"> TirePressure</a></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><a href="#::Vehicle::TireTemperature"> TireTemperature</a></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><a href="#::Vehicle::SecurityAlert"> SecurityAlert</a></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><a href="#::Vehicle::ParkingBrake"> ParkingBrake</a></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><a href="#::Vehicle::ParkingLight"> ParkingLight</a></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><a href="#::Vehicle::HazardLight"> HazardLight</a></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><a href="#::Vehicle::AntilockBrakingSystem"> AntilockBrakingSystem</a></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><a href="#::Vehicle::TractionControlSystem"> TractionControlSystem</a></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><a href="#::Vehicle::VehicleTopSpeedLimit"> VehicleTopSpeedLimit</a></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><a href="#::Vehicle::AirbagStatus"> AirbagStatus</a></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><a href="#::Vehicle::DoorStatus"> DoorStatus</a></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><a href="#::Vehicle::SeatBeltStatus"> SeatBeltStatus</a></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><a href="#::Vehicle::OccupantStatus"> OccupantStatus</a></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><a href="#::Vehicle::ObstacleDistance"> ObstacleDistance</a></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><a href="#::Vehicle::NightMode"> NightMode</a></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><a href="#::Vehicle::DrivingMode"> DrivingMode</a></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><a href="#::Vehicle::VehiclePropertyCallback"> VehiclePropertyCallback</a></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><a href="#::Vehicle::VehiclePropertyErrorCallback"> VehiclePropertyErrorCallback</a></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><a href="#::Vehicle::VehiclePropertyListCallback"> VehiclePropertyListCallback</a></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><a href="#::Vehicle::SupportedPropertiesCallback"> SupportedPropertiesCallback</a></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><a href="#::Vehicle::DefrostDictionary"> DefrostDictionary</a></td>
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+        <!-- -------------------------------- -->
+
+        <div class="interfaces" id="interfaces">
+            <h2>1. Interfaces</h2>
+            <div class="interface" id="::Vehicle::VehicleManagerObject">
+                <h3>1.1. VehicleManagerObject</h3>
+                <div class="brief">This interface defines what is instantiated
+                    by the Tizen object by the Tizen Platform. There will be a
+                    tizen.vehicle object that allows access to the functionality of the
+                    Vehicle API.</div>
+<pre class="webidl prettyprint">
+[NoInterfaceObject] interface VehicleManagerObject {
+    readonly attribute <a href="#::Vehicle::Vehicle"><span class="typ">Vehicle</span></a> vehicle;
+};</pre>
+<pre class="webidl prettyprint">Tizen implements VehicleManagerObject;</pre>
+            </div>
+            
+            <div class="interface" id="::Vehicle::Vehicle">
+                <h3>1.2. Vehicle</h3>
+                <div class="brief">The Vehicle interface defines access to vehicle functionality.</div>
+                <pre class="webidl prettyprint">
+[NoInterfaceObject] interface Vehicle { 
+
+    const unsigned short ZONE_None = 0;
+
+    const unsigned short ZONE_Front = 0x01;
+
+    const unsigned short ZONE_Middle = 0x02;
+
+    const unsigned short ZONE_Right = 0x04;
+
+    const unsigned short ZONE_Left = 0x08;
+
+    const unsigned short ZONE_Rear = 0x10;
+
+    const unsigned short ZONE_Center = 0x20;
+
+    sequence&lt;DOMString> supported();
+
+    any get(DOMString objectType, optional short zone);
+
+    void getAsync(DOMString objectType, <a href="#::Vehicle::VehiclePropertyCallback"><span class="typ">VehiclePropertyCallback</span></a> successCallback, optional <a href="#::Vehicle::VehiclePropertyErrorCallback"><span class="typ">VehiclePropertyErrorCallback</span></a> errorCallback, optional short zone);
+
+    void subscribe(DOMString objectType, <a href="#::Vehicle::VehiclePropertyCallback"><span class="typ">VehiclePropertyCallback</span></a> successCallback, optional unsigned short zone, optional <a href="#::Vehicle::VehiclePropertyErrorCallback"><span class="typ">VehiclePropertyErrorCallback</span></a> errorCallback);
+
+    void set(DOMString objectType, object value, optional <a href="#::Vehicle::VehiclePropertyErrorCallback"><span class="typ">VehiclePropertyErrorCallback</span></a> errorCallback);
+
+    void getHistory(DOMString objectType, unsigned short zone, Date startTime, Date endTime, <a href="#::Vehicle::VehiclePropertyListCallback"><span class="typ">VehiclePropertyListCallback</span></a> successCallback, optional <a href="#::Vehicle::VehiclePropertyErrorCallback"><span class="typ">VehiclePropertyErrorCallback</span></a> errorCallback);
+
+    sequence&lt;unsigned short> listZones(DOMString objectType);
+};
+</pre>
+                <div class="consts">
+                    <h4>Constants</h4>
+                    <ul>
+                        <li class="const" id="::Vehicle::Vehicle::ZONE_None"><span
+                            class="name">ZONE_None</span>
+                            <div class="brief">It defines an vehicle property zone that represents all direction zones.</div></li>
+                        <li class="const" id="::Vehicle::Vehicle::ZONE_Front"><span
+                            class="name">ZONE_Front</span>
+                            <div class="brief">It defines an vehicle property zone that represents the front zone.</div></li>
+                        <li class="const" id="::Vehicle::Vehicle::ZONE_Middle"><span
+                            class="name">ZONE_Middle</span>
+                            <div class="brief">It defines an vehicle property zone that represents the middle zone.</div></li>
+                        <li class="const" id="::Vehicle::Vehicle::ZONE_Right"><span
+                            class="name">ZONE_Right</span>
+                            <div class="brief">It defines an vehicle property zone that represents the right zone.</div></li>
+                        <li class="const" id="::Vehicle::Vehicle::ZONE_Left"><span
+                            class="name">ZONE_Left</span>
+                            <div class="brief">It defines an vehicle property zone that represents the left zone.</div></li>
+                        <li class="const" id="::Vehicle::Vehicle::ZONE_Rear"><span
+                            class="name">ZONE_Rear</span>
+                            <div class="brief">It defines an vehicle property zone that represents the rear zone.</div></li>
+                        <li class="const" id="::Vehicle::Vehicle::ZONE_Center"><span
+                            class="name">ZONE_Center</span>
+                            <div class="brief">It defines an vehicle property zone that represents the center zone.</div></li>
+                    </ul>
+                </div>
+                <div class="methods">
+                    <h4>Methods</h4>
+
+                    <dl>
+                        <dt class="method" id="::Vehicle::Vehicle::supported">
+                            <span class="methodName">supported</span>
+                        </dt>
+                        <dd>
+                            <div class="brief">Returns supported vehicle property types.</div>
+                            <div class="synopsis">
+<pre class="signature prettyprint">
+sequence&lt;DOMString> supported();
+<span class="pln"></span>
+</pre>
+                            </div>
+                            <div class="returntype">
+                                <p>
+                                    <span class="return">Return value:</span>
+                                </p>
+                                A vehicle property type array.
+                            </div>
+                        </dd>
+                        <dt class="method" id="::Vehicle::Vehicle::get">
+                            <span class="methodName">get</span>
+                        </dt>
+                        <dd>
+                            <div class="brief">Fetch the current value for the vehicle property type.</div>
+                            <div class="synopsis">
+<pre class="signature prettyprint">
+any get(DOMString objectType, optional short zone);
+<span class="pln"></span>
+</pre>
+                            </div>
+                            <div class="parameters">
+                                <p>
+                                    <span class="param">Parameters:</span>
+                                </p>
+                                <ul>
+                                    <li class="param"><span class="name">objectType</span>: The requested vehicle property type to be retrieved, ie "NightMode".</li>
+                                    <li class="param"><span class="name">zone[optional]</span>: The specific zone in which the vehicle property type is in.</li>
+                                </ul>
+                            </div>
+                            <div class="returntype">
+                                <p>
+                                    <span class="return">Return value:</span>
+                                </p>
+                                A vehicle property value object.
+                            </div>
+                        </dd>
+                        <dt class="method" id="::Vehicle::Vehicle::getAsync">
+                            <span class="methodName">getAsync</span>
+                        </dt>
+                        <dd>
+                            <div class="brief">Asynchronously fetch the current value for the vehicle property type.</div>
+                            <div class="synopsis">
+<pre class="signature prettyprint">
+void getAsync(DOMString objectType, <a href="#::Vehicle::VehiclePropertyCallback"><span class="typ">VehiclePropertyCallback</span></a> successCallback, optional <a href="#::Vehicle::VehiclePropertyErrorCallback"><span class="typ">VehiclePropertyErrorCallback</span></a> errorCallback, optional short zone);
+<span class="pln"></span>
+</pre>
+                            </div>
+                            <div class="parameters">
+                                <p>
+                                    <span class="param">Parameters:</span>
+                                </p>
+                                <ul>
+                                    <li class="param"><span class="name">objectType</span>: The requested vehicle property type to be retrieved, ie "Horn".</li>
+                                    <li class="param"><span class="name">VehiclePropertyCallback</span>: The method to call when The requested vehicle property type is valid.</li>
+                                    <li class="param"><span class="name">errorCallback[optional]</span>: The method to call when an error occurs.</li>
+                                    <li class="param"><span class="name">zone[optional]</span>: The specific zone in which the vehicle property type is in.</li>
+                                </ul>
+                            </div>
+                        </dd>
+                        <dt class="method" id="::Vehicle::Vehicle::subscribe">
+                            <span class="methodName">subscribe</span>
+                        </dt>
+                        <dd>
+                            <div class="brief">Subscribe to the given property and get callbacks when it changes.</div>
+                            <div class="synopsis">
+<pre class="signature prettyprint">
+void subscribe(DOMString objectType, <a href="#::Vehicle::VehiclePropertyCallback"><span class="typ">VehiclePropertyCallback</span></a> successCallback, optional unsigned short zone, optional <a href="#::Vehicle::VehiclePropertyErrorCallback"><span class="typ">VehiclePropertyErrorCallback</span></a> errorCallback);
+<span class="pln"></span>
+</pre>
+                            </div>
+                            <div class="parameters">
+                                <p>
+                                    <span class="param">Parameters:</span>
+                                </p>
+                                <ul>
+                                    <li class="param"><span class="name">objectType</span>: The requested vehicle property type to be retrieved, ie "Transmission".</li>
+                                    <li class="param"><span class="name">successCallback</span>: The method to call when The requested vehicle property value is changed.</li>
+                                    <li class="param"><span class="name">zone[optional]</span>: The specific zone in which the vehicle property type is in.</li>
+                                    <li class="param"><span class="name">errorCallback[optional]</span>: The method to call when an error occurs.</li>
+                                </ul>
+                            </div>
+                        </dd>
+                        <dt class="method" id="::Vehicle::Vehicle::set">
+                            <span class="methodName">set</span>
+                        </dt>
+                        <dd>
+                            <div class="brief">Set value for the given object type.</div>
+                            <div class="synopsis">
+<pre class="signature prettyprint">
+void set(DOMString objectType, object value, optional <a href="#::Vehicle::VehiclePropertyErrorCallback"><span class="typ">VehiclePropertyErrorCallback</span></a> errorCallback);
+<span class="pln"></span>
+</pre>
+                            </div>
+                            <div class="parameters">
+                                <p>
+                                    <span class="param">Parameters:</span>
+                                </p>
+                                <ul>
+                                    <li class="param"><span class="name">objectType</span>: The vehicle property type to be set, ie "EngineSpeed".</li>
+                                    <li class="param"><span class="name">value</span>: The vehicle property value to be set, that contain zone information ie "zone" : 0.</li>
+                                    <li class="param"><span class="name">errorCallback[optional]</span>: The method to call when an error occurs.</li>
+                                </ul>
+                            </div>
+                        </dd>
+                        <dt class="method" id="::Vehicle::Vehicle::getHistory">
+                            <span class="methodName">getHistory</span>
+                        </dt>
+                        <dd>
+                            <div class="brief">Get values for a given objectType within
+                                a certain past time period between 'startTime' and 'endTime'.</div>
+                            <div class="synopsis">
+<pre class="signature prettyprint">
+void getHistory(DOMString objectType, unsigned short zone, Date startTime, Date endTime, <a href="#::Vehicle::VehiclePropertyListCallback"><span class="typ">VehiclePropertyListCallback</span></a> successCallback, optional <a href="#::Vehicle::VehiclePropertyErrorCallback"><span class="typ">VehiclePropertyErrorCallback</span></a> errorCallback);
+<span class="pln"></span>
+</pre>
+                            </div>
+                            <div class="parameters">
+                                <p>
+                                    <span class="param">Parameters:</span>
+                                </p>
+                                <ul>
+                                    <li class="param"><span class="name">objectType</span>: The requested vehicle property type to be retrieved, ie "VehicleSpeed".</li>
+                                    <li class="param"><span class="name">zone</span>: The specific zone in which the vehicle type is located or 0 if no zone.</li>
+                                    <li class="param"><span class="name">startTime</span>: Starting period of time.</li>
+                                    <li class="param"><span class="name">endTime</span>: Ending period of time.</li>
+                                    <li class="param"><span class="name">successCallback</span>: Callback with the result of the method call.</li>
+                                    <li class="param"><span class="name">errorCallback[optional]</span>: The method to call when an error occurs.</li>
+                                </ul>
+                            </div>
+                        </dd>
+                        <dt class="method" id="::Vehicle::Vehicle::listZones">
+                            <span class="methodName">listZones</span>
+                        </dt>
+                        <dd>
+                        <div class="brief">
+                        List zones available for a given object type.
+                        </div>
+                            <div class="synopsis">
+<pre class="signature prettyprint">
+sequence&lt;unsigned short> listZones(DOMString objectType);
+<span class="pln"></span>
+</pre>
+                            </div>
+                            <div class="parameters">
+                                <p>
+                                    <span class="param">Parameters:</span>
+                                </p>
+                                <ul>
+                                    <li class="param"><span class="name">objectType</span>: The requested vehicle property type to be retrieved, ie "HVAC".</li>
+                                </ul>
+                            </div>
+                            <div class="returntype">
+                                <p>
+                                    <span class="return">Return value:</span>
+                                </p>
+                                A array.
+                            </div>
+                        </dd>
+                </div>
+            </div>
+            
+            
+            <div class="interface" id="::Vehicle::VehiclePropertyType">
+                <h3>1.3. VehiclePropertyType</h3>
+                <div class="brief">The interface defines vehicle property type.</div>
+<pre class="webidl prettyprint">
+[NoInterfaceObject] interface VehiclePropertyType: Event { 
+
+    attribute DOMTimeStamp time;
+
+    attribute short zone;
+
+    attribute DOMString source;
+
+};
+</pre>
+
+                <div class="attributes">
+                    <h4>Attributes</h4>
+                    <ul>
+                        <li class="attribute" id="::Vehicle::VehiclePropertyType::time"><span class="attrName"><span
+                                class="type">DOMTimeStamp </span><span class="name">time</span></span>
+                            <div class="brief">An attribute to set time of generating the vehicle property.</div></li>
+                        <li class="attribute" id="::Vehicle::VehiclePropertyType::zone"><span class="attrName"><span
+                                class="type">short </span><span class="name">zone</span></span>
+                            <div class="brief">An attribute to set zone of the vehicle property. By default, this attribute is set to 0.</div></li>
+                        <li class="attribute" id="::Vehicle::VehiclePropertyType::time"><span class="attrName"><span
+                                class="type">DOMString </span><span class="name">source</span></span>
+                            <div class="brief">An attribute to set source of the vehicle property. By default, this attribute is set to 0.</div></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="interface" id="::Vehicle::VehiclePropertyError">
+                <h3>1.4. VehiclePropertyError</h3>
+                <div class="brief">The interface defines vehicle property error code and message.</div>
+<pre class="webidl prettyprint">
+[NoInterfaceObject] interface VehiclePropertyError { 
+
+    const unsigned short PERMISSION_DENIED = 1; 
+
+    const unsigned short PROPERTY_UNAVAILABLE = 2; 
+
+    const unsigned short TIMEOUT = 3; 
+
+    const unsigned short UNKNOWN = 10;
+
+    attribute unsigned short code;
+
+    attribute DOMString message;
+
+};
+</pre>
+				<div class="consts">
+                    <h4>Constants</h4>
+                    <ul>
+                        <li class="const" id="::Vehicle::VehiclePropertyError::PERMISSION_DENIED"><span
+                            class="name">PERMISSION_DENIED</span>
+                            <div class="brief">It defines an error code of no accessing permissions.</div></li>
+                        <li class="const" id="::Vehicle::VehiclePropertyError::PROPERTY_UNAVAILABLE"><span
+                            class="name">PROPERTY_UNAVAILABLE</span>
+                            <div class="brief">It defines an error code of unsupported property.</div></li>
+                        <li class="const" id="::Vehicle::VehiclePropertyError::TIMEOUT"><span
+                            class="name">TIMEOUT</span>
+                            <div class="brief">It defines an error code of accessing timeout.</div></li>
+                        <li class="const" id="::Vehicle::VehiclePropertyError::UNKNOWN"><span
+                            class="name">UNKNOWN</span>
+                            <div class="brief">It defines an error code of unknown errors.</div></li>
+                    </ul>
+                </div>
+                <div class="attributes">
+                    <h4>Attributes</h4>
+                    <ul>
+                        <li class="attribute" id="::Vehicle::VehiclePropertyError::code"><span class="attrName"><span
+                                class="type">unsigned short </span><span class="name">code</span></span>
+                            <div class="brief">An attribute to return an error code from PERMISSION_DENIED, PROPERTY_UNAVAILABLE, TIMEOUT and UNKNOWN.</div></li>
+                        <li class="attribute" id="::Vehicle::VehiclePropertyError::message"><span class="attrName"><span
+                                class="type">DOMString </span><span class="name">time</span></span>
+                            <div class="brief">An attribute to return error message.</div></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="interface" id="::Vehicle::VehicleSpeed">
+                <h3>1.5. VehicleSpeed</h3>
+                <div class="brief">The interface defines vehicle speed of vehicle property type.</div>
+<pre class="webidl prettyprint">
+[NoInterfaceObject] interface VehicleSpeed : VehiclePropertyType {
+ 
+    attribute unsigned long vehicleSpeed;
+
+};
+</pre>
+                <div class="attributes">
+                    <h4>Attributes</h4>
+                    <ul>
+                        <li class="attribute" id="::Vehicle::VehicleSpeed::vehicleSpeed"><span class="attrName"><span
+                                class="type">unsigned long</span><span class="name"> vehicleSpeed</span></span>
+                            <div class="brief">An attribute to return Vehicle Speed in kilometers per hour.</div></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="interface" id="::Vehicle::EngineSpeed">
+                <h3>1.6. EngineSpeed</h3>
+                <div class="brief">The interface defines engine speed of vehicle property type.</div>
+                <pre class="webidl prettyprint">
+[NoInterfaceObject] interface EngineSpeed : VehiclePropertyType { 
+
+    attribute unsigned long engineSpeed;
+
+};
+</pre>
+                <div class="attributes">
+                    <h4>Attributes</h4>
+                    <ul>
+                        <li class="attribute" id="::Vehicle::EngineSpeed::engineSpeed"><span class="attrName"><span
+                                class="type">unsigned long</span><span class="name"> engineSpeed</span></span>
+                            <div class="brief">An attribute to return engine speed in rotations per minute.</div></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="interface" id="::Vehicle::VehiclePowerMode">
+                <h3>1.7. VehiclePowerMode</h3>
+                <div class="brief">The interface defines vehicle power mode of vehicle property type.</div>
+<pre class="webidl prettyprint">
+[NoInterfaceObject] interface VehiclePowerMode : VehiclePropertyType { 
+
+    const unsigned short VEHICLEPOWERMODE_OFF = 0;
+
+    const unsigned short VEHICLEPOWERMODE_ACCESSORY1 = 1;
+
+    const unsigned short VEHICLEPOWERMODE_ACCESSORY2 = 2;
+
+    const unsigned short VEHICLEPOWERMODE_RUN = 3;
+
+    attribute octet vehiclePowerMode;
+
+};
+</pre>
+                <div class="consts">
+                    <h4>Constants</h4>
+                    <ul>
+                        <li class="const" id="::Vehicle::VehiclePowerMode::VEHICLEPOWERMODE_OFF"><span
+                            class="name">VEHICLEPOWERMODE_OFF</span>
+                            <div class="brief">It defines an vehicle power mode that represents off mode.</div></li>
+                        <li class="const" id="::Vehicle::VehiclePowerMode::VEHICLEPOWERMODE_ACCESSORY1"><span
+                            class="name">VEHICLEPOWERMODE_ACCESSORY1</span>
+                            <div class="brief">It defines an vehicle power mode that represents accessory1 mode.</div></li>
+                        <li class="const" id="::Vehicle::VehiclePowerMode::VEHICLEPOWERMODE_ACCESSORY2"><span
+                            class="name">VEHICLEPOWERMODE_ACCESSORY2</span>
+                            <div class="brief">It defines an vehicle power mode that represents accessory2 mode.</div></li>
+                        <li class="const" id="::Vehicle::VehiclePowerMode::VEHICLEPOWERMODE_RUN"><span
+                            class="name">VEHICLEPOWERMODE_RUN</span>
+                            <div class="brief">It defines an vehicle power mode that represents run mode.</div></li>
+					</ul>
+                </div>
+
+                <div class="attributes">
+                    <h4>Attributes</h4>
+                    <ul>
+                        <li class="attribute" id="::Vehicle::VehiclePowerMode::vehiclePowerMode"><span class="attrName"><span
+                                class="type">octet</span><span class="name"> vehiclePowerMode</span></span>
+                            <div class="brief">An attribute to return vehicle power mode (see VEHICLEPOWERMODE Constants).</div></li>
+                    </ul>
+                </div>
+            </div>          
+            
+            <div class="interface" id="::Vehicle::TripMeter">
+                <h3>1.8. TripMeter</h3>
+                <div class="brief">The interface defines trip meter of vehicle property type.</div>
+<pre class="webidl prettyprint">
+[NoInterfaceObject] interface TripMeter : VehiclePropertyType { 
+
+    attribute sequence&lt;unsigned long> tripMeters;
+
+};
+</pre>
+                <div class="attributes">
+                    <h4>Attributes</h4>
+                    <ul>
+                        <li class="attribute" id="::Vehicle::TripMeter::tripMeters"><span class="attrName">
+                        <span class="type">sequence&lt;unsigned long></span><span class="name"> tripMeters</span></span>
+                            <div class="brief">An attribute to return trip meters.  Changing any items in the array will reset the item's value to '0'.</div></li>
+                    </ul>
+                </div>
+            </div> 
+            
+            
+            <div class="interface" id="::Vehicle::Acceleration">
+                <h3>1.9. Acceleration</h3>
+                <div class="brief">The interface defines acceleration of vehicle property type.</div>
+<pre class="webidl prettyprint">
+[NoInterfaceObject] interface Acceleration : VehiclePropertyType { 
+
+    attribute unsigned long x;
+
+    attribute unsigned long y;
+
+    attribute unsigned long z;
+
+};
+</pre>
+                <div class="attributes">
+                    <h4>Attributes</h4>
+                    <ul>
+                        <li class="attribute" id="::Vehicle::Acceleration::x"><span class="attrName"><span
+                                class="type">unsigned long</span><span class="name"> x</span></span>
+                            <div class="brief">An attribute to return acceleration on the "X" axis as 1/1000 G (gravitational force).</div></li>
+                        <li class="attribute" id="::Vehicle::Acceleration::y"><span class="attrName"><span
+                                class="type">unsigned long</span><span class="name"> y</span></span>
+                            <div class="brief">An attribute to return acceleration on the "Y" axis as 1/1000 G (gravitational force).</div></li>
+                        <li class="attribute" id="::Vehicle::Acceleration::z"><span class="attrName"><span
+                                class="type">unsigned long</span><span class="name"> z</span></span>
+                            <div class="brief">An attribute to return acceleration on the "Z" axis as 1/1000 G (gravitational force).</div></li>                                                       
+                    </ul>
+                </div>
+            </div>          
+            
+            <div class="interface" id="::Vehicle::Transmission">
+                <h3>1.10. Transmission</h3>
+                <div class="brief">The interface defines transmission of vehicle property type.</div>
+<pre class="webidl prettyprint">
+[NoInterfaceObject] interface Transmission : VehiclePropertyType { 
+
+    const unsigned short TRANSMISSIONPOSITION_NEUTRAL = 0;   
+
+    const unsigned short TRANSMISSIONPOSITION_FIRST = 1;    
+
+    const unsigned short TRANSMISSIONPOSITION_SECOND = 2;   
+
+    const unsigned short TRANSMISSIONPOSITION_THIRD = 3; 
+
+    const unsigned short TRANSMISSIONPOSITION_FORTH = 4;   
+
+    const unsigned short TRANSMISSIONPOSITION_FIFTH = 5;   
+
+    const unsigned short TRANSMISSIONPOSITION_SIXTH = 6;  
+
+    const unsigned short TRANSMISSIONPOSITION_SEVENTH = 7;  
+
+    const unsigned short TRANSMISSIONPOSITION_EIGHTH = 8;   
+
+    const unsigned short TRANSMISSIONPOSITION_NINTH = 9;   
+
+    const unsigned short TRANSMISSIONPOSITION_TENTH = 10;   
+
+    const unsigned short TRANSMISSIONPOSITION_CVT = 64;   
+
+    const unsigned short TRANSMISSIONPOSITION_REVERSE = 128; 
+
+    const unsigned short TRANSMISSIONPOSITION_PARK = 255; 
+
+    const unsigned short TRANSMISSIONMODE_NORMAL = 0;    
+
+    const unsigned short TRANSMISSIONMODE_SPORT = 1;    
+
+    const unsigned short TRANSMISSIONMODE_ECONOMY = 2;   
+
+    const unsigned short TRANSMISSIONMODE_OEMCUSTOM1 = 3;
+
+    const unsigned short TRANSMISSIONMODE_OEMCUSTOM2 = 4;   
+
+    attribute octet gearPosition;
+
+    attribute octet mode;
+
+};
+</pre>
+				<div class="consts">
+                    <h4>Constants</h4>
+                    <ul>
+                        <li class="const" id="::Vehicle::Transmission::TRANSMISSIONPOSITION_NEUTRAL"><span
+                            class="name">TRANSMISSIONPOSITION_NEUTRAL</span>
+                            <div class="brief">It defines an transmission position that is neutral position.</div></li>
+                        <li class="const" id="::Vehicle::Transmission::TRANSMISSIONPOSITION_FIRST"><span
+                            class="name">TRANSMISSIONPOSITION_FIRST</span>
+                            <div class="brief">It defines an transmission position that is first position.</div></li>
+                        <li class="const" id="::Vehicle::Transmission::TRANSMISSIONPOSITION_SECOND"><span
+                            class="name">TRANSMISSIONPOSITION_SECOND</span>
+                            <div class="brief">It defines an transmission position that is second position.</div></li>
+                        <li class="const" id="::Vehicle::Transmission::TRANSMISSIONPOSITION_THIRD"><span
+                            class="name">TRANSMISSIONPOSITION_THIRD</span>
+                            <div class="brief">It defines an transmission position that is third position.</div></li>
+                        <li class="const" id="::Vehicle::Transmission::TRANSMISSIONPOSITION_FORTH"><span
+                            class="name">TRANSMISSIONPOSITION_FORTH</span>
+                            <div class="brief">It defines an transmission position that is forth position.</div></li>
+                        <li class="const" id="::Vehicle::Transmission::TRANSMISSIONPOSITION_FIFTH"><span
+                            class="name">TRANSMISSIONPOSITION_FIFTH</span>
+                            <div class="brief">It defines an transmission position that is fifth position.</div></li>
+                        <li class="const" id="::Vehicle::Transmission::TRANSMISSIONPOSITION_SIXTH"><span
+                            class="name">TRANSMISSIONPOSITION_SIXTH</span>
+                            <div class="brief">It defines an transmission position that is sixth position.</div></li>
+                        <li class="const" id="::Vehicle::Transmission::TRANSMISSIONPOSITION_SEVENTH"><span
+                            class="name">TRANSMISSIONPOSITION_SEVENTH</span>
+                            <div class="brief">It defines an transmission position that is seventh position.</div></li>
+                        <li class="const" id="::Vehicle::Transmission::TRANSMISSIONPOSITION_EIGHTH"><span
+                            class="name">TRANSMISSIONPOSITION_EIGHTH</span>
+                            <div class="brief">It defines an transmission position that is eighth position.</div></li>
+                        <li class="const" id="::Vehicle::Transmission::TRANSMISSIONPOSITION_NINTH"><span
+                            class="name">TRANSMISSIONPOSITION_NINTH</span>
+                            <div class="brief">It defines an transmission position that is ninth position.</div></li>
+                        <li class="const" id="::Vehicle::Transmission::TRANSMISSIONPOSITION_TENTH"><span
+                            class="name">TRANSMISSIONPOSITION_TENTH</span>
+                            <div class="brief">It defines an transmission position that is tenth position.</div></li>
+                        <li class="const" id="::Vehicle::Transmission::TRANSMISSIONPOSITION_CVT"><span
+                            class="name">TRANSMISSIONPOSITION_CVT</span>
+                            <div class="brief">It defines an transmission position that is cvt position.</div></li>
+                        <li class="const" id="::Vehicle::Transmission::TRANSMISSIONPOSITION_REVERSE"><span
+                            class="name">TRANSMISSIONPOSITION_REVERSE</span>
+                            <div class="brief">It defines an transmission position that is reverse position.</div></li>
+                        <li class="const" id="::Vehicle::Transmission::TRANSMISSIONPOSITION_PARK"><span
+                            class="name">TRANSMISSIONPOSITION_PARK</span>
+                            <div class="brief">It defines an transmission position that is park position.</div></li>
+                        <li class="const" id="::Vehicle::Transmission::TRANSMISSIONMODE_NORMAL"><span
+                            class="name">TRANSMISSIONMODE_NORMAL</span>
+                            <div class="brief">It defines an transmission mode that represents normal mode.</div></li>
+                        <li class="const" id="::Vehicle::Transmission::TRANSMISSIONMODE_SPORT"><span
+                            class="name">TRANSMISSIONMODE_SPORT</span>
+                            <div class="brief">It defines an transmission mode that represents sport mode.</div></li>
+                        <li class="const" id="::Vehicle::Transmission::TRANSMISSIONMODE_ECONOMY"><span
+                            class="name">TRANSMISSIONMODE_ECONOMY</span>
+                            <div class="brief">It defines an transmission mode that represents economy mode.</div></li>
+                        <li class="const" id="::Vehicle::Transmission::TRANSMISSIONMODE_OEMCUSTOM1"><span
+                            class="name">TRANSMISSIONMODE_OEMCUSTOM1</span>
+                            <div class="brief">It defines an transmission mode that represents oemcustom1 mode.</div></li>
+                        <li class="const" id="::Vehicle::Transmission::TRANSMISSIONMODE_OEMCUSTOM2"><span
+                            class="name">TRANSMISSIONMODE_OEMCUSTOM2</span>
+                            <div class="brief">It defines an transmission mode that represents oemcustom2 mode.</div></li>
+					</ul>
+                </div>
+				
+                <div class="attributes">
+                    <h4>Attributes</h4>
+                    <ul>
+                        <li class="attribute" id="::Vehicle::Transmission::gearPosition"><span class="attrName"><span
+                                class="type">octet</span><span class="name"> gearPosition</span></span>
+                            <div class="brief">An attribute to return transmission gear position (see TRANSMISSIONPOSITION Constants).</div></li>
+                        <li class="attribute" id="::Vehicle::Transmission::mode"><span class="attrName"><span
+                                class="type">octet</span><span class="name"> mode</span></span>
+                            <div class="brief">An attribute to return transmission mode (see TRANSMISSIONMODE Constants).</div></li>                             
+                    </ul>
+                </div>
+            </div>    
+            
+            <div class="interface" id="::Vehicle::CruiseControlStatus">
+                <h3>1.11. CruiseControlStatus</h3>
+                <div class="brief">The interface defines cruise control status of vehicle property type.</div>
+<pre class="webidl prettyprint">
+[NoInterfaceObject] interface CruiseControlStatus : VehiclePropertyType { 
+
+    attribute boolean activated;
+
+    attribute unsigned short speed;
+
+};
+</pre>
+                <div class="attributes">
+                    <h4>Attributes</h4>
+                    <ul>
+                        <li class="attribute" id="::Vehicle::CruiseControlStatus::activated"><span class="attrName">
+                        <span class="type">boolean</span><span class="name"> activated</span></span>
+                            <div class="brief"> An attribute to return whether or not the cruise control system is active (true) or inactive (false).</div></li>
+                        <li class="attribute" id="::Vehicle::CruiseControlStatus::speed"><span class="attrName">
+                        <span class="type">unsigned short</span><span class="name"> speed</span></span>
+                            <div class="brief"> An attribute to return target cruise control speed in kilometers per hour (kph).</div></li>
+                    </ul>
+                </div>
+            </div>               
+            
+            
+            <div class="interface" id="::Vehicle::WheelBrake">
+                <h3>1.12. WheelBrake</h3>
+                <div class="brief">The interface defines wheel brake of vehicle property type.</div>
+<pre class="webidl prettyprint">
+[NoInterfaceObject] interface WheelBrake : VehiclePropertyType { 
+
+    attribute boolean engaged;
+
+};
+</pre>
+                <div class="attributes">
+                    <h4>Attributes</h4>
+                    <ul>
+                        <li class="attribute" id=":Vehicle::WheelBrake::engaged"><span class="attrName"><span
+                                class="type">boolean</span><span class="name"> engaged</span></span>
+                            <div class="brief">An attribute to return wheel brake status, engaged(true) or disengaged(false).</div></li>
+                    </ul>
+                </div>
+            </div>
+            
+            
+            <div class="interface" id="::Vehicle::LightStatus">
+                <h3>1.13. LightStatus</h3>
+                <div class="brief">The interface defines light status of vehicle property type.</div>
+<pre class="webidl prettyprint">
+[NoInterfaceObject] interface LightStatus : VehiclePropertyType { 
+
+    attribute boolean head;
+
+    attribute boolean rightTurn;
+
+    attribute boolean leftTurn;
+
+    attribute boolean brake;
+
+    attribute boolean fog;
+
+    attribute boolean hazard;
+
+    attribute boolean parking;
+
+    attribute boolean highBeam;
+
+};
+</pre>
+                <div class="attributes">
+                    <h4>Attributes</h4>
+                    <ul>
+                        <li class="attribute" id=":Vehicle::LightStatus::head"><span class="attrName"><span
+                                class="type">boolean</span><span class="name"> head</span></span>
+                            <div class="brief"> An attribute to return headlight status, on(true) or off(false).</div></li>
+                        <li class="attribute" id=":Vehicle::LightStatus::rightTurn"><span class="attrName"><span
+                                class="type">boolean</span><span class="name"> rightTurn</span></span>
+                            <div class="brief"> An attribute to return right turn signal status, on(true) or off(false).</div></li>
+                        <li class="attribute" id=":Vehicle::LightStatus::leftTurn"><span class="attrName"><span
+                                class="type">boolean</span><span class="name"> leftTurn</span></span>
+                            <div class="brief"> An attribute to return left turn signal status, on(true) or off(false).</div></li> 
+                        <li class="attribute" id=":Vehicle::LightStatus::brake"><span class="attrName"><span
+                                class="type">boolean</span><span class="name"> brake</span></span>
+                            <div class="brief">An attribute to return  brake signal light status, on(true) or off(false).</div></li>
+                        <li class="attribute" id=":Vehicle::LightStatus::fog"><span class="attrName"><span
+                                class="type">boolean</span><span class="name"> fog</span></span>
+                            <div class="brief">An attribute to return fog light status, on(true) or off(false).</div></li>
+                        <li class="attribute" id=":Vehicle::LightStatus::hazard"><span class="attrName"><span
+                                class="type">boolean</span><span class="name"> hazard</span></span>
+                            <div class="brief">An attribute to return hazard light status, on(true) or off(false). </div></li>
+                        <li class="attribute" id=":Vehicle::LightStatus::parking"><span class="attrName"><span
+                                class="type">boolean</span><span class="name"> parking</span></span>
+                            <div class="brief">An attribute to return parking light status, on(true) or off(false).</div></li>
+                        <li class="attribute" id=":Vehicle::LightStatus::highBeam"><span class="attrName"><span
+                                class="type">boolean</span><span class="name"> highBeam</span></span>
+                            <div class="brief">An attribute to return high beam status, on(true) or off(false).</div></li>
+                    </ul>
+                </div>
+            </div>          
+                        
+            <div class="interface" id="::Vehicle::InteriorLightStatus">
+                <h3>1.14. InteriorLightStatus</h3>
+                <div class="brief">The interface defines interior light status of vehicle property type.</div>
+<pre class="webidl prettyprint">
+[NoInterfaceObject] interface InteriorLightStatus : VehiclePropertyType { 
+
+    attribute boolean passenger;
+
+    attribute boolean driver;
+
+    attribute boolean center;
+
+};
+</pre>
+                <div class="attributes">
+                    <h4>Attributes</h4>
+                    <ul>
+                        <li class="attribute" id="::Vehicle::InteriorLightStatus::passenger"><span class="attrName"><span
+                                class="type">boolean</span><span class="name"> passenger</span></span>
+                            <div class="brief">An attribute to return passenger interior light status, on(true) or off(false).</div></li>
+                        <li class="attribute" id="::Vehicle::InteriorLightStatus::driver"><span class="attrName"><span
+                                class="type">boolean</span><span class="name"> driver</span></span>
+                            <div class="brief"> An attribute to return driver interior light status, on(true) or off(false).</div></li>
+                        <li class="attribute" id="::Vehicle::InteriorLightStatus::center"><span class="attrName"><span
+                                class="type">boolean</span><span class="name"> center</span></span>
+                            <div class="brief"> An attribute to return center interior light status, on(true) or off(false).</div></li>                         
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="interface" id="::Vehicle::Horn">
+                <h3>1.15. Horn</h3>
+                <div class="brief">The interface defines horn of vehicle property type.</div>
+<pre class="webidl prettyprint">
+[NoInterfaceObject] interface Horn : VehiclePropertyType {
+
+    attribute boolean on;
+
+};
+</pre>
+                <div class="attributes">
+                    <h4>Attributes</h4>
+                    <ul>
+                        <li class="attribute" id="::Vehicle::Horn::on"><span class="attrName"><span
+                                class="type">boolean</span><span class="name"> on</span></span>
+                            <div class="brief">An attribute to return horn status, on(true) or off(false).</div></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="interface" id="::Vehicle::Fuel">
+                <h3>1.16. Fuel</h3>
+                <div class="brief">The interface defines fuel of vehicle property type.</div>
+<pre class="webidl prettyprint">
+[NoInterfaceObject] interface Fuel : VehiclePropertyType {
+
+    attribute unsigned short level;
+
+    attribute unsigned short range;
+
+    attribute unsigned short instantConsumption;
+
+    attribute unsigned short instantEconomy;
+
+    attribute unsigned short averageEconomy;
+
+};
+</pre>
+                <div class="attributes">
+                    <h4>Attributes</h4>
+                    <ul>
+                        <li class="attribute" id="::Vehicle::Fuel::level"><span class="attrName"><span
+                                class="type">unsigned short</span><span class="name"> level</span></span>
+                            <div class="brief">An attribute to return fuel level as a percentage of fullness.</div></li>
+                        <li class="attribute" id="::Vehicle::Fuel::range"><span class="attrName"><span
+                                class="type">unsigned short</span><span class="name"> range</span></span>
+                            <div class="brief">An attribute to return estimated fuel range in kilometers.</div></li>
+                        <li class="attribute" id="::Vehicle::Fuel::instantConsumption"><span class="attrName"><span
+                                class="type">unsigned short</span><span class="name"> instantConsumption</span></span>
+                            <div class="brief">An attribute to return instant fuel consumption in milliliters of fuel per second. </div></li>
+                        <li class="attribute" id="::Vehicle::Fuel::instantEconomy"><span class="attrName"><span
+                                class="type">unsigned short</span><span class="name"> instantEconomy</span></span>
+                            <div class="brief">An attribute to return instant fuel economy in kilometers per liter of fuel. </div></li>
+                        <li class="attribute" id="::Vehicle::Fuel::level"><span class="attrName"><span
+                                class="type">unsigned short</span><span class="name"> averageEconomy</span></span>
+                            <div class="brief">An attribute to return average fuel economy in kilometers per liter of fuel since last reset. 
+                            Setting this to any value should reset the counter to 0.</div></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="interface" id="::Vehicle::EngineOil">
+                <h3>1.17. EngineOil</h3>
+                <div class="brief">The interface defines engine oil of vehicle property type.</div>
+<pre class="webidl prettyprint">
+[NoInterfaceObject] interface EngineOil : VehiclePropertyType { 
+
+    attribute unsigned short remaining;
+
+    attribute long temperature;
+
+    attribute unsigned short pressure;
+
+};
+</pre>
+                <div class="attributes">
+                    <h4>Attributes</h4>
+                    <ul>
+                        <li class="attribute" id="::Vehicle::EngineOil::remaining"><span class="attrName"><span
+                                class="type">unsigned short</span><span class="name"> remaining</span></span>
+                            <div class="brief">An attribute to return remaining engine oil as percentage of fullness.</div></li>
+                        <li class="attribute" id="::Vehicle::EngineOil::temperature"><span class="attrName"><span
+                                class="type">long</span><span class="name"> temperature</span></span>
+                            <div class="brief"> An attribute to return engine oil temperature in Celcius.</div></li>
+                        <li class="attribute" id="::Vehicle::EngineOil::pressure"><span class="attrName"><span
+                                class="type">unsigned short</span><span class="name"> pressure</span></span>
+                            <div class="brief"> An attribute to return engine oil pressure in kpa.</div></li>                          
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="interface" id="::Vehicle::Location">
+                <h3>1.18. Location</h3>
+                <div class="brief">The interface defines location of vehicle property type.</div>
+<pre class="webidl prettyprint">
+[NoInterfaceObject] interface Location : VehiclePropertyType { 
+
+    attribute double latitude;
+
+    attribute double longitude;
+
+    attribute double altitude;
+
+    attribute unsigned short direction;
+
+};
+</pre>
+                <div class="attributes">
+                    <h4>Attributes</h4>
+                    <ul>
+                        <li class="attribute" id="::Vehicle::Location::latitude"><span class="attrName"><span
+                                class="type">double</span><span class="name"> latitude</span></span>
+                            <div class="brief">An attribute to return latitude in Deg.Min (-180, +180).</div></li>
+                        <li class="attribute" id="::Vehicle::Location::longitude"><span class="attrName"><span
+                                class="type">double</span><span class="name"> longitude</span></span>
+                            <div class="brief">An attribute to return longitude in Deg.Min (-90, +90). </div></li>
+                        <li class="attribute" id="::Vehicle::Location::altitude"><span class="attrName"><span
+                                class="type">double</span><span class="name"> altitude</span></span>
+                            <div class="brief">An attribute to return altitude in meters above sea-level (0). </div></li>
+                        <li class="attribute" id="::Vehicle::Location::direction"><span class="attrName"><span
+                                class="type">unsigned short</span><span class="name"> direction</span></span>
+                            <div class="brief">An attribute to return direction in Degrees (0-360). </div></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="interface" id="::Vehicle::ExteriorBrightness">
+                <h3>1.19. ExteriorBrightness</h3>
+                <div class="brief">The interface defines exterior brightness of vehicle property type.</div>
+<pre class="webidl prettyprint">
+[NoInterfaceObject] interface ExteriorBrightness : VehiclePropertyType { 
+
+    attribute unsigned long exteriorBrightness;
+
+};
+</pre>
+                <div class="attributes">
+                    <h4>Attributes</h4>
+                    <ul>
+                        <li class="attribute" id="::Vehicle::ExteriorBrightness::exteriorBrightness"><span class="attrName"><span
+                                class="type">unsigned long</span><span class="name"> exteriorBrightness</span></span>
+                            <div class="brief"> An attribute to return the brightness outside the vehicle in lux.</div></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="interface" id="::Vehicle::Temperature">
+                <h3>1.20. Temperature</h3>
+                <div class="brief">The interface defines temperature of vehicle property type.</div>
+<pre class="webidl prettyprint">
+[NoInterfaceObject] interface Temperature : VehiclePropertyType { 
+
+    attribute short interior;
+
+    attribute short exterior;
+
+};
+</pre>
+                <div class="attributes">
+                    <h4>Attributes</h4>
+                    <ul>
+                        <li class="attribute" id="::Vehicle::Temperature::interior"><span class="attrName"><span
+                                class="type">short</span><span class="name"> interior</span></span>
+                            <div class="brief">An attribute to return the temperature of the interior of the vehicle in celcius.</div></li>
+                        <li class="attribute" id="::Vehicle::Temperature::exterior"><span class="attrName"><span
+                                class="type">short</span><span class="name"> exterior</span></span>
+                            <div class="brief"> An attribute to return the temperature of the exterior of the vehicle in celcius.</div></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="interface" id="::Vehicle::RainSensor">
+                <h3>1.21. RainSensor</h3>
+                <div class="brief">The interface defines rain sensor of vehicle property type.</div>
+<pre class="webidl prettyprint">
+[NoInterfaceObject] interface RainSensor : VehiclePropertyType { 
+
+    attribute unsigned short rainSensor;
+
+};
+</pre>
+                <div class="attributes">
+                    <h4>Attributes</h4>
+                    <ul>
+                        <li class="attribute" id="::Vehicle::RainSensor::rainSensor"><span class="attrName"><span
+                                class="type">unsigned short</span><span class="name"> rainSensor</span></span>
+                            <div class="brief">An attribute to return level of rain intensity, 0: No Rain - 10: Heaviest Rain.</div></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="interface" id="::Vehicle::WindshieldWiper">
+                <h3>1.22. WindshieldWiper</h3>
+                <div class="brief">The interface defines windshield wiper of vehicle property type.</div>
+<pre class="webidl prettyprint">
+[NoInterfaceObject] interface WindshieldWiper : VehiclePropertyType { 
+
+    const unsigned short WIPERSPEED_OFF = 0;    
+
+    const unsigned short WIPERSPEED_SLOWEST= 1;    
+
+    const unsigned short WIPERSPEED_FASTEST = 5;    
+
+    const unsigned short WIPERSPEED_AUTO = 10;    
+
+    attribute unsigned short windshieldWiper;
+
+};
+</pre>
+				<div class="consts">
+                    <h4>Constants</h4>
+                    <ul>
+                        <li class="const" id="::Vehicle::WindshieldWiper::WIPERSPEED_OFF"><span
+                            class="name">WIPERSPEED_OFF</span>
+                            <div class="brief">It defines the windshield wiper speed that is off status.</div></li>
+                        <li class="const" id="::Vehicle::WindshieldWiper::WIPERSPEED_SLOWEST"><span
+                            class="name">WIPERSPEED_SLOWEST</span>
+                            <div class="brief">It defines the windshield wiper speed that is slowest status.</div></li>
+                        <li class="const" id="::Vehicle::WindshieldWiper::WIPERSPEED_FASTEST"><span
+                            class="name">WIPERSPEED_FASTEST</span>
+                            <div class="brief">It defines the windshield wiper speed that is fastest status.</div></li>
+                        <li class="const" id="::Vehicle::WindshieldWiper::WIPERSPEED_AUTO"><span
+                            class="name">WIPERSPEED_AUTO</span>
+                            <div class="brief">It defines the windshield wiper speed that is auto status.</div></li>
+					</ul>
+                </div>
+				
+                <div class="attributes">
+                    <h4>Attributes</h4>
+                    <ul>
+                        <li class="attribute" id="::Vehicle::WindshieldWiper::windshieldWiper"><span class="attrName"><span
+                                class="type">unsigned short</span><span class="name"> windshieldWiper</span></span>
+                            <div class="brief">An attribute to return Level of windshield whiper speed (see WIPERSPEED Constants).</div></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="interface" id="::Vehicle::HVAC">
+                <h3>1.23. HVAC</h3>
+                <div class="brief">The interface defines HVAC of vehicle property type.</div>
+<pre class="webidl prettyprint">
+[NoInterfaceObject] interface HVAC : VehiclePropertyType { 
+
+    const unsigned short AIRFLOWDIRECTION_FRONTPANEL = 0;
+
+    const unsigned short AIRFLOWDIRECTION_FLOORDUCT= 1;
+
+    const unsigned short AIRFLOWDIRECTION_FRONT = 0x02;
+
+    const unsigned short AIRFLOWDIRECTION_DEFROSTER = 0x04;
+
+    attribute unsigned short airflowDirection;
+
+    attribute unsigned short fanSpeed;
+
+    attribute unsigned short targetTemperature;
+
+    attribute boolean airConditioning;
+
+    attribute boolean airRecirculation;
+
+    attribute boolean heater;
+
+    attribute boolean steeringWheelHeater;
+
+    attribute boolean seatHeater;
+
+    attribute boolean seatCooler;
+
+};
+</pre>
+				<div class="consts">
+                    <h4>Constants</h4>
+                    <ul>
+                        <li class="const" id="::Vehicle::HVAC::AIRFLOWDIRECTION_FRONTPANEL"><span
+                            class="name">AIRFLOWDIRECTION_FRONTPANEL</span>
+                            <div class="brief">It defines an air flow direction that is front panel direction.</div></li>
+                        <li class="const" id="::Vehicle::HVAC::AIRFLOWDIRECTION_FLOORDUCT"><span
+                            class="name">AIRFLOWDIRECTION_FLOORDUCT</span>
+                            <div class="brief">It defines an air flow direction that is floor duct panel direction.</div></li>
+                        <li class="const" id="::Vehicle::HVAC::AIRFLOWDIRECTION_FRONT"><span
+                            class="name">AIRFLOWDIRECTION_FRONT</span>
+                            <div class="brief">It defines an air flow direction that is front direction.</div></li>
+                        <li class="const" id="::Vehicle::HVAC::AIRFLOWDIRECTION_DEFROSTER"><span
+                            class="name">AIRFLOWDIRECTION_DEFROSTER</span>
+                            <div class="brief">It defines an air flow direction that is defroster direction.</div></li>
+					</ul>
+                </div>
+				
+                <div class="attributes">
+                    <h4>Attributes</h4>
+                    <ul>
+                        <li class="attribute" id="::Vehicle::HVAC::airflowDirection"><span class="attrName"><span
+                                class="type">unsigned short</span><span class="name"> airflowDirection</span></span>
+                            <div class="brief">
+                            An attribute to return airflow direction (See AIRFLOWDIRECTION Constants).
+                            </div>
+                        </li>
+                        <li class="attribute" id="::Vehicle::HVAC::fanSpeed"><span class="attrName"><span
+                                class="type">unsigned short</span><span class="name"> fanSpeed</span></span>
+                            <div class="brief">
+                            An attribute to return speed of the fan (0-7).
+                            </div>
+                        </li>
+                        <li class="attribute" id="::Vehicle::HVAC::targetTemperature"><span class="attrName"><span
+                                class="type">unsigned short</span><span class="name"> targetTemperature</span></span>
+                            <div class="brief">
+                            An attribute to return target desired temperature in celcius.  
+                            </div>
+                        </li>
+                        <li class="attribute" id="::Vehicle::HVAC::airConditioning"><span class="attrName"><span
+                                class="type">boolean</span><span class="name"> targetTemperature</span></span>
+                            <div class="brief">
+                            An attribute to return air conditioning, on (true) or off (false). 
+                            </div>
+                        </li>
+                        <li class="attribute" id="::Vehicle::HVAC::recirculation"><span class="attrName"><span
+                                class="type">boolean</span><span class="name"> airConditioning</span></span>
+                            <div class="brief">
+                            An attribute to return air recirculation, on (true) or off (false). 
+                            </div>
+                        </li>
+                        <li class="attribute" id="::Vehicle::HVAC::heater"><span class="attrName"><span
+                                class="type">boolean</span><span class="name"> heater</span></span>
+                            <div class="brief">
+                            An attribute to return heater status, on (true) or off (false). 
+                            </div>
+                        </li>
+                        <li class="attribute" id="::Vehicle::HVAC::steeringWheelHeater"><span class="attrName"><span
+                                class="type">boolean</span><span class="name"> steeringWheelHeater</span></span>
+                            <div class="brief">
+                             An attribute to return steering wheel heater, on (true) or off (false). 
+                            </div>
+                        </li>
+                        <li class="attribute" id="::Vehicle::HVAC::seatHeater"><span class="attrName"><span
+                                class="type">boolean</span><span class="name"> seatHeater</span></span>
+                            <div class="brief">
+                            An attribute to return seat heater status:, on (true) or off (false). 
+                            </div>
+                        </li>
+                        <li class="attribute" id="::Vehicle::HVAC::seatCooler"><span class="attrName"><span
+                                class="type">boolean</span><span class="name"> seatCooler</span></span>
+                            <div class="brief">
+                            An attribute to return seat cooler status:, on (true) or off (false). 
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>                                                                                                          
+            
+            <div class="interface" id="::Vehicle::WindowStatus">
+                <h3>1.24. WindowStatus</h3>
+                <div class="brief">The interface defines window status of vehicle property type.</div>
+<pre class="webidl prettyprint">
+[NoInterfaceObject] interface WindowStatus : VehiclePropertyType { 
+
+    const unsigned short WINDOWLOCATION_DRIVER= 0;    
+
+    const unsigned short WINDOWLOCATION_PASSENGER = 1;    
+
+    const unsigned short WINDOWLOCATION_LEFTREAR = 2;    
+
+    const unsigned short WINDOWLOCATION_RIGHTREAR = 3;    
+
+    const unsigned short WINDOWLOCATION_REAR = 4;    
+
+    attribute unsigned short openness;
+
+    attribute boolean defrost;
+
+};
+</pre>
+				<div class="consts">
+                    <h4>Constants</h4>
+                    <ul>
+                        <li class="const" id="::Vehicle::WindowStatus::WINDOWLOCATION_DRIVER"><span
+                            class="name">WINDOWLOCATION_DRIVER</span>
+                            <div class="brief">It defines the window location that is driver zone.</div></li>
+                        <li class="const" id="::Vehicle::WindowStatus::WINDOWLOCATION_PASSENGER"><span
+                            class="name">WINDOWLOCATION_PASSENGER</span>
+                            <div class="brief">It defines the window location that is passenger zone.</div></li>
+                        <li class="const" id="::Vehicle::WindowStatus::WINDOWLOCATION_LEFTREAR"><span
+                            class="name">WINDOWLOCATION_LEFTREAR</span>
+                            <div class="brief">It defines the window location that is left rear zone.</div></li>
+                        <li class="const" id="::Vehicle::WindowStatus::WINDOWLOCATION_RIGHTREAR"><span
+                            class="name">WINDOWLOCATION_RIGHTREAR</span>
+                            <div class="brief">It defines the window location that is right rear zone.</div></li>
+                        <li class="const" id="::Vehicle::WindowStatus::WINDOWLOCATION_REAR"><span
+                            class="name">WINDOWLOCATION_REAR</span>
+                            <div class="brief">It defines the window location that is rear zone.</div></li>
+					</ul>
+                </div>
+
+                <div class="attributes">
+                    <h4>Attributes</h4>
+                    <ul>
+                        <li class="attribute" id="::Vehicle::WindowStatus::openness"><span class="attrName"><span
+                                class="type">unsigned short</span><span class="name"> openness</span></span>
+                            <div class="brief">
+                            An attribute to return window openness percentage (100% fully open, 0% fully closed) for the window location (see WINDOWLOCATION Constants).
+                            </div>
+                        </li>
+                        <li class="attribute" id="::Vehicle::WindowStatus::defrost"><span class="attrName"><span
+                                class="type">boolean</span><span class="name"> defrost</span></span>
+                            <div class="brief">
+                            An attribute to return the defroster status of the window, on(true) or off(false).
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            
+            <div class="interface" id="::Vehicle::Sunroof">
+                <h3>1.25. Sunroof</h3>
+                <div class="brief">The interface defines sunroof of vehicle property type.</div>
+<pre class="webidl prettyprint">
+[NoInterfaceObject] interface Sunroof : VehiclePropertyType { 
+
+    attribute unsigned short openness;
+
+    attribute unsigned short tilt;
+
+};
+</pre>
+                <div class="attributes">
+                    <h4>Attributes</h4>
+                    <ul>
+                        <li class="attribute" id="::Vehicle::Sunroof::openness"><span class="attrName"><span
+                                class="type">unsigned short</span><span class="name"> openness</span></span>
+                            <div class="brief">
+                            An attribute to return window status for sunroof openness percentage. 
+                            </div>
+                        </li>
+                        <li class="attribute" id="::Vehicle::Sunroof::tilt"><span class="attrName"><span
+                                class="type">unsigned short</span><span class="name"> tilt</span></span>
+                            <div class="brief">
+                            An attribute to return tilt status for sunroof percentage. 
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            
+            <div class="interface" id="::Vehicle::ConvertibleRoof">
+                <h3>1.26. ConvertibleRoof</h3>
+                <div class="brief">The interface defines convertible roof of vehicle property type.</div>
+<pre class="webidl prettyprint">
+[NoInterfaceObject] interface ConvertibleRoof : VehiclePropertyType { 
+
+    attribute unsigned short openness;
+
+};
+</pre>
+                <div class="attributes">
+                    <h4>Attributes</h4>
+                    <ul>
+                        <li class="attribute" id="::Vehicle::ConvertibleRoof::openness"><span class="attrName"><span
+                                class="type">unsigned short</span><span class="name"> openness</span></span>
+                            <div class="brief">
+                            An attribute to return window status for sunroof openness percentage. 
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="interface" id="::Vehicle::VehicleId">
+                <h3>1.27. VehicleId</h3>
+                <div class="brief">The interface defines vehicle id of vehicle property type.</div>
+<pre class="webidl prettyprint">
+[NoInterfaceObject] interface VehicleId : VehiclePropertyType { 
+
+    attribute DOMString WMI;
+
+    attribute DOMString VIN;
+
+};
+</pre>
+                <div class="attributes">
+                    <h4>Attributes</h4>
+                    <ul>
+                        <li class="attribute" id=":Vehicle::VehicleIdWMI"><span class="attrName"><span
+                                class="type">DOMString</span><span class="name"> WMI</span></span>
+                            <div class="brief">
+                            An attribute to return World Manufacturer Identifier (WMI) is defined by SAE ISO 3780:2009. 
+                            </div>
+                        </li>
+                        <li class="attribute" id=":Vehicle::VehicleIdVIN"><span class="attrName"><span
+                                class="type">DOMString</span><span class="name"> VIN</span></span>
+                            <div class="brief">
+                            An attribute to return Vehicle Identification Number (VIN) is defined by ISO 3779. 
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="interface" id="::Vehicle::Size">
+                <h3>1.28. Size</h3>
+                <div class="brief">The interface defines size of vehicle property type.</div>
+<pre class="webidl prettyprint">
+[NoInterfaceObject] interface Size : VehiclePropertyType { 
+
+    attribute unsigned long width;
+
+    attribute unsigned long height;
+
+    attribute unsigned long length;
+
+};
+</pre>
+                <div class="attributes">
+                    <h4>Attributes</h4>
+                    <ul>
+                        <li class="attribute" id="::Vehicle::Size::width"><span class="attrName"><span
+                                class="type">unsigned long</span><span class="name"> width</span></span>
+                            <div class="brief">
+                            An attribute to return width of vehicle in mm.
+                            </div>
+                        </li>
+                        <li class="attribute" id="::Vehicle::Size::height"><span class="attrName"><span
+                                class="type">unsigned long</span><span class="name"> height</span></span>
+                            <div class="brief">
+                            An attribute to return height of vehicle in mm.
+                            </div>
+                        </li>
+                        <li class="attribute" id="::Vehicle::Size::length"><span class="attrName"><span
+                                class="type">unsigned long</span><span class="name"> length</span></span>
+                            <div class="brief">
+                            An attribute to return length of vehicle in mm.
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="interface" id="::Vehicle::FuelInfo">
+                <h3>1.29. FuelInfo</h3>
+                <div class="brief">The interface defines fuel information of vehicle property type.</div>
+<pre class="webidl prettyprint">
+[NoInterfaceObject] interface FuelInfo : VehiclePropertyType { 
+
+    const unsigned short FUELTYPE_GASOLINE = 0;    
+
+    const unsigned short FUELTYPE_HIGH_OCTANE= 1;    
+
+    const unsigned short FUELTYPE_DIESEL = 2;    
+
+    const unsigned short FUELTYPE_ELECTRIC = 3;    
+
+    const unsigned short FUELTYPE_HYDROGEN = 4;    
+
+    const unsigned short REFUELPOSITION_LEFT = 0;    
+
+    const unsigned short REFUELPOSITION_RIGHT= 1;    
+
+    const unsigned short REFUELPOSITION_FRONT = 2;    
+
+    const unsigned short REFUELPOSITION_REAR = 3;    
+
+    attribute unsigned short type;
+
+    attribute unsigned short refuelPosition;
+
+};
+</pre>
+				<div class="consts">
+                    <h4>Constants</h4>
+                    <ul>
+                        <li class="const" id="::Vehicle::FuelInfo::FUELTYPE_GASOLINE"><span
+                            class="name">FUELTYPE_GASOLINE</span>
+                            <div class="brief">It defines the gasoline fuel type.</div></li>
+                        <li class="const" id="::Vehicle::FuelInfo::FUELTYPE_HIGH_OCTANE"><span
+                            class="name">FUELTYPE_HIGH_OCTANE</span>
+                            <div class="brief">It defines the high octane fuel type.</div></li>
+                        <li class="const" id="::Vehicle::FuelInfo::FUELTYPE_DIESEL"><span
+                            class="name">FUELTYPE_DIESEL</span>
+                            <div class="brief">It defines the diesel fuel type.</div></li>
+                        <li class="const" id="::Vehicle::FuelInfo::FUELTYPE_ELECTRIC"><span
+                            class="name">FUELTYPE_ELECTRIC</span>
+                            <div class="brief">It defines the electric fuel type.</div></li>
+                        <li class="const" id="::Vehicle::FuelInfo::FUELTYPE_HYDROGEN"><span
+                            class="name">FUELTYPE_HYDROGEN</span>
+                            <div class="brief">It defines the hydrogen fuel type.</div></li>
+                        <li class="const" id="::Vehicle::FuelInfo::REFUELPOSITION_LEFT"><span
+                            class="name">REFUELPOSITION_LEFT</span>
+                            <div class="brief">It defines the left refuel position.</div></li>
+                        <li class="const" id="::Vehicle::FuelInfo::REFUELPOSITION_RIGHT"><span
+                            class="name">REFUELPOSITION_RIGHT</span>
+                            <div class="brief">It defines the right refuel position.</div></li>
+                        <li class="const" id="::Vehicle::FuelInfo::REFUELPOSITION_FRONT"><span
+                            class="name">REFUELPOSITION_FRONT</span>
+                            <div class="brief">It defines the front refuel position.</div></li>
+                        <li class="const" id="::Vehicle::FuelInfo::REFUELPOSITION_REAR"><span
+                            class="name">REFUELPOSITION_REAR</span>
+                            <div class="brief">It defines the rear refuel position.</div></li>
+					</ul>
+                </div>
+
+                <div class="attributes">
+                    <h4>Attributes</h4>
+                    <ul>
+                        <li class="attribute" id="::Vehicle::FuelInfo::type"><span class="attrName"><span
+                                class="type">unsigned short</span><span class="name"> type</span></span>
+                            <div class="brief">
+                            An attribute to return type of fuel (see FUELTYPE Constants).
+                            </div>
+                        </li>
+                        <li class="attribute" id="::Vehicle::FuelInfo::refuelPosition"><span class="attrName"><span
+                                class="type">unsigned short</span><span class="name"> refuelPosition</span></span>
+                            <div class="brief">
+                            An attribute to return position of refuling (see REFUELPOSITION Constants).
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="interface" id="::Vehicle::VehicleType">
+                <h3>1.30. VehicleType</h3>
+                <div class="brief">The interface defines vehicle type of vehicle property type.</div>
+                <pre class="webidl prettyprint">
+[NoInterfaceObject] interface VehicleType : VehiclePropertyType { 
+
+    const unsigned short VEHICLETYPE_SEDAN = 0;    
+
+    const unsigned short VEHICLETYPE_COUPE= 1;    
+
+    const unsigned short VEHICLETYPE_CABRIOLE = 2;    
+
+    const unsigned short VEHICLETYPE_ROADSTER = 3;    
+
+    const unsigned short VEHICLETYPE_SUV = 4;    
+
+    const unsigned short VEHICLETYPE_TRUCK = 5;    
+
+    attribute unsigned short type;
+
+};
+</pre>
+				<div class="consts">
+                    <h4>Constants</h4>
+                    <ul>
+                        <li class="const" id="::Vehicle::VehicleType::VEHICLETYPE_SEDAN"><span
+                            class="name">VEHICLETYPE_SEDAN</span>
+                            <div class="brief">It defines the sedan vehicle type.</div></li>
+                        <li class="const" id="::Vehicle::VehicleType::VEHICLETYPE_COUPE"><span
+                            class="name">VEHICLETYPE_COUPE</span>
+                            <div class="brief">It defines the coupe vehicle type.</div></li>
+                        <li class="const" id="::Vehicle::VehicleType::VEHICLETYPE_CABRIOLE"><span
+                            class="name">VEHICLETYPE_CABRIOLE</span>
+                            <div class="brief">It defines the cabriole vehicle type.</div></li>
+                        <li class="const" id="::Vehicle::VehicleType::VEHICLETYPE_ROADSTER"><span
+                            class="name">VEHICLETYPE_ROADSTER</span>
+                            <div class="brief">It defines the roadster vehicle type.</div></li>
+                        <li class="const" id="::Vehicle::VehicleType::VEHICLETYPE_SUV"><span
+                            class="name">VEHICLETYPE_SUV</span>
+                            <div class="brief">It defines the suv vehicle type.</div></li>
+                        <li class="const" id="::Vehicle::VehicleType::VEHICLETYPE_TRUCK"><span
+                            class="name">VEHICLETYPE_TRUCK</span>
+                            <div class="brief">It defines the truck vehicle type.</div></li>
+					</ul>
+                </div>
+
+                <div class="attributes">
+                    <h4>Attributes</h4>
+                    <ul>
+                        <li class="attribute" id="::Vehicle::VehicleType::type"><span class="attrName"><span
+                                class="type">unsigned short</span><span class="name"> type</span></span>
+                            <div class="brief">
+                            An attribute to return type of vehicle (see VEHICLETYPE Constants).
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>  
+                    
+            <div class="interface" id="::Vehicle::Doors">
+                <h3>1.31. Doors</h3>
+                <div class="brief">The interface defines doors of vehicle property type.</div>
+<pre class="webidl prettyprint">
+[NoInterfaceObject] interface Doors : VehiclePropertyType { 
+
+    attribute sequence&lt;unsigned short> doorsPerRow;
+
+};
+</pre>
+                <div class="attributes">
+                    <h4>Attributes</h4>
+                    <ul>
+                        <li class="attribute" id="::Vehicle::Doors::doorsPerRow"><span class="attrName"><span
+                                class="type">sequence&lt;unsigned short></span><span class="name"> doorsPerRow</span></span>
+                            <div class="brief">
+                            An attribute to return number of doors in each row.   
+                            </div>
+                             <div class="brief">
+                            The index represents the row. Position '0' represents the first row, '1' the second row etc. 
+                            Example a common mini-van may have Doors[0] = 2 doors, Doors[1] = 1 (side door), Doors[2] = 1 (trunk).  
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>  
+            
+            
+            
+            <div class="interface" id="::Vehicle::TransmissionGearType">
+                <h3>1.32. TransmissionGearType</h3>
+                <div class="brief">The interface defines transmission gear type of vehicle property type.</div>
+<pre class="webidl prettyprint">
+[NoInterfaceObject] interface TransmissionGearType : VehiclePropertyType { 
+
+    const unsigned short TRANSMISSIONGEARTYPE_AUTO=0;    
+
+    const unsigned short TRANSMISSIONGEARTYPE_MANUAL=1;    
+
+    const unsigned short TRANSMISSIONGEARTYPE_CV=2;    
+
+    attribute unsigned short transmissionGearType;
+
+};
+</pre>
+				<div class="consts">
+                    <h4>Constants</h4>
+                    <ul>
+                        <li class="const" id="::Vehicle::TransmissionGearType::TRANSMISSIONGEARTYPE_AUTO"><span
+                            class="name">TRANSMISSIONGEARTYPE_AUTO</span>
+                            <div class="brief">It defines the auto transmission gear type.</div></li>
+                        <li class="const" id="::Vehicle::TransmissionGearType::TRANSMISSIONGEARTYPE_MANUAL"><span
+                            class="name">TRANSMISSIONGEARTYPE_MANUAL</span>
+                            <div class="brief">It defines the manual transmission gear type.</div></li>
+                        <li class="const" id="::Vehicle::TransmissionGearType::TRANSMISSIONGEARTYPE_CV"><span
+                            class="name">TRANSMISSIONGEARTYPE_CV</span>
+                            <div class="brief">It defines the cv transmission gear type.</div></li>
+					</ul>
+                </div>
+
+                <div class="attributes">
+                    <h4>Attributes</h4>
+                    <ul>
+                        <li class="attribute" id="::Vehicle::TransmissionGearType::transmissionGearType"><span class="attrName"><span
+                                class="type">unsigned short</span><span class="name"> transmissionGearType</span></span>
+                            <div class="brief">
+                            An attribute to return transmission gear type (see TRANSMISSIONGEARTYPE Constants).
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>  
+            
+            <div class="interface" id="::Vehicle::WheelInformation">
+                <h3>1.33. WheelInformation</h3>
+                <div class="brief">The interface defines wheel information of vehicle property type.</div>
+<pre class="webidl prettyprint">
+[NoInterfaceObject] interface WheelInformation : VehiclePropertyType { 
+
+    attribute unsigned short frontWheelRadius;
+
+    attribute unsigned short rearWheelRadius;
+
+    attribute unsigned long wheelTrack;
+
+    attribute boolean ABS;
+
+};
+</pre>
+                <div class="attributes">
+                    <h4>Attributes</h4>
+                    <ul>
+                        <li class="attribute" id="::Vehicle::WheelInformation::frontWheelRadius"><span class="attrName"><span
+                                class="type">unsigned short</span><span class="name"> frontWheelRadius</span></span>
+                            <div class="brief">
+                            An attribute to return radius of front wheel(s) in mm.  
+                            </div>
+                        </li>
+                        <li class="attribute" id="::Vehicle::WheelInformation::rearWheelRadius"><span class="attrName"><span
+                                class="type">unsigned short</span><span class="name"> rearWheelRadius</span></span>
+                            <div class="brief">
+                            An attribute to return Radius of Rear Wheel(s) in mm. 
+                            </div>
+                        </li>
+                        <li class="attribute" id="::Vehicle::WheelInformation::wheelTrack"><span class="attrName"><span
+                                class="type">unsigned short</span><span class="name"> wheelTrack</span></span>
+                            <div class="brief">
+                            An attribute to return Wheel Track in mm. 
+                            </div>
+                        </li>
+                        <li class="attribute" id="::Vehicle::WheelInformation::ABS"><span class="attrName"><span
+                                class="type">boolean</span><span class="name"> ABS</span></span>
+                            <div class="brief">
+                            An attribute to return Antilock Brake System status, on(true) or off(false). 
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>  
+            
+            <div class="interface" id="::Vehicle::Odometer">
+                <h3>1.34. Odometer</h3>
+                <div class="brief">The interface defines odometer of vehicle property type.</div>
+<pre class="webidl prettyprint">
+[NoInterfaceObject] interface Odometer : VehiclePropertyType { 
+
+    attribute unsigned long odometer;
+
+};
+</pre>
+                <div class="attributes">
+                    <h4>Attributes</h4>
+                    <ul>
+                        <li class="attribute" id="odometer"><span class="attrName"><span
+                                class="type">unsigned long</span><span class="name"> odometer</span></span>
+                            <div class="brief">
+                            An attribute to return Distance traveled in km 
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>  
+            
+            <div class="interface" id="::Vehicle::Fluid">
+                <h3>1.35. Fluid</h3>
+                <div class="brief">The interface defines fluid of vehicle property type.</div>
+<pre class="webidl prettyprint">
+[NoInterfaceObject] interface Fluid : VehiclePropertyType { 
+
+    attribute unsigned short transmission;
+
+    attribute unsigned short brake;
+
+    attribute unsigned short washer;
+
+};
+</pre>
+                <div class="attributes">
+                    <h4>Attributes</h4>
+                    <ul>
+                        <li class="attribute" id="transmission"><span class="attrName"><span
+                                class="type">unsigned short</span><span class="name"> transmission</span></span>
+                            <div class="brief">
+                            An attribute to return Transmission fluid level percentage. 0-100. 
+                            </div>
+                        </li>
+                        <li class="attribute" id="brake"><span class="attrName"><span
+                                class="type">unsigned short</span><span class="name"> brake</span></span>
+                            <div class="brief">
+                            An attribute to return Brake fluid level percentage. 0-100. 
+                            </div>
+                        </li>
+                        <li class="attribute" id="washer"><span class="attrName"><span
+                                class="type">unsigned short</span><span class="name"> washer</span></span>
+                            <div class="brief">
+                            An attribute to return Washer fluid level percentage. 0-100. 
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>  
+            
+            <div class="interface" id="::Vehicle::Battery">
+                <h3>1.36. Battery</h3>
+                <div class="brief">The interface defines battery of vehicle property type.</div>
+                <pre class="webidl prettyprint">
+[NoInterfaceObject] interface Battery : VehiclePropertyType { 
+
+    attribute double voltage;
+
+    attribute double current;
+
+};
+</pre>
+                <div class="attributes">
+                    <h4>Attributes</h4>
+                    <ul>
+                        <li class="attribute" id="voltage"><span class="attrName"><span
+                                class="type">double</span><span class="name"> voltage</span></span>
+                            <div class="brief">
+                            An attribute to return battery voltage.  
+                            </div>
+                        </li>
+                        <li class="attribute" id="current"><span class="attrName"><span
+                                class="type">double</span><span class="name"> current</span></span>
+                            <div class="brief">
+                            An attribute to return battery current in Amperes 
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>  
+            
+            <div class="interface" id="::Vehicle::TirePressure">
+                <h3>1.37. TirePressure</h3>
+                <div class="brief">The interface defines tire pressure of vehicle property type.</div>
+                <pre class="webidl prettyprint">
+[NoInterfaceObject] interface TirePressure : VehiclePropertyType { 
+
+    attribute double leftFront;
+
+    attribute double rightFront;
+
+    attribute double leftRear;
+
+    attribute double rightRear;
+
+};
+</pre>
+                <div class="attributes">
+                    <h4>Attributes</h4>
+                    <ul>
+                        <li class="attribute" id="leftFront"><span class="attrName"><span
+                                class="type">double</span><span class="name"> leftFront</span></span>
+                            <div class="brief">
+                            An attribute to return left front tire pressure in kPa. 
+                            </div>
+                        </li>
+                        <li class="attribute" id="rightFront"><span class="attrName"><span
+                                class="type">double</span><span class="name"> rightFront</span></span>
+                            <div class="brief">
+                            An attribute to return right front tire pressure in kPa. 
+                            </div>
+                        </li>
+                        <li class="attribute" id="leftRear"><span class="attrName"><span
+                                class="type">double</span><span class="name"> leftRear</span></span>
+                            <div class="brief">
+                            An attribute to return left rear tire pressure in kPa. 
+                            </div>
+                        </li>
+                        <li class="attribute" id="rightRear"><span class="attrName"><span
+                                class="type">double</span><span class="name"> rightRear</span></span>
+                            <div class="brief">
+                            An attribute to return right rear tire pressure in kPa. 
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>                                                                          
+            
+            
+            
+            <div class="interface" id="::Vehicle::TireTemperature">
+                <h3>1.38. TireTemperature</h3>
+                <div class="brief">The interface defines tire temperature of vehicle property type.</div>
+                <pre class="webidl prettyprint">
+[NoInterfaceObject] interface TireTemperature : VehiclePropertyType { 
+
+    attribute double leftFront;
+
+    attribute double rightFront;
+
+    attribute double leftRear;
+
+    attribute double rightRear;
+
+};
+</pre>
+                <div class="attributes">
+                    <h4>Attributes</h4>
+                    <ul>
+                        <li class="attribute" id="leftFront"><span class="attrName"><span
+                                class="type">double</span><span class="name"> leftFront</span></span>
+                            <div class="brief">
+                            An attribute to return left front tire temperature in Celcius. 
+                            </div>
+                        </li>
+                        <li class="attribute" id="rightFront"><span class="attrName"><span
+                                class="type">double</span><span class="name"> rightFront</span></span>
+                            <div class="brief">
+                            An attribute to return right front tire temperature in Celcius.
+                            </div>
+                        </li>
+                        <li class="attribute" id="leftRear"><span class="attrName"><span
+                                class="type">double</span><span class="name"> leftRear</span></span>
+                            <div class="brief">
+                            An attribute to return left rear tire temperature in Celcius.  
+                            </div>
+                        </li>
+                        <li class="attribute" id="rightRear"><span class="attrName"><span
+                                class="type">double</span><span class="name"> rightRear</span></span>
+                            <div class="brief">
+                            An attribute to return right rear tire temperature in Celcius. 
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="interface" id="::Vehicle::SecurityAlert">
+                <h3>1.39. SecurityAlert</h3>
+                <div class="brief">The interface defines security alert of vehicle property type.</div>
+<pre class="webidl prettyprint">
+[NoInterfaceObject] interface SecurityAlert : VehiclePropertyType { 
+
+    attribute boolean securityAlert;
+
+};
+</pre>
+            </div>
+            
+            <div class="interface" id="::Vehicle::ParkingBrake">
+                <h3>1.40. ParkingBrake</h3>
+                <div class="brief">The interface defines parking brake of vehicle property type.</div>
+<pre class="webidl prettyprint">
+[NoInterfaceObject] interface ParkingBrake : VehiclePropertyType { 
+
+    attribute boolean parkingBrake;
+
+};
+</pre>
+                <div class="attributes">
+                    <h4>Attributes</h4>
+                    <ul>
+                        <li class="attribute" id="parkingBrake"><span class="attrName"><span
+                                class="type">boolean</span><span class="name"> parkingBrake</span></span>
+                            <div class="brief">
+                            An attribute to return status of parking brake:  Engaged = true, Disengaged = false.
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>          
+            
+            <div class="interface" id="::Vehicle::ParkingLight">
+                <h3>1.41. ParkingLight</h3>
+                <div class="brief">The interface defines parking light of vehicle property type.</div>
+<pre class="webidl prettyprint">
+[NoInterfaceObject] interface ParkingLight : VehiclePropertyType { 
+
+    attribute boolean parkingLight;
+
+};
+</pre>
+                <div class="attributes">
+                    <h4>Attributes</h4>
+                    <ul>
+                        <li class="attribute" id="parkingLight"><span class="attrName"><span
+                                class="type">boolean</span><span class="name"> parkingLight</span></span>
+                            <div class="brief">
+                            An attribute to return status of parking light:  Engaged = true, Disengaged = false.
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>  
+            
+            <div class="interface" id="::Vehicle::HazardLight">
+                <h3>1.42. HazardLight</h3>
+                <div class="brief">The interface defines hazard light of vehicle property type.</div>
+<pre class="webidl prettyprint">
+[NoInterfaceObject] interface HazardLight : VehiclePropertyType { 
+
+    attribute boolean hazardLight;
+
+};
+</pre>
+                <div class="attributes">
+                    <h4>Attributes</h4>
+                    <ul>
+                        <li class="attribute" id="hazardLight"><span class="attrName"><span
+                                class="type">boolean</span><span class="name"> hazardLight</span></span>
+                            <div class="brief">
+                            An attribute to return status of hazard light:  Engaged = true, Disengaged = false. 
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>  
+            
+            <div class="interface" id="::Vehicle::AntilockBrakingSystem">
+                <h3>1.43. AntilockBrakingSystem</h3>
+                <div class="brief">The interface defines antilock braking system of vehicle property type.</div>
+<pre class="webidl prettyprint">
+[NoInterfaceObject] interface AntilockBrakingSystem : VehiclePropertyType { 
+
+    attribute boolean antilockBrakingSystem;
+
+};
+</pre>
+                <div class="attributes">
+                    <h4>Attributes</h4>
+                    <ul>
+                        <li class="attribute" id="antilockBrakingSystem"><span class="attrName"><span
+                                class="type">boolean</span><span class="name"> antilockBrakingSystem</span></span>
+                            <div class="brief">
+                            An attribute to return whether Antilock Braking System is Idle (false) or Engaged (true)
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>  
+            
+            <div class="interface" id="::Vehicle::TractionControlSystem">
+                <h3>1.44. TractionControlSystem</h3>
+                <div class="brief">The interface defines traction control system of vehicle property type.</div>
+<pre class="webidl prettyprint">
+[NoInterfaceObject] interface TractionControlSystem : VehiclePropertyType { 
+
+    attribute boolean tractionControlSystem;
+
+};
+</pre>
+                <div class="attributes">
+                    <h4>Attributes</h4>
+                    <ul>
+                        <li class="attribute" id="tractionControlSystem"><span class="attrName"><span
+                                class="type">boolean</span><span class="name"> tractionControlSystem</span></span>
+                            <div class="brief">
+                             An attribute to return whether Traction Control System is Off (false) or On (true)
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>  
+            
+            <div class="interface" id="::Vehicle::VehicleTopSpeedLimit">
+                <h3>1.45. VehicleTopSpeedLimit</h3>
+                <div class="brief">The interface defines vehicle top speed limit of vehicle property type.</div>
+<pre class="webidl prettyprint">
+[NoInterfaceObject] interface VehicleTopSpeedLimit : VehiclePropertyType { 
+
+    attribute unsigned short vehicleTopSpeedLimit;
+
+};
+</pre>
+                <div class="attributes">
+                    <h4>Attributes</h4>
+                    <ul>
+                        <li class="attribute" id="vehicleTopSpeedLimit"><span class="attrName"><span
+                                class="type">unsigned short</span><span class="name"> vehicleTopSpeedLimit</span></span>
+                            <div class="brief">
+                            An attribute to returns top rated speed in km/h. 0 = no limit 
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>  
+            
+            <div class="interface" id="::Vehicle::AirbagStatus">
+                <h3>1.46. AirbagStatus</h3>
+                <div class="brief">The interface defines airbag status of vehicle property type.</div>
+<pre class="webidl prettyprint">
+[NoInterfaceObject] interface AirbagStatus : VehiclePropertyType { 
+
+    const unsigned short AIRBAGSTATUS_INACTIVE = 0;    
+
+    const unsigned short AIRBAGSTATUS_ACTIVE = 1;    
+
+    const unsigned short AIRBAGSTATUS_DEPLOYED = 2;    
+
+    attribute unsigned short airbagStatus;
+
+};
+</pre>
+                <div class="attributes">
+                    <h4>Attributes</h4>
+                    <ul>
+                        <li class="attribute" id="airbagStatus"><span class="attrName"><span
+                                class="type">unsigned short</span><span class="name"> airbagStatus</span></span>
+                            <div class="brief">
+                            An attribute to return Airbag deployment status (see AIRBAGSTATUS*)
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>  
+            
+            <div class="interface" id="::Vehicle::DoorStatus">
+                <h3>1.47. DoorStatus</h3>
+                <div class="brief">The interface defines door status of vehicle property type.</div>
+<pre class="webidl prettyprint">
+[NoInterfaceObject] interface DoorStatus : VehiclePropertyType { 
+
+    const unsigned short DOORSTATUS_CLOSED = 0;    
+
+    const unsigned short DOORSTATUS_OPEN = 1;    
+
+    const unsigned short DOORSTATUS_AJAR = 2;    
+
+    attribute unsigned short doorStatus;
+
+    attribute boolean doorLockStatus;
+
+    attribute boolean childLockStatus;
+
+};
+</pre>
+                <div class="attributes">
+                    <h4>Attributes</h4>
+                    <ul>
+                        <li class="attribute" id="doorStatus"><span class="attrName"><span
+                                class="type">unsigned short</span><span class="name"> doorStatus</span></span>
+                            <div class="brief">
+                            An attribute to returns Door status (byte).  See DOORSTATUS_*
+                            </div>
+                        </li>
+                        <li class="attribute" id="doorLockStatus"><span class="attrName"><span
+                                class="type">boolean</span><span class="name"> doorLockStatus</span></span>
+                            <div class="brief">
+                            An attribute to returns Door status (bool locked = true, unlocked = false).
+                            </div>
+                        </li>
+                        <li class="attribute" id="childLockStatus"><span class="attrName"><span
+                                class="type">boolean</span><span class="name"> childLockStatus</span></span>
+                            <div class="brief">
+                            An attribute to returns Child lock status of rear doors.  active = true, inactive = false.    
+        Setting this to 'true' will prevent the rear doors from being opened    
+        from the inside.
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>  
+            
+            <div class="interface" id="::Vehicle::SeatBeltStatus">
+                <h3>1.48. SeatBeltStatus</h3>
+                <div class="brief">The interface defines seat belt status of vehicle property type.</div>
+<pre class="webidl prettyprint">
+[NoInterfaceObject] interface SeatBeltStatus : VehiclePropertyType { 
+
+    attribute boolean seatBeltStatus;
+
+};
+</pre>
+                <div class="attributes">
+                    <h4>Attributes</h4>
+                    <ul>
+                        <li class="attribute" id="seatBeltStatus"><span class="attrName"><span
+                                class="type">boolean</span><span class="name"> seatBeltStatus</span></span>
+                            <div class="brief">
+                            An attribute to return Seat Belt status (bool: Fasten = true, Unfastened = false)
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>  
+            
+            <div class="interface" id="::Vehicle::OccupantStatus">
+                <h3>1.49. OccupantStatus</h3>
+                <div class="brief">The interface defines occupant status of vehicle property type.</div>
+<pre class="webidl prettyprint">
+[NoInterfaceObject] interface OccupantStatus : VehiclePropertyType { 
+
+    const unsigned short OCCUPANTSTATUS_VACANT = 0;    
+
+    const unsigned short OCCUPANTSTATUS_CHILD = 1;    
+
+    const unsigned short OCCUPANTSTATUS_ADULT = 2;
+
+    attribute unsigned short occupantStatus;
+
+};
+</pre>
+                <div class="attributes">
+                    <h4>Attributes</h4>
+                    <ul>
+                        <li class="attribute" id="occupantStatus"><span class="attrName"><span
+                                class="type">unsigned short</span><span class="name"> occupantStatus</span></span>
+                            <div class="brief">
+                            An attribute to returns Occupant status (byte, see OCCUPANTSTATUS)
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>  
+            
+            <div class="interface" id="::Vehicle::ObstacleDistance">
+                <h3>1.50. ObstacleDistance</h3>
+                <div class="brief">The interface defines obstacle distance of vehicle property type.</div>
+<pre class="webidl prettyprint">
+[NoInterfaceObject] interface ObstacleDistance : VehiclePropertyType { 
+
+    const unsigned short DISTANCESENSORLOCATION_LEFTFRONT = 0;    
+
+    const unsigned short DISTANCESENSORLOCATION_RIGHTFRONT = 1;    
+
+    const unsigned short DISTANCESENSORLOCATION_LEFTREAR = 2;    
+
+    const unsigned short DISTANCESENSORLOCATION_RIGHTREAR = 3;    
+
+    const unsigned short DISTANCESENSORLOCATION_LEFTBLINDSPOT = 4;    
+
+    const unsigned short DISTANCESENSORLOCATION_RIGHTBLINDSPOT = 5;    
+
+    attribute double obstacleDistance;
+
+};
+</pre>
+                <div class="attributes">
+                    <h4>Attributes</h4>
+                    <ul>
+                        <li class="attribute" id="obstacleDistance"><span class="attrName"><span
+                                class="type">double</span><span class="name"> obstacleDistance</span></span>
+                            <div class="brief">
+                            An attribute to returns Distance Sensor distance (Double) in m.
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="interface" id="::Vehicle::NightMode">
+                <h3>1.51. NightMode</h3>
+                <div class="brief">The interface defines night mode of vehicle property type.</div>
+<pre class="webidl prettyprint">
+[NoInterfaceObject] interface NightMode : VehiclePropertyType {
+
+    attribute boolean nightMode;
+
+};
+</pre>
+                <div class="attributes">
+                    <h4>Attributes</h4>
+                    <ul>
+                        <li class="attribute" id="nightMode"><span class="attrName"><span
+                                class="type">boolean</span><span class="name"> nightMode</span></span>
+                            <div class="brief">
+                            An attribute to return whether or not the system is in NightMode or not.  True = Night time, False = Day time
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="interface" id="::Vehicle::DrivingMode">
+                <h3>1.52. DrivingMode</h3>
+                <div class="brief">The interface defines driving mode of vehicle property type.</div>
+<pre class="webidl prettyprint">
+[NoInterfaceObject] interface DrivingMode : VehiclePropertyType {
+
+    attribute unsigned short drivingMode;
+
+};
+</pre>
+                <div class="attributes">
+                    <h4>Attributes</h4>
+                    <ul>
+                        <li class="attribute" id="drivingMode"><span class="attrName"><span
+                                class="type">unsigned short</span><span class="name"> drivingMode</span></span>
+                            <div class="brief">
+                            An attribute to return whether or not the system is in DrivingMode or not.  1 = Driving, 0 = Not Driving
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>  
+            
+            <div class="interface" id="::Vehicle::VehiclePropertyCallback">
+                <h3>1.53. VehiclePropertyCallback</h3>
+                <div class="brief">This interface specified a success callback that is invoked when vehicle propery type is valid.</div>
+<pre class="webidl prettyprint">
+[Callback=FunctionOnly, NoInterfaceObject] interface VehiclePropertyCallback {
+
+    void onsuccess(VehiclePropertyType value);
+
+};
+</pre>
+                <div class="methods">
+                    <h4>Methods</h4>
+
+                    <dl>
+                        <dt class="method" id="::Vehicle::VehiclePropertyCallback::onsuccess">
+                            <span class="methodName">onsuccess</span>
+                        </dt>
+                        <dd>
+                            <div class="brief">The callback function used to return a property value. Called when vehicle propery type is valid.</div>
+                            <div class="synopsis">
+<pre class="signature prettyprint">
+void onsuccess(VehiclePropertyType value);
+<span class="pln"></span>
+</pre>
+                            </div>
+                            <div class="parameters">
+                                <p>
+                                    <span class="param">Parameters:</span>
+                                </p>
+                                <ul>
+                                    <li class="param"><span class="name">value</span>: A VehiclePropertyType object.</li>
+                                </ul>
+                            </div>
+                        </dd>
+                    </dl>
+                </div>
+                
+                <div class="interface" id="::Vehicle::VehiclePropertyErrorCallback">
+                <h3>1.54. VehiclePropertyErrorCallback</h3>
+                <div class="brief">This interface specified a failure callback that is invoked when any errors are happened.</div>
+<pre class="webidl prettyprint">
+[Callback=FunctionOnly, NoInterfaceObject] interface VehiclePropertyErrorCallback {
+
+    void onfailure(VehiclePropertyError error);
+
+};
+</pre>
+                <div class="methods">
+                    <h4>Methods</h4>
+
+                    <dl>
+                        <dt class="method" id="::Vehicle::VehiclePropertyErrorCallback::onsuccess">
+                            <span class="methodName">onsuccess</span>
+                        </dt>
+                        <dd>
+                            <div class="brief">The callback function used to return reference error code and message. Called when any errors are happened.</div>
+                            <div class="synopsis">
+<pre class="signature prettyprint">
+void onfailure(VehiclePropertyError error);
+<span class="pln"></span>
+</pre>
+                            </div>
+                            <div class="parameters">
+                                <p>
+                                    <span class="param">Parameters:</span>
+                                </p>
+                                <ul>
+                                    <li class="param"><span class="name">error</span>: A VehiclePropertyError object.</li>
+                                </ul>
+                            </div>
+                        </dd>
+                    </dl>
+                </div>
+                
+                <div class="interface" id="::Vehicle::VehiclePropertyListCallback">
+                <h3>1.55. VehiclePropertyListCallback</h3>
+                <div class="brief">This interface specified a success callback that is invoked when vehicle propery type is valid.</div>
+<pre class="webidl prettyprint">
+[Callback=FunctionOnly, NoInterfaceObject] interface VehiclePropertyListCallback {
+
+    void onsuccess(sequence&lt;VehiclePropertyType> values);
+
+};
+</pre>
+                <div class="methods">
+                    <h4>Methods</h4>
+
+                    <dl>
+                        <dt class="method" id="::Vehicle::VehiclePropertyListCallback::onsuccess">
+                            <span class="methodName">onsuccess</span>
+                        </dt>
+                        <dd>
+                            <div class="brief">The callback function used to return VehiclePropertyType value list. Called when vehicle propery type is valid.</div>
+                            <div class="synopsis">
+<pre class="signature prettyprint">
+ void onsuccess(sequence&lt;VehiclePropertyType> values);
+<span class="pln"></span>
+</pre>
+                            </div>
+                            <div class="parameters">
+                                <p>
+                                    <span class="param">Parameters:</span>
+                                </p>
+                                <ul>
+                                    <li class="param"><span class="name">values</span>: A VehiclePropertyType value list.</li>
+                                </ul>
+                            </div>
+                        </dd>
+                    </dl>
+                </div>
+                
+                <div class="interface" id="::Vehicle::SupportedPropertiesCallback">
+                <h3>1.56. SupportedPropertiesCallback</h3>
+                <div class="brief">This interface specified a success callback that is invoked.</div>
+<pre class="webidl prettyprint">
+[Callback=FunctionOnly, NoInterfaceObject] interface SupportedPropertiesCallback {
+
+    void onsuccess(sequence&lt;DOMString> properties);
+
+};
+</pre>
+                <div class="methods">
+                    <h4>Methods</h4>
+
+                    <dl>
+                        <dt class="method" id="::Vehicle::SupportedPropertiesCallback::onsuccess">
+                            <span class="methodName">onsuccess</span>
+                        </dt>
+                        <dd>
+                            <div class="brief">The callback function used to return supported properties.</div>
+                            <div class="synopsis">
+<pre class="signature prettyprint">
+void onsuccess(sequence&lt;DOMString> properties);
+<span class="pln"></span>
+</pre>
+                            </div>
+                            <div class="parameters">
+                                <p>
+                                    <span class="param">Parameters:</span>
+                                </p>
+                                <ul>
+                                    <li class="param"><span class="name">properties</span>: A string array.</li>
+                                </ul>
+                            </div>
+                        </dd>
+                    </dl>
+                </div>
+                
+                <div class="interface" id="::Vehicle::DefrostDictionary">
+                <h3>1.57. DefrostDictionary</h3>
+                <div class="brief">A dictionary that is used for creating defrost items.</div>
+<pre class="webidl prettyprint">
+dictionary DefrostDictionary {
+
+    unsigned short window;
+
+    boolean defrost;
+
+};
+</pre>
+            </div>
+        </div>
+        <h2 id="full-webidl">2. Full WebIDL</h2>
+<pre class="webidl prettyprint">
+module Vehicle {
+
+    [NoInterfaceObject] interface VehicleManagerObject {
+        readonly attribute Vehicle vehicle;
+    };
+
+    Tizen implements VehicleManagerObject;
+
+    [NoInterfaceObject] interface Vehicle { 
+
+        const unsigned short ZONE_None = 0;
+
+        const unsigned short ZONE_Front = 0x01;
+
+        const unsigned short ZONE_Middle = 0x02;
+
+        const unsigned short ZONE_Right = 0x04;
+
+        const unsigned short ZONE_Left = 0x08;
+
+        const unsigned short ZONE_Rear = 0x10;
+
+        const unsigned short ZONE_Center = 0x20;
+
+        sequence<DOMString> supported();
+
+        any get(DOMString objectType, optional short zone);
+
+        void getAsync(DOMString objectType, VehiclePropertyCallback successCallback, optional VehiclePropertyErrorCallback errorCallback, optional short zone);
+
+        void subscribe(DOMString objectType, VehiclePropertyCallback successCallback, optional unsigned short zone, optional VehiclePropertyErrorCallback errorCallback);
+
+        void set(DOMString objectType, object value, optional VehiclePropertyErrorCallback errorCallback);
+
+        void getHistory(DOMString objectType, unsigned short zone, Date startTime, Date endTime, VehiclePropertyListCallback successCallback, optional VehiclePropertyErrorCallback errorCallback);
+
+        sequence&lt;unsigned short> listZones(DOMString objectType);
+    };
+
+    [NoInterfaceObject] interface VehiclePropertyType: Event { 
+
+        attribute DOMTimeStamp time;
+
+        attribute short zone;
+
+        attribute DOMString source;
+
+    };
+
+    [NoInterfaceObject] interface VehiclePropertyError { 
+
+        const unsigned short PERMISSION_DENIED = 1; 
+
+        const unsigned short PROPERTY_UNAVAILABLE = 2; 
+
+        const unsigned short TIMEOUT = 3; 
+
+        const unsigned short UNKNOWN = 10;
+
+        attribute unsigned short code;
+
+        attribute DOMString message;
+
+    };
+
+    [NoInterfaceObject] interface VehicleSpeed : VehiclePropertyType {
+
+        attribute unsigned long vehicleSpeed;
+
+    };
+
+    [NoInterfaceObject] interface EngineSpeed : VehiclePropertyType { 
+
+        attribute unsigned long engineSpeed;
+
+    };
+
+    [NoInterfaceObject] interface VehiclePowerMode : VehiclePropertyType { 
+
+        const unsigned short VEHICLEPOWERMODE_OFF = 0;
+
+        const unsigned short VEHICLEPOWERMODE_ACCESSORY1 = 1;
+
+        const unsigned short VEHICLEPOWERMODE_ACCESSORY2 = 2;
+
+        const unsigned short VEHICLEPOWERMODE_RUN = 3;
+
+        attribute octet vehiclePowerMode;
+
+    };
+
+    [NoInterfaceObject] interface TripMeter : VehiclePropertyType { 
+
+        attribute sequence&lt;unsigned long> tripMeters;
+
+    };
+
+    [NoInterfaceObject] interface Acceleration : VehiclePropertyType { 
+
+        attribute unsigned long x;
+
+        attribute unsigned long y;
+
+        attribute unsigned long z;
+
+    };
+
+    [NoInterfaceObject] interface Transmission : VehiclePropertyType { 
+
+        const unsigned short TRANSMISSIONPOSITION_NEUTRAL = 0;   
+
+        const unsigned short TRANSMISSIONPOSITION_FIRST = 1;    
+
+        const unsigned short TRANSMISSIONPOSITION_SECOND = 2;   
+
+        const unsigned short TRANSMISSIONPOSITION_THIRD = 3; 
+
+        const unsigned short TRANSMISSIONPOSITION_FORTH = 4;   
+
+        const unsigned short TRANSMISSIONPOSITION_FIFTH = 5;   
+
+        const unsigned short TRANSMISSIONPOSITION_SIXTH = 6;  
+
+        const unsigned short TRANSMISSIONPOSITION_SEVENTH = 7;  
+
+        const unsigned short TRANSMISSIONPOSITION_EIGHTH = 8;   
+
+        const unsigned short TRANSMISSIONPOSITION_NINTH = 9;   
+
+        const unsigned short TRANSMISSIONPOSITION_TENTH = 10;   
+
+        const unsigned short TRANSMISSIONPOSITION_CVT = 64;   
+
+        const unsigned short TRANSMISSIONPOSITION_REVERSE = 128; 
+
+        const unsigned short TRANSMISSIONPOSITION_PARK = 255; 
+
+        const unsigned short TRANSMISSIONMODE_NORMAL = 0;    
+
+        const unsigned short TRANSMISSIONMODE_SPORT = 1;    
+
+        const unsigned short TRANSMISSIONMODE_ECONOMY = 2;   
+
+        const unsigned short TRANSMISSIONMODE_OEMCUSTOM1 = 3;
+
+        const unsigned short TRANSMISSIONMODE_OEMCUSTOM2 = 4;   
+
+        attribute octet gearPosition;
+
+        attribute octet mode;
+
+    };
+
+    [NoInterfaceObject] interface WheelBrake : VehiclePropertyType { 
+
+        attribute boolean engaged;
+
+    };
+
+    [NoInterfaceObject] interface LightStatus : VehiclePropertyType { 
+
+        attribute boolean head;
+
+        attribute boolean rightTurn;
+
+        attribute boolean leftTurn;
+
+        attribute boolean brake;
+
+        attribute boolean fog;
+
+        attribute boolean hazard;
+
+        attribute boolean parking;
+
+        attribute boolean highBeam;
+
+    };
+
+    [NoInterfaceObject] interface InteriorLightStatus : VehiclePropertyType { 
+
+        attribute boolean passenger;
+
+        attribute boolean driver;
+
+        attribute boolean center;
+
+    };
+
+    [NoInterfaceObject] interface Horn : VehiclePropertyType {
+
+        attribute boolean on;
+
+    };
+
+    [NoInterfaceObject] interface Fuel : VehiclePropertyType {
+
+        attribute unsigned short level;
+
+        attribute unsigned short range;
+
+        attribute unsigned short instantConsumption;
+
+        attribute unsigned short instantEconomy;
+
+        attribute unsigned short averageEconomy;
+
+    };
+
+    [NoInterfaceObject] interface EngineOil : VehiclePropertyType { 
+
+        attribute unsigned short remaining;
+
+        attribute long temperature;
+
+        attribute unsigned short pressure;
+
+    };
+
+    [NoInterfaceObject] interface Location : VehiclePropertyType { 
+
+        attribute double latitude;
+
+        attribute double longitude;
+
+        attribute double altitude;
+
+        attribute unsigned short direction;
+
+    };
+
+    [NoInterfaceObject] interface ExteriorBrightness : VehiclePropertyType { 
+
+        attribute unsigned long exteriorBrightness;
+
+    };
+
+    [NoInterfaceObject] interface Temperature : VehiclePropertyType { 
+
+        attribute short interior;
+
+        attribute short  exterior;
+
+    };
+
+    [NoInterfaceObject] interface RainSensor : VehiclePropertyType { 
+
+        attribute unsigned short rainSensor;
+
+    };
+
+    [NoInterfaceObject] interface WindshieldWiper : VehiclePropertyType { 
+
+        const unsigned short WIPERSPEED_OFF = 0;    
+
+        const unsigned short WIPERSPEED_SLOWEST= 1;    
+
+        const unsigned short WIPERSPEED_FASTEST = 5;    
+
+        const unsigned short WIPERSPEED_AUTO = 10;    
+
+        attribute unsigned short windshieldWiper;
+
+    };
+
+    [NoInterfaceObject] interface HVAC : VehiclePropertyType { 
+
+        const unsigned short AIRFLOWDIRECTION_FRONTPANEL = 0;
+
+        const unsigned short AIRFLOWDIRECTION_FLOORDUCT= 1;
+
+        const unsigned short AIRFLOWDIRECTION_FRONT = 0x02;
+
+        const unsigned short AIRFLOWDIRECTION_DEFROSTER = 0x04;
+
+        attribute unsigned short airflowDirection;
+
+        attribute unsigned short fanSpeed;
+
+        attribute unsigned short targetTemperature;
+
+        attribute boolean airConditioning;
+
+        attribute boolean airRecirculation;
+
+        attribute boolean heater;
+
+        attribute boolean steeringWheelHeater;
+
+        attribute boolean seatHeater;
+
+        attribute boolean seatCooler;
+
+    };
+
+    [NoInterfaceObject] interface WindowStatus : VehiclePropertyType { 
+
+        const unsigned short WINDOWLOCATION_DRIVER= 0;    
+
+        const unsigned short WINDOWLOCATION_PASSENGER = 1;    
+
+        const unsigned short WINDOWLOCATION_LEFTREAR = 2;    
+
+        const unsigned short WINDOWLOCATION_RIGHTREAR = 3;    
+
+        const unsigned short WINDOWLOCATION_REAR = 4;    
+
+        attribute unsigned short openness;
+
+        attribute boolean defrost;
+
+    };
+
+    [NoInterfaceObject] interface Sunroof : VehiclePropertyType { 
+
+        attribute unsigned short openness;
+
+        attribute unsigned short tilt;
+
+    };
+
+    [NoInterfaceObject] interface ConvertibleRoof : VehiclePropertyType { 
+
+        attribute unsigned short openness;
+
+    };
+
+    [NoInterfaceObject] interface VehicleId : VehiclePropertyType { 
+
+        attribute DOMString WMI;
+
+        attribute DOMString VIN;
+
+    };
+
+    [NoInterfaceObject] interface Size : VehiclePropertyType { 
+
+        attribute unsigned long width;
+
+        attribute unsigned long height;
+
+        attribute unsigned long length;
+
+    };
+
+    [NoInterfaceObject] interface FuelInfo : VehiclePropertyType { 
+
+        const unsigned short FUELTYPE_GASOLINE = 0;    
+
+        const unsigned short FUELTYPE_HIGH_OCTANE= 1;    
+
+        const unsigned short FUELTYPE_DIESEL = 2;    
+
+        const unsigned short FUELTYPE_ELECTRIC = 3;    
+
+        const unsigned short FUELTYPE_HYDROGEN = 4;    
+
+        const unsigned short REFUELPOSITION_LEFT = 0;    
+
+        const unsigned short REFUELPOSITION_RIGHT= 1;    
+
+        const unsigned short REFUELPOSITION_FRONT = 2;    
+
+        const unsigned short REFUELPOSITION_REAR = 3;    
+
+        attribute unsigned short type;
+
+        attribute unsigned short refuelPosition;
+
+    };
+
+    [NoInterfaceObject] interface VehicleType : VehiclePropertyType { 
+
+        const unsigned short VEHICLETYPE_SEDAN = 0;    
+
+        const unsigned short VEHICLETYPE_COUPE= 1;    
+
+        const unsigned short VEHICLETYPE_CABRIOLE = 2;    
+
+        const unsigned short VEHICLETYPE_ROADSTER = 3;    
+
+        const unsigned short VEHICLETYPE_SUV = 4;    
+
+        const unsigned short VEHICLETYPE_TRUCK = 5;    
+
+        attribute unsigned short type;
+
+    };
+
+    [NoInterfaceObject] interface Doors : VehiclePropertyType { 
+
+        attribute sequence&lt;unsigned short> doorsPerRow;
+
+    };
+
+    [NoInterfaceObject] interface TransmissionGearType : VehiclePropertyType { 
+
+        const unsigned short TRANSMISSIONGEARTYPE_AUTO=0;    
+
+        const unsigned short TRANSMISSIONGEARTYPE_MANUAL=1;    
+
+        const unsigned short TRANSMISSIONGEARTYPE_CV=2;    
+
+        attribute unsigned short transmissionGearType;
+
+    };
+
+    [NoInterfaceObject] interface WheelInformation : VehiclePropertyType { 
+
+         attribute unsigned short frontWheelRadius;
+
+         attribute unsigned short rearWheelRadius;
+
+         attribute unsigned long wheelTrack;
+
+         attribute boolean ABS;
+
+    };
+
+    [NoInterfaceObject] interface Odometer : VehiclePropertyType { 
+
+         attribute unsigned long odometer;
+
+    };
+
+    [NoInterfaceObject] interface Fluid : VehiclePropertyType { 
+
+        attribute unsigned short transmission;
+
+        attribute unsigned short brake;
+
+        attribute unsigned short washer;
+
+    };
+
+    [NoInterfaceObject] interface Battery : VehiclePropertyType { 
+
+        attribute double voltage;
+
+        attribute double current;
+
+    };
+
+    [NoInterfaceObject] interface TirePressure : VehiclePropertyType { 
+
+         attribute double leftFront;
+
+         attribute double rightFront;
+
+         attribute double leftRear;
+
+         attribute double rightRear;
+
+    };
+
+    [NoInterfaceObject] interface TireTemperature : VehiclePropertyType { 
+
+        attribute double leftFront;
+
+        attribute double rightFront;
+
+        attribute double leftRear;
+
+        attribute double rightRear;
+
+    };
+
+    [NoInterfaceObject] interface SecurityAlert : VehiclePropertyType { 
+
+        attribute boolean securityAlert;
+
+    };
+
+    [NoInterfaceObject] interface ParkingBrake : VehiclePropertyType { 
+
+        attribute boolean parkingBrake;
+
+    };
+
+    [NoInterfaceObject] interface ParkingLight : VehiclePropertyType { 
+
+        attribute boolean parkingLight;
+
+    };
+
+    [NoInterfaceObject] interface HazardLight : VehiclePropertyType { 
+
+        attribute boolean hazardLight;
+
+    };
+
+    [NoInterfaceObject] interface AntilockBrakingSystem : VehiclePropertyType { 
+
+        attribute boolean antilockBrakingSystem;
+
+    };
+
+    [NoInterfaceObject] interface TractionControlSystem : VehiclePropertyType { 
+
+        attribute boolean tractionControlSystem;
+
+    };
+
+    [NoInterfaceObject] interface VehicleTopSpeedLimit : VehiclePropertyType { 
+
+        attribute unsigned short vehicleTopSpeedLimit;
+
+    };
+
+    [NoInterfaceObject] interface AirbagStatus : VehiclePropertyType { 
+
+        const unsigned short AIRBAGSTATUS_INACTIVE = 0;    
+
+        const unsigned short AIRBAGSTATUS_ACTIVE = 1;    
+
+        const unsigned short AIRBAGSTATUS_DEPLOYED = 2;    
+
+        attribute unsigned short airbagStatus;
+
+    };
+
+    [NoInterfaceObject] interface DoorStatus : VehiclePropertyType { 
+
+        const unsigned short DOORSTATUS_CLOSED = 0;    
+
+        const unsigned short DOORSTATUS_OPEN = 1;    
+
+        const unsigned short DOORSTATUS_AJAR = 2;    
+
+        attribute unsigned short doorStatus;
+
+        attribute boolean doorLockStatus;
+
+        attribute boolean childLockStatus;
+
+    };
+
+    [NoInterfaceObject] interface SeatBeltStatus : VehiclePropertyType { 
+
+        attribute boolean seatBeltStatus;
+
+    };
+
+    [NoInterfaceObject] interface OccupantStatus : VehiclePropertyType { 
+
+        const unsigned short OCCUPANTSTATUS_VACANT = 0;    
+
+        const unsigned short OCCUPANTSTATUS_CHILD = 1;    
+
+        const unsigned short OCCUPANTSTATUS_ADULT = 2;
+
+        attribute unsigned short occupantStatus;
+
+    };
+
+    [NoInterfaceObject] interface ObstacleDistance : VehiclePropertyType { 
+
+        const unsigned short DISTANCESENSORLOCATION_LEFTFRONT = 0;    
+
+        const unsigned short DISTANCESENSORLOCATION_RIGHTFRONT = 1;    
+
+        const unsigned short DISTANCESENSORLOCATION_LEFTREAR = 2;    
+
+        const unsigned short DISTANCESENSORLOCATION_RIGHTREAR = 3;    
+
+        const unsigned short DISTANCESENSORLOCATION_LEFTBLINDSPOT = 4;    
+
+        const unsigned short DISTANCESENSORLOCATION_RIGHTBLINDSPOT = 5;    
+
+        attribute double obstacleDistance;
+
+    };
+
+    [NoInterfaceObject] interface NightMode : VehiclePropertyType {
+
+        attribute boolean nightMode;
+
+    };
+
+    [NoInterfaceObject] interface DrivingMode : VehiclePropertyType {
+
+        attribute unsigned short drivingMode;
+
+    };
+
+    [Callback=FunctionOnly, NoInterfaceObject] interface VehiclePropertyCallback {
+
+        void onsuccess(VehiclePropertyType value);
+
+    };
+
+    [Callback=FunctionOnly, NoInterfaceObject] interface VehiclePropertyErrorCallback {
+
+        void onfailure(VehiclePropertyError error);
+
+    };
+
+    [Callback=FunctionOnly, NoInterfaceObject] interface VehiclePropertyListCallback {
+
+        void onsuccess(sequence&lt;VehiclePropertyType> values);
+
+    };
+
+    [Callback=FunctionOnly, NoInterfaceObject] interface SupportedPropertiesCallback {
+
+        void onsuccess(sequence&lt;DOMString> properties);
+
+    };
+    
+    dictionary DefrostDictionary {
+
+        unsigned short window;
+
+        boolean defrost;
+
+    };
+};
+</pre>
+    </div>
+    <div id="footer">
+        <div class="copyright" align="center">
+            Except as noted, this content - excluding the Code Examples - is
+            licensed under <a
+                href="http://creativecommons.org/licenses/by/3.0/legalcode"
+                target="_blank">Creative Commons Attribution 3.0</a> and all of the
+            Code Examples contained herein are licensed under <a
+                href="https://www.tizen.org/bsd-3-clause-license" target="_blank">BSD-3-Clause</a>.
+            <br>For details, see the <a
+                href="https://www.tizen.org/content-license" target="_blank">Content
+                License</a>.
+        </div>
+        <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push([ '_setAccount', 'UA-25976949-1' ]);
+            _gaq.push([ '_setDomainName', 'tizen.org' ]);
+            _gaq.push([ '_trackPageview' ]);
+
+            (function() {
+                var ga = document.createElement('script');
+                ga.type = 'text/javascript';
+                ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl'
+                        : 'http://www')
+                        + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(ga, s);
+            })();
+        </script>
+    </div>
+</body>
+</html>

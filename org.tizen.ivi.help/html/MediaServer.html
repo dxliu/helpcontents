@@ -1,0 +1,534 @@
+<!DOCTYPE html PUBLIC "html">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="tizen.css" media="screen">
+<script type="text/javascript" src="snippet.js"></script>
+<title>MediaServer API</title>
+</head>
+<body id="content" onload="prettyPrint()">
+    <div class="api" id="::Speech">
+        <div class="title">
+            <h1>MediaServer API</h1>
+        </div>
+        <div class="description">
+            <p>Media Server API to discover and manage images, videos, and music. </p>
+        </div>
+        <h2>Table of Contents</h2>
+        <ul class="toc">
+            <li>1. <a href="#interfaces">Interfaces</a>
+                <ul class="toc">
+                    <li>1.1. <a href="#::MediaServerManagerObject">MediaServerManagerObject</a>
+                    </li>
+                    <li>1.2. <a href="#::MediaServerManager">MediaServerManager</a>
+                    </li>
+                    <li>1.3. <a href="#::MediaServer">MediaServer</a>
+                    </li>
+                    <li>1.4. <a href="#::MediaServerError">MediaServerError</a>
+                    </li>
+                    <li>1.5. <a href="#::MediaServerFoundServerCallback">MediaServerFoundServerCallback</a>
+                    </li>
+                    <li>1.6. <a href="#::MediaServerBrowseFindCallback">MediaServerBrowseFindCallback</a>
+                    </li>
+                    <li>1.7. <a href="#::MediaServerErrorCallback">MediaServerErrorCallback</a>
+                    </li>
+                </ul>
+            </li>
+            <li>2. <a href="#full-webidl">Full WebIDL</a>
+            </li>
+        </ul>
+
+        <hr>
+
+        <h2 id="method-summary">Summary of Interfaces and Methods</h2>
+        <table class="informaltable">
+            <thead>
+                <tr>
+                    <th>Interface</th>
+                    <th>Method</th>
+                </tr>
+                <tr>
+                    <td><a href="#::MediaServerManagerObject"> MediaServerManagerObject</a></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><a href="#::MediaServerManager"> MediaServerManager</a></td>
+                    <td><a href="#::MediaServerManager::scanNetwork">void
+                            scanNetwork(MediaServerFoundServerCallback successCallback, optional MediaServerErrorCallback errorCallback);</a></td>
+                </tr>
+                <tr>
+                    <td><a href="#::MediaServer"> MediaServer</a></td>
+                    <td><a href="#::MediaServer::browse">browse(DOMString containerId, DOMString sortMode, unsigned long count, unsigned long offset, MediaServerBrowseFindCallback successCallback, optional MediaServerErrorCallback errorCallback);</a> <br>
+                        <a href="#::MediaServer::find">find(DOMString containerId, DOMString searchFilter, DOMString sortMode, unsigned long count, unsigned long offset, MediaServerBrowseFindCallback successCallback, optional MediaServerErrorCallback errorCallback);</a></td>
+                </tr>
+               <tr>
+                    <td><a href="#::MediaServerFoundServerCallback"> MediaServerFoundServerCallback</a></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><a href="#::MediaServerBrowseFindCallback"> MediaServerBrowseFindCallback</a></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><a href="#::MediaServerErrorCallback"> MediaServerErrorCallback</a></td>
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+        <!-- -------------------------------- -->
+
+        <div class="interfaces" id="interfaces">
+            <h2>1. Interfaces</h2>
+            <div class="interface" id="::MediaServerManagerObject">
+                <h3>1.1. MediaServerManagerObject</h3>
+                <div class="brief">This interface defines what is instantiated
+                    by the Tizen object by the Tizen Platform. There will be a
+                    tizen.mediaserver object that allows access to the functionality of the
+                    MediaServerManager API.</div>
+<pre class="webidl prettyprint">
+[NoInterfaceObject] interface MediaServerManagerObject {
+    readonly attribute <a href="#::MediaServerManager"><span class="typ">MediaServerManager</span></a> mediaserver;
+};
+</pre>
+<pre class="webidl prettyprint">
+Tizen implements MediaServerManagerObject;
+</pre>
+            </div>
+            <div class="interface" id="::MediaServerManager">
+                <h3>1.2. MediaServerManager</h3>
+                <div class="brief">The MediaServerManager interface defines access to local network media servers discovery functionality. </div>
+<pre class="webidl prettyprint">
+[NoInterfaceObject] interface MediaServerManager  { 
+
+    void scanNetwork(<a href="#::MediaServerFoundServerCallback"><span class="typ">MediaServerFoundServerCallback</span></a> successCallback, optional <a href="#::MediaServerErrorCallback"><span class="typ">MediaServerErrorCallback</span></a> errorCallback);
+
+};
+</pre>
+                <div class="methods">
+                    <h4>Methods</h4>
+
+                    <dl>
+                        <dt class="method" id="::MediaServerManager::scanNetwork">
+                            <span class="methodName">scanNetwork</span>
+                        </dt>
+                        <dd>
+                            <div class="brief">Scans local network for media servers.</div>
+                            <div class="synopsis">
+<pre class="signature prettyprint">
+void scanNetwork(<a href="#::MediaServerFoundServerCallback"><span class="typ">MediaServerFoundServerCallback</span></a> successCallback, optional <a href="#::MediaServerErrorCallback"><span class="typ">MediaServerErrorCallback</span></a> errorCallback);
+<span class="pln"></span>
+</pre>
+                            </div>
+                            <div class="parameters">
+                                <p>
+                                    <span class="param">Parameters:</span>
+                                </p>
+                                <ul>
+                                    <li class="param"><span class="name">successCallback</span>:
+                                     The method to call when each MediaServer is discovered.</li>
+                                    <li class="param"><span class="name">errorCallback[optional]</span>:
+                                    The method to call when no MediaServer is discovered.</li>
+                                </ul>
+                            </div>
+                            <div class="exceptionlist">
+                                <p>
+                                    <span class="except">Exceptions:</span>
+                                </p>
+                                <ul class="exception">
+                                    <li>WebAPIError
+                                        <ul>
+                                            <li class="list"><p>with error type
+                                                    UnknownError, if no MediaServer is discovered.
+                                                </p></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+            <div class="interface" id="::MediaServer">
+                <h3>1.3. MediaServer</h3>
+                <div class="brief">The MediaServer interface. </div>
+<pre class="webidl prettyprint">
+[NoInterfaceObject] interface MediaServer {
+
+    readonly attribute DOMString id;
+
+    readonly attribute DOMString friendlyName;
+
+    readonly attribute object root;
+    
+    void browse(DOMString containerId, DOMString sortMode, unsigned long count, unsigned long offset, <a href="#::MediaServerBrowseFindCallback"><span class="typ">MediaServerBrowseFindCallback</span></a> successCallback, optional <a href="#::MediaServerErrorCallback"><span class="typ">MediaServerErrorCallback</span></a> errorCallback);
+
+    void find(DOMString containerId, DOMString searchFilter, DOMString sortMode, unsigned long count, unsigned long offset, <a href="#::MediaServerBrowseFindCallback"><span class="typ">MediaServerBrowseFindCallback</span></a> successCallback, optional <a href="#::MediaServerErrorCallback"><span class="typ">MediaServerErrorCallback</span></a> errorCallback);
+
+};
+</pre>
+                <div class="attributes">
+                    <h4>Attributes</h4>
+                    <ul>
+                        <li class="attribute" id="::MediaServer::id"><span
+                            class="attrName"><span class="readonly">readonly </span><span class="type">DOMString
+                            </span><span class="name">id</span></span>
+                            <div class="brief">An opaque unique ID.</div></li>
+                        <li class="attribute" id="::MediaServer::friendlyName"><span
+                            class="attrName"><span class="readonly">readonly </span><span class="type">DOMString </span><span
+                                class="name">friendlyName</span></span>
+                            <div class="brief"> A user-friendly name for the device.</div></li>
+                        <li class="attribute" id="::MediaServer::root"><span
+                            class="attrName"><span class="readonly">readonly </span><span class="type">object </span><span
+                                class="name">root</span></span>
+                            <div class="brief">Media server root folder.</div></li>
+                    </ul>
+                </div>
+                <div class="methods">
+                    <h4>Methods</h4>
+
+                    <dl>
+                        <dt class="method" id="::MediaServer::browse">
+                            <span class="methodName">browse</span>
+                        </dt>
+                        <dd>
+                            <div class="brief">Browses for media items under a given media container.</div>
+                            <div class="synopsis">
+<pre class="signature prettyprint">
+void browse(DOMString containerId, DOMString sortMode, unsigned long count, unsigned long offset, <a href="#::MediaServerBrowseFindCallback"><span class="typ">MediaServerBrowseFindCallback</span></a> successCallback, optional <a href="#::MediaServerErrorCallback"><span class="typ">MediaServerErrorCallback</span></a> errorCallback);
+<span class="pln"></span>                                
+</pre>
+                            </div>
+                            <div class="parameters">
+                                <p>
+                                    <span class="param">Parameters:</span>
+                                </p>
+                                <ul>
+                                    <li class="param"><span class="name">containerId</span>:
+                                    A unique identifier for media container in a media server.</li>
+                                    <li class="param"><span class="name">sortMode</span>:
+                                    Sort mode for media items.</li>
+                                    <li class="param"><span class="name">count</span>:
+                                    The maximum number of media items to return out of the browse result (0 for no limit).</li>
+                                    <li class="param"><span class="name">offset</span>:
+                                    The (0-based) index of the first item in the browse result.</li>
+                                    <li class="param"><span class="name">successCallback</span>:
+                                    The method to call when media items are discovered.</li>
+                                    <li class="param"><span class="name">errorCallback[optional]</span>:
+                                    The method to call when an error occurs.</li>
+                                </ul>
+                            </div>
+                            <div class="exceptionlist">
+                                <p>
+                                    <span class="except">Exceptions:</span>
+                                </p>
+                                <ul class="exception">
+                                    <li>WebAPIError
+                                        <ul>
+                                            <li class="list"><p>with error type
+                                                    UnknownError, if an error occurs.
+                                                </p></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </dd>
+                        <dt class="method" id="::MediaServer::find">
+                            <span class="methodName">find</span>
+                        </dt>
+                        <dd>
+                            <div class="brief">Searches for media items under a given MediaContainer.</div>
+                            <div class="synopsis">
+<pre class="signature prettyprint">
+void find(DOMString containerId, DOMString searchFilter, DOMString sortMode, unsigned long count, unsigned long offset, <a href="#::MediaServerBrowseFindCallback"><span class="typ">MediaServerBrowseFindCallback</span></a> successCallback, optional <a href="#::MediaServerErrorCallback"><span class="typ">MediaServerErrorCallback</span></a> errorCallback);
+<span class="pln"></span>
+</pre>
+                            </div>
+                            <div class="parameters">
+                                <p>
+                                    <span class="param">Parameters:</span>
+                                </p>
+                                <ul>
+                                	<li class="param"><span class="name">containerId</span>:
+                                    A unique identifier for media container in a media server.</li>
+                                    <li class="param"><span class="name">searchFilter</span>:
+                                    The search criteria string.</li>
+                                    <li class="param"><span class="name">sortMode</span>:
+                                    Sort mode for media items.</li>
+                                    <li class="param"><span class="name">count</span>:
+                                    The maximum number of media items to return out of the browse result (0 for no limit).</li>
+                                    <li class="param"><span class="name">offset</span>:
+                                    The (0-based) index of the first item in the browse result.</li>
+                                    <li class="param"><span class="name">successCallback</span>:
+                                    The method to call when media items are discovered.</li>
+                                    <li class="param"><span class="name">errorCallback[optional]</span>:
+                                    The method to call when an error occurs.</li>
+                                </ul>
+                            </div>
+                            <div class="exceptionlist">
+                                <p>
+                                    <span class="except">Exceptions:</span>
+                                </p>
+                                <ul class="exception">
+                                    <li>WebAPIError
+                                        <ul>
+                                            <li class="list"><p>with error type
+                                                    UnknownError, if an error occurs.
+                                                </p></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+
+            <div class="interface" id="::MediaServerError">
+                <h3>1.4. MediaServerError</h3>
+                <div class="brief">The MediaServerError interface defines error codes and messages.</div>
+<pre class="webidl prettyprint">
+[NoInterfaceObject] interface MediaServerError {
+
+    const unsigned short GENERIC = 1;
+
+    attribute unsigned short code;
+
+    attribute DOMString message;
+
+};
+</pre>
+                <div class="consts">
+                    <h4>Constants</h4>
+                    <ul>
+                        <li class="const" id="::MediaServerError::GENERIC"><span
+                            class="name">GENERIC</span>
+                            <div class="brief">It defines an error code.</div></li>
+                    </ul>
+                </div>
+                <div class="attributes">
+                    <h4>Attributes</h4>
+                    <ul>
+                        <li class="attribute" id="::MediaServerError::code"><span
+                            class="attrName"><span class="type">unsigned short </span><span
+                                class="name">code</span></span>
+                            <div class="brief">An attribute to get error code.</div></li>
+                        <li class="attribute" id="::MediaServerError::message"><span
+                            class="attrName"><span class="type">DOMString </span><span
+                                class="name">message</span></span>
+                            <div class="brief">An attribute to get error message.</div></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        
+        <div class="interface" id="::MediaServerFoundServerCallback">
+                <h3>1.5. MediaServerFoundServerCallback</h3>
+                <div class="brief">This interface invokes the success callback that is invoked when a MediaServer is discovered. </div>
+<pre class="webidl prettyprint">
+[Callback=FunctionOnly, NoInterfaceObject] interface MediaServerFoundServerCallback {
+
+    void onsuccess(<a href="#::MediaServer"><span class="typ">MediaServer</span></a> value);
+
+};
+</pre>
+                <div class="methods">
+                    <h4>Methods</h4>
+
+                    <dl>
+                        <dt class="method" id="::MediaServerFoundServerCallback::onsuccess">
+                            <span class="methodName">onsuccess</span>
+                        </dt>
+                        <dd>
+                            <div class="brief">The callback function used to return a MediaServer object. Called when the media server is found successfully. </div>
+                            <div class="synopsis">
+<pre class="signature prettyprint">
+void onsuccess(MediaServer value);
+<span class="pln"></span>
+</pre>
+                            </div>
+                            <div class="parameters">
+                                <p>
+                                    <span class="param">Parameters:</span>
+                                </p>
+                                <ul>
+                                    <li class="param"><span class="name">value</span>: A MediaServer object.</li>
+                                </ul>
+                            </div>
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+        </div>   
+        
+        <div class="interface" id="::MediaServerBrowseFindCallback">
+                <h3>1.6. MediaServerBrowseFindCallback</h3>
+                <div class="brief">This interface specified a success callback that is invoked when some media items is found.</div>
+<pre class="webidl prettyprint">
+[Callback=FunctionOnly, NoInterfaceObject] interface MediaServerBrowseFindCallback {
+
+    void onsuccess(sequence&lt;object> value);
+
+};
+</pre>
+                <div class="methods">
+                    <h4>Methods</h4>
+
+                    <dl>
+                        <dt class="method" id="::MediaServerBrowseFindCallback::onsuccess">
+                            <span class="methodName">onsuccess</span>
+                        </dt>
+                        <dd>
+                            <div class="brief">The callback function used to return a list of MediaServerItem objects. Called when the list of media server item is retrieved successfully.</div>
+                            <div class="synopsis">
+<pre class="signature prettyprint">
+void onsuccess(sequence&lt;object value);
+<span class="pln"></span>
+</pre>
+                            </div>
+                            <div class="parameters">
+                                <p>
+                                    <span class="param">Parameters:</span>
+                                </p>
+                                <ul>
+                                    <li class="param"><span class="name">value</span>: A list of media items.</li>
+                                </ul>
+                            </div>
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+        </div>   
+        
+        <div class="interface" id="::MediaServerErrorCallback">
+                <h3>1.6. MediaServerErrorCallback</h3>
+                <div class="brief">This interface specified a failure callback that is invoked when any errors are happened.</div>
+<pre class="webidl prettyprint">
+[Callback=FunctionOnly, NoInterfaceObject] interface MediaServerErrorCallback {
+
+    void onfailure(<a href="#::MediaServerError"><span class="typ">MediaServerError</span></a> error);
+
+};
+</pre>
+                <div class="methods">
+                    <h4>Methods</h4>
+
+                    <dl>
+                        <dt class="method" id="::MediaServerErrorCallback::onfailure">
+                            <span class="methodName">onfailure</span>
+                        </dt>
+                        <dd>
+                            <div class="brief">The callback function used to return a MediaServerError object. Called when an error occurs.</div>
+                            <div class="synopsis">
+<pre class="signature prettyprint">
+void onfailure(MediaServerError error);
+<span class="pln"></span>
+</pre>
+                            </div>
+                            <div class="parameters">
+                                <p>
+                                    <span class="param">Parameters:</span>
+                                </p>
+                                <ul>
+                                    <li class="param"><span class="name">error</span>: A MediaServerError object.</li>
+                                </ul>
+                            </div>
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+        </div>   
+
+    <!-- -------------------------------- -->
+    <h2 id="full-webidl">3. Full WebIDL</h2>
+<pre class="webidl prettyprint">
+module MediaServer {
+
+    [NoInterfaceObject] interface MediaServerManagerObject {
+        readonly attribute MediaServerManager mediaserver;
+    };
+
+    Tizen implements MediaServerManagerObject;
+        
+    [NoInterfaceObject] interface MediaServerManager  {
+
+        void scanNetwork(MediaServerFoundServerCallback successCallback, optional MediaServerErrorCallback errorCallback);
+
+    };
+
+    [NoInterfaceObject] interface MediaServer {
+
+        readonly attribute DOMString id;
+
+        readonly attribute DOMString friendlyName;
+
+        readonly attribute object root;
+
+        void browse(DOMString containerId, DOMString sortMode, unsigned long count, unsigned long offset, MediaServerBrowseFindCallback successCallback, optional MediaServerErrorCallback errorCallback);
+
+        void find(DOMString containerId, DOMString searchFilter, DOMString sortMode, unsigned long count, unsigned long offset, MediaServerBrowseFindCallback successCallback, optional MediaServerErrorCallback errorCallback);
+
+    };
+
+    [NoInterfaceObject] interface MediaServerError {
+
+        const unsigned short GENERIC = 1;
+
+        attribute unsigned short code;
+
+        attribute DOMString message;
+
+    };
+
+    [Callback=FunctionOnly, NoInterfaceObject] interface MediaServerFoundServerCallback {
+
+        void onsuccess(MediaServer value);
+
+    };
+
+    [Callback=FunctionOnly, NoInterfaceObject] interface MediaServerBrowseFindCallback {
+
+        void onsuccess(sequence&lt;object> value);
+
+    };
+
+    [Callback=FunctionOnly, NoInterfaceObject] interface MediaServerErrorCallback {
+
+        void onfailure(MediaServerError error);
+
+    };
+};
+</pre>
+    <div id="footer">
+        <div class="copyright" align="center">
+            Except as noted, this content - excluding the Code Examples - is
+            licensed under <a
+                href="http://creativecommons.org/licenses/by/3.0/legalcode"
+                target="_blank">Creative Commons Attribution 3.0</a> and all of the
+            Code Examples contained herein are licensed under <a
+                href="https://www.tizen.org/bsd-3-clause-license" target="_blank">BSD-3-Clause</a>.
+            <br>For details, see the <a
+                href="https://www.tizen.org/content-license" target="_blank">Content
+                License</a>.
+        </div>
+        <script type="text/javascript">
+                var _gaq = _gaq || [];
+                _gaq.push([ '_setAccount', 'UA-25976949-1' ]);
+                _gaq.push([ '_setDomainName', 'tizen.org' ]);
+                _gaq.push([ '_trackPageview' ]);
+
+                (function() {
+                    var ga = document.createElement('script');
+                    ga.type = 'text/javascript';
+                    ga.async = true;
+                    ga.src = ('https:' == document.location.protocol ? 'https://ssl'
+                            : 'http://www')
+                            + '.google-analytics.com/ga.js';
+                    var s = document.getElementsByTagName('script')[0];
+                    s.parentNode.insertBefore(ga, s);
+                })();
+            </script>
+    </div>
+</body>
+</html>

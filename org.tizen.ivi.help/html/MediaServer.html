@@ -368,7 +368,7 @@ void onsuccess(MediaServer value);
 <pre class="webidl prettyprint">
 [Callback=FunctionOnly, NoInterfaceObject] interface MediaServerBrowseFindCallback {
 
-    void onsuccess(sequence&lt;object> value);
+    void onsuccess(object[] value);
 
 };
 </pre>
@@ -383,7 +383,7 @@ void onsuccess(MediaServer value);
                             <div class="brief">The callback function used to return a list of MediaServerItem objects. Called when the list of media server item is retrieved successfully.</div>
                             <div class="synopsis">
 <pre class="signature prettyprint">
-void onsuccess(sequence&lt;object value);
+void onsuccess(object[] value);
 <span class="pln"></span>
 </pre>
                             </div>
@@ -489,7 +489,7 @@ module MediaServer {
 
     [Callback=FunctionOnly, NoInterfaceObject] interface MediaServerBrowseFindCallback {
 
-        void onsuccess(sequence&lt;object> value);
+        void onsuccess(object[] value);
 
     };
 

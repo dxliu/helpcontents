@@ -53,13 +53,13 @@
                 </tr>
                 <tr>
                     <td><a href="#::MediaServerManager"> MediaServerManager</a></td>
-                    <td><a href="#::MediaServerManager::scanNetwork">void
-                            scanNetwork(MediaServerFoundServerCallback successCallback, optional MediaServerErrorCallback errorCallback);</a></td>
+                    <td>void <a href="#::MediaServerManager::scanNetwork">
+                            scanNetwork</a>(<a href="#::MediaServerFoundServerCallback"><span class="typ">MediaServerFoundServerCallback</span></a> successCallback, optional <a href="#::MediaServerErrorCallback"><span class="typ">MediaServerErrorCallback</span></a> errorCallback);</td>
                 </tr>
                 <tr>
                     <td><a href="#::MediaServer::MediaServer"> MediaServer</a></td>
-                    <td><a href="#::MediaServer::MediaServer::browse">browse(DOMString containerId, DOMString sortMode, unsigned long count, unsigned long offset, MediaServerBrowseFindCallback successCallback, optional MediaServerErrorCallback errorCallback);</a> <br>
-                        <a href="#::MediaServer::MediaServer::find">find(DOMString containerId, DOMString searchFilter, DOMString sortMode, unsigned long count, unsigned long offset, MediaServerBrowseFindCallback successCallback, optional MediaServerErrorCallback errorCallback);</a></td>
+                    <td>void <a href="#::MediaServer::MediaServer::browse">browse</a>(DOMString containerId, DOMString sortMode, unsigned long count, unsigned long offset, <a href="#::MediaServerBrowseFindCallback"><span class="typ">MediaServerBrowseFindCallback</span></a> successCallback, optional <a href="#::MediaServerErrorCallback"><span class="typ">MediaServerErrorCallback</span></a> errorCallback); <br>
+                        void <a href="#::MediaServer::MediaServer::find">find</a>(DOMString containerId, DOMString searchFilter, DOMString sortMode, unsigned long count, unsigned long offset, <a href="#::MediaServerBrowseFindCallback"><span class="typ">MediaServerBrowseFindCallback</span></a> successCallback, optional <a href="#::MediaServerErrorCallback"><span class="typ">MediaServerErrorCallback</span></a> errorCallback);</td>
                 </tr>
                <tr>
                     <td><a href="#::MediaServerFoundServerCallback"> MediaServerFoundServerCallback</a></td>
@@ -99,7 +99,7 @@ Tizen implements MediaServerManagerObject;
                 <h3>1.2. MediaServerManager</h3>
                 <div class="brief">The MediaServerManager interface defines access to local network media servers discovery functionality. </div>
 <pre class="webidl prettyprint">
-[NoInterfaceObject] interface MediaServerManager  { 
+[NoInterfaceObject] interface MediaServerManager {
 
     void scanNetwork(<a href="#::MediaServerFoundServerCallback"><span class="typ">MediaServerFoundServerCallback</span></a> successCallback, optional <a href="#::MediaServerErrorCallback"><span class="typ">MediaServerErrorCallback</span></a> errorCallback);
 
@@ -151,7 +151,7 @@ void scanNetwork(<a href="#::MediaServerFoundServerCallback"><span class="typ">M
             </div>
             <div class="interface" id="::MediaServer::MediaServer">
                 <h3>1.3. MediaServer</h3>
-                <div class="brief">The MediaServer interface. </div>
+                <div class="brief">The MediaServer interface.</div>
 <pre class="webidl prettyprint">
 [NoInterfaceObject] interface MediaServer {
 
@@ -160,7 +160,7 @@ void scanNetwork(<a href="#::MediaServerFoundServerCallback"><span class="typ">M
     readonly attribute DOMString friendlyName;
 
     readonly attribute object root;
-    
+
     void browse(DOMString containerId, DOMString sortMode, unsigned long count, unsigned long offset, <a href="#::MediaServerBrowseFindCallback"><span class="typ">MediaServerBrowseFindCallback</span></a> successCallback, optional <a href="#::MediaServerErrorCallback"><span class="typ">MediaServerErrorCallback</span></a> errorCallback);
 
     void find(DOMString containerId, DOMString searchFilter, DOMString sortMode, unsigned long count, unsigned long offset, <a href="#::MediaServerBrowseFindCallback"><span class="typ">MediaServerBrowseFindCallback</span></a> successCallback, optional <a href="#::MediaServerErrorCallback"><span class="typ">MediaServerErrorCallback</span></a> errorCallback);
@@ -196,7 +196,7 @@ void scanNetwork(<a href="#::MediaServerFoundServerCallback"><span class="typ">M
                             <div class="synopsis">
 <pre class="signature prettyprint">
 void browse(DOMString containerId, DOMString sortMode, unsigned long count, unsigned long offset, <a href="#::MediaServerBrowseFindCallback"><span class="typ">MediaServerBrowseFindCallback</span></a> successCallback, optional <a href="#::MediaServerErrorCallback"><span class="typ">MediaServerErrorCallback</span></a> errorCallback);
-<span class="pln"></span>                                
+<span class="pln"></span>
 </pre>
                             </div>
                             <div class="parameters">
@@ -249,7 +249,7 @@ void find(DOMString containerId, DOMString searchFilter, DOMString sortMode, uns
                                     <span class="param">Parameters:</span>
                                 </p>
                                 <ul>
-                                	<li class="param"><span class="name">containerId</span>:
+                                    <li class="param"><span class="name">containerId</span>:
                                     A unique identifier for media container in a media server.</li>
                                     <li class="param"><span class="name">searchFilter</span>:
                                     The search criteria string.</li>
@@ -321,8 +321,7 @@ void find(DOMString containerId, DOMString searchFilter, DOMString sortMode, uns
                 </div>
             </div>
         </div>
-        
-        
+
         <div class="interface" id="::MediaServerFoundServerCallback">
                 <h3>1.5. MediaServerFoundServerCallback</h3>
                 <div class="brief">This interface invokes the success callback that is invoked when a MediaServer is discovered. </div>
@@ -360,8 +359,8 @@ void onsuccess(MediaServer value);
                     </dl>
                 </div>
             </div>
-        </div>   
-        
+        </div>
+
         <div class="interface" id="::MediaServerBrowseFindCallback">
                 <h3>1.6. MediaServerBrowseFindCallback</h3>
                 <div class="brief">This interface specified a success callback that is invoked when some media items is found.</div>
@@ -399,8 +398,8 @@ void onsuccess(object[] value);
                     </dl>
                 </div>
             </div>
-        </div>   
-        
+        </div>
+
         <div class="interface" id="::MediaServerErrorCallback">
                 <h3>1.6. MediaServerErrorCallback</h3>
                 <div class="brief">This interface specified a failure callback that is invoked when any errors are happened.</div>
@@ -438,7 +437,7 @@ void onfailure(MediaServerError error);
                     </dl>
                 </div>
             </div>
-        </div>   
+        </div>
 
     <!-- -------------------------------- -->
     <h2 id="full-webidl">3. Full WebIDL</h2>
@@ -450,7 +449,7 @@ module MediaServer {
     };
 
     Tizen implements MediaServerManagerObject;
-        
+
     [NoInterfaceObject] interface MediaServerManager  {
 
         void scanNetwork(MediaServerFoundServerCallback successCallback, optional MediaServerErrorCallback errorCallback);

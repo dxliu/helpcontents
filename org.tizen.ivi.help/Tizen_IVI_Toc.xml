@@ -2,5 +2,5 @@
 <?NLS TYPE="org.eclipse.help.toc"?>
 
 <toc label="Tizen IVI App Programming" topic="html/toc.html">
-	<link toc="toc.xml" />
+    <link toc="toc.xml" />
 </toc>

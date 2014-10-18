@@ -45,10 +45,10 @@
                 </tr>
                 <tr>
                     <td><a href="#::Locale::Locale"> Locale</a></td>
-                    <td><a href="#::Locale::Locale::getLocale">getLocale();</a> <br>
-                        <a href="#::Locale::Locale::setLocale">setLocale(DOMString
-                            newLocale);</a> <br> <a href="#::Locale::Locale::localeChanged">
-                            localeChanged(LocaleChangedCallback cb);</a> <br></td>
+                    <td>DOMString <a href="#::Locale::Locale::getLocale">getLocale()</a>; <br>
+                        void <a href="#::Locale::Locale::setLocale">setLocale</a>(DOMString
+                            newLocale); <br> void <a href="#::Locale::Locale::localeChanged">
+                            localeChanged</a>(<a href="#::Locale::LocaleChangedCallback"><span class="typ">LocaleChangedCallback</span></a> changeCallback); <br></td>
                 </tr>
                 <tr>
                     <td><a href="#::Locale::LocaleChangedCallback"> LocaleChangedCallback</a></td>
@@ -78,13 +78,13 @@ Tizen implements Locale;
                 <h3>1.2. Locale</h3>
                 <div class="brief">The Vehicle interface defines access to locale functionality.</div>
 <pre class="webidl prettyprint">
-[NoInterfaceObject] interface Locale  { 
+[NoInterfaceObject] interface Locale  {
 
     DOMString getLocale();
-    
+
     void setLocale(DOMString newLocale);
-     
-    void localeChanged(<a href="#::Locale::LocaleChangedCallback"><span class="typ">LocaleChangedCallback</span></a> cb);
+
+    void localeChanged(<a href="#::Locale::LocaleChangedCallback"><span class="typ">LocaleChangedCallback</span></a> changeCallback);
 
 };
 </pre>
@@ -137,7 +137,7 @@ void setLocale(DOMString newLocale);
                             <div class="brief">Subscribes a callback function to be invoked when locale changes.</div>
                             <div class="synopsis">
 <pre class="signature prettyprint">
-void localeChanged(<a href="#::LocaleChangedCallback"><span class="typ">LocaleChangedCallback</span></a> cb);
+void localeChanged(<a href="#::LocaleChangedCallback"><span class="typ">LocaleChangedCallback</span></a> changeCallback);
 <span class="pln"></span>
 </pre>
                             </div>
@@ -146,7 +146,7 @@ void localeChanged(<a href="#::LocaleChangedCallback"><span class="typ">LocaleCh
                                     <span class="param">Parameters:</span>
                                 </p>
                                 <ul>
-                                    <li class="param"><span class="name">cb</span>: Callback
+                                    <li class="param"><span class="name">changeCallback</span>: Callback
                                         to be called when this event occurs.</li>
                                 </ul>
                             </div>
@@ -205,13 +205,13 @@ module Locale {
 
     Tizen implements Locale;
 
-    [NoInterfaceObject] interface Locale  { 
+    [NoInterfaceObject] interface Locale  {
 
         DOMString getLocale();
 
         void setLocale(DOMString newLocale);
 
-        void localeChanged(LocaleChangedCallback cb);
+        void localeChanged(LocaleChangedCallback changeCallback);
 
     };
 
@@ -255,9 +255,3 @@ module Locale {
              </div>
 </body>
 </html>
-
-
-
-
-
-

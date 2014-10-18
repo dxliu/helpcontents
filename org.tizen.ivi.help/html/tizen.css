@@ -4,7 +4,20 @@
 }
 #content pre
 {
-    /*text-align: left;            -webkit-border-radius: 8px;     -khtml-border-radius: 8px;     -moz-border-radius: 8px;     border-radius: 8px;     border: 1px solid rgba(255, 255, 255, 0.2);     display:block;     color:#2c3123;     margin:15px 0px 15px -8px;     padding:12px 20px 12px 35px;     font-size: 14px;     /*overflow:hidden;*/ /*word-wrap:break-word;*/ /*white-space: normal;*/
+    /*text-align: left;
+    -webkit-border-radius: 8px;
+    -khtml-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    display:block;
+    color:#2c3123;
+    margin:15px 0px 15px -8px;
+    padding:12px 20px 12px 35px;
+    font-size: 14px;
+    /*overflow:hidden;*/
+    /*word-wrap:break-word;*/
+    /*white-space: normal;*/
     background: white;
     color: #1C1C1C;
     margin-right: 20px;
@@ -33,23 +46,22 @@
 {
 }
 
-
 #content .signature
 {
     background-color: #FCE6B9;
-	word-wrap:break-word;
+    word-wrap:break-word;
 }
 
 #content .examplecode
 {
     background-color: #D5F1FD;
-	word-wrap:break-word;
+    word-wrap:break-word;
 }
 
 #content .webidl
 {
     background-color: #D9F0C4;
-	word-wrap:break-word;
+    word-wrap:break-word;
 }
 
 #content .prettyprint b
@@ -399,10 +411,10 @@
 /* Table styles */
 #content table
 {
-	border: 0px;
+    border: 0px;
     border-collapse: collapse;
-	margin-top: 20px;
-	margin-bottom: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 #content th
@@ -426,9 +438,9 @@
 
 #content td
 {
-	border: 1px solid #c6d9f1;
-	vertical-align:top;
-	padding: 3px 20px 5px 20px;
+    border: 1px solid #c6d9f1;
+    vertical-align:top;
+    padding: 3px 20px 5px 20px;
 }
 /*
 #content th:last-of-type, td:last-of-type
@@ -465,19 +477,19 @@
 
 
 a:link {
-	color: #719cc7;
-	text-decoration: underline;
-	font-weight: bold;
+    color: #719cc7;
+    text-decoration: underline;
+    font-weight: bold;
 }
 
-a:hover { 
-	color: #0e437d;
+a:hover {
+    color: #0e437d;
 }
 
 a:visited {
-	text-decoration: underline;
-	color: #719cc7;
-	font-weight: bold;
+    text-decoration: underline;
+    color: #719cc7;
+    font-weight: bold;
 }
 
 
@@ -598,7 +610,7 @@ a:visited {
     /* hide from IE3 */
     #content a[href]:hover
     {
-		color: #0e437d;
+        color: #0e437d;
     }
 }
 
@@ -607,11 +619,11 @@ a:visited {
     margin-left: 2em;
 }
 /*
-	#content  p {
-	  margin-top: 0.6em;
-	  margin-bottom: 0.6em;
-	}
-	*/
+    #content  p {
+      margin-top: 0.6em;
+      margin-bottom: 0.6em;
+    }
+    */
 
 /* opera 3.50 */
 #content dt, #content dd
@@ -781,9 +793,9 @@ a:visited {
 {
     color: #993800;
 }
-#content .optional, 
+#content .optional
 {
-#   color: #000;
+    color: #000;
     /*#font-weight: bold;*/
    /* font-style: italic;*/
 }
@@ -915,6 +927,6 @@ span.name
 
 li.feature
 {
-	margin-left:30px;
-	font-weight: bold;
+    margin-left:30px;
+    font-weight: bold;
 }

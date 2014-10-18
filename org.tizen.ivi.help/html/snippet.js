@@ -67,7 +67,7 @@ window['PR_SHOULD_USE_CONTINUATION'] = true;
   // We use things that coerce to strings to make them compact when minified
   // and to defeat aggressive optimizers that fold large string constants.
   var FLOW_CONTROL_KEYWORDS = ["break,continue,do,else,for,if,return,while"];
-  var C_KEYWORDS = [FLOW_CONTROL_KEYWORDS,"auto,case,char,const,default," + 
+  var C_KEYWORDS = [FLOW_CONTROL_KEYWORDS,"auto,case,char,const,default," +
       "double,enum,extern,float,goto,int,long,register,short,signed,sizeof," +
       "static,struct,switch,typedef,union,unsigned,void,volatile"];
   var COMMON_KEYWORDS = [C_KEYWORDS,"catch,class,delete,false,import," +
@@ -180,8 +180,6 @@ window['PR_SHOULD_USE_CONTINUATION'] = true;
    */
   var PR_NOCODE = 'nocode';
 
-
-
 /**
  * A set of tokens that can precede a regular expression literal in
  * javascript
@@ -220,7 +218,7 @@ var REGEXP_PRECEDER_PATTERN = '(?:^^\\.?|[+-]|\\!|\\!=|\\!==|\\#|\\%|\\%=|&|&&|&
    */
   function combinePrefixPatterns(regexs) {
     var capturedGroupIndex = 0;
-  
+
     var needToFoldCase = false;
     var ignoreCase = false;
     for (var i = 0, n = regexs.length; i < n; ++i) {
@@ -234,7 +232,7 @@ var REGEXP_PRECEDER_PATTERN = '(?:^^\\.?|[+-]|\\!|\\!=|\\!==|\\#|\\%|\\%=|&|&&|&
         break;
       }
     }
-  
+
     var escapeCharToCodeUnit = {
       'b': 8,
       't': 9,
@@ -243,7 +241,7 @@ var REGEXP_PRECEDER_PATTERN = '(?:^^\\.?|[+-]|\\!|\\!=|\\!==|\\#|\\%|\\%=|&|&&|&
       'f': 0xc,
       'r': 0xd
     };
-  
+
     function decodeEscape(charsetPart) {
       var cc0 = charsetPart.charCodeAt(0);
       if (cc0 !== 92 /* \\ */) {
@@ -261,7 +259,7 @@ var REGEXP_PRECEDER_PATTERN = '(?:^^\\.?|[+-]|\\!|\\!=|\\!==|\\#|\\%|\\%=|&|&&|&
         return charsetPart.charCodeAt(1);
       }
     }
-  
+
     function encodeEscape(charCode) {
       if (charCode < 0x20) {
         return (charCode < 0x10 ? '\\x0' : '\\x') + charCode.toString(16);
@@ -272,7 +270,7 @@ var REGEXP_PRECEDER_PATTERN = '(?:^^\\.?|[+-]|\\!|\\!=|\\!==|\\#|\\%|\\%=|&|&&|&
       }
       return ch;
     }
-  
+
     function caseFoldCharset(charSet) {
       var charsetParts = charSet.substring(1, charSet.length - 1).match(
           new RegExp(
@@ -315,7 +313,7 @@ var REGEXP_PRECEDER_PATTERN = '(?:^^\\.?|[+-]|\\!|\\!=|\\!==|\\#|\\%|\\%=|&|&&|&
           }
         }
       }
-  
+
       // [[1, 10], [3, 4], [8, 12], [14, 14], [16, 16], [17, 17]]
       // -> [[1, 12], [14, 14], [16, 17]]
       ranges.sort(function (a, b) { return (a[0] - b[0]) || (b[1]  - a[1]); });
@@ -329,7 +327,7 @@ var REGEXP_PRECEDER_PATTERN = '(?:^^\\.?|[+-]|\\!|\\!=|\\!==|\\#|\\%|\\%=|&|&&|&
           consolidatedRanges.push(lastRange = range);
         }
       }
-  
+
       var out = ['['];
       if (inverse) { out.push('^'); }
       out.push.apply(out, groups);
@@ -344,7 +342,7 @@ var REGEXP_PRECEDER_PATTERN = '(?:^^\\.?|[+-]|\\!|\\!=|\\!==|\\#|\\%|\\%=|&|&&|&
       out.push(']');
       return out.join('');
     }
-  
+
     function allowAnywhereFoldCaseAndRenumberGroups(regex) {
       // Split into character sets, escape sequences, punctuation strings
       // like ('(', '(?:', ')', '^'), and runs of characters that do not
@@ -363,12 +361,12 @@ var REGEXP_PRECEDER_PATTERN = '(?:^^\\.?|[+-]|\\!|\\!=|\\!==|\\#|\\%|\\%=|&|&&|&
               + ')',
               'g'));
       var n = parts.length;
-  
+
       // Maps captured group numbers to the number they will occupy in
       // the output or to -1 if that has not been determined, or to
       // undefined if they need not be capturing in the output.
       var capturedGroups = [];
-  
+
       // Walk over and identify back references to build the capturedGroups
       // mapping.
       for (var i = 0, groupIndex = 0; i < n; ++i) {
@@ -383,7 +381,7 @@ var REGEXP_PRECEDER_PATTERN = '(?:^^\\.?|[+-]|\\!|\\!=|\\!==|\\#|\\%|\\%=|&|&&|&
           }
         }
       }
-  
+
       // Renumber groups and reduce capturing groups to non-capturing groups
       // where possible.
       for (var i = 1; i < capturedGroups.length; ++i) {
@@ -405,13 +403,13 @@ var REGEXP_PRECEDER_PATTERN = '(?:^^\\.?|[+-]|\\!|\\!=|\\!==|\\#|\\%|\\%=|&|&&|&
           }
         }
       }
-  
+
       // Remove any prefix anchors so that the output will match anywhere.
       // ^^ really does mean an anchored match though.
       for (var i = 0, groupIndex = 0; i < n; ++i) {
         if ('^' === parts[i] && '^' !== parts[i + 1]) { parts[i] = ''; }
       }
-  
+
       // Expand letters to groups to handle mixing of case-sensitive and
       // case-insensitive patterns if necessary.
       if (regex.ignoreCase && needToFoldCase) {
@@ -431,10 +429,10 @@ var REGEXP_PRECEDER_PATTERN = '(?:^^\\.?|[+-]|\\!|\\!=|\\!==|\\#|\\%|\\%=|&|&&|&
           }
         }
       }
-  
+
       return parts.join('');
     }
-  
+
     var rewritten = [];
     for (var i = 0, n = regexs.length; i < n; ++i) {
       var regex = regexs[i];
@@ -442,10 +440,9 @@ var REGEXP_PRECEDER_PATTERN = '(?:^^\\.?|[+-]|\\!|\\!=|\\!==|\\#|\\%|\\%=|&|&&|&
       rewritten.push(
           '(?:' + allowAnywhereFoldCaseAndRenumberGroups(regex) + ')');
     }
-  
+
     return new RegExp(rewritten.join('|'), ignoreCase ? 'gi' : 'g');
   }
-
 
   /**
    * Split markup into a string of source code and an array mapping ranges in
@@ -492,12 +489,12 @@ var REGEXP_PRECEDER_PATTERN = '(?:^^\\.?|[+-]|\\!|\\!=|\\!==|\\#|\\%|\\%=|&|&&|&
    */
   function extractSourceSpans(node) {
     var nocode = /(?:^|\s)nocode(?:\s|$)/;
-  
+
     var chunks = [];
     var length = 0;
     var spans = [];
     var k = 0;
-  
+
     var whitespace;
     if (node.currentStyle) {
       whitespace = node.currentStyle.whiteSpace;
@@ -506,7 +503,7 @@ var REGEXP_PRECEDER_PATTERN = '(?:^^\\.?|[+-]|\\!|\\!=|\\!==|\\#|\\%|\\%=|&|&&|&
           .getPropertyValue('white-space');
     }
     var isPreformatted = whitespace && 'pre' === whitespace.substring(0, 3);
-  
+
     function walk(node) {
       switch (node.nodeType) {
         case 1:  // Element
@@ -538,15 +535,14 @@ var REGEXP_PRECEDER_PATTERN = '(?:^^\\.?|[+-]|\\!|\\!=|\\!==|\\#|\\%|\\%=|&|&&|&
           break;
       }
     }
-  
+
     walk(node);
-  
+
     return {
       sourceCode: chunks.join('').replace(/\n$/, ''),
       spans: spans
     };
   }
-
 
   /**
    * Apply the given language handler to sourceCode and add the resulting
@@ -809,7 +805,7 @@ var REGEXP_PRECEDER_PATTERN = '(?:^^\\.?|[+-]|\\!|\\!=|\\!==|\\#|\\%|\\%=|&|&&|&
         if (hc > 1) {  // multiline hash comments
           shortcutStylePatterns.push(
               [PR_COMMENT, /^#(?:##(?:[^#]|#(?!##))*(?:###|$)|.*)/, null, '#']);
-              
+
         } else {
           // Stop C preprocessor declarations at an unclosed open comment
 //          shortcutStylePatterns.push(
@@ -911,9 +907,9 @@ var REGEXP_PRECEDER_PATTERN = '(?:^^\\.?|[+-]|\\!|\\!=|\\!==|\\#|\\%|\\%=|&|&&|&
   function numberLines(node, opt_startLineNum) {
     var nocode = /(?:^|\s)nocode(?:\s|$)/;
     var lineBreak = /\r\n?|\n/;
-  
+
     var document = node.ownerDocument;
-  
+
     var whitespace;
     if (node.currentStyle) {
       whitespace = node.currentStyle.whiteSpace;
@@ -924,7 +920,7 @@ var REGEXP_PRECEDER_PATTERN = '(?:^^\\.?|[+-]|\\!|\\!=|\\!==|\\#|\\%|\\%=|&|&&|&
     // If it's preformatted, then we need to split lines on line breaks
     // in addition to <BR>s.
     var isPreformatted = whitespace && 'pre' === whitespace.substring(0, 3);
-  
+
     var li = document.createElement('LI');
     while (node.firstChild) {
       li.appendChild(node.firstChild);
@@ -932,7 +928,7 @@ var REGEXP_PRECEDER_PATTERN = '(?:^^\\.?|[+-]|\\!|\\!=|\\!==|\\#|\\%|\\%=|&|&&|&
     // An array of lines.  We split below, so this is initialized to one
     // un-split line.
     var listItems = [li];
-  
+
     function walk(node) {
       switch (node.nodeType) {
         case 1:  // Element
@@ -972,7 +968,7 @@ var REGEXP_PRECEDER_PATTERN = '(?:^^\\.?|[+-]|\\!|\\!=|\\!==|\\#|\\%|\\%=|&|&&|&
           break;
       }
     }
-  
+
     // Split a line after the given node.
     function breakAfter(lineEndNode) {
       // If there's nothing to the right, then we can skip ending the line
@@ -982,7 +978,7 @@ var REGEXP_PRECEDER_PATTERN = '(?:^^\\.?|[+-]|\\!|\\!=|\\!==|\\#|\\%|\\%=|&|&&|&
         lineEndNode = lineEndNode.parentNode;
         if (!lineEndNode) { return; }
       }
-  
+
       function breakLeftOf(limit, copy) {
         // Clone shallowly if this node needs to be on both sides of the break.
         var rightSide = copy ? limit.cloneNode(false) : limit;
@@ -1004,9 +1000,9 @@ var REGEXP_PRECEDER_PATTERN = '(?:^^\\.?|[+-]|\\!|\\!=|\\!==|\\#|\\%|\\%=|&|&&|&
         }
         return rightSide;
       }
-  
+
       var copiedListItem = breakLeftOf(lineEndNode.nextSibling, 0);
-  
+
       // Walk the parent chain until we reach an unattached LI.
       for (var parent;
            // Check nodeType since IE invents document fragments.
@@ -1016,19 +1012,19 @@ var REGEXP_PRECEDER_PATTERN = '(?:^^\\.?|[+-]|\\!|\\!=|\\!==|\\#|\\%|\\%=|&|&&|&
       // Put it on the list of lines for later processing.
       listItems.push(copiedListItem);
     }
-  
+
     // Split lines while there are lines left to split.
     for (var i = 0;  // Number of lines that have been split so far.
          i < listItems.length;  // length updated by breakAfter calls.
          ++i) {
       walk(listItems[i]);
     }
-  
+
     // Make sure numeric indices show correctly.
     if (opt_startLineNum === (opt_startLineNum|0)) {
       listItems[0].setAttribute('value', opt_startLineNum);
     }
-  
+
     var ol = document.createElement('OL');
     ol.className = 'linenums';
     var offset = Math.max(0, ((opt_startLineNum - 1 /* zero index */)) | 0) || 0;
@@ -1043,7 +1039,7 @@ var REGEXP_PRECEDER_PATTERN = '(?:^^\\.?|[+-]|\\!|\\!=|\\!==|\\#|\\%|\\%=|&|&&|&
       }
       ol.appendChild(li);
     }
-  
+
     node.appendChild(ol);
   }
 
@@ -1063,23 +1059,23 @@ var REGEXP_PRECEDER_PATTERN = '(?:^^\\.?|[+-]|\\!|\\!=|\\!==|\\#|\\%|\\%=|&|&&|&
   function recombineTagsAndDecorations(job) {
     var isIE = /\bMSIE\b/.test(navigator.userAgent);
     var newlineRe = /\n/g;
-  
+
     var source = job.sourceCode;
     var sourceLength = source.length;
     // Index into source after the last code-unit recombined.
     var sourceIndex = 0;
-  
+
     var spans = job.spans;
     var nSpans = spans.length;
     // Index into spans after the last span which ends at or before sourceIndex.
     var spanIndex = 0;
-  
+
     var decorations = job.decorations;
     var nDecorations = decorations.length;
     // Index into decorations after the last decoration which ends at or before
     // sourceIndex.
     var decorationIndex = 0;
-  
+
     // Remove all zero-length decorations.
     decorations[nDecorations] = sourceLength;
     var decPos, i;
@@ -1092,7 +1088,7 @@ var REGEXP_PRECEDER_PATTERN = '(?:^^\\.?|[+-]|\\!|\\!=|\\!==|\\#|\\%|\\%=|&|&&|&
       }
     }
     nDecorations = decPos;
-  
+
     // Simplify decorations.
     for (i = decPos = 0; i < nDecorations;) {
       var startPos = decorations[i];
@@ -1106,19 +1102,19 @@ var REGEXP_PRECEDER_PATTERN = '(?:^^\\.?|[+-]|\\!|\\!=|\\!==|\\#|\\%|\\%=|&|&&|&
       decorations[decPos++] = startDec;
       i = end;
     }
-  
+
     nDecorations = decorations.length = decPos;
-  
+
     var decoration = null;
     while (spanIndex < nSpans) {
       var spanStart = spans[spanIndex];
       var spanEnd = spans[spanIndex + 2] || sourceLength;
-  
+
       var decStart = decorations[decorationIndex];
       var decEnd = decorations[decorationIndex + 2] || sourceLength;
-  
+
       var end = Math.min(spanEnd, decEnd);
-  
+
       var textNode = spans[spanIndex + 1];
       var styledText;
       if (textNode.nodeType !== 1  // Don't muck with <BR>s or <LI>s
@@ -1144,9 +1140,9 @@ var REGEXP_PRECEDER_PATTERN = '(?:^^\\.?|[+-]|\\!|\\!=|\\!==|\\#|\\%|\\%=|&|&&|&
           parentNode.insertBefore(textNode, span.nextSibling);
         }
       }
-  
+
       sourceIndex = end;
-  
+
       if (sourceIndex >= spanEnd) {
         spanIndex += 2;
       }
@@ -1155,7 +1151,6 @@ var REGEXP_PRECEDER_PATTERN = '(?:^^\\.?|[+-]|\\!|\\!=|\\!==|\\#|\\%|\\%=|&|&&|&
       }
     }
   }
-
 
   /** Maps language-specific file extensions to handlers. */
   var langHandlerRegistry = {};

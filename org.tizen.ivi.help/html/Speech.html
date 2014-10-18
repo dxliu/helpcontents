@@ -12,7 +12,7 @@
             <h1>Speech API</h1>
         </div>
         <div class="description">
-            <p>The Web Speech API aims to enable web developers to provide, in a web browser, speech-input and text-to-speech output 
+            <p>The Web Speech API aims to enable web developers to provide, in a web browser, speech-input and text-to-speech output
             features that are typically not available when using standard speech-recognition or screen-reader software.</p>
         </div>
         <h2>Table of Contents</h2>
@@ -66,14 +66,14 @@
                 </tr>
                 <tr>
                     <td><a href="#::SpeechManager"> SpeechManager</a></td>
-                    <td><a href="#::SpeechManager::vocalizeString">
-                            vocalizeString(DOMString speakString);</a></td>
+                    <td>void <a href="#::SpeechManager::vocalizeString">
+                            vocalizeString</a>(DOMString speakString);</td>
                 </tr>
                 <tr>
                     <td><a href="#::SpeechRecognition"> SpeechRecognition</a></td>
-                    <td><a href="#::SpeechRecognition::start">start();</a> <br>
-                        <a href="#::SpeechRecognition::stop">stop();</a> <br> <a
-                        href="#::SpeechRecognition::abort">abort();</a> <br></td>
+                    <td>void <a href="#::SpeechRecognition::start">start</a>(); <br>
+                        void <a href="#::SpeechRecognition::stop">stop</a>(); <br> void <a
+                        href="#::SpeechRecognition::abort">abort()</a>; <br></td>
                 </tr>
                 <tr>
                     <td><a href="#::SpeechRecognitionError">
@@ -88,12 +88,14 @@
                 <tr>
                     <td><a href="#::SpeechRecognitionResult">
                             SpeechRecognitionResult</a></td>
-                    <td><a href="#::SpeechRecognitionResult::item">item(unsigned long index);</a> <br></td>
+                    <td><a href="#::SpeechRecognitionAlternative"><span class="typ">SpeechRecognitionAlternative</span></a>
+                    <a href="#::SpeechRecognitionResult::item">item</a>(unsigned long index); <br></td>
                 </tr>
                 <tr>
                     <td><a href="#::SpeechRecognitionResultList">
                             SpeechRecognitionResultList</a></td>
-                    <td><a href="#::SpeechRecognitionResultList::item">item(unsigned long index);</a> <br></td>
+                    <td><a href="#::SpeechRecognitionResult"><span class="typ">SpeechRecognitionResult</span></a>
+                    <a href="#::SpeechRecognitionResultList::item">item</a>(unsigned long index); <br></td>
                 </tr>
                 <tr>
                     <td><a href="#::SpeechRecognitionEvent">
@@ -106,11 +108,12 @@
                 </tr>
                 <tr>
                     <td><a href="#::SpeechGrammarList"> SpeechGrammarList</a></td>
-                    <td><a href="#::SpeechGrammarList::item">item(unsigned long index);</a> <br> <a
+                    <td><a href="#::SpeechGrammar"><span class="typ">SpeechGrammar</span></a>
+                    <a href="#::SpeechGrammarList::item">item</a>(unsigned long index); <br> void <a
                         href="#::SpeechGrammarList::addFromURI">
-                            addFromURI(DOMString src, optional float weight);</a> <br> <a
+                            addFromURI</a>(DOMString src, optional float weight); <br> void <a
                         href="#::SpeechGrammarList::addFromString">
-                            addFromString(DOMString string, optional float weight);</a> <br></td>
+                            addFromString</a>(DOMString string, optional float weight); <br></td>
                 </tr>
             </thead>
             <tbody></tbody>
@@ -149,7 +152,7 @@ Tizen implements SpeechManagerObject;
                 <h3>2.2. SpeechManager</h3>
                 <div class="brief">This section defines the speech manager interface.</div>
 <pre class="webidl prettyprint">
-[NoInterfaceObject] interface SpeechManager  { 
+[NoInterfaceObject] interface SpeechManager {
 
     void vocalizeString(DOMString speakString);
 
@@ -275,7 +278,7 @@ interface SpeechRecognition : EventTarget {
                         <li class="attribute" id="::SpeechRecognition::onsoundstart"><span
                             class="attrName"><span class="type">EventHandler </span><span
                                 class="name">onsoundstart</span></span>
-                            <div class="brief">Fired when some sound, possibly speech, has been detected. 
+                            <div class="brief">Fired when some sound, possibly speech, has been detected.
                             </div></li>
                         <li class="attribute" id="::SpeechRecognition::onspeechstart"><span
                             class="attrName"><span class="type">EventHandler </span><span
@@ -285,46 +288,46 @@ interface SpeechRecognition : EventTarget {
                          <li class="attribute" id="::SpeechRecognition::speechend"><span
                             class="attrName"><span class="type">EventHandler </span><span
                                 class="name">speechend</span></span>
-                            <div class="brief">Fired when the speech that will be used for speech recognition has ended. 
+                            <div class="brief">Fired when the speech that will be used for speech recognition has ended.
                             The speechstart event must always have been fire before speechend.
                             </div></li>
                          <li class="attribute" id="::SpeechRecognition::soundend"><span
                             class="attrName"><span class="type">EventHandler </span><span
                                 class="name">soundend</span></span>
-                            <div class="brief">Fired when some sound is no longer detected. 
+                            <div class="brief">Fired when some sound is no longer detected.
                             The soundstart event must always have been fired before soundend.
                             </div></li>
                         <li class="attribute" id="::SpeechRecognition::audioend"><span
                             class="attrName"><span class="type">EventHandler </span><span
                                 class="name">audioend</span></span>
-                            <div class="brief">Fired when the user agent has finished capturing audio. 
+                            <div class="brief">Fired when the user agent has finished capturing audio.
                             The audiostart event must always have been fired before audioend.
                             </div></li>
                         <li class="attribute" id="::SpeechRecognition::onresult"><span
                             class="attrName"><span class="type">EventHandler </span><span
                                 class="name">onresult</span></span>
-                            <div class="brief">Fired when the speech recognizer returns a result. 
+                            <div class="brief">Fired when the speech recognizer returns a result.
                             </div></li>
                          <li class="attribute" id="::SpeechRecognition::onnomatch"><span
                             class="attrName"><span class="type">EventHandler </span><span
                                 class="name">onnomatch</span></span>
-                            <div class="brief">Fired when the speech recognizer returns a final result with no recognition 
-                            hypothesis that meet or exceed the confidence threshold. 
+                            <div class="brief">Fired when the speech recognizer returns a final result with no recognition
+                            hypothesis that meet or exceed the confidence threshold.
                             </div></li>
                         <li class="attribute" id="::SpeechRecognition::onerror"><span
                             class="attrName"><span class="type">EventHandler </span><span
                                 class="name">onerror</span></span>
-                            <div class="brief">Fired when a speech recognition error occurs. 
+                            <div class="brief">Fired when a speech recognition error occurs.
                             </div></li>
                        <li class="attribute" id="::SpeechRecognition::onstart"><span
                             class="attrName"><span class="type">EventHandler </span><span
                                 class="name">onstart</span></span>
-                            <div class="brief">Fired when the recognition service has begun to listen to the audio with the intention of recognizing. 
+                            <div class="brief">Fired when the recognition service has begun to listen to the audio with the intention of recognizing.
                             </div></li>
                        <li class="attribute" id="::SpeechRecognition::onend"><span
                             class="attrName"><span class="type">EventHandler </span><span
                                 class="name">onend</span></span>
-                            <div class="brief">Fired when the service has disconnected. 
+                            <div class="brief">Fired when the service has disconnected.
                             </div></li>
                     </ul>
                 </div>
@@ -490,7 +493,7 @@ void abort();
                 <li class="attribute" id="::SpeechRecognitionResult::final"><span
                     class="attrName"><span class="readonly">readonly </span><span class="type">boolean </span><span
                         class="name">final</span></span>
-                    <div class="brief">An attribute to control whether or not an  3 characters. 
+                    <div class="brief">An attribute to control whether or not an 3 characters.
                         interim result cannot be changed.</div></li>
             </ul>
         </div>
@@ -797,7 +800,7 @@ module Speech {
 
     Tizen implements SpeechManagerObject;
 
-    [NoInterfaceObject] interface SpeechManager  { 
+    [NoInterfaceObject] interface SpeechManager {
 
         void vocalizeString(DOMString speakString);
 
@@ -951,4 +954,4 @@ module Speech {
             </script>
     </div>
 </body>
-</html>  3 characters. 
+</html>

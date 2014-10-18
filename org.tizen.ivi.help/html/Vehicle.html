@@ -497,9 +497,9 @@
             <h1 class="title p-name" id="title" property="dcterms:title">Vehicle Information Access API</h1>
             <hr>
         </div>
-        
+
         <!------------------------------ Introduction ------------------------------------>
-<section class="informative">
+        <section class="informative">
             <h2 aria-level="1" role="heading">Introduction</h2>
             <p>
                 <em>This section is non-normative.</em>
@@ -531,7 +531,7 @@
                 Bindings defined in the Web IDL specification [<cite><a class="bibref" href="#bib-WEBIDL">WEBIDL</a></cite>], as this
                 specification uses that specification and terminology.
             </p>
-             <h2 aria-level="1" role="heading">Terminology</h2>
+            <h2 aria-level="1" role="heading">Terminology</h2>
             <p>
                 The <code><a href="http://www.w3.org/TR/2013/WD-dom-20131107/#promises"> Promise</a></code>
                 provide a convenient way to get access to the result of an operation.
@@ -553,7 +553,7 @@
             if the runtime maps its apps to OS-level apps.
             <p></p>
 
-</section>
+        </section>
 
         <section id="toc">
             <h2 class="introductory" aria-level="1" role="heading" id="h2_toc">Table of Contents</h2>
@@ -565,7 +565,7 @@
                         </code></span> Interface</a>
                     <ul class="toc">
                         <li class="tocline">
-                            <a href="#attributes" class="tocxref"><span class="secno">1.1 </span>Attributes</a>
+                            <a href="#api-attributes" class="tocxref"><span class="secno">1.1 </span>Attributes</a>
                         </li>
                     </ul>
                 </li>
@@ -582,10 +582,10 @@
                         </code></span> Interface</a>
                     <ul class="toc">
                         <li class="tocline">
-                            <a href="#attributes-1" class="tocxref"><span class="secno">3.1 </span>Attributes</a>
+                            <a href="#api-attributes-1" class="tocxref"><span class="secno">3.1 </span>Attributes</a>
                         </li>
                         <li class="tocline">
-                            <a href="#methods" class="tocxref"><span class="secno">3.2 </span>Methods</a>
+                            <a href="#api-methods" class="tocxref"><span class="secno">3.2 </span>Methods</a>
                         </li>
                     </ul>
                 </li>
@@ -608,7 +608,7 @@
                         </code></span> Interface</a>
                     <ul class="toc">
                         <li class="tocline">
-                            <a href="#attributes-2" class="tocxref"><span class="secno">6.1 </span>Attributes</a>
+                            <a href="#api-attributes-2" class="tocxref"><span class="secno">6.1 </span>Attributes</a>
                         </li>
                     </ul>
                 </li>
@@ -619,10 +619,10 @@
                         </code></span> Interface</a>
                     <ul class="toc">
                         <li class="tocline">
-                            <a href="#attributes-3" class="tocxref"><span class="secno">7.1 </span>Attributes</a>
+                            <a href="#api-attributes-3" class="tocxref"><span class="secno">7.1 </span>Attributes</a>
                         </li>
                         <li class="tocline">
-                            <a href="#methods-1" class="tocxref"><span class="secno">7.2 </span>Methods</a>
+                            <a href="#api-methods-1" class="tocxref"><span class="secno">7.2 </span>Methods</a>
                         </li>
                     </ul>
                 </li>
@@ -639,7 +639,7 @@
                         </code></span> Interface</a>
                     <ul class="toc">
                         <li class="tocline">
-                            <a href="#methods-2" class="tocxref"><span class="secno">9.1 </span>Methods</a>
+                            <a href="api-#methods-2" class="tocxref"><span class="secno">9.1 </span>Methods</a>
                         </li>
                     </ul>
                 </li>
@@ -647,13 +647,13 @@
                     <a href="#data-availability" class="tocxref"><span class="secno">10. </span>Data Availability</a>
                     <ul class="toc">
                         <li class="tocline">
-                            <a href="#attributes-4" class="tocxref"><span class="secno">10.1 </span>Attributes</a>
+                            <a href="#api-attributes-4" class="tocxref"><span class="secno">10.1 </span>Attributes</a>
                         </li>
                         <li class="tocline">
-                            <a href="#methods-3" class="tocxref"><span class="secno">10.2 </span>Methods</a>
+                            <a href="#api-methods-3" class="tocxref"><span class="secno">10.2 </span>Methods</a>
                         </li>
                         <li class="tocline">
-                            <a href="#methods-4" class="tocxref"><span class="secno">10.3 </span>Methods</a>
+                            <a href="#api-methods-4" class="tocxref"><span class="secno">10.3 </span>Methods</a>
                         </li>
                     </ul>
                 </li>
@@ -661,10 +661,10 @@
                     <a href="#history" class="tocxref"><span class="secno">11. </span>History</a>
                     <ul class="toc">
                         <li class="tocline">
-                            <a href="#attributes-5" class="tocxref"><span class="secno">11.1 </span>Attributes</a>
+                            <a href="#api-attributes-5" class="tocxref"><span class="secno">11.1 </span>Attributes</a>
                         </li>
                         <li class="tocline">
-                            <a href="#methods-5" class="tocxref"><span class="secno">11.2 </span>Methods</a>
+                            <a href="#api-methods-5" class="tocxref"><span class="secno">11.2 </span>Methods</a>
                         </li>
                     </ul>
                 </li>
@@ -1519,6 +1519,9 @@
                         </li>
                     </ul>
                 </li>
+                <li class="tocline">
+                    <a href="#full-webidl" class="tocxref"><span class="secno">20. </span>Full WebIDL</a>
+                </li>
             </ul>
         </section>
 
@@ -1528,11 +1531,11 @@
             <code>
                 VehicleManagerObject
             </code></a> Interface</h2>
-            <pre class="idl"><span class="idlInterface" id="idl-def-Navigator">partial interface <span class="idlInterfaceID">VehicleManagerObject</span> {
+            <pre class="idl"><span class="idlInterface" id="idl-def-Navigator">interface <span class="idlInterfaceID">VehicleManagerObject</span> {
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType"><a href="#idl-def-Vehicle" class="idlType"><code>Vehicle</code></a></span> <span class="idlAttrName"><a href="#widl-Navigator-vehicle">vehicle</a></span>;</span>
 };</span></pre>
-			<pre class="idl"><code>Tizen</code> implements <code>VehicleManagerObject</code>;</pre>
-            <section id="attributes">
+            <pre class="idl"><code>Tizen</code> implements <code>VehicleManagerObject</code>;</pre>
+            <section id="api-attributes">
                 <h3 aria-level="2" role="heading" id="h3_attributes"><span class="secno">1.1 </span>Attributes</h3>
                 <dl class="attributes">
                     <dt id="widl-Navigator-vehicle">
@@ -1590,9 +1593,7 @@ interface <span class="idlInterfaceID">Vehicle</span> {
     "<a href="#idl-def-ZonePosition.xLeft----Left" class="idlEnumItem">Left = "Left"</a>",
     "<a href="#idl-def-ZonePosition.xRear----Rear" class="idlEnumItem">Rear = "Rear"</a>",
     "<a href="#idl-def-ZonePosition.xCenter----Center" class="idlEnumItem">Center = "Center"</a>"
-};</span></pre>                        
-
-
+};</span></pre>
 
             <table class="simple">
                 <tbody>
@@ -1643,11 +1644,9 @@ interface <span class="idlInterfaceID">Zone</span> {
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType"><a href="#idl-def-Zone" class="idlType"><code>Zone</code></a></span>        <span class="idlAttrName"><a href="#widl-Zone-driver">driver</a></span>;</span>
 <span class="idlMethod">    <span class="idlMethType">boolean/span> <span class="idlMethName"><a href="#widl-Zone-equals-boolean-Zone-zone">equals</a></span> (<span class="idlParam"><span class="idlParamType"><a href="#idl-def-Zone" class="idlType"><code>Zone</code></a></span> <span class="idlParamName">zone</span></span>);</span>
 <span class="idlMethod">    <span class="idlMethType">boolean</span> <span class="idlMethName"><a href="#widl-Zone-contains-boolean-Zone-zone">contains</a></span> (<span class="idlParam"><span class="idlParamType"><a href="#idl-def-Zone" class="idlType"><code>Zone</code></a></span> <span class="idlParamName">zone</span></span>);</span>
-};</span></pre>                        
+};</span></pre>
 
-
-
-            <section id="attributes-1">
+            <section id="api-attributes-1">
                 <h3 aria-level="2" role="heading" id="h3_attributes-1"><span class="secno">3.1 </span>Attributes</h3>
                 <dl class="attributes">
                     <dt id="widl-Zone-driver">
@@ -1673,7 +1672,7 @@ interface <span class="idlInterfaceID">Zone</span> {
                     </dd>
                 </dl>
             </section>
-            <section id="methods">
+            <section id="api-methods">
                 <h3 aria-level="2" role="heading" id="h3_methods"><span class="secno">3.2 </span>Methods</h3>
                 <dl class="methods">
                     <dt id="widl-Zone-contains-boolean-Zone-zone">
@@ -1781,9 +1780,7 @@ interface <span class="idlInterfaceID">Zone</span> {
     "<a href="#idl-def-VehicleError.timeout" class="idlEnumItem">timeout</a>",
     "<a href="#idl-def-VehicleError.invalid_zone" class="idlEnumItem">invalid_zone</a>",
     "<a href="#idl-def-VehicleError.unknown" class="idlEnumItem">unknown</a>"
-};</span></pre>                        
-
-
+};</span></pre>
 
             <table class="simple">
                 <tbody>
@@ -1826,11 +1823,8 @@ interface <span class="idlInterfaceID">Zone</span> {
 interface <span class="idlInterfaceID">VehicleInterfaceError</span> {
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType"><a href="#idl-def-VehicleError" class="idlType"><code>VehicleError</code></a></span> <span class="idlAttrName"><a href="#widl-VehicleInterfaceError-error">error</a></span>;</span>
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">DOMString</span>    <span class="idlAttrName"><a href="#widl-VehicleInterfaceError-message">message</a></span>;</span>
-};</span></pre>                        
-
-
-
-            <section id="attributes-2">
+};</span></pre>
+            <section id="api-attributes-2">
                 <h3 aria-level="2" role="heading" id="h3_attributes-2"><span class="secno">6.1 </span>Attributes</h3>
                 <dl class="attributes">
                     <dt id="widl-VehicleInterfaceError-error">
@@ -1875,11 +1869,8 @@ interface <span class="idlInterfaceID">VehicleInterfaceError</span> {
 interface <span class="idlInterfaceID">VehicleInterface</span> {
 <span class="idlMethod">    <span class="idlMethType">Promise</span> <span class="idlMethName"><a href="#widl-VehicleInterface-get-Promise-Zone-zone">get</a></span> (<span class="idlParam">optional <span class="idlParamType"><a href="#idl-def-Zone" class="idlType"><code>Zone</code></a></span> <span class="idlParamName">zone</span></span>);</span>
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType"><a href="#idl-def-Zone" class="idlType"><code>Zone</code></a>[]</span> <span class="idlAttrName"><a href="#widl-VehicleInterface-zones">zones</a></span>;</span>
-};</span></pre>                        
-
-
-
-            <section id="attributes-3">
+};</span></pre>
+            <section id="api-attributes-3">
                 <h3 aria-level="2" role="heading" id="h3_attributes-3"><span class="secno">7.1 </span>Attributes</h3>
                 <dl class="attributes">
                     <dt id="widl-VehicleInterface-zones">
@@ -1896,7 +1887,7 @@ interface <span class="idlInterfaceID">VehicleInterface</span> {
                     </dd>
                 </dl>
             </section>
-            <section id="methods-1">
+            <section id="api-methods-1">
                 <h3 aria-level="2" role="heading" id="h3_methods-1"><span class="secno">7.2 </span>Methods</h3>
                 <dl class="methods">
                     <dt id="widl-VehicleInterface-get-Promise-Zone-zone">
@@ -1963,10 +1954,7 @@ interface <span class="idlInterfaceID">VehicleInterface</span> {
             </p>
             <pre class="idl"><span class="idlInterface" id="idl-def-VehicleConfigurationInterface">[<span class="extAttr">NoInterfaceObject</span>]
 interface <span class="idlInterfaceID">VehicleConfigurationInterface</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleInterface" class="idlType"><code>VehicleInterface</code></a></span> {
-};</span></pre>                        
-
-
-
+};</span></pre>
         </section>
         <!------------------------ Interface VehicleSignalInterface ------------------------>
         <section id="vehiclesignalinterface-interface">
@@ -1987,11 +1975,8 @@ interface <span class="idlInterfaceID">VehicleSignalInterface</span> : <span cla
 <span class="idlMethod">    <span class="idlMethType">Promise</span>        <span class="idlMethName"><a href="#widl-VehicleSignalInterface-set-Promise-object-value-Zone-zone">set</a></span> (<span class="idlParam"><span class="idlParamType">object</span> <span class="idlParamName">value</span></span>, <span class="idlParam">optional <span class="idlParamType"><a href="#idl-def-Zone" class="idlType"><code>Zone</code></a></span> <span class="idlParamName">zone</span></span>);</span>
 <span class="idlMethod">    <span class="idlMethType">unsigned short</span> <span class="idlMethName"><a href="#widl-VehicleSignalInterface-subscribe-unsigned-short-VehicleInterfaceCallback-callback-Zone-zone">subscribe</a></span> (<span class="idlParam"><span class="idlParamType"><a href="#idl-def-VehicleInterfaceCallback" class="idlType"><code>VehicleInterfaceCallback</code></a></span> <span class="idlParamName">callback</span></span>, <span class="idlParam">optional <span class="idlParamType"><a href="#idl-def-Zone" class="idlType"><code>Zone</code></a></span> <span class="idlParamName">zone</span></span>);</span>
 <span class="idlMethod">    <span class="idlMethType">void</span>           <span class="idlMethName"><a href="#widl-VehicleSignalInterface-unsubscribe-void-unsigned-short-handle">unsubscribe</a></span> (<span class="idlParam"><span class="idlParamType">unsigned short</span> <span class="idlParamName">handle</span></span>);</span>
-};</span></pre>                        
-
-
-
-            <section id="methods-2">
+};</span></pre>
+            <section id="api-methods-2">
                 <h3 aria-level="2" role="heading" id="h3_methods-2"><span class="secno">9.1 </span>Methods</h3>
                 <dl class="methods">
                     <dt id="widl-VehicleSignalInterface-set-Promise-object-value-Zone-zone">
@@ -2126,10 +2111,7 @@ vehicle</span><span class="pun">.</span><span class="pln">door</span><span class
     "<a href="#idl-def-Availability.not_supported_security_policy" class="idlEnumItem">not_supported_security_policy</a>",
     "<a href="#idl-def-Availability.not_supported_business_policy" class="idlEnumItem">not_supported_business_policy</a>",
     "<a href="#idl-def-Availability.not_supported_other" class="idlEnumItem">not_supported_other</a>"
-};</span></pre>                        
-
-
-
+};</span></pre>
             <table class="simple">
                 <tbody>
                     <tr>
@@ -2178,11 +2160,8 @@ vehicle</span><span class="pun">.</span><span class="pln">door</span><span class
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">boolean</span> <span class="idlAttrName"><a href="#widl-VehicleInterface-supported">supported</a></span>;</span>
 <span class="idlMethod">    <span class="idlMethType">short</span>        <span class="idlMethName"><a href="#widl-VehicleInterface-availabilityChangedListener-short-AvailableCallback-callback">availabilityChangedListener</a></span> (<span class="idlParam"><span class="idlParamType"><a href="#idl-def-AvailableCallback" class="idlType"><code>AvailableCallback</code></a></span> <span class="idlParamName">callback</span></span>);</span>
 <span class="idlMethod">    <span class="idlMethType">void</span>         <span class="idlMethName"><a href="#widl-VehicleInterface-removeAvailabilityChangedListener-void-short-handle">removeAvailabilityChangedListener</a></span> (<span class="idlParam"><span class="idlParamType">short</span> <span class="idlParamName">handle</span></span>);</span>
-};</span></pre>                        
-
-
-
-            <section id="attributes-4">
+};</span></pre>
+            <section id="api-attributes-4">
                 <h3 aria-level="2" role="heading" id="h3_attributes-4"><span class="secno">10.1 </span>Attributes</h3>
                 <dl class="attributes">
                     <dt id="widl-VehicleInterface-supported">
@@ -2196,7 +2175,7 @@ vehicle</span><span class="pun">.</span><span class="pln">door</span><span class
                     </dd>
                 </dl>
             </section>
-            <section id="methods-3">
+            <section id="api-methods-3">
                 <h3 aria-level="2" role="heading" id="h3_methods-3"><span class="secno">10.2 </span>Methods</h3>
                 <dl class="methods">
                     <dt id="widl-VehicleInterface-availabilityChangedListener-short-AvailableCallback-callback">
@@ -2299,11 +2278,8 @@ vehicle</span><span class="pun">.</span><span class="pln">door</span><span class
             <pre class="idl"><span class="idlInterface" id="idl-def-VehicleSignalInterface-1">partial interface <span class="idlInterfaceID">VehicleSignalInterface</span> {
 <span class="idlMethod">    <span class="idlMethType"><a href="#idl-def-Availability" class="idlType"><code>Availability</code></a></span> <span class="idlMethName"><a href="#widl-VehicleSignalInterface-availableForSubscription-Availability-DOMString-attributeName">availableForSubscription</a></span> (<span class="idlParam"><span class="idlParamType">DOMString</span> <span class="idlParamName">attributeName</span></span>);</span>
 <span class="idlMethod">    <span class="idlMethType"><a href="#idl-def-Availability" class="idlType"><code>Availability</code></a></span> <span class="idlMethName"><a href="#widl-VehicleSignalInterface-availableForSetting-Availability-DOMString-attributeName">availableForSetting</a></span> (<span class="idlParam"><span class="idlParamType">DOMString</span> <span class="idlParamName">attributeName</span></span>);</span>
-};</span></pre>                        
-
-
-
-            <section id="methods-4">
+};</span></pre>
+            <section id="api-methods-4">
                 <h3 aria-level="2" role="heading" id="h3_methods-4"><span class="secno">10.3 </span>Methods</h3>
                 <dl class="methods">
                     <dt id="widl-VehicleSignalInterface-availableForSetting-Availability-DOMString-attributeName">
@@ -2409,7 +2385,7 @@ vehicle</span><span class="pun">.</span><span class="pln">vehicle</span><span cl
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">Date ?</span>  <span class="idlAttrName"><a href="#widl-VehicleInterface-from">from</a></span>;</span>
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">Date ?</span>  <span class="idlAttrName"><a href="#widl-VehicleInterface-to">to</a></span>;</span>
 };</span></pre>
-            <section id="attributes-5">
+            <section id="api-attributes-5">
                 <h3 aria-level="2" role="heading" id="h3_attributes-5"><span class="secno">11.1 </span>Attributes</h3>
                 <dl class="attributes">
                     <dt id="widl-VehicleInterface-from">
@@ -2441,7 +2417,7 @@ vehicle</span><span class="pun">.</span><span class="pln">vehicle</span><span cl
                     </dd>
                 </dl>
             </section>
-            <section id="methods-5">
+            <section id="api-methods-5">
                 <h3 aria-level="2" role="heading" id="h3_methods-5"><span class="secno">11.2 </span>Methods</h3>
                 <dl class="methods">
                     <dt id="widl-VehicleInterface-getHistory-Promise-Date-begin-Date-end-Zone-zone">
@@ -2517,9 +2493,7 @@ vehicle</span><span class="pun">.</span><span class="pln">vehicle</span><span cl
             <pre class="idl"><span class="idlInterface" id="idl-def-VehicleCommonDataType">[<span class="extAttr">NoInterfaceObject</span>]
 interface <span class="idlInterfaceID">VehicleCommonDataType</span> {
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">DOMTimeStamp?</span> <span class="idlAttrName"><a href="#widl-VehicleCommonDataType-timeStamp">timeStamp</a></span>;</span>
-};</span></pre>            
-
-
+};</span></pre>
             <section id="attributes">
                 <h3 aria-level="2" role="heading" id="h3_attributes"><span class="secno">12.1 </span>Attributes</h3>
                 <dl class="attributes">
@@ -2551,9 +2525,7 @@ interface <span class="idlInterfaceID">VehicleCommonDataType</span> {
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">VehicleConfigurationInterface</span> <span class="idlAttrName"><a href="#widl-Vehicle-transmissionConfiguration">transmissionConfiguration</a></span>;</span>
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">VehicleConfigurationInterface</span> <span class="idlAttrName"><a href="#widl-Vehicle-wheelConfiguration">wheelConfiguration</a></span>;</span>
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">VehicleConfigurationInterface</span> <span class="idlAttrName"><a href="#widl-Vehicle-steeringWheelConfiguration">steeringWheelConfiguration</a></span>;</span>
-};</span></pre>            
-
-
+};</span></pre>
             <section id="attributes-1">
                 <h3 aria-level="2" role="heading" id="h3_attributes-1"><span class="secno">13.1 </span>Attributes</h3>
                 <dl class="attributes">
@@ -2719,9 +2691,7 @@ interface <span class="idlInterfaceID">Identification</span> : <span class="idlS
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">DOMString?</span>       <span class="idlAttrName"><a href="#widl-Identification-brand">brand</a></span>;</span>
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">DOMString?</span>       <span class="idlAttrName"><a href="#widl-Identification-model">model</a></span>;</span>
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">unsigned short?</span>  <span class="idlAttrName"><a href="#widl-Identification-year">year</a></span>;</span>
-};</span></pre>                
-
-
+};</span></pre>
                 <section id="attributes-2">
                     <h4 aria-level="3" role="heading" id="h4_attributes-2"><span class="secno">13.2.1 </span>Attributes</h4>
                     <dl class="attributes">
@@ -2885,9 +2855,7 @@ interface <span class="idlInterfaceID">SizeConfiguration</span> : <span class="i
     "<a href="#idl-def-FuelTypeEnum.lpg" class="idlEnumItem">lpg</a>",
     "<a href="#idl-def-FuelTypeEnum.cng" class="idlEnumItem">cng</a>",
     "<a href="#idl-def-FuelTypeEnum.electric" class="idlEnumItem">electric</a>"
-};</span></pre>                
-
-
+};</span></pre>
                 <table class="simple">
                     <tbody>
                         <tr>
@@ -2941,9 +2909,7 @@ interface <span class="idlInterfaceID">SizeConfiguration</span> : <span class="i
 interface <span class="idlInterfaceID">FuelConfiguration</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType"><a href="#idl-def-FuelTypeEnum" class="idlType"><code>FuelTypeEnum</code></a>[]?</span> <span class="idlAttrName"><a href="#widl-FuelConfiguration-fuelType">fuelType</a></span>;</span>
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">Zone?</span>           <span class="idlAttrName"><a href="#widl-FuelConfiguration-refuelPosition">refuelPosition</a></span>;</span>
-};</span></pre>                
-
-
+};</span></pre>
                 <section id="attributes-4">
                     <h4 aria-level="3" role="heading" id="h4_attributes-4"><span class="secno">13.4.1 </span>Attributes</h4>
                     <dl class="attributes">
@@ -2988,9 +2954,7 @@ interface <span class="idlInterfaceID">FuelConfiguration</span> : <span class="i
                 <pre class="idl"><span class="idlEnum" id="idl-def-TransmissionGearTypeEnum">enum <span class="idlEnumID">TransmissionGearTypeEnum</span> {
     "<a href="#idl-def-TransmissionGearTypeEnum.auto" class="idlEnumItem">auto</a>",
     "<a href="#idl-def-TransmissionGearTypeEnum.manual" class="idlEnumItem">manual</a>"
-};</span></pre>                
-
-
+};</span></pre>
                 <table class="simple">
                     <tbody>
                         <tr>
@@ -3013,9 +2977,7 @@ interface <span class="idlInterfaceID">FuelConfiguration</span> : <span class="i
                 <pre class="idl"><span class="idlInterface" id="idl-def-TransmissionConfiguration">[<span class="extAttr">NoInterfaceObject</span>]
 interface <span class="idlInterfaceID">TransmissionConfiguration</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType"><a href="#idl-def-TransmissionGearTypeEnum" class="idlType"><code>TransmissionGearTypeEnum</code></a>?</span> <span class="idlAttrName"><a href="#widl-TransmissionConfiguration-transmissionGearType">transmissionGearType</a></span>;</span>
-};</span></pre>                
-
-
+};</span></pre>
                 <section id="attributes-5">
                     <h4 aria-level="3" role="heading" id="h4_attributes-5"><span class="secno">13.5.1 </span>Attributes</h4>
                     <dl class="attributes">
@@ -3096,9 +3058,7 @@ interface <span class="idlInterfaceID">WheelConfiguration</span> : <span class="
                 <pre class="idl"><span class="idlInterface" id="idl-def-SteeringWheelConfiguration">[<span class="extAttr">NoInterfaceObject</span>]
 interface <span class="idlInterfaceID">SteeringWheelConfiguration</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">unsigned boolean?</span> <span class="idlAttrName"><a href="#widl-SteeringWheelConfiguration-steeringWheelLeft">steeringWheelLeft</a></span>;</span>
-};</span></pre>                
-
-
+};</span></pre>
                 <section id="attributes-7">
                     <h4 aria-level="3" role="heading" id="h4_attributes-7"><span class="secno">13.7.1 </span>Attributes</h4>
                     <dl class="attributes">
@@ -3153,9 +3113,7 @@ interface <span class="idlInterfaceID">SteeringWheelConfiguration</span> : <span
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">VehicleSignalInterface</span> <span class="idlAttrName"><a href="#widl-Vehicle-buttonEvent">buttonEvent</a></span>;</span>
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">VehicleSignalInterface</span> <span class="idlAttrName"><a href="#widl-Vehicle-drivingMode">drivingMode</a></span>;</span>
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">VehicleSignalInterface</span> <span class="idlAttrName"><a href="#widl-Vehicle-nightMode">nightMode</a></span>;</span>
-};</span></pre>            
-
-
+};</span></pre>
             <section id="attributes-8">
                 <h3 aria-level="2" role="heading" id="h3_attributes-8"><span class="secno">14.1 </span>Attributes</h3>
                 <dl class="attributes">
@@ -3478,9 +3436,7 @@ interface <span class="idlInterfaceID">SteeringWheelConfiguration</span> : <span
                 <pre class="idl"><span class="idlInterface" id="idl-def-VehicleSpeed">[<span class="extAttr">NoInterfaceObject</span>]
 interface <span class="idlInterfaceID">VehicleSpeed</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">unsigned short</span> <span class="idlAttrName"><a href="#widl-VehicleSpeed-speed">speed</a></span>;</span>
-};</span></pre>                
-
-
+};</span></pre>
                 <section id="attributes-9">
                     <h4 aria-level="3" role="heading" id="h4_attributes-9"><span class="secno">14.2.1 </span>Attributes</h4>
                     <dl class="attributes">
@@ -3513,9 +3469,7 @@ interface <span class="idlInterfaceID">VehicleSpeed</span> : <span class="idlSup
 interface <span class="idlInterfaceID">WheelSpeed</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">unsigned short</span> <span class="idlAttrName"><a href="#widl-WheelSpeed-speed">speed</a></span>;</span>
 <span class="idlAttribute">                attribute <span class="idlAttrType">Zone?</span>          <span class="idlAttrName"><a href="#widl-WheelSpeed-zone">zone</a></span>;</span>
-};</span></pre>                
-
-
+};</span></pre>
                 <section id="attributes-10">
                     <h4 aria-level="3" role="heading" id="h4_attributes-10"><span class="secno">14.3.1 </span>Attributes</h4>
                     <dl class="attributes">
@@ -3557,9 +3511,7 @@ interface <span class="idlInterfaceID">WheelSpeed</span> : <span class="idlSuper
                 <pre class="idl"><span class="idlInterface" id="idl-def-EngineSpeed">[<span class="extAttr">NoInterfaceObject</span>]
 interface <span class="idlInterfaceID">EngineSpeed</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">unsigned long</span> <span class="idlAttrName"><a href="#widl-EngineSpeed-speed">speed</a></span>;</span>
-};</span></pre>                
-
-
+};</span></pre>
                 <section id="attributes-11">
                     <h4 aria-level="3" role="heading" id="h4_attributes-11"><span class="secno">14.4.1 </span>Attributes</h4>
                     <dl class="attributes">
@@ -3593,9 +3545,7 @@ interface <span class="idlInterfaceID">EngineSpeed</span> : <span class="idlSupe
     "<a href="#idl-def-VehiclePowerMode.accessory1" class="idlEnumItem">accessory1</a>",
     "<a href="#idl-def-VehiclePowerMode.accessory2" class="idlEnumItem">accessory2</a>",
     "<a href="#idl-def-VehiclePowerMode.running" class="idlEnumItem">running</a>"
-};</span></pre>                
-
-
+};</span></pre>
                 <table class="simple">
                     <tbody>
                         <tr>
@@ -3630,9 +3580,7 @@ interface <span class="idlInterfaceID">EngineSpeed</span> : <span class="idlSupe
                 <pre class="idl"><span class="idlInterface" id="idl-def-VehiclePowerModeType">[<span class="extAttr">NoInterfaceObject</span>]
 interface <span class="idlInterfaceID">VehiclePowerModeType</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType"><a href="#idl-def-VehiclePowerMode" class="idlType"><code>VehiclePowerMode</code></a></span> <span class="idlAttrName"><a href="#widl-VehiclePowerModeType-value">value</a></span>;</span>
-};</span></pre>                
-
-
+};</span></pre>
                 <section id="attributes-12">
                     <h4 aria-level="3" role="heading" id="h4_attributes-12"><span class="secno">14.5.1 </span>Attributes</h4>
                     <dl class="attributes">
@@ -3668,9 +3616,7 @@ interface <span class="idlInterfaceID">VehiclePowerModeType</span> : <span class
                 <pre class="idl"><span class="idlInterface" id="idl-def-PowerTrainTorque">[<span class="extAttr">NoInterfaceObject</span>]
 interface <span class="idlInterfaceID">PowerTrainTorque</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">short</span> <span class="idlAttrName"><a href="#widl-PowerTrainTorque-value">value</a></span>;</span>
-};</span></pre>                
-
-
+};</span></pre>
                 <section id="attributes-13">
                     <h4 aria-level="3" role="heading" id="h4_attributes-13"><span class="secno">14.6.1 </span>Attributes</h4>
                     <dl class="attributes">
@@ -3704,9 +3650,7 @@ interface <span class="idlInterfaceID">PowerTrainTorque</span> : <span class="id
                 <pre class="idl"><span class="idlInterface" id="idl-def-AcceleratorPedalPosition">[<span class="extAttr">NoInterfaceObject</span>]
 interface <span class="idlInterfaceID">AcceleratorPedalPosition</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">unsigned short</span> <span class="idlAttrName"><a href="#widl-AcceleratorPedalPosition-value">value</a></span>;</span>
-};</span></pre>                
-
-
+};</span></pre>
                 <section id="attributes-14">
                     <h4 aria-level="3" role="heading" id="h4_attributes-14"><span class="secno">14.7.1 </span>Attributes</h4>
                     <dl class="attributes">
@@ -3740,9 +3684,7 @@ interface <span class="idlInterfaceID">AcceleratorPedalPosition</span> : <span c
                 <pre class="idl"><span class="idlInterface" id="idl-def-ThrottlePosition">[<span class="extAttr">NoInterfaceObject</span>]
 interface <span class="idlInterfaceID">ThrottlePosition</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">unsigned short</span> <span class="idlAttrName"><a href="#widl-ThrottlePosition-value">value</a></span>;</span>
-};</span></pre>                
-
-
+};</span></pre>
                 <section id="attributes-15">
                     <h4 aria-level="3" role="heading" id="h4_attributes-15"><span class="secno">14.8.1 </span>Attributes</h4>
                     <dl class="attributes">
@@ -3813,9 +3755,7 @@ interface <span class="idlInterfaceID">Trip</span> {
                 <pre class="idl"><span class="idlInterface" id="idl-def-TripMeters">[<span class="extAttr">NoInterfaceObject</span>]
 interface <span class="idlInterfaceID">TripMeters</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType"><a href="#idl-def-Trip" class="idlType"><code>Trip</code></a>[]</span> <span class="idlAttrName"><a href="#widl-TripMeters-meters">meters;</a></span>;</span>
-};</span></pre>                
-
-
+};</span></pre>
                 <section id="attributes-17">
                     <h4 aria-level="3" role="heading" id="h4_attributes-17"><span class="secno">14.9.2 </span>Attributes</h4>
                     <dl class="attributes">
@@ -3900,9 +3840,7 @@ interface <span class="idlInterfaceID">TripMeters</span> : <span class="idlSuper
 interface <span class="idlInterfaceID">Transmission</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">octet?</span>            <span class="idlAttrName"><a href="#widl-Transmission-gear">gear</a></span>;</span>
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType"><a href="#idl-def-TransmissionMode" class="idlType"><code>TransmissionMode</code></a>?</span> <span class="idlAttrName"><a href="#widl-Transmission-mode">mode</a></span>;</span>
-};</span></pre>                
-
-
+};</span></pre>
                 <section id="attributes-18">
                     <h4 aria-level="3" role="heading" id="h4_attributes-18"><span class="secno">14.10.1 </span>Attributes</h4>
                     <dl class="attributes">
@@ -4438,9 +4376,7 @@ interface <span class="idlInterfaceID">Acceleration</span> : <span class="idlSup
 interface <span class="idlInterfaceID">EngineCoolant</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">unsigned short</span> <span class="idlAttrName"><a href="#widl-EngineCoolant-level">level</a></span>;</span>
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">unsigned short</span> <span class="idlAttrName"><a href="#widl-EngineCoolant-temperature">temperature</a></span>;</span>
-};</span></pre>                
-
-
+};</span></pre>
                 <section id="attributes-27">
                     <h4 aria-level="3" role="heading" id="h4_attributes-27"><span class="secno">14.19.1 </span>Attributes</h4>
                     <dl class="attributes">
@@ -4483,9 +4419,7 @@ interface <span class="idlInterfaceID">EngineCoolant</span> : <span class="idlSu
                 <pre class="idl"><span class="idlInterface" id="idl-def-SteeringWheel">[<span class="extAttr">NoInterfaceObject</span>]
 interface <span class="idlInterfaceID">SteeringWheel</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">short</span> <span class="idlAttrName"><a href="#widl-SteeringWheel-angle">angle</a></span>;</span>
-};</span></pre>                
-
-
+};</span></pre>
                 <section id="attributes-28">
                     <h4 aria-level="3" role="heading" id="h4_attributes-28"><span class="secno">14.20.1 </span>Attributes</h4>
                     <dl class="attributes">
@@ -4520,9 +4454,7 @@ interface <span class="idlInterfaceID">SteeringWheel</span> : <span class="idlSu
 interface <span class="idlInterfaceID">WheelTick</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">unsigned long</span> <span class="idlAttrName"><a href="#widl-WheelTick-value">value</a></span>;</span>
 <span class="idlAttribute">                attribute <span class="idlAttrType">Zone?</span>         <span class="idlAttrName"><a href="#widl-WheelTick-zone">zone</a></span>;</span>
-};</span></pre>                
-
-
+};</span></pre>
                 <section id="attributes-29">
                     <h4 aria-level="3" role="heading" id="h4_attributes-29"><span class="secno">14.21.1 </span>Attributes</h4>
                     <dl class="attributes">
@@ -4565,9 +4497,7 @@ interface <span class="idlInterfaceID">WheelTick</span> : <span class="idlSuperc
 interface <span class="idlInterfaceID">IgnitionTime</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">DOMTimeStamp</span> <span class="idlAttrName"><a href="#widl-IgnitionTime-ignitionOnTime">ignitionOnTime</a></span>;</span>
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">DOMTimeStamp</span> <span class="idlAttrName"><a href="#widl-IgnitionTime-ignitionOffTime">ignitionOffTime</a></span>;</span>
-};</span></pre>                
-
-
+};</span></pre>
                 <section id="attributes-30">
                     <h4 aria-level="3" role="heading" id="h4_attributes-30"><span class="secno">14.22.1 </span>Attributes</h4>
                     <dl class="attributes">
@@ -4609,9 +4539,7 @@ interface <span class="idlInterfaceID">IgnitionTime</span> : <span class="idlSup
                 <pre class="idl"><span class="idlInterface" id="idl-def-YawRate">[<span class="extAttr">NoInterfaceObject</span>]
 interface <span class="idlInterfaceID">YawRate</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">short</span> <span class="idlAttrName"><a href="#widl-YawRate-value">value</a></span>;</span>
-};</span></pre>                
-
-
+};</span></pre>
                 <section id="attributes-31">
                     <h4 aria-level="3" role="heading" id="h4_attributes-31"><span class="secno">14.23.1 </span>Attributes</h4>
                     <dl class="attributes">
@@ -4644,9 +4572,7 @@ interface <span class="idlInterfaceID">YawRate</span> : <span class="idlSupercla
                 <pre class="idl"><span class="idlInterface" id="idl-def-BrakeOperation">[<span class="extAttr">NoInterfaceObject</span>]
 interface <span class="idlInterfaceID">BrakeOperation</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">boolean</span> <span class="idlAttrName"><a href="#widl-BrakeOperation-brakePedalDepressed">brakePedalDepressed</a></span>;</span>
-};</span></pre>                
-
-
+};</span></pre>
                 <section id="attributes-32">
                     <h4 aria-level="3" role="heading" id="h4_attributes-32"><span class="secno">14.24.1 </span>Attributes</h4>
                     <dl class="attributes">
@@ -4692,9 +4618,7 @@ interface <span class="idlInterfaceID">BrakeOperation</span> : <span class="idlS
     "<a href="#idl-def-VehicleButton.right" class="idlEnumItem">right</a>",
     "<a href="#idl-def-VehicleButton.up" class="idlEnumItem">up</a>",
     "<a href="#idl-def-VehicleButton.down" class="idlEnumItem">down</a>"
-};</span></pre>                
-
-
+};</span></pre>
                 <table class="simple">
                     <tbody>
                         <tr>
@@ -4796,9 +4720,7 @@ interface <span class="idlInterfaceID">BrakeOperation</span> : <span class="idlS
     "<a href="#idl-def-PressType.press" class="idlEnumItem">press</a>",
     "<a href="#idl-def-PressType.long_press" class="idlEnumItem">long_press</a>",
     "<a href="#idl-def-PressType.release" class="idlEnumItem">release</a>"
-};</span></pre>                
-
-
+};</span></pre>
                 <table class="simple">
                     <tbody>
                         <tr>
@@ -4828,9 +4750,7 @@ interface <span class="idlInterfaceID">BrakeOperation</span> : <span class="idlS
 interface <span class="idlInterfaceID">ButtonEvent</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType"><a href="#idl-def-VehicleButton" class="idlType"><code>VehicleButton</code></a>[]</span> <span class="idlAttrName"><a href="#widl-ButtonEvent-button">button</a></span>;</span>
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType"><a href="#idl-def-PressType" class="idlType"><code>PressType</code></a></span>       <span class="idlAttrName"><a href="#widl-ButtonEvent-state">state</a></span>;</span>
-};</span></pre>                
-
-
+};</span></pre>
                 <section id="attributes-33">
                     <h4 aria-level="3" role="heading" id="h4_attributes-33"><span class="secno">14.25.1 </span>Attributes</h4>
                     <dl class="attributes">
@@ -4955,9 +4875,7 @@ interface <span class="idlInterfaceID">NightMode</span> : <span class="idlSuperc
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">VehicleSignalInterface</span> <span class="idlAttrName"><a href="#widl-Vehicle-batteryStatus">batteryStatus</a></span>;</span>
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">VehicleSignalInterface</span> <span class="idlAttrName"><a href="#widl-Vehicle-tire">tire</a></span>;</span>
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">VehicleInterface</span>       <span class="idlAttrName"><a href="#widl-Vehicle-diagnostic">diagnostic</a></span>;</span>
-};</span></pre>            
-
-
+};</span></pre>
             <section id="attributes-36">
                 <h3 aria-level="2" role="heading" id="h3_attributes-36"><span class="secno">15.1 </span>Attributes</h3>
                 <dl class="attributes">
@@ -5492,9 +5410,7 @@ interface <span class="idlInterfaceID">Diagnostic</span> : <span class="idlSuper
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">unsigned long</span> <span class="idlAttrName"><a href="#widl-Diagnostic-distanceSinceCodeCleared">distanceSinceCodeCleared.</a></span>;</span>
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">unsigned long</span> <span class="idlAttrName"><a href="#widl-Diagnostic-timeRunMILOn">timeRunMILOn</a></span>;</span>
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">unsigned long</span> <span class="idlAttrName"><a href="#widl-Diagnostic-timeTroubleCodeClear">timeTroubleCodeClear</a></span>;</span>
-};</span></pre>                
-
-
+};</span></pre>
                 <section id="attributes-45">
                     <h4 aria-level="3" role="heading" id="h4_attributes-45"><span class="secno">15.10.1 </span>Attributes</h4>
                     <dl class="attributes">
@@ -5571,9 +5487,7 @@ interface <span class="idlInterfaceID">Diagnostic</span> : <span class="idlSuper
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">VehicleSignalInterface</span>  <span class="idlAttrName"><a href="#widl-Vehicle-seatAdjustment">seatAdjustment</a></span>;</span>
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">VehicleSignalInterface</span>  <span class="idlAttrName"><a href="#widl-Vehicle-dashboardIllumination">dashboardIllumination</a></span>;</span>
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">VehicleSignalInterface</span>  <span class="idlAttrName"><a href="#widl-Vehicle-vehicleSound">vehicleSound</a></span>;</span>
-};</span></pre>            
-
-
+};</span></pre>
             <section id="attributes-46">
                 <h3 aria-level="2" role="heading" id="h3_attributes-46"><span class="secno">16.1 </span>Attributes</h3>
                 <dl class="attributes">
@@ -6014,9 +5928,7 @@ interface <span class="idlInterfaceID">SteeringWheel</span> : <span class="idlSu
     "<a href="#idl-def-DriveModeEnum.eco" class="idlEnumItem">eco</a>",
     "<a href="#idl-def-DriveModeEnum.manual" class="idlEnumItem">manual</a>",
     "<a href="#idl-def-DriveModeEnum.winter" class="idlEnumItem">winter</a>"
-};</span></pre>                
-
-
+};</span></pre>
                 <table class="simple">
                     <tbody>
                         <tr>
@@ -6063,9 +5975,7 @@ interface <span class="idlInterfaceID">SteeringWheel</span> : <span class="idlSu
                 <pre class="idl"><span class="idlInterface" id="idl-def-DriveMode">[<span class="extAttr">NoInterfaceObject</span>]
 interface <span class="idlInterfaceID">DriveMode</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
 <span class="idlAttribute">                attribute <span class="idlAttrType"><a href="#idl-def-DriveModeEnum" class="idlType"><code>DriveModeEnum</code></a>?</span> <span class="idlAttrName"><a href="#widl-DriveMode-driveMode">driveMode</a></span>;</span>
-};</span></pre>                
-
-
+};</span></pre>
                 <section id="attributes-52">
                     <h4 aria-level="3" role="heading" id="h4_attributes-52"><span class="secno">16.7.1 </span>Attributes</h4>
                     <dl class="attributes">
@@ -6184,9 +6094,7 @@ interface <span class="idlInterfaceID">VehicleSound</span> : <span class="idlSup
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">VehicleSignalInterface</span> <span class="idlAttrName"><a href="#widl-Vehicle-door">door</a></span>;</span>
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">VehicleSignalInterface</span> <span class="idlAttrName"><a href="#widl-Vehicle-childSafetyLock">childSafetyLock</a></span>;</span>
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">VehicleSignalInterface</span> <span class="idlAttrName"><a href="#widl-Vehicle-seat">seat</a></span>;</span>
-};</span></pre>            
-
-
+};</span></pre>
             <section id="attributes-55">
                 <h3 aria-level="2" role="heading" id="h3_attributes-55"><span class="secno">17.1 </span>Attributes</h3>
                 <dl class="attributes">
@@ -6306,9 +6214,7 @@ interface <span class="idlInterfaceID">VehicleSound</span> : <span class="idlSup
 interface <span class="idlInterfaceID">AntilockBrakingSystem</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">boolean</span> <span class="idlAttrName"><a href="#widl-AntilockBrakingSystem-enabled">enabled</a></span>;</span>
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">boolean</span> <span class="idlAttrName"><a href="#widl-AntilockBrakingSystem-engaged">engaged</a></span>;</span>
-};</span></pre>                
-
-
+};</span></pre>
                 <section id="attributes-56">
                     <h4 aria-level="3" role="heading" id="h4_attributes-56"><span class="secno">17.2.1 </span>Attributes</h4>
                     <dl class="attributes">
@@ -6351,9 +6257,7 @@ interface <span class="idlInterfaceID">AntilockBrakingSystem</span> : <span clas
 interface <span class="idlInterfaceID">TractionControlSystem</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">boolean</span> <span class="idlAttrName"><a href="#widl-TractionControlSystem-enabled">enabled</a></span>;</span>
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">boolean</span> <span class="idlAttrName"><a href="#widl-TractionControlSystem-engaged">engaged</a></span>;</span>
-};</span></pre>                
-
-
+};</span></pre>
                 <section id="attributes-57">
                     <h4 aria-level="3" role="heading" id="h4_attributes-57"><span class="secno">17.3.1 </span>Attributes</h4>
                     <dl class="attributes">
@@ -6396,9 +6300,7 @@ interface <span class="idlInterfaceID">TractionControlSystem</span> : <span clas
 interface <span class="idlInterfaceID">ElectronicStabilityControl</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">boolean</span> <span class="idlAttrName"><a href="#widl-ElectronicStabilityControl-enabled">enabled</a></span>;</span>
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">boolean</span> <span class="idlAttrName"><a href="#widl-ElectronicStabilityControl-engaged">engaged</a></span>;</span>
-};</span></pre>                
-
-
+};</span></pre>
                 <section id="attributes-58">
                     <h4 aria-level="3" role="heading" id="h4_attributes-58"><span class="secno">17.4.1 </span>Attributes</h4>
                     <dl class="attributes">
@@ -6440,9 +6342,7 @@ interface <span class="idlInterfaceID">ElectronicStabilityControl</span> : <span
                 <pre class="idl"><span class="idlInterface" id="idl-def-TopSpeedLimit">[<span class="extAttr">NoInterfaceObject</span>]
 interface <span class="idlInterfaceID">TopSpeedLimit</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">unsigned short</span> <span class="idlAttrName"><a href="#widl-TopSpeedLimit-speed">speed</a></span>;</span>
-};</span></pre>                
-
-
+};</span></pre>
                 <section id="attributes-59">
                     <h4 aria-level="3" role="heading" id="h4_attributes-59"><span class="secno">17.5.1 </span>Attributes</h4>
                     <dl class="attributes">
@@ -6477,9 +6377,7 @@ interface <span class="idlInterfaceID">AirbagStatus</span> : <span class="idlSup
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">boolean</span> <span class="idlAttrName"><a href="#widl-AirbagStatus-activated">activated</a></span>;</span>
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">boolean</span> <span class="idlAttrName"><a href="#widl-AirbagStatus-deployed">deployed</a></span>;</span>
 <span class="idlAttribute">                attribute <span class="idlAttrType">Zone?</span>   <span class="idlAttrName"><a href="#widl-AirbagStatus-zone">zone</a></span>;</span>
-};</span></pre>                
-
-
+};</span></pre>
                 <section id="attributes-60">
                     <h4 aria-level="3" role="heading" id="h4_attributes-60"><span class="secno">17.6.1 </span>Attributes</h4>
                     <dl class="attributes">
@@ -6531,9 +6429,7 @@ interface <span class="idlInterfaceID">AirbagStatus</span> : <span class="idlSup
     "<a href="#idl-def-DoorOpenStatus.open" class="idlEnumItem">open</a>",
     "<a href="#idl-def-DoorOpenStatus.ajar" class="idlEnumItem">ajar</a>",
     "<a href="#idl-def-DoorOpenStatus.closed" class="idlEnumItem">closed</a>"
-};</span></pre>                
-
-
+};</span></pre>
                 <table class="simple">
                     <tbody>
                         <tr>
@@ -6564,9 +6460,7 @@ interface <span class="idlInterfaceID">Door</span> : <span class="idlSuperclass"
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType"><a href="#idl-def-DoorOpenStatus" class="idlType"><code>DoorOpenStatus</code></a></span> <span class="idlAttrName"><a href="#widl-Door-status">status</a></span>;</span>
 <span class="idlAttribute">                attribute <span class="idlAttrType">boolean</span>        <span class="idlAttrName"><a href="#widl-Door-lock">lock</a></span>;</span>
 <span class="idlAttribute">                attribute <span class="idlAttrType">Zone?</span>          <span class="idlAttrName"><a href="#widl-Door-zone">zone</a></span>;</span>
-};</span></pre>                
-
-
+};</span></pre>
                 <section id="attributes-61">
                     <h4 aria-level="3" role="heading" id="h4_attributes-61"><span class="secno">17.7.1 </span>Attributes</h4>
                     <dl class="attributes">
@@ -6622,9 +6516,7 @@ interface <span class="idlInterfaceID">Door</span> : <span class="idlSuperclass"
 interface <span class="idlInterfaceID">ChildSafetyLock</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
 <span class="idlAttribute">                attribute <span class="idlAttrType">boolean</span> <span class="idlAttrName"><a href="#widl-ChildSafetyLock-lock">lock</a></span>;</span>
 <span class="idlAttribute">                attribute <span class="idlAttrType">Zone?</span>   <span class="idlAttrName"><a href="#widl-ChildSafetyLock-zone">zone</a></span>;</span>
-};</span></pre>                
-
-
+};</span></pre>
                 <section id="attributes-62">
                     <h4 aria-level="3" role="heading" id="h4_attributes-62"><span class="secno">17.8.1 </span>Attributes</h4>
                     <dl class="attributes">
@@ -6667,9 +6559,7 @@ interface <span class="idlInterfaceID">ChildSafetyLock</span> : <span class="idl
     "<a href="#idl-def-OccupantStatus.adult" class="idlEnumItem">adult</a>",
     "<a href="#idl-def-OccupantStatus.child" class="idlEnumItem">child</a>",
     "<a href="#idl-def-OccupantStatus.vacant" class="idlEnumItem">vacant</a>"
-};</span></pre>                
-
-
+};</span></pre>
                 <table class="simple">
                     <tbody>
                         <tr>
@@ -6703,8 +6593,7 @@ interface <span class="idlInterfaceID">ChildSafetyLock</span> : <span class="idl
     "<a href="#idl-def-IdentificationType.fingerprint" class="idlEnumItem">fingerprint</a>",
     "<a href="#idl-def-IdentificationType.camera" class="idlEnumItem">camera</a>",
     "<a href="#idl-def-IdentificationType.voice" class="idlEnumItem">voice</a>"
-};</span></pre>                
-
+};</span></pre>
 
                 <table class="simple">
                     <tbody>
@@ -6762,9 +6651,7 @@ interface <span class="idlInterfaceID">Seat</span> : <span class="idlSuperclass"
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">DOMString?</span>         <span class="idlAttrName"><a href="#widl-Seat-occupantName">occupantName</a></span>;</span>
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType"><a href="#idl-def-IdentificationType" class="idlType"><code>IdentificationType</code></a></span> <span class="idlAttrName"><a href="#widl-Seat-identificationType">identificationType</a></span>;</span>
 <span class="idlAttribute">                attribute <span class="idlAttrType">Zone?</span>              <span class="idlAttrName"><a href="#widl-Seat-zone">zone</a></span>;</span>
-};</span></pre>                
-
-
+};</span></pre>
                 <section id="attributes-63">
                     <h4 aria-level="3" role="heading" id="h4_attributes-63"><span class="secno">17.9.1 </span>Attributes</h4>
                     <dl class="attributes">
@@ -6845,9 +6732,7 @@ interface <span class="idlInterfaceID">Seat</span> : <span class="idlSuperclass"
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">VehicleSignalInterface</span> <span class="idlAttrName"><a href="#widl-Vehicle-sideWindow">sideWindow</a></span>;</span>
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">VehicleSignalInterface</span> <span class="idlAttrName"><a href="#widl-Vehicle-climateControl">climateControl</a></span>;</span>
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">VehicleSignalInterface</span> <span class="idlAttrName"><a href="#widl-Vehicle-atmosphericPressure">atmosphericPressure</a></span>;</span>
-};</span></pre>            
-
-
+};</span></pre>
             <section id="attributes-64">
                 <h3 aria-level="2" role="heading" id="h3_attributes-64"><span class="secno">18.1 </span>Attributes</h3>
                 <dl class="attributes">
@@ -7182,9 +7067,7 @@ interface <span class="idlInterfaceID">WiperStatus</span> : <span class="idlSupe
 interface <span class="idlInterfaceID">WiperSetting</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
 <span class="idlAttribute">                attribute <span class="idlAttrType"><a href="#idl-def-WiperControl" class="idlType"><code>WiperControl</code></a></span> <span class="idlAttrName"><a href="#widl-WiperSetting-wiperControl">wiperControl</a></span>;</span>
 <span class="idlAttribute">                attribute <span class="idlAttrType">Zone?</span>        <span class="idlAttrName"><a href="#widl-WiperSetting-zone">zone</a></span>;</span>
-};</span></pre>                
-
-
+};</span></pre>
                 <section id="attributes-68">
                     <h4 aria-level="3" role="heading" id="h4_attributes-68"><span class="secno">18.5.1 </span>Attributes</h4>
                     <dl class="attributes">
@@ -7373,9 +7256,7 @@ interface <span class="idlInterfaceID">Sunroof</span> : <span class="idlSupercla
                 <pre class="idl"><span class="idlInterface" id="idl-def-ConvertibleRoof">[<span class="extAttr">NoInterfaceObject</span>]
 interface <span class="idlInterfaceID">ConvertibleRoof</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
 <span class="idlAttribute">                attribute <span class="idlAttrType"><a href="#idl-def-ConvertibleRoofStatus" class="idlType"><code>ConvertibleRoofStatus</code></a></span> <span class="idlAttrName"><a href="#widl-ConvertibleRoof-status">status</a></span>;</span>
-};</span></pre>                
-
-
+};</span></pre>
                 <section id="attributes-71">
                     <h4 aria-level="3" role="heading" id="h4_attributes-71"><span class="secno">18.8.1 </span>Attributes</h4>
                     <dl class="attributes">
@@ -7513,9 +7394,7 @@ interface <span class="idlInterfaceID">ClimateControl</span> : <span class="idlS
 <span class="idlAttribute">                attribute <span class="idlAttrType">boolean</span>          <span class="idlAttrName"><a href="#widl-ClimateControl-airRecirculation">airRecirculation</a></span>;</span>
 <span class="idlAttribute">                attribute <span class="idlAttrType">unsigned byte?</span>   <span class="idlAttrName"><a href="#widl-ClimateControl-steeringWheelHeater">steeringWheelHeater</a></span>;</span>
 <span class="idlAttribute">                attribute <span class="idlAttrType">Zone?</span>            <span class="idlAttrName"><a href="#widl-ClimateControl-zone">zone</a></span>;</span>
-};</span></pre>                
-
-
+};</span></pre>
                 <section id="attributes-73">
                     <h4 aria-level="3" role="heading" id="h4_attributes-73"><span class="secno">18.10.1 </span>Attributes</h4>
                     <dl class="attributes">
@@ -7670,9 +7549,7 @@ interface <span class="idlInterfaceID">AtmosphericPressure</span> : <span class=
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">VehicleSignalInterface</span> <span class="idlAttrName"><a href="#widl-Vehicle-alarm">alarm</a></span>;</span>
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">VehicleSignalInterface</span> <span class="idlAttrName"><a href="#widl-Vehicle-parkingBrake">parkingBrake</a></span>;</span>
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">VehicleSignalInterface</span> <span class="idlAttrName"><a href="#widl-Vehicle-parkingLights">parkingLights</a></span>;</span>
-};</span></pre>            
-
-
+};</span></pre>
             <section id="attributes-75">
                 <h3 aria-level="2" role="heading" id="h3_attributes-75"><span class="secno">19.1 </span>Attributes</h3>
                 <dl class="attributes">
@@ -7773,9 +7650,7 @@ interface <span class="idlInterfaceID">AtmosphericPressure</span> : <span class=
                 <pre class="idl"><span class="idlInterface" id="idl-def-LaneDepartureDetection">[<span class="extAttr">NoInterfaceObject</span>]
 interface <span class="idlInterfaceID">LaneDepartureDetection</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType"><a href="#idl-def-LaneDepartureStatus" class="idlType"><code>LaneDepartureStatus</code></a></span> <span class="idlAttrName"><a href="#widl-LaneDepartureDetection-status">status</a></span>;</span>
-};</span></pre>                
-
-
+};</span></pre>
                 <section id="attributes-76">
                     <h4 aria-level="3" role="heading" id="h4_attributes-76"><span class="secno">19.2.1 </span>Attributes</h4>
                     <dl class="attributes">
@@ -7848,9 +7723,7 @@ interface <span class="idlInterfaceID">LaneDepartureDetection</span> : <span cla
                 <pre class="idl"><span class="idlInterface" id="idl-def-Alarm">[<span class="extAttr">NoInterfaceObject</span>]
 interface <span class="idlInterfaceID">Alarm</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
 <span class="idlAttribute">                attribute <span class="idlAttrType"><a href="#idl-def-AlarmStatus" class="idlType"><code>AlarmStatus</code></a></span> <span class="idlAttrName"><a href="#widl-Alarm-status">status</a></span>;</span>
-};</span></pre>                
-
-
+};</span></pre>
                 <section id="attributes-77">
                     <h4 aria-level="3" role="heading" id="h4_attributes-77"><span class="secno">19.3.1 </span>Attributes</h4>
                     <dl class="attributes">
@@ -7881,7 +7754,6 @@ interface <span class="idlInterfaceID">Alarm</span> : <span class="idlSuperclass
                     <code>
                         ParkingBrake
                     </code></a> interface represents the current status of the parking brake.
-
                 </p>
                 <pre class="idl"><span class="idlEnum" id="idl-def-ParkingBrakeStatus">enum <span class="idlEnumID">ParkingBrakeStatus</span> {
     "<a href="#idl-def-ParkingBrakeStatus.inactive" class="idlEnumItem">inactive</a>",
@@ -7916,9 +7788,7 @@ interface <span class="idlInterfaceID">Alarm</span> : <span class="idlSuperclass
                 <pre class="idl"><span class="idlInterface" id="idl-def-ParkingBrake">[<span class="extAttr">NoInterfaceObject</span>]
 interface <span class="idlInterfaceID">ParkingBrake</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType"><a href="#idl-def-ParkingBrakeStatus" class="idlType"><code>ParkingBrakeStatus</code></a></span> <span class="idlAttrName"><a href="#widl-ParkingBrake-status">status</a></span>;</span>
-};</span></pre>                
-
-
+};</span></pre>
                 <section id="attributes-78">
                     <h4 aria-level="3" role="heading" id="h4_attributes-78"><span class="secno">19.4.1 </span>Attributes</h4>
                     <dl class="attributes">
@@ -7986,5 +7856,660 @@ interface <span class="idlInterfaceID">ParkingLights</span> : <span class="idlSu
         </section>
 
         <!-------------------------- End of Vision and Parking interfaces -------------------------------------->
+
+        <!------------------------ Full WebIDL ------------------------------>
+        <section id="full-webidl">
+            <h3 aria-level="2" role="heading"><span class="secno">20 </span>Full WebIDL</h3>
+            <pre class="idl"><span class="idlInterface">
+module Vehicle {
+    [<span class="extAttr">NoInterfaceObject</span>]
+    interface <span class="idlInterfaceID">VehicleManagerObject</span> {
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">Vehicle</span> <span class="idlAttrName">vehicle</span>;</span>
+    };
+
+    <span class="idlInterfaceID">Tizen</span> implements <span class="idlInterfaceID">VehicleManagerObject</span>;
+
+    [<span class="extAttr">NoInterfaceObject</span>]
+    interface <span class="idlInterfaceID">Vehicle</span> {
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">VehicleConfigurationInterface</span> <span class="idlAttrName">identification</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">VehicleConfigurationInterface</span> <span class="idlAttrName">sizeConfiguration</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">VehicleConfigurationInterface</span> <span class="idlAttrName">fuelConfiguration</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">VehicleConfigurationInterface</span> <span class="idlAttrName">transmissionConfiguration</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">VehicleConfigurationInterface</span> <span class="idlAttrName">wheelConfiguration</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">VehicleConfigurationInterface</span> <span class="idlAttrName">steeringWheelConfiguration</span>;</span>
+
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">VehicleSignalInterface</span> <span class="idlAttrName">vehicleSpeed</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">VehicleSignalInterface</span> <span class="idlAttrName">wheelSpeed</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">VehicleSignalInterface</span> <span class="idlAttrName">engineSpeed</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">VehicleSignalInterface</span> <span class="idlAttrName">powerTrainTorque</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">VehicleSignalInterface</span> <span class="idlAttrName">acceleratorPedalPosition</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">VehicleSignalInterface</span> <span class="idlAttrName">throttlePosition</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">VehicleSignalInterface</span> <span class="idlAttrName">tripMeters</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">VehicleSignalInterface</span> <span class="idlAttrName">diagnostic</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">VehicleSignalInterface</span> <span class="idlAttrName">transmission</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">VehicleSignalInterface</span> <span class="idlAttrName">cruiseControlStatus</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">VehicleSignalInterface</span> <span class="idlAttrName">lightStatus</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">VehicleSignalInterface</span> <span class="idlAttrName">interiorLightStatus</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">VehicleSignalInterface</span> <span class="idlAttrName">chime</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">VehicleSignalInterface</span> <span class="idlAttrName">fuel</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">VehicleSignalInterface</span> <span class="idlAttrName">engineOil</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">VehicleSignalInterface</span> <span class="idlAttrName">acceleration</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">VehicleSignalInterface</span> <span class="idlAttrName">engineCoolant</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">VehicleSignalInterface</span> <span class="idlAttrName">steeringWheel</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">VehicleSignalInterface</span> <span class="idlAttrName">ignitionTime</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">VehicleSignalInterface</span> <span class="idlAttrName">yawRate</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">VehicleSignalInterface</span> <span class="idlAttrName">brakeOperation</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">VehicleSignalInterface</span> <span class="idlAttrName">wheelTick</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">VehicleSignalInterface</span> <span class="idlAttrName">buttonEvent</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">VehicleSignalInterface</span> <span class="idlAttrName">drivingMode</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">VehicleSignalInterface</span> <span class="idlAttrName">nightMode</span>;</span>
+
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">VehicleSignalInterface</span> <span class="idlAttrName">odometer</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">VehicleSignalInterface</span> <span class="idlAttrName">transmissionOil</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">VehicleSignalInterface</span> <span class="idlAttrName">transmissionClutch</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">VehicleSignalInterface</span> <span class="idlAttrName">brakeMaintenance</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">VehicleSignalInterface</span> <span class="idlAttrName">washerFluid</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">VehicleSignalInterface</span> <span class="idlAttrName">malfunctionIndicator</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">VehicleSignalInterface</span> <span class="idlAttrName">batteryStatus</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">VehicleSignalInterface</span> <span class="idlAttrName">tire</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">VehicleInterface</span>       <span class="idlAttrName">diagnostic</span>;</span>
+
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">VehicleSignalInterface</span> <span class="idlAttrName"> driverIdentification</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">VehicleSignalInterface</span> <span class="idlAttrName">? languageConfiguration</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">VehicleSignalInterface</span> <span class="idlAttrName"> unitsOfMeasure</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">VehicleSignalInterface</span> <span class="idlAttrName"> mirror</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">VehicleSignalInterface</span> <span class="idlAttrName"> steeringWheel</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">VehicleSignalInterface</span> <span class="idlAttrName"> driveMode</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">VehicleSignalInterface</span> <span class="idlAttrName"> seatAdjustment</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">VehicleSignalInterface</span> <span class="idlAttrName"> dashboardIllumination</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">VehicleSignalInterface</span> <span class="idlAttrName"> vehicleSound</span>;</span>
+
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">VehicleSignalInterface</span> <span class="idlAttrName">antilockBrakingSystem</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">VehicleSignalInterface</span> <span class="idlAttrName">tractionControlSystem</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">VehicleSignalInterface</span> <span class="idlAttrName">electronicStabilityControl</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">VehicleSignalInterface</span> <span class="idlAttrName">topSpeedLimit</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">VehicleSignalInterface</span> <span class="idlAttrName">airbagStatus</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">VehicleSignalInterface</span> <span class="idlAttrName">door</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">VehicleSignalInterface</span> <span class="idlAttrName">childSafetyLock</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">VehicleSignalInterface</span> <span class="idlAttrName">seat</span>;</span>
+
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">VehicleSignalInterface</span> <span class="idlAttrName">temperature</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">VehicleSignalInterface</span> <span class="idlAttrName">rainSensor</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">VehicleSignalInterface</span> <span class="idlAttrName">wiperStatus</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">VehicleSignalInterface</span> <span class="idlAttrName">wiperSetting</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">VehicleSignalInterface</span> <span class="idlAttrName">defrost</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">VehicleSignalInterface</span> <span class="idlAttrName">sunroof</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">VehicleSignalInterface</span> <span class="idlAttrName">convertibleRoof</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">VehicleSignalInterface</span> <span class="idlAttrName">sideWindow</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">VehicleSignalInterface</span> <span class="idlAttrName">climateControl</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">VehicleSignalInterface</span> <span class="idlAttrName">atmosphericPressure</span>;</span>
+
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">VehicleSignalInterface</span> <span class="idlAttrName">laneDepartureStatus</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">VehicleSignalInterface</span> <span class="idlAttrName">alarm</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">VehicleSignalInterface</span> <span class="idlAttrName">parkingBrake</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">VehicleSignalInterface</span> <span class="idlAttrName">parkingLights</span>;</span>
+    };
+
+    [Callback=FunctionOnly, <span class="extAttr">NoInterfaceObject</span>]
+    interface <span class="idlInterfaceID">VehicleInterfaceCallback</span> {
+    <span class="idlMethod">    <span class="idlAttrType">void</span> <span class="idlAttrName">onsuccess</span> (<span class="idlAttrType">object</span> value);</span>
+    };
+
+    [Callback=FunctionOnly, <span class="extAttr">NoInterfaceObject</span>]
+    interface <span class="idlInterfaceID">AvailableCallback</span> {
+    <span class="idlMethod">    <span class="idlAttrType">void</span> <span class="idlAttrName">onsuccess</span> (<span class="idlAttrType">Availability</span> value);</span>
+    };
+
+    enum <span class="idlEnumID">Availability</span> {"available", "not_supported", "not_supported_yet", "not_supported_security_policy", "not_supported_business_policy", "not_supported_other"};
+
+    [<span class="extAttr">NoInterfaceObject</span>]
+    interface <span class="idlInterfaceID">VehicleInterface</span> {
+    Availability availableForRetrieval (DOMString attributeName);
+    <span class="idlMethod">    <span class="idlAttrType">short</span>   <span class="idlAttrName">availabilityChangedListener</span> (<span class="idlAttrType">AvailableCallback</span> callback);</span>
+    <span class="idlMethod">    <span class="idlAttrType">void</span>    <span class="idlAttrName">removeAvailabilityChangedListener</span> (<span class="idlAttrType">short</span> handle);</span>
+    <span class="idlMethod">    <span class="idlAttrType">Promise</span> <span class="idlAttrName">get</span> (optional <span class="idlAttrName">Zone</span> zone);</span>
+    <span class="idlMethod">    <span class="idlAttrType">Promise</span> <span class="idlAttrName">getHistory</span> (<span class="idlAttrType">Date</span> begin, <span class="idlAttrType">Date</span> end, optional <span class="idlAttrType">Zone</span> zone);</span>
+
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">boolean</span> <span class="idlAttrName">isLogged</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">Date?</span>   <span class="idlAttrName">from</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">Date?</span>   <span class="idlAttrName">to</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">boolean</span> <span class="idlAttrName">supported</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">Zone[]</span>  <span class="idlAttrName">zones</span>;</span>
+    };
+
+    [<span class="extAttr">NoInterfaceObject</span>]
+    interface <span class="idlInterfaceID">VehicleConfigurationInterface</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleInterface" class="idlType"><code>VehicleInterface</code></a></span> {};
+
+    [<span class="extAttr">NoInterfaceObject</span>]
+    interface <span class="idlInterfaceID">VehicleSignalInterface</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleInterface" class="idlType"><code>VehicleInterface</code></a></span> {
+    <span class="idlMethod">    <span class="idlMethType">Availability</span>   <span class="idlMethName">availableForSubscription</span> (<span class="idlParam"><span class="idlParamType">DOMString</span> <span class="idlParamName">attributeName</span></span>);</span>
+    <span class="idlMethod">    <span class="idlMethType">Availability</span>   <span class="idlMethName">availableForSetting</span> (<span class="idlParam"><span class="idlParamType">DOMString</span> <span class="idlParamName">attributeName</span></span>);</span>
+    <span class="idlMethod">    <span class="idlMethType">Promise</span>        <span class="idlMethName">set</span> (<span class="idlParam"><span class="idlParamType">object</span> <span class="idlParamName">value</span></span>, <span class="idlParam">optional <span class="idlParamType">Zone</span> <span class="idlParamName">zone</span></span>);</span>
+    <span class="idlMethod">    <span class="idlMethType">unsigned short</span> <span class="idlMethName">subscribe</span> (<span class="idlParam"><span class="idlParamType">VehicleInterfaceCallback</span> <span class="idlParamName">callback</span></span>);</span>
+    <span class="idlMethod">    <span class="idlMethType">void</span>           <span class="idlMethName">unsubscribe</span> (<span class="idlParam"><span class="idlParamType">unsigned short</span> <span class="idlParamName">handle</span></span>, <span class="idlParam">optional <span class="idlParamType">Zone</span> <span class="idlParamName">zone</span></span>);</span>
+    };
+
+    enum <span class="idlEnumID">ZonePosition</span> {"Front", "Middle", "Right", "Left", "Rear", "Center"};
+
+    [<span class="extAttr">NoInterfaceObject</span>]
+    interface <span class="idlInterfaceID">Zone</span> {
+    <span class="idlAttribute">             attribute <span class="idlAttrType">DOMString[]</span> <span class="value">error</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">Zone</span>        <span class="idlAttrName">driver</span>;</span>
+
+    <span class="idlMethod">    <span class="idlMethType">boolean</span> <span class="idlMethName">equals</span> (<span class="idlParam"><span class="idlParamType">Zone</span> <span class="idlParamName">zone</span></span>);</span>
+    <span class="idlMethod">    <span class="idlMethType">boolean</span> <span class="idlMethName">contains</span> (<span class="idlParam"><span class="idlParamType">Zone</span> <span class="idlParamName">zone</span></span>);</span>
+    };
+
+    enum <span class="idlEnumID">VehicleError</span> {"permission_denied", "invalid_operation", "timeout", "invalid_zone", "unknown"};
+
+    [<span class="extAttr">NoInterfaceObject</span>]
+    interface <span class="idlInterfaceID">VehicleInterfaceError</span> {
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">VehicleError</span> <span class="idlAttrName">error</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">DOMString</span>    <span class="idlAttrName">message</span>;</span>
+    };
+
+    [<span class="extAttr">NoInterfaceObject</span>]
+    interface <span class="idlInterfaceID">VehicleCommonDataType</span> {
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">DOMTimeStamp?</span> <span class="idlAttrName">timeStamp</span>;</span>
+    };
+
+    enum <span class="idlEnumID">VehicleTypeEnum</span> {"passengerCarMini", "passengerCarLight", "passengerCarCompact", "passengerCarMedium", "passengerCarHeavy", "sportUtilityVehicle", "pickupTruck", "van"};
+
+    [<span class="extAttr">NoInterfaceObject</span>]
+    interface <span class="idlInterfaceID">Identification</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">DOMString?</span>       <span class="idlAttrName">VIN</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">DOMString?</span>       <span class="idlAttrName">WMI</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">VehicleTypeEnum?</span> <span class="idlAttrName">vehicleType</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">DOMString?</span>       <span class="idlAttrName">brand</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">DOMString?</span>       <span class="idlAttrName">model</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">unsigned short?</span>  <span class="idlAttrName">year</span>;</span>
+    };
+
+    [<span class="extAttr">NoInterfaceObject</span>]
+    interface <span class="idlInterfaceID">SizeConfiguration</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">unsigned short?</span>   <span class="idlAttrName">width</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">unsigned short?</span>   <span class="idlAttrName">height</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">unsigned short?</span>   <span class="idlAttrName">length</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">unsigned short[]?</span> <span class="idlAttrName">doorsCount</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">unsigned short?</span>   <span class="idlAttrName">totalDoors</span>;</span>
+    };
+
+    enum <span class="idlEnumID">FuelTypeEnum</span> {"gasoline", "methanol", "ethanol", "diesel", "lpg", "cng", "electric"};
+
+    [<span class="extAttr">NoInterfaceObject</span>]
+    interface <span class="idlInterfaceID">FuelConfiguration</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">FuelTypeEnum[]?</span> <span class="idlAttrName">fuelType</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">Zone?</span>           <span class="idlAttrName">refuelPosition</span>;</span>
+    };
+
+    enum <span class="idlEnumID">TransmissionGearTypeEnum</span> {"auto", "manual"};
+
+    [<span class="extAttr">NoInterfaceObject</span>]
+    interface <span class="idlInterfaceID">TransmissionConfiguration</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">TransmissionGearTypeEnum?</span> <span class="idlAttrName">transmissionGearType</span>;</span>
+    };
+
+    [<span class="extAttr">NoInterfaceObject</span>]
+    interface <span class="idlInterfaceID">WheelConfiguration</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">unsigned short?</span> <span class="idlAttrName">wheelRadius</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">Zone?</span>           <span class="idlAttrName">zone</span>;</span>
+    };
+
+    [<span class="extAttr">NoInterfaceObject</span>]
+    interface <span class="idlInterfaceID">SteeringWheelConfiguration</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">unsigned boolean?</span> <span class="idlAttrName">steeringWheelLeft</span>;</span>
+    };
+
+    [<span class="extAttr">NoInterfaceObject</span>]
+    interface <span class="idlInterfaceID">VehicleSpeed</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">unsigned short</span> <span class="idlAttrName">speed</span>;</span>
+    };
+
+    [<span class="extAttr">NoInterfaceObject</span>]
+    interface <span class="idlInterfaceID">WheelSpeed</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">unsigned short</span> <span class="idlAttrName">speed</span>;</span>
+    <span class="idlAttribute">             attribute <span class="idlAttrType">Zone?</span>          <span class="idlAttrName">zone</span>;</span>
+    };
+
+    [<span class="extAttr">NoInterfaceObject</span>]
+    interface <span class="idlInterfaceID">EngineSpeed</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">unsigned long</span> <span class="idlAttrName">speed</span>;</span>
+    };
+
+    enum <span class="idlEnumID">VehiclePowerMode</span> {"off", "accessory1", "accessory2", "running"};
+
+    [<span class="extAttr">NoInterfaceObject</span>]
+    interface <span class="idlInterfaceID">VehiclePowerModeType</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">VehiclePowerMode</span> <span class="idlAttrName">value</span>;</span>
+    };
+
+    [<span class="extAttr">NoInterfaceObject</span>]
+    interface <span class="idlInterfaceID">PowerTrainTorque</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">short</span> <span class="idlAttrName">value</span>;</span>
+    };
+
+    [<span class="extAttr">NoInterfaceObject</span>]
+    interface <span class="idlInterfaceID">AcceleratorPedalPosition</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">unsigned short</span> <span class="idlAttrName">value</span>;</span>
+    };
+
+    [<span class="extAttr">NoInterfaceObject</span>]
+    interface <span class="idlInterfaceID">ThrottlePosition</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">unsigned short</span> <span class="idlAttrName">value</span>;</span>
+    };
+
+    [<span class="extAttr">NoInterfaceObject</span>]
+    interface <span class="idlInterfaceID">Trip</span> {
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">unsigned long</span>   <span class="idlAttrName">distance</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">unsigned short?</span> <span class="idlAttrName">averageSpeed</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">unsigned short?</span> <span class="idlAttrName">fuelConsumption</span>;</span>
+    };
+
+    [<span class="extAttr">NoInterfaceObject</span>]
+    interface <span class="idlInterfaceID">TripMeters</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">Trip[]</span> <span class="idlAttrName">meters</span>;</span>
+    };
+
+    enum <span class="idlEnumID">TransmissionMode</span> {"park", "reverse", "neutral", "low", "drive", "overdrive"};
+
+    [<span class="extAttr">NoInterfaceObject</span>]
+    interface <span class="idlInterfaceID">Transmission</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">octet?</span>            <span class="idlAttrName">gear</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">TransmissionMode?</span> <span class="idlAttrName">mode</span>;</span>
+    };
+
+    [<span class="extAttr">NoInterfaceObject</span>]
+    interface <span class="idlInterfaceID">CruiseControlStatus</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">boolean</span>        <span class="idlAttrName">status</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">unsigned short</span> <span class="idlAttrName">speed</span>;</span>
+    };
+
+    [<span class="extAttr">NoInterfaceObject</span>]
+    interface <span class="idlInterfaceID">LightStatus</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
+    <span class="idlAttribute">    attribute <span class="idlAttrType">boolean</span>  <span class="idlAttrName">head</span>;</span>
+    <span class="idlAttribute">    attribute <span class="idlAttrType">boolean</span>  <span class="idlAttrName">rightTurn</span>;</span>
+    <span class="idlAttribute">    attribute <span class="idlAttrType">boolean</span>  <span class="idlAttrName">leftTurn</span>;</span>
+    <span class="idlAttribute">    attribute <span class="idlAttrType">boolean</span>  <span class="idlAttrName">brake</span>;</span>
+    <span class="idlAttribute">    attribute <span class="idlAttrType">boolean?</span> <span class="idlAttrName">fog</span>;</span>
+    <span class="idlAttribute">    attribute <span class="idlAttrType">boolean</span>  <span class="idlAttrName">hazard</span>;</span>
+    <span class="idlAttribute">    attribute <span class="idlAttrType">boolean</span>  <span class="idlAttrName">parking</span>;</span>
+    <span class="idlAttribute">    attribute <span class="idlAttrType">boolean</span>  <span class="idlAttrName">highBeam</span>;</span>
+    <span class="idlAttribute">    attribute <span class="idlAttrType">boolean?</span> <span class="idlAttrName">automaticHeadlights</span>;</span>
+    <span class="idlAttribute">    attribute <span class="idlAttrType">boolean?</span> <span class="idlAttrName">dynamicHighBeam</span>;</span>
+    <span class="idlAttribute">    attribute <span class="idlAttrType">Zone?</span>    <span class="idlAttrName">zone</span>;</span>
+    };
+
+    [<span class="extAttr">NoInterfaceObject</span>]
+    interface <span class="idlInterfaceID">InteriorLightStatus</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
+    <span class="idlAttribute">    attribute <span class="idlAttrType">boolean</span> <span class="idlAttrName">status</span>;</span>
+    <span class="idlAttribute">    attribute <span class="idlAttrType">Zone?</span>   <span class="idlAttrName">zone</span>;</span>
+    };
+
+    [<span class="extAttr">NoInterfaceObject</span>]
+    interface <span class="idlInterfaceID">Horn</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
+    <span class="idlAttribute">    attribute <span class="idlAttrType">boolean</span> <span class="idlAttrName">status</span>;</span>
+    };
+
+    [<span class="extAttr">NoInterfaceObject</span>]
+    interface <span class="idlInterfaceID">Chime</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">boolean</span> <span class="idlAttrName">status</span>;</span>
+    };
+
+    [<span class="extAttr">NoInterfaceObject</span>]
+    interface <span class="idlInterfaceID">Fuel</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">unsigned short</span> <span class="idlAttrName">level</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">unsigned long</span>  <span class="idlAttrName">range</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">unsigned long</span>  <span class="idlAttrName">instantConsumption</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">unsigned long</span>  <span class="idlAttrName">averageConsumption</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">unsigned long</span>  <span class="idlAttrName">fuelConsumedSinceRestart</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">unsigned long</span>  <span class="idlAttrName">vehicleTimeSinceRestart</span>;</span>
+    };
+
+    [<span class="extAttr">NoInterfaceObject</span>]
+    interface <span class="idlInterfaceID">EngineOil</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">unsigned short</span> <span class="idlAttrName">level</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">unsigned short</span> <span class="idlAttrName">lifeRemaining</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">long</span>           <span class="idlAttrName">temperature</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">unsigned short</span> <span class="idlAttrName">pressure</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">boolean</span>        <span class="idlAttrName">change</span>;</span>
+    };
+
+    [<span class="extAttr">NoInterfaceObject</span>]
+    interface <span class="idlInterfaceID">Acceleration</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">unsigned long</span> <span class="idlAttrName">x</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">unsigned long</span> <span class="idlAttrName">y</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">unsigned long</span> <span class="idlAttrName">z</span>;</span>
+    };
+
+    [<span class="extAttr">NoInterfaceObject</span>]
+    interface <span class="idlInterfaceID">EngineCoolant</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">unsigned short</span> <span class="idlAttrName">level</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">unsigned short</span> <span class="idlAttrName">temperature</span>;</span>
+    };
+
+    [<span class="extAttr">NoInterfaceObject</span>]
+    interface <span class="idlInterfaceID">SteeringWheel</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">short</span> <span class="idlAttrName">angle</span>;</span>
+    };
+
+    [<span class="extAttr">NoInterfaceObject</span>]
+    interface <span class="idlInterfaceID">WheelTick</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">unsigned long</span> <span class="idlAttrName">value</span>;</span>
+    <span class="idlAttribute">             attribute <span class="idlAttrType">Zone?</span>         <span class="idlAttrName">zone</span>;</span>
+    };
+
+    [<span class="extAttr">NoInterfaceObject</span>]
+    interface <span class="idlInterfaceID">IgnitionTime</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
+    readonly attribute DOMTimeStamp ignitionOnTime;
+    readonly attribute DOMTimeStamp ignitionOffTime;
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">DOMTimeStamp</span> <span class="idlAttrName">ignitionOnTime</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">DOMTimeStamp</span> <span class="idlAttrName">ignitionOffTime</span>;</span>
+    };
+
+    [<span class="extAttr">NoInterfaceObject</span>]
+    interface <span class="idlInterfaceID">YawRate</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">short</span> <span class="idlAttrName">value</span>;</span>
+    };
+
+    [<span class="extAttr">NoInterfaceObject</span>]
+    interface <span class="idlInterfaceID">BrakeOperation</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">boolean</span> <span class="idlAttrName">brakePedalDepressed</span>;</span>
+    };
+
+    enum <span class="idlEnumID">VehicleButton</span> {"home", "back", "search", "call", "end_call", "media_play", "media_next", "media_previous", "media_pause", "voice_recognize", "enter", "left", "right", "up", "down"};
+
+    enum <span class="idlEnumID">PressType</span> {"press", "long_press", "release"};
+
+    [<span class="extAttr">NoInterfaceObject</span>]
+    interface <span class="idlInterfaceID">ButtonEvent</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">VehicleButton[]</span> <span class="idlAttrName">button</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">PressType</span>       <span class="idlAttrName">state</span>;</span>
+    };
+
+    [<span class="extAttr">NoInterfaceObject</span>]
+    interface <span class="idlInterfaceID">DrivingMode</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">boolean</span> <span class="idlAttrName">mode</span>;</span>
+    };
+
+    [<span class="extAttr">NoInterfaceObject</span>]
+    interface <span class="idlInterfaceID">NightMode</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">boolean</span> <span class="idlAttrName">mode</span>;</span>
+    };
+
+    [<span class="extAttr">NoInterfaceObject</span>]
+    interface <span class="idlInterfaceID">Odometer</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">unsigned long?</span> <span class="idlAttrName">distanceSinceStart</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">unsigned long</span> <span class="idlAttrName">distanceTotal</span>;</span>
+    };
+
+    [<span class="extAttr">NoInterfaceObject</span>]
+    interface <span class="idlInterfaceID">TransmissionOil</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">byte?</span>  <span class="idlAttrName">wear</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">short?</span> <span class="idlAttrName">temperature</span>;</span>
+    };
+
+    [<span class="extAttr">NoInterfaceObject</span>]
+    interface <span class="idlInterfaceID">TransmissionClutch</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">byte</span> <span class="idlAttrName">wear</span>;</span>
+    };
+
+    [<span class="extAttr">NoInterfaceObject</span>]
+    interface <span class="idlInterfaceID">BrakeMaintenance</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">unsigned short?</span> <span class="idlAttrName">fluidLevel</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">boolean?</span>        <span class="idlAttrName">fluidLevelLow</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">byte?</span>           <span class="idlAttrName">padWear</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">boolean?</span>        <span class="idlAttrName">levelLow</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">boolean?</span>        <span class="idlAttrName">levelLow</span>;</span>
+    <span class="idlAttribute">             attribute <span class="idlAttrType">Zone?</span>           <span class="idlAttrName">zone</span>;</span>
+    };
+
+    [<span class="extAttr">NoInterfaceObject</span>]
+    interface <span class="idlInterfaceID">WasherFluid</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">unsigned short?</span> <span class="idlAttrName">level</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">boolean?</span>        <span class="idlAttrName">levelLow</span>;</span>
+    };
+
+    [<span class="extAttr">NoInterfaceObject</span>]
+    interface <span class="idlInterfaceID">MalfunctionIndicator</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">boolean</span> <span class="idlAttrName">on</span>;</span>
+    };
+
+    [<span class="extAttr">NoInterfaceObject</span>]
+    interface <span class="idlInterfaceID">BatteryStatus</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">unsigned short?</span> <span class="idlAttrName">chargeLevel</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">unsigned short?</span> <span class="idlAttrName">voltage</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">unsigned short?</span> <span class="idlAttrName">current</span>;</span>
+    };
+
+    [<span class="extAttr">NoInterfaceObject</span>]
+    interface <span class="idlInterfaceID">Tire</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">boolean?</span>        <span class="idlAttrName">pressureLow</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">unsigned short?</span> <span class="idlAttrName">pressure</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">short?</span>          <span class="idlAttrName">temperature</span>;</span>
+    <span class="idlAttribute">             attribute <span class="idlAttrType">Zone?</span>           <span class="idlAttrName">zone</span>;</span>
+    };
+
+    [<span class="extAttr">NoInterfaceObject</span>]
+    interface <span class="idlInterfaceID">Diagnostic</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">unsigned long</span> <span class="idlAttrName">accumulatedEngineRuntime</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">unsigned long</span> <span class="idlAttrName">distanceWithMILOn</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">unsigned long</span> <span class="idlAttrName">distanceSinceCodeCleared</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">unsigned long</span> <span class="idlAttrName">timeRunMILOn</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">unsigned long</span> <span class="idlAttrName">timeTroubleCodeClear</span>;</span>
+    };
+
+    [<span class="extAttr">NoInterfaceObject</span>]
+    interface <span class="idlInterfaceID">LanguageConfiguration</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
+    <span class="idlAttribute">    attribute <span class="idlAttrType">DOMString?</span> <span class="idlAttrName">language</span>;</span>
+    };
+
+    [<span class="extAttr">NoInterfaceObject</span>]
+    interface <span class="idlInterfaceID">UnitsOfMeasure</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
+    <span class="idlAttribute">    attribute <span class="idlAttrType">boolean?</span>   <span class="idlAttrName">isMKSSystem</span>;</span>
+    <span class="idlAttribute">    attribute <span class="idlAttrType">DOMString?</span> <span class="idlAttrName">unitsFuelVolume</span>;</span>
+    <span class="idlAttribute">    attribute <span class="idlAttrType">DOMString?</span> <span class="idlAttrName">unitsDistance</span>;</span>
+    <span class="idlAttribute">    attribute <span class="idlAttrType">DOMString?</span> <span class="idlAttrName">unitsSpeed</span>;</span>
+    <span class="idlAttribute">    attribute <span class="idlAttrType">DOMString?</span> <span class="idlAttrName">unitsFuelConsumption</span>;</span>
+    };
+
+    [<span class="extAttr">NoInterfaceObject</span>]
+    interface <span class="idlInterfaceID">Mirror</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
+    <span class="idlAttribute">    attribute <span class="idlAttrType">unsigned short?</span> <span class="idlAttrName">mirrorTilt</span>;</span>
+    <span class="idlAttribute">    attribute <span class="idlAttrType">unsigned short?</span> <span class="idlAttrName">mirrorPan</span>;</span>
+    <span class="idlAttribute">    attribute <span class="idlAttrType">Zone?</span>           <span class="idlAttrName">zone</span>;</span>
+    };
+
+    [<span class="extAttr">NoInterfaceObject</span>]
+    interface <span class="idlInterfaceID">SeatAdjustment</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
+    <span class="idlAttribute">    attribute <span class="idlAttrType">unsigned short?</span> <span class="idlAttrName">reclineSeatBack</span>;</span>
+    <span class="idlAttribute">    attribute <span class="idlAttrType">unsigned short?</span> <span class="idlAttrName">seatSlide</span>;</span>
+    <span class="idlAttribute">    attribute <span class="idlAttrType">unsigned short?</span> <span class="idlAttrName">seatCushionHeight</span>;</span>
+    <span class="idlAttribute">    attribute <span class="idlAttrType">unsigned short?</span> <span class="idlAttrName">seatHeadrest</span>;</span>
+    <span class="idlAttribute">    attribute <span class="idlAttrType">unsigned short?</span> <span class="idlAttrName">seatBackCushion</span>;</span>
+    <span class="idlAttribute">    attribute <span class="idlAttrType">unsigned short?</span> <span class="idlAttrName">seatSideCushion</span>;</span>
+    <span class="idlAttribute">    attribute <span class="idlAttrType">Zone?</span>           <span class="idlAttrName">zone</span>;</span>
+    };
+
+    enum <span class="idlEnumID">DriveModeEnum</span> {"comfort", "auto", "sport", "eco", "manual", "winter"};
+
+    [<span class="extAttr">NoInterfaceObject</span>]
+    interface <span class="idlInterfaceID">DriveMode</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
+    <span class="idlAttribute">    attribute <span class="idlAttrType">DriveModeEnum?</span> <span class="idlAttrName">driveMode</span>;</span>
+    };
+
+    [<span class="extAttr">NoInterfaceObject</span>]
+    interface <span class="idlInterfaceID">DashboardIllumination</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
+    <span class="idlAttribute">    attribute <span class="idlAttrType">DOMString?</span> <span class="idlAttrName">dashboardIllumination</span>;</span>
+    };
+
+    [<span class="extAttr">NoInterfaceObject</span>]
+    interface <span class="idlInterfaceID">VehicleSound</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
+    <span class="idlAttribute">    attribute <span class="idlAttrType">boolean</span>    <span class="idlAttrName">activeNoiseControlMode</span>;</span>
+    <span class="idlAttribute">    attribute <span class="idlAttrType">DOMString?</span> <span class="idlAttrName">engineSoundEnhancementMode</span>;</span>
+    };
+
+    [<span class="extAttr">NoInterfaceObject</span>]
+    interface <span class="idlInterfaceID">AntilockBrakingSystem</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">boolean</span> <span class="idlAttrName">enabled</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">boolean</span> <span class="idlAttrName">engaged</span>;</span>
+    };
+
+    [<span class="extAttr">NoInterfaceObject</span>]
+    interface <span class="idlInterfaceID">TractionControlSystem</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">boolean</span> <span class="idlAttrName">enabled</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">boolean</span> <span class="idlAttrName">engaged</span>;</span>
+    };
+
+    [<span class="extAttr">NoInterfaceObject</span>]
+    interface <span class="idlInterfaceID">ElectronicStabilityControl</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">boolean</span> <span class="idlAttrName">enabled</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">boolean</span> <span class="idlAttrName">engaged</span>;</span>
+    };
+
+    [<span class="extAttr">NoInterfaceObject</span>]
+    interface <span class="idlInterfaceID">TopSpeedLimit</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
+    readonly attribute unsigned short speed;
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">unsigned short</span> <span class="idlAttrName">speed</span>;</span>
+    };
+
+    [<span class="extAttr">NoInterfaceObject</span>]
+    interface <span class="idlInterfaceID">AirbagStatus</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">boolean</span> <span class="idlAttrName">activated</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">boolean</span> <span class="idlAttrName">deployed</span>;</span>
+    <span class="idlAttribute">             attribute <span class="idlAttrType">Zone?</span>   <span class="idlAttrName">zone</span>;</span>
+    };
+
+    enum <span class="idlEnumID">DoorOpenStatus</span> {"open", "ajar", "closed"};
+
+    [<span class="extAttr">NoInterfaceObject</span>]
+    interface <span class="idlInterfaceID">Door</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">DoorOpenStatus</span> <span class="idlAttrName">status</span>;</span>
+    <span class="idlAttribute">             attribute <span class="idlAttrType">boolean</span>        <span class="idlAttrName">lock</span>;</span>
+    <span class="idlAttribute">             attribute <span class="idlAttrType">Zone?</span>          <span class="idlAttrName">zone</span>;</span>
+    };
+
+    [<span class="extAttr">NoInterfaceObject</span>]
+    interface <span class="idlInterfaceID">ChildSafetyLock</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
+    <span class="idlAttribute">    attribute <span class="idlAttrType">boolean</span> <span class="idlAttrName">lock</span>;</span>
+    <span class="idlAttribute">    attribute <span class="idlAttrType">Zone?</span>   <span class="idlAttrName">zone</span>;</span>
+    };
+
+    enum <span class="idlEnumID">OccupantStatus</span> {"adult", "child", "vacant"};
+
+    enum <span class="idlEnumID">IdentificationType</span> {"pin", "keyfob", "Bluetooth", "NFC", "fingerprint", "camera", "voice"};
+
+    [<span class="extAttr">NoInterfaceObject</span>]
+    interface <span class="idlInterfaceID">Seat</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">OccupantStatus</span>     <span class="idlAttrName">occupant</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">boolean</span>            <span class="idlAttrName">seatbelt</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">DOMString?</span>         <span class="idlAttrName">occupantName</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">IdentificationType</span> <span class="idlAttrName">identificationType</span>;</span>
+    <span class="idlAttribute">             attribute <span class="idlAttrType">Zone?</span>              <span class="idlAttrName">zone</span>;</span>
+    };
+
+    [<span class="extAttr">NoInterfaceObject</span>]
+    interface <span class="idlInterfaceID">Temperature</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">float</span> <span class="idlAttrName">interiorTemperature</span>;</span>
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">float</span> <span class="idlAttrName">exteriorTemperature</span>;</span>
+    };
+
+    [<span class="extAttr">NoInterfaceObject</span>]
+    interface <span class="idlInterfaceID">RainSensor</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">unsigned byte</span> <span class="idlAttrName">rain</span>;</span>
+    <span class="idlAttribute">             attribute <span class="idlAttrType">Zone?</span>         <span class="idlAttrName">zone</span>;</span>
+    };
+
+    [<span class="extAttr">NoInterfaceObject</span>]
+    interface <span class="idlInterfaceID">WiperStatus</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">unsigned byte</span> <span class="idlAttrName">wiperSpeed</span>;</span>
+    <span class="idlAttribute">             attribute <span class="idlAttrType">Zone?</span>         <span class="idlAttrName">zone</span>;</span>
+    };
+
+    enum <span class="idlEnumID">WiperControl</span> {"off", "once", "slowest", "slow", "middle", "fast", "fastest", "auto"};
+
+    [<span class="extAttr">NoInterfaceObject</span>]
+    interface <span class="idlInterfaceID">WiperSetting</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
+    <span class="idlAttribute">    attribute <span class="idlAttrType">WiperControl</span> <span class="idlAttrName">wiperControl</span>;</span>
+    <span class="idlAttribute">    attribute <span class="idlAttrType">Zone?</span>        <span class="idlAttrName">zone</span>;</span>
+    };
+
+    [<span class="extAttr">NoInterfaceObject</span>]
+    interface <span class="idlInterfaceID">Defrost</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
+    <span class="idlAttribute">    attribute <span class="idlAttrType">boolean?</span> <span class="idlAttrName">defrostWindow</span>;</span>
+    <span class="idlAttribute">    attribute <span class="idlAttrType">boolean?</span> <span class="idlAttrName">defrostMirrors</span>;</span>
+    <span class="idlAttribute">    attribute <span class="idlAttrType">Zone?</span>    <span class="idlAttrName">zone</span>;</span>
+    };
+
+    [<span class="extAttr">NoInterfaceObject</span>]
+    interface <span class="idlInterfaceID">Sunroof</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
+    <span class="idlAttribute">    attribute <span class="idlAttrType">unsigned byte</span> <span class="idlAttrName">openness</span>;</span>
+    <span class="idlAttribute">    attribute <span class="idlAttrType">unsigned byte</span> <span class="idlAttrName">tilt</span>;</span>
+    <span class="idlAttribute">    attribute <span class="idlAttrType">Zone?</span>         <span class="idlAttrName">zone</span>;</span>
+    };
+
+    enum <span class="idlEnumID">ConvertibleRoofStatus</span> {"closed", "closing", "opening", "opened"};
+
+    [<span class="extAttr">NoInterfaceObject</span>]
+    interface <span class="idlInterfaceID">ConvertibleRoof</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
+    <span class="idlAttribute">    attribute <span class="idlAttrType">ConvertibleRoofStatus</span> <span class="idlAttrName">status</span>;</span>
+    };
+
+    [<span class="extAttr">NoInterfaceObject</span>]
+    interface <span class="idlInterfaceID">SideWindow</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
+    <span class="idlAttribute">    attribute <span class="idlAttrType">unsigned boolean?</span> <span class="idlAttrName">lock</span>;</span>
+    <span class="idlAttribute">    attribute <span class="idlAttrType">unsigned byte?</span>    <span class="idlAttrName">openness</span>;</span>
+    <span class="idlAttribute">    attribute <span class="idlAttrType">Zone?</span>             <span class="idlAttrName">zone</span>;</span>
+    };
+
+    enum <span class="idlEnumID">AirflowDirection</span> {"frontpanel", "floorduct", "bilevel", "defrostfloor"};
+
+    [<span class="extAttr">NoInterfaceObject</span>]
+    interface <span class="idlInterfaceID">ClimateControl</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
+    <span class="idlAttribute">    attribute <span class="idlAttrType">AirflowDirection</span> <span class="idlAttrName">airflowDirection</span>;</span>
+    <span class="idlAttribute">    attribute <span class="idlAttrType">unsigned byte</span>    <span class="idlAttrName">fanSpeedLevel</span>;</span>
+    <span class="idlAttribute">    attribute <span class="idlAttrType">byte?</span>            <span class="idlAttrName">targetTemperature</span>;</span>
+    <span class="idlAttribute">    attribute <span class="idlAttrType">boolean</span>          <span class="idlAttrName">airConditioning</span>;</span>
+    <span class="idlAttribute">    attribute <span class="idlAttrType">boolean</span>          <span class="idlAttrName">heater</span>;</span>
+    <span class="idlAttribute">    attribute <span class="idlAttrType">unsigned byte?</span>   <span class="idlAttrName">seatHeater</span>;</span>
+    <span class="idlAttribute">    attribute <span class="idlAttrType">unsigned byte?</span>   <span class="idlAttrName">seatCooler</span>;</span>
+    <span class="idlAttribute">    attribute <span class="idlAttrType">boolean</span>          <span class="idlAttrName">airRecirculation</span>;</span>
+    <span class="idlAttribute">    attribute <span class="idlAttrType">unsigned byte?</span>   <span class="idlAttrName">steeringWheelHeater</span>;</span>
+    <span class="idlAttribute">    attribute <span class="idlAttrType">Zone?</span>            <span class="idlAttrName">zone</span>;</span>
+    };
+
+    [<span class="extAttr">NoInterfaceObject</span>]
+    interface <span class="idlInterfaceID">AtmosphericPressure</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">unsigned short</span> <span class="idlAttrName">pressure</span>;</span>
+    };
+
+    enum <span class="idlEnumID">LaneDepartureStatus</span> {"off", "pause", "running"};
+
+    [<span class="extAttr">NoInterfaceObject</span>]
+    interface <span class="idlInterfaceID">LaneDepartureDetection</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">LaneDepartureStatus</span> <span class="idlAttrName">status</span>;</span>
+    };
+
+    enum <span class="idlEnumID">AlarmStatus</span> {"disarmed", "preArmed", "armed", "alarmed"};
+
+    [<span class="extAttr">NoInterfaceObject</span>]
+    interface <span class="idlInterfaceID">Alarm</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
+    <span class="idlAttribute">    attribute <span class="idlAttrType">AlarmStatus</span> <span class="idlAttrName">status</span>;</span>
+    };
+
+    enum <span class="idlEnumID">ParkingBrakeStatus</span> {"inactive", "active", "error"};
+
+    [<span class="extAttr">NoInterfaceObject</span>]
+    interface <span class="idlInterfaceID">ParkingBrake</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">ParkingBrakeStatus</span> <span class="idlAttrName">status</span>;</span>
+    };
+
+    [<span class="extAttr">NoInterfaceObject</span>]
+    interface <span class="idlInterfaceID">ParkingLights</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
+    <span class="idlAttribute">    readonly attribute <span class="idlAttrType">boolean</span> <span class="idlAttrName">status</span>;</span>
+    <span class="idlAttribute">             attribute <span class="idlAttrType">boolean</span> <span class="idlAttrName">setting</span>;</span>
+    };
+};
+    </span></pre>
+        </section>
     </body>
 </html>

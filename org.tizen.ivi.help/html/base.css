@@ -1,6 +1,6 @@
 body {
   padding: 1px 0 0 3px;
-  margin: 0;
+  /*margin: 0;*/
   font-family: sans-serif;
   color: black;
   background: white;
@@ -14,14 +14,15 @@ a:active { color: #C00; background: transparent }
 
 a:link img, a:visited img { border-style: none } /* no border on img links */
 
-h1, h2, h3, h4, h5, h6 { text-align: left; 
-			 font-family: Gill Sans / Gill Sans MT, sans-serif;
-		       }
+h1, h2, h3, h4, h5, h6 {
+  text-align: left;
+  font-family: Gill Sans / Gill Sans MT, sans-serif;
+}
 
 /*
-h3 { box-shadow: rgba(0,0,0,0.4) 3px 3px; 
-     border-bottom: thin #005A9C solid; 
-     border-right: thin #005A9C solid; 
+h3 { box-shadow: rgba(0,0,0,0.4) 3px 3px;
+     border-bottom: thin #005A9C solid;
+     border-right: thin #005A9C solid;
  }
 */
 
@@ -49,11 +50,11 @@ pre { margin-left: 2em }
 dt { font-weight: bold }
 
 ul.toc, ol.toc {
-  list-style: disc;		/* Mac NS has problem with 'none' */
+  list-style: disc;/* Mac NS has problem with 'none' */
   list-style: none;
 }
 
-section#abstract p { 
+section#abstract p {
  margin-left: 5%;
  margin-right: 5%;
  font-size: 110%;

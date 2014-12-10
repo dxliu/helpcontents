@@ -1,118 +1,139 @@
- [NoInterfaceObject]
- interface VehicleManagerObject {
-	readonly attribute Vehicle vehicle;
- };
+interface VehicleManagerObject {
+    readonly attribute Vehicle vehicle;
+};
   
-Tizen implements VehicleManagerObject;
+Navigator implements VehicleManagerObject;
 
 [NoInterfaceObject]
 interface Vehicle {
-	readonly attribute VehicleConfigurationInterface identification;
-	readonly attribute VehicleConfigurationInterface sizeConfiguration;
-	readonly attribute VehicleConfigurationInterface fuelConfiguration;
-	readonly attribute VehicleConfigurationInterface transmissionConfiguration;
-	readonly attribute VehicleConfigurationInterface wheelConfiguration;
-	readonly attribute VehicleConfigurationInterface steeringWheelConfiguration;
+    readonly    attribute VehicleConfigurationInterface identification;
+    readonly    attribute VehicleConfigurationInterface sizeConfiguration;
+    readonly    attribute VehicleConfigurationInterface fuelConfiguration;
+    readonly    attribute VehicleConfigurationInterface transmissionConfiguration;
+    readonly    attribute VehicleConfigurationInterface wheelConfiguration;
+    readonly    attribute VehicleSignalInterface        steeringWheelConfiguration;
 
-	readonly attribute VehicleSignalInterface vehicleSpeed;
-	readonly attribute VehicleSignalInterface wheelSpeed;
-	readonly attribute VehicleSignalInterface engineSpeed;
-	readonly attribute VehicleSignalInterface powerTrainTorque;
-	readonly attribute VehicleSignalInterface acceleratorPedalPosition;
-	readonly attribute VehicleSignalInterface throttlePosition;
-	readonly attribute VehicleSignalInterface tripMeters;
-	readonly attribute VehicleSignalInterface diagnostic;
-	readonly attribute VehicleSignalInterface transmission;
-	readonly attribute VehicleSignalInterface cruiseControlStatus;
-	readonly attribute VehicleSignalInterface lightStatus;
-	readonly attribute VehicleSignalInterface interiorLightStatus;
-	readonly attribute VehicleSignalInterface chime;
-	readonly attribute VehicleSignalInterface fuel;
-	readonly attribute VehicleSignalInterface engineOil;
-	readonly attribute VehicleSignalInterface acceleration;
-	readonly attribute VehicleSignalInterface engineCoolant;
-	readonly attribute VehicleSignalInterface steeringWheel;
-	readonly attribute VehicleSignalInterface ignitionTime;
-	readonly attribute VehicleSignalInterface yawRate;
-	readonly attribute VehicleSignalInterface brakeOperation;
-	readonly attribute VehicleSignalInterface wheelTick;
-	readonly attribute VehicleSignalInterface buttonEvent;
-	readonly attribute VehicleSignalInterface drivingMode;
-	readonly attribute VehicleSignalInterface nightMode;
+    readonly    attribute VehicleSignalInterface vehicleSpeed;
+    readonly    attribute VehicleSignalInterface wheelSpeed;
+    readonly    attribute VehicleSignalInterface engineSpeed;
+    readonly    attribute VehicleSignalInterface powerTrainTorque;
+    readonly    attribute VehicleSignalInterface acceleratorPedalPosition;
+    readonly    attribute VehicleSignalInterface throttlePosition;
+    readonly    attribute VehicleSignalInterface tripMeters;
+    readonly    attribute VehicleSignalInterface transmission;
+    readonly    attribute VehicleSignalInterface cruiseControlStatus;
+    readonly    attribute VehicleSignalInterface lightStatus;
+    readonly    attribute VehicleSignalInterface interiorLightStatus;
+    readonly    attribute VehicleSignalInterface horn;
+    readonly    attribute VehicleSignalInterface chime;
+    readonly    attribute VehicleSignalInterface fuel;
+    readonly    attribute VehicleSignalInterface engineOil;
+    readonly    attribute VehicleSignalInterface acceleration;
+    readonly    attribute VehicleSignalInterface engineCoolant;
+    readonly    attribute VehicleSignalInterface steeringWheel;
+    readonly    attribute VehicleSignalInterface ignitionTime;
+    readonly    attribute VehicleSignalInterface yawRate;
+    readonly    attribute VehicleSignalInterface brakeOperation;
+    readonly    attribute VehicleSignalInterface wheelTick;
+    readonly    attribute VehicleSignalInterface buttonEvent;
+    readonly    attribute VehicleSignalInterface drivingMode;
+    readonly    attribute VehicleSignalInterface nightMode;
 
-	readonly attribute VehicleSignalInterface odometer;
-	readonly attribute VehicleSignalInterface transmissionOil;
-	readonly attribute VehicleSignalInterface transmissionClutch;
-	readonly attribute VehicleSignalInterface brakeMaintenance;
-	readonly attribute VehicleSignalInterface washerFluid;
-	readonly attribute VehicleSignalInterface malfunctionIndicator;
-	readonly attribute VehicleSignalInterface batteryStatus;
-	readonly attribute VehicleSignalInterface tire;
-	readonly attribute VehicleInterface       diagnostic;
+    readonly    attribute VehicleSignalInterface odometer;
+    readonly    attribute VehicleSignalInterface transmissionOil;
+    readonly    attribute VehicleSignalInterface transmissionClutch;
+    readonly    attribute VehicleSignalInterface brakeMaintenance;
+    readonly    attribute VehicleSignalInterface washerFluid;
+    readonly    attribute VehicleSignalInterface malfunctionIndicator;
+    readonly    attribute VehicleSignalInterface batteryStatus;
+    readonly    attribute VehicleSignalInterface tire;
+    readonly    attribute VehicleSignalInterface diagnostic;
 
-	readonly attribute VehicleSignalInterface  driverIdentification;
-	readonly attribute VehicleSignalInterface? languageConfiguration;
-	readonly attribute VehicleSignalInterface  unitsOfMeasure;
-	readonly attribute VehicleSignalInterface  mirror;
-	readonly attribute VehicleSignalInterface  steeringWheel;
-	readonly attribute VehicleSignalInterface  driveMode;
-	readonly attribute VehicleSignalInterface  seatAdjustment;
-	readonly attribute VehicleSignalInterface  dashboardIllumination;
-	readonly attribute VehicleSignalInterface  vehicleSound;
+    readonly    attribute VehicleSignalInterface? languageConfiguration;
+    readonly    attribute VehicleSignalInterface  unitsOfMeasure;
+    readonly    attribute VehicleSignalInterface  mirror;
+    readonly    attribute VehicleSignalInterface  driveMode;
+    readonly    attribute VehicleSignalInterface  seatAdjustment;
+    readonly    attribute VehicleSignalInterface  dashboardIllumination;
+    readonly    attribute VehicleSignalInterface  vehicleSound;
 
-	readonly attribute VehicleSignalInterface antilockBrakingSystem;
-	readonly attribute VehicleSignalInterface tractionControlSystem;
-	readonly attribute VehicleSignalInterface electronicStabilityControl;
-	readonly attribute VehicleSignalInterface topSpeedLimit;
-	readonly attribute VehicleSignalInterface airbagStatus;
-	readonly attribute VehicleSignalInterface door;
-	readonly attribute VehicleSignalInterface childSafetyLock;
-	readonly attribute VehicleSignalInterface seat;
+    readonly    attribute VehicleSignalInterface antilockBrakingSystem;
+    readonly    attribute VehicleSignalInterface tractionControlSystem;
+    readonly    attribute VehicleSignalInterface electronicStabilityControl;
+    readonly    attribute VehicleSignalInterface topSpeedLimit;
+    readonly    attribute VehicleSignalInterface airbagStatus;
+    readonly    attribute VehicleSignalInterface door;
+    readonly    attribute VehicleSignalInterface childSafetyLock;
+    readonly    attribute VehicleSignalInterface seat;
 
-	readonly attribute VehicleSignalInterface temperature;
-	readonly attribute VehicleSignalInterface rainSensor;
-	readonly attribute VehicleSignalInterface wiperStatus;
-	readonly attribute VehicleSignalInterface wiperSetting;
-	readonly attribute VehicleSignalInterface defrost;
-	readonly attribute VehicleSignalInterface sunroof;
-	readonly attribute VehicleSignalInterface convertibleRoof;
-	readonly attribute VehicleSignalInterface sideWindow;
-	readonly attribute VehicleSignalInterface climateControl;
-	readonly attribute VehicleSignalInterface atmosphericPressure;
+    readonly    attribute VehicleSignalInterface temperature;
+    readonly    attribute VehicleSignalInterface rainSensor;
+    readonly    attribute VehicleSignalInterface wiperStatus;
+    readonly    attribute VehicleSignalInterface wiperSetting;
+    readonly    attribute VehicleSignalInterface defrost;
+    readonly    attribute VehicleSignalInterface sunroof;
+    readonly    attribute VehicleSignalInterface convertibleRoof;
+    readonly    attribute VehicleSignalInterface sideWindow;
+    readonly    attribute VehicleSignalInterface climateControl;
+    readonly    attribute VehicleSignalInterface atmosphericPressure;
 
-	readonly attribute VehicleSignalInterface laneDepartureStatus;
-	readonly attribute VehicleSignalInterface alarm;
-	readonly attribute VehicleSignalInterface parkingBrake;
-	readonly attribute VehicleSignalInterface parkingLights;
+    readonly    attribute VehicleSignalInterface laneDepartureStatus;
+    readonly    attribute VehicleSignalInterface alarm;
+    readonly    attribute VehicleSignalInterface parkingBrake;
+    readonly    attribute VehicleSignalInterface parkingLights;
+};
+
+enum ZonePosition {
+    "front",
+    "middle",
+    "right",
+    "left",
+    "rear",
+    "center"
+};
+
+interface Zone {
+                attribute DOMString[] value;
+    readonly    attribute Zone        driver;
+    boolean equals (Zone zone);
+    boolean contains (Zone zone);
 };
 
 [Callback=FunctionOnly, NoInterfaceObject]
 interface VehicleInterfaceCallback {
-	void onsuccess(object value);
+    void onsuccess(object value);
 };
 
 [Callback=FunctionOnly, NoInterfaceObject]
 interface AvailableCallback {
-	void onsuccess(Availability available);
+    void onsuccess(Availability available);
 };
 
-enum Availability {
-	"available", "not_supported", "not_supported_yet", "not_supported_security_policy",
-	"not_supported_business_policy", "not_supported_other"
+enum VehicleError {
+    "permission_denied",
+    "invalid_operation",
+    "timeout",
+    "invalid_zone",
+    "unknown"
 };
 
 [NoInterfaceObject]
+interface VehicleInterfaceError {
+    readonly    attribute VehicleError error;
+    readonly    attribute DOMString    message;
+};
+
 interface VehicleInterface {
-	Availability availableForRetrieval (DOMString attributeName);
-	short		 availabilityChangedListener (AvailableCallback callback);
-	void         removeAvailabilityChangedListener (short handle);
-	Promise      get (optional Zone zone);
-	Promise      getHistory (Date begin, Date end, optional Zone zone);
-	readonly attribute boolean isLogged;
-	readonly attribute Date ?  from;
-	readonly attribute Date ?  to;
-	readonly attribute boolean supported;
-	readonly attribute Zone[] zones;
+    Availability   availableForRetrieval (DOMString attributeName);
+    Promise        get (optional Zone zone);
+    Promise        getHistory (Date begin, Date end, optional Zone zone);
+    short          availabilityChangedListener (AvailableCallback callback);
+    void           removeAvailabilityChangedListener (short handle);
+    readonly       attribute Zone[] zones;
+    readonly       attribute boolean supported;
+    readonly       attribute boolean isLogged;
+    readonly       attribute Date ?  from;
+    readonly       attribute Date ?  to;
 };
 
 [NoInterfaceObject]
@@ -122,255 +143,298 @@ interface VehicleConfigurationInterface : VehicleInterface {};
 interface VehicleSignalInterface : VehicleInterface {
     Availability   availableForSubscription (DOMString attributeName);
     Availability   availableForSetting (DOMString attributeName);
-	Promise        set (object value, optional Zone zone);
-	unsigned short subscribe (VehicleInterfaceCallback callback, optional Zone zone);
-	void           unsubscribe (unsigned short handle);
+    Promise        set (object value, optional Zone zone);
+    unsigned short subscribe (VehicleInterfaceCallback callback, optional Zone zone);
+    void           unsubscribe (unsigned short handle);
 };
 
-enum ZonePosition {"Front", "Middle", "Right", "Left", "Rear", "Center"};
-
-[NoInterfaceObject]
-interface Zone {
-			 attribute DOMString[]  value;
-	readonly attribute Zone driver;
-	boolean equals (Zone zone);
-	boolean contains (Zone zone);
-};
-
-enum VehicleError {"permission_denied", "invalid_operation", "timeout", "invalid_zone", "unknown"};
-
-[NoInterfaceObject]
-interface VehicleInterfaceError {
-	readonly attribute VehicleError error;
-	readonly attribute DOMString    message;
+enum Availability {
+    "available",
+    "not_supported",
+    "not_supported_yet",
+    "not_supported_security_policy",
+    "not_supported_business_policy",
+    "not_supported_other"
 };
 
 [NoInterfaceObject]
 interface VehicleCommonDataType {
-	readonly attribute DOMTimeStamp? timeStamp;
+    readonly    attribute DOMTimeStamp? timeStamp;
 };
 
-
 enum VehicleTypeEnum {
-	"passengerCarMini", "passengerCarLight", "passengerCarCompact", "passengerCarMedium",
-	"passengerCarHeavy", "sportUtilityVehicle", "pickupTruck", "van"
+    "passengerCarMini",
+    "passengerCarLight",
+    "passengerCarCompact",
+    "passengerCarMedium",
+    "passengerCarHeavy",
+    "sportUtilityVehicle",
+    "pickupTruck",
+    "van"
 };
 
 [NoInterfaceObject]
 interface Identification : VehicleCommonDataType {
-	readonly attribute DOMString?       VIN;
-	readonly attribute DOMString?       WMI;
-	readonly attribute VehicleTypeEnum? vehicleType;
-	readonly attribute DOMString?       brand;
-	readonly attribute DOMString?       model;
-	readonly attribute unsigned short?  year;
+    readonly    attribute DOMString?       VIN;
+    readonly    attribute DOMString?       WMI;
+    readonly    attribute VehicleTypeEnum? vehicleType;
+    readonly    attribute DOMString?       brand;
+    readonly    attribute DOMString?       model;
+    readonly    attribute unsigned short?  year;
 };
 
 [NoInterfaceObject]
 interface SizeConfiguration : VehicleCommonDataType {
-	readonly attribute unsigned short?   width;
-	readonly attribute unsigned short?   height;
-	readonly attribute unsigned short?   length;
-	readonly attribute unsigned short[]? doorsCount;
-	readonly attribute unsigned short?   totalDoors;
+    readonly    attribute unsigned short?   width;
+    readonly    attribute unsigned short?   height;
+    readonly    attribute unsigned short?   length;
+    readonly    attribute unsigned short[]? doorsCount;
+    readonly    attribute unsigned short?   totalDoors;
 };
 
 enum FuelTypeEnum {
-	"gasoline", "methanol", "ethanol", "diesel", "lpg", "cng", "electric"
+    "gasoline",
+    "methanol",
+    "ethanol",
+    "diesel",
+    "lpg",
+    "cng",
+    "electric"
 };
 
 [NoInterfaceObject]
 interface FuelConfiguration : VehicleCommonDataType {
-	readonly attribute FuelTypeEnum[]? fuelType;
-	readonly attribute Zone?           refuelPosition;
+    readonly    attribute FuelTypeEnum[]? fuelType;
+    readonly    attribute Zone?           refuelPosition;
 };
 
-enum TransmissionGearTypeEnum {"auto", "manual"};
+enum TransmissionGearTypeEnum {
+    "auto",
+    "manual"
+};
 
 [NoInterfaceObject]
 interface TransmissionConfiguration : VehicleCommonDataType {
-	readonly attribute TransmissionGearTypeEnum? transmissionGearType;
+    readonly    attribute TransmissionGearTypeEnum? transmissionGearType;
 };
 
 [NoInterfaceObject]
 interface WheelConfiguration : VehicleCommonDataType {
-	readonly attribute unsigned short? wheelRadius;
-		     attribute Zone?           zone;
+    readonly    attribute unsigned short? wheelRadius;
+    readonly    attribute Zone?           zone;
 };
 
 [NoInterfaceObject]
 interface SteeringWheelConfiguration : VehicleCommonDataType {
-	readonly attribute boolean? steeringWheelLeft;
+    readonly    attribute boolean?        steeringWheelLeft;
+                attribute unsigned short? steeringWheelTelescopingPosition;
+                attribute unsigned short? steeringWheelPositionTilt;
 };
 
 [NoInterfaceObject]
 interface VehicleSpeed : VehicleCommonDataType {
-	readonly attribute unsigned short speed;
+    readonly    attribute unsigned short speed;
 };
 
 [NoInterfaceObject]
 interface WheelSpeed : VehicleCommonDataType {
-	readonly attribute unsigned short speed;
-		     attribute Zone?          zone;
+    readonly    attribute unsigned short speed;
+    readonly    attribute Zone?          zone;
 };
 
 [NoInterfaceObject]
 interface EngineSpeed : VehicleCommonDataType {
-	readonly attribute unsigned long speed;
+    readonly    attribute unsigned long speed;
+};
+
+enum VehiclePowerMode {
+    "off",
+    "accessory1",
+    "accessory2",
+    "running"
+};
+
+[NoInterfaceObject]
+interface VehiclePowerModeType : VehicleCommonDataType {
+    readonly    attribute VehiclePowerMode value;
 };
 
 [NoInterfaceObject]
 interface PowerTrainTorque : VehicleCommonDataType {
-	readonly attribute short value;
+    readonly    attribute short value;
 };
 
 [NoInterfaceObject]
 interface AcceleratorPedalPosition : VehicleCommonDataType {
-	readonly attribute unsigned short value;
+    readonly    attribute unsigned short value;
 };
 
 [NoInterfaceObject]
 interface ThrottlePosition : VehicleCommonDataType {
-	readonly attribute unsigned short value;
+    readonly    attribute unsigned short value;
 };
 
 [NoInterfaceObject]
 interface Trip {
-	readonly attribute unsigned long   distance;
-	readonly attribute unsigned short? averageSpeed;
-	readonly attribute unsigned short? fuelConsumption;
+    readonly    attribute unsigned long   distance;
+    readonly    attribute unsigned short? averageSpeed;
+    readonly    attribute unsigned short? fuelConsumption;
 };
 
 [NoInterfaceObject]
 interface TripMeters : VehicleCommonDataType {
-	readonly attribute Trip[] meters;
+    readonly    attribute Trip[] meters;
 };
 
-[NoInterfaceObject]
-interface Diagnostic : VehicleCommonDataType {
-	readonly attribute unsigned long accumulatedEngineRuntime;
-	readonly attribute unsigned long distanceWithMILOn;
-	readonly attribute unsigned long distanceSinceCodeCleared;
-	readonly attribute unsigned long timeRunMILOn;
-	readonly attribute unsigned long timeTroubleCodeClear;
+enum TransmissionMode {
+    "park",
+    "reverse",
+    "neutral",
+    "low",
+    "drive",
+    "overdrive"
 };
-
-enum TransmissionMode {"park", "reverse", "neutral", "low", "drive", "overdrive"};
 
 [NoInterfaceObject]
 interface Transmission : VehicleCommonDataType {
-	readonly attribute octet?            gear;
-	readonly attribute TransmissionMode? mode;
+    readonly    attribute octet?            gear;
+    readonly    attribute TransmissionMode? mode;
 };
 
 [NoInterfaceObject]
 interface CruiseControlStatus : VehicleCommonDataType {
-	readonly attribute boolean        status;
-	readonly attribute unsigned short speed;
+    readonly    attribute boolean        status;
+    readonly    attribute unsigned short speed;
 };
 
 [NoInterfaceObject]
 interface LightStatus : VehicleCommonDataType {
-	attribute boolean  head;
-	attribute boolean  rightTurn;
-	attribute boolean  leftTurn;
-	attribute boolean  brake;
-	attribute boolean? fog;
-	attribute boolean  hazard;
-	attribute boolean  parking;
-	attribute boolean  highBeam;
-	attribute boolean? automaticHeadlights;
-	attribute boolean? dynamicHighBeam;
-	attribute Zone?    zone;
+                attribute boolean  head;
+                attribute boolean  rightTurn;
+                attribute boolean  leftTurn;
+                attribute boolean  brake;
+                attribute boolean? fog;
+                attribute boolean  hazard;
+                attribute boolean  parking;
+                attribute boolean  highBeam;
+                attribute boolean? automaticHeadlights;
+                attribute boolean? dynamicHighBeam;
+    readonly    attribute Zone?    zone;
 };
 
 [NoInterfaceObject]
 interface InteriorLightStatus : VehicleCommonDataType {
-	attribute boolean status;
-	attribute Zone?   zone;
+                attribute boolean status;
+    readonly    attribute Zone?   zone;
 };
 
 [NoInterfaceObject]
 interface Horn : VehicleCommonDataType {
-	attribute boolean status;
+                attribute boolean status;
 };
 
 [NoInterfaceObject]
 interface Chime : VehicleCommonDataType {
-	readonly attribute boolean status;
+    readonly    attribute boolean status;
 };
 
 [NoInterfaceObject]
 interface Fuel : VehicleCommonDataType {
-	readonly attribute unsigned short level;
-	readonly attribute unsigned long  range;
-	readonly attribute unsigned long  instantConsumption;
-	readonly attribute unsigned long  averageConsumption;
-	readonly attribute unsigned long  fuelConsumedSinceRestart;
-	readonly attribute unsigned long  vehicleTimeSinceRestart;
+    readonly    attribute unsigned short? level;
+    readonly    attribute unsigned long?  range;
+    readonly    attribute unsigned long?  instantConsumption;
+                attribute unsigned long?  averageConsumption;
+    readonly    attribute unsigned long?  fuelConsumedSinceRestart;
+    readonly    attribute unsigned long?  timeSinceRestart;
 };
 
 [NoInterfaceObject]
 interface EngineOil : VehicleCommonDataType {
-	readonly attribute unsigned short level;
-	readonly attribute unsigned short lifeRemaining;
-	readonly attribute long           temperature;
-	readonly attribute unsigned short pressure;
-	readonly attribute boolean        change;
+    readonly    attribute unsigned short level;
+    readonly    attribute unsigned short lifeRemaining;
+    readonly    attribute long           temperature;
+    readonly    attribute unsigned short pressure;
+    readonly    attribute boolean        change;
 };
 
 [NoInterfaceObject]
 interface Acceleration : VehicleCommonDataType {
-	readonly attribute unsigned long x;
-	readonly attribute unsigned long y;
-	readonly attribute unsigned long z;
+    readonly    attribute long x;
+    readonly    attribute long y;
+    readonly    attribute long z;
 };
 
 [NoInterfaceObject]
 interface EngineCoolant : VehicleCommonDataType {
-	readonly attribute unsigned short level;
-	readonly attribute unsigned short temperature;
+    readonly    attribute octet level;
+    readonly    attribute short temperature;
 };
 
 [NoInterfaceObject]
 interface SteeringWheel : VehicleCommonDataType {
-	readonly attribute short angle;
-};
-
-[NoInterfaceObject]
-interface IgnitionTime : VehicleCommonDataType {
-	readonly attribute DOMTimeStamp ignitionOnTime;
-	readonly attribute DOMTimeStamp ignitionOffTime;
-};
-
-[NoInterfaceObject]
-interface YawRate : VehicleCommonDataType {
-	readonly attribute short value;
-};
-
-[NoInterfaceObject]
-interface BrakeOperation : VehicleCommonDataType {
-	readonly attribute boolean brakePedalDepressed;
+    readonly    attribute short angle;
 };
 
 [NoInterfaceObject]
 interface WheelTick : VehicleCommonDataType {
-	readonly attribute unsigned long value;
-			 attribute Zone?         zone;
+    readonly    attribute unsigned long value;
+    readonly    attribute Zone?         zone;
 };
 
-enum VehicleButton {
-	"home", "back", "search", "call", "end_call", "media_play",
-	"media_next", "media_previous", "media_pause", "voice_recognize",
-	"enter", "left", "right", "up", "down"
+[NoInterfaceObject]
+interface IgnitionTime : VehicleCommonDataType {
+    readonly    attribute DOMTimeStamp ignitionOnTime;
+    readonly    attribute DOMTimeStamp ignitionOffTime;
 };
 
-enum PressType {"press", "long_press", "release"};
+[NoInterfaceObject]
+interface YawRate : VehicleCommonDataType {
+    readonly    attribute short value;
+};
+
+[NoInterfaceObject]
+interface BrakeOperation : VehicleCommonDataType {
+    readonly    attribute boolean brakePedalDepressed;
+};
+
+enum Button {
+    "home",
+    "back",
+    "search",
+    "call",
+    "end_call",
+    "media_play",
+    "media_next",
+    "media_previous",
+    "media_pause",
+    "voice_recognize",
+    "enter",
+    "left",
+    "right",
+    "up",
+    "down"
+};
+
+enum ButtonEventType {
+    "press",
+    "long_press",
+    "release"
+};
+
+[NoInterfaceObject]
+interface VehicleButton {
+    readonly    attribute Button          button;
+    readonly    attribute ButtonEventType state;
+};
 
 [NoInterfaceObject]
 interface ButtonEvent : VehicleCommonDataType {
-	readonly attribute VehicleButton[] button;
-	readonly attribute PressType       state;
+    readonly    attribute VehicleButton[] button;
+};
+
+[NoInterfaceObject]
+interface DrivingMode : VehicleCommonDataType {
+    readonly    attribute boolean mode;
 };
 
 [NoInterfaceObject]
@@ -380,278 +444,333 @@ interface DrivingMode : VehicleCommonDataType {
 
 [NoInterfaceObject]
 interface NightMode : VehicleCommonDataType {
-	readonly attribute boolean mode;
+    readonly    attribute boolean mode;
 };
 
 [NoInterfaceObject]
 interface Odometer : VehicleCommonDataType {
-	readonly attribute unsigned long? distanceSinceStart;
-	readonly attribute unsigned long  distanceTotal;
+    readonly    attribute unsigned long? distanceSinceStart;
+    readonly    attribute unsigned long  distanceTotal;
 };
 
 [NoInterfaceObject]
 interface TransmissionOil : VehicleCommonDataType {
-	readonly attribute byte?  wear;
-	readonly attribute short? temperature;
+    readonly    attribute octet?  wear;
+    readonly    attribute short?  temperature;
 };
 
 [NoInterfaceObject]
 interface TransmissionClutch : VehicleCommonDataType {
-	readonly attribute byte wear;
+    readonly    attribute octet wear;
 };
 
 [NoInterfaceObject]
 interface BrakeMaintenance : VehicleCommonDataType {
-	readonly attribute unsigned short? fluidLevel;
-	readonly attribute boolean?        fluidLevelLow;
-	readonly attribute byte?           padWear;
-	readonly attribute boolean?        brakesWorn;
-			 attribute Zone?           zone;
+    readonly    attribute octet?   fluidLevel;
+    readonly    attribute boolean? fluidLevelLow;
+    readonly    attribute octet?   padWear;
+    readonly    attribute boolean? brakesWorn;
+    readonly    attribute Zone?    zone;
 };
 
 [NoInterfaceObject]
 interface WasherFluid : VehicleCommonDataType {
-	readonly attribute unsigned short? level;
-	readonly attribute boolean?        levelLow;
+    readonly    attribute unsigned short? level;
+    readonly    attribute boolean?        levelLow;
 };
 
 [NoInterfaceObject]
 interface MalfunctionIndicator : VehicleCommonDataType {
-	readonly attribute boolean on;
+    readonly    attribute boolean on;
 };
 
 [NoInterfaceObject]
 interface BatteryStatus : VehicleCommonDataType {
-	readonly attribute unsigned short? chargeLevel;
-	readonly attribute unsigned short? voltage;
-	readonly attribute unsigned short? current;
-			 attribute Zone?           zone;
+    readonly    attribute unsigned short? chargeLevel;
+    readonly    attribute unsigned short? voltage;
+    readonly    attribute unsigned short? current;
+    readonly    attribute Zone?           zone;
 };
 
 [NoInterfaceObject]
 interface Tire : VehicleCommonDataType {
-	readonly attribute boolean?        pressureLow;
-	readonly attribute unsigned short? pressure;
-	readonly attribute short?          temperature;
-			 attribute Zone?           zone;
+    readonly    attribute boolean?        pressureLow;
+    readonly    attribute unsigned short? pressure;
+    readonly    attribute short?          temperature;
+    readonly    attribute Zone?           zone;
 };
 
 [NoInterfaceObject]
 interface Diagnostic : VehicleCommonDataType {
-	readonly attribute unsigned long accumulatedEngineRuntime;
-	readonly attribute unsigned long distanceWithMILOn;
-	readonly attribute unsigned long distanceSinceCodeCleared;
-	readonly attribute unsigned long timeRunMILOn;
-	readonly attribute unsigned long timeTroubleCodeClear;
+    readonly    attribute unsigned long accumulatedEngineRuntime;
+    readonly    attribute unsigned long distanceWithMILOn;
+    readonly    attribute unsigned long distanceSinceCodeCleared;
+    readonly    attribute unsigned long timeRunMILOn;
+    readonly    attribute unsigned long timeTroubleCodeClear;
 };
 
 [NoInterfaceObject]
 interface LanguageConfiguration : VehicleCommonDataType {
-	attribute DOMString? language;
+                attribute DOMString? language;
 };
 
 [NoInterfaceObject]
 interface UnitsOfMeasure : VehicleCommonDataType {
-	attribute boolean?   isMKSSystem;
-	attribute DOMString? unitsFuelVolume;
-	attribute DOMString? unitsDistance;
-	attribute DOMString? unitsSpeed;
-	attribute DOMString? unitsFuelConsumption;
+                attribute boolean?   isMKSSystem;
+                attribute DOMString? unitsFuelVolume;
+                attribute DOMString? unitsDistance;
+                attribute DOMString? unitsSpeed;
+                attribute DOMString? unitsFuelConsumption;
 };
 
 [NoInterfaceObject]
 interface Mirror : VehicleCommonDataType {
-	attribute unsigned short? mirrorTilt;
-	attribute unsigned short? mirrorPan;
-	attribute Zone?           zone;
+                attribute unsigned short? mirrorTilt;
+                attribute unsigned short? mirrorPan;
+    readonly    attribute Zone?           zone;
 };
 
 [NoInterfaceObject]
 interface SeatAdjustment : VehicleCommonDataType {
-	attribute unsigned short? reclineSeatBack;
-	attribute unsigned short? seatSlide;
-	attribute unsigned short? seatCushionHeight;
-	attribute unsigned short? seatHeadrest;
-	attribute unsigned short? seatBackCushion;
-	attribute unsigned short? seatSideCushion;
-	attribute Zone?           zone;
+                attribute unsigned short? reclineSeatBack;
+                attribute unsigned short? seatSlide;
+                attribute unsigned short? seatCushionHeight;
+                attribute unsigned short? seatHeadrest;
+                attribute unsigned short? seatBackCushion;
+                attribute unsigned short? seatSideCushion;
+    readonly    attribute Zone?           zone;
 };
 
-enum DriveModeEnum {"comfort", "auto", "sport", "eco", "manual", "winter"};
+enum DriveModeEnum {
+    "comfort",
+    "auto",
+    "sport",
+    "eco",
+    "manual",
+    "winter"
+};
 
 [NoInterfaceObject]
 interface DriveMode : VehicleCommonDataType {
-	attribute DriveModeEnum? driveMode;
+                attribute DriveModeEnum? driveMode;
 };
 
 [NoInterfaceObject]
 interface DashboardIllumination : VehicleCommonDataType {
-	attribute DOMString? dashboardIllumination;
+                attribute DOMString? dashboardIllumination;
 };
 
 [NoInterfaceObject]
 interface VehicleSound : VehicleCommonDataType {
-	attribute boolean    activeNoiseControlMode;
-	attribute DOMString? engineSoundEnhancementMode;
+                attribute boolean    activeNoiseControlMode;
+                attribute DOMString? engineSoundEnhancementMode;
 };
 
 [NoInterfaceObject]
 interface AntilockBrakingSystem : VehicleCommonDataType {
-	readonly attribute boolean enabled;
-	readonly attribute boolean engaged;
+    readonly    attribute boolean enabled;
+    readonly    attribute boolean engaged;
 };
 
 [NoInterfaceObject]
 interface TractionControlSystem : VehicleCommonDataType {
-	readonly attribute boolean enabled;
-	readonly attribute boolean engaged;
+    readonly    attribute boolean enabled;
+    readonly    attribute boolean engaged;
 };
 
 [NoInterfaceObject]
 interface ElectronicStabilityControl : VehicleCommonDataType {
-	readonly attribute boolean enabled;
-	readonly attribute boolean engaged;
+    readonly    attribute boolean enabled;
+    readonly    attribute boolean engaged;
 };
 
 [NoInterfaceObject]
 interface TopSpeedLimit : VehicleCommonDataType {
-	readonly attribute unsigned short speed;
+    readonly    attribute unsigned short speed;
 };
 
 [NoInterfaceObject]
 interface AirbagStatus : VehicleCommonDataType {
-	readonly attribute boolean activated;
-	readonly attribute boolean deployed;
-			 attribute Zone?   zone;
+    readonly    attribute boolean activated;
+    readonly    attribute boolean deployed;
+    readonly    attribute Zone?   zone;
 };
 
-enum DoorOpenStatus {"open", "ajar", "closed"};
+enum DoorOpenStatus {
+    "open",
+    "ajar",
+    "closed"
+};
 
 [NoInterfaceObject]
 interface Door : VehicleCommonDataType {
-	readonly attribute DoorOpenStatus status;
-		     attribute boolean        lock;
-			 attribute Zone?          zone;
+    readonly    attribute DoorOpenStatus status;
+                attribute boolean        lock;
+    readonly    attribute Zone?          zone;
 };
 
 [NoInterfaceObject]
 interface ChildSafetyLock : VehicleCommonDataType {
-	attribute boolean lock;
-	attribute Zone?   zone;
+                attribute boolean lock;
+    readonly    attribute Zone?   zone;
 };
 
-enum OccupantStatus {"adult", "child", "vacant"};
+enum OccupantStatus {
+    "adult",
+    "child",
+    "vacant"
+};
 
-enum IdentificationType {"pin", "keyfob", "Bluetooth", "NFC", "fingerprint", "camera", "voice"};
+enum IdentificationType {
+    "pin",
+    "keyfob",
+    "Bluetooth",
+    "NFC",
+    "fingerprint",
+    "camera",
+    "voice"
+};
 
 [NoInterfaceObject]
 interface Seat : VehicleCommonDataType {
-	readonly attribute OccupantStatus     occupant;
-	readonly attribute boolean            seatbelt;
-	readonly attribute DOMString?         occupantName;
-	readonly attribute IdentificationType identificationType;
-			 attribute Zone?              zone;
+    readonly    attribute OccupantStatus     occupant;
+    readonly    attribute boolean            seatbelt;
+    readonly    attribute DOMString?         occupantName;
+    readonly    attribute IdentificationType identificationType;
+    readonly    attribute Zone?              zone;
 };
 
 [NoInterfaceObject]
 interface Temperature : VehicleCommonDataType {
-	readonly attribute float interiorTemperature;
-	readonly attribute float exteriorTemperature;
+    readonly    attribute float interiorTemperature;
+    readonly    attribute float exteriorTemperature;
 };
 
 [NoInterfaceObject]
 interface RainSensor : VehicleCommonDataType {
-	readonly attribute unsigned short rain;
-		     attribute Zone?         zone;
+    readonly    attribute unsigned short rain;
+    readonly    attribute Zone?          zone;
 };
 
 [NoInterfaceObject]
 interface WiperStatus : VehicleCommonDataType {
-	readonly attribute unsigned short wiperSpeed;
-		     attribute Zone?         zone;
+    readonly    attribute unsigned short wiperSpeed;
+    readonly    attribute Zone?          zone;
 };
 
-enum WiperControl {"off", "once", "slowest", "slow", "middle", "fast", "fastest", "auto"};
+enum WiperControl {
+    "off",
+    "once",
+    "slowest",
+    "slow",
+    "middle",
+    "fast",
+    "fastest",
+    "auto"
+};
 
 [NoInterfaceObject]
 interface WiperSetting : VehicleCommonDataType {
-	attribute WiperControl wiperControl;
-	attribute Zone?        zone;
+                attribute WiperControl wiperControl;
+    readonly    attribute Zone?        zone;
 };
 
 [NoInterfaceObject]
 interface Defrost : VehicleCommonDataType {
-	attribute boolean? defrostWindow;
-	attribute boolean? defrostMirrors;
-	attribute Zone?    zone;
-};
-
-enum AirflowDirection {"frontpanel", "floorduct", "bilevel", "defrostfloor"};
-
-[NoInterfaceObject]
-interface ClimateControl : VehicleCommonDataType {
-	attribute AirflowDirection airflowDirection;
-	attribute unsigned short    fanSpeedLevel;
-	attribute byte?            targetTemperature;
-	attribute boolean          airConditioning;
-	attribute boolean          heater;
-	attribute unsigned short?   seatHeater;
-	attribute unsigned short?   seatCooler;
-	attribute boolean          airRecirculation;
-	attribute unsigned short?   steeringWheelHeater;
-	attribute Zone?            zone;
+                attribute boolean? defrostWindow;
+                attribute boolean? defrostMirrors;
+    readonly    attribute Zone?    zone;
 };
 
 [NoInterfaceObject]
 interface Sunroof : VehicleCommonDataType {
-	attribute unsigned short openness;
-	attribute unsigned short tilt;
-	attribute Zone?         zone;
+                attribute unsigned short openness;
+                attribute unsigned short tilt;
+    readonly    attribute Zone?          zone;
 };
 
-enum ConvertibleRoofStatus {"closed", "closing", "opening", "opened"};
+enum ConvertibleRoofStatus {
+    "closed",
+    "closing",
+    "opening",
+    "opened"
+};
 
 [NoInterfaceObject]
 interface ConvertibleRoof : VehicleCommonDataType {
-	attribute ConvertibleRoofStatus status;
+                attribute ConvertibleRoofStatus status;
 };
 
 [NoInterfaceObject]
 interface SideWindow : VehicleCommonDataType {
-	attribute boolean? lock;
-	attribute unsigned short?    openness;
-	attribute Zone?             zone;
+                attribute boolean?        lock;
+                attribute unsigned short? openness;
+    readonly    attribute Zone?           zone;
+};
+
+enum AirflowDirection {
+    "frontpanel",
+    "floorduct",
+    "bilevel",
+    "defrostfloor"
+};
+
+[NoInterfaceObject]
+interface ClimateControl : VehicleCommonDataType {
+                attribute AirflowDirection  airflowDirection;
+                attribute unsigned short    fanSpeedLevel;
+                attribute short?            targetTemperature;
+                attribute boolean           airConditioning;
+                attribute boolean           heater;
+                attribute unsigned short?   seatHeater;
+                attribute unsigned short?   seatCooler;
+                attribute boolean           airRecirculation;
+                attribute unsigned short?   steeringWheelHeater;
+    readonly    attribute Zone?             zone;
 };
 
 [NoInterfaceObject]
 interface AtmosphericPressure : VehicleCommonDataType {
-	readonly attribute unsigned short pressure;
+    readonly    attribute unsigned short pressure;
 };
 
-enum LaneDepartureStatus {"off", "pause", "running"};
+enum LaneDepartureStatus {
+    "off",
+    "pause",
+    "running"
+};
 
 [NoInterfaceObject]
 interface LaneDepartureDetection : VehicleCommonDataType {
-	readonly attribute LaneDepartureStatus status;
+    readonly    attribute LaneDepartureStatus status;
 };
 
-enum AlarmStatus {"disarmed", "preArmed", "armed", "alarmed"};
+enum AlarmStatus {
+    "disarmed",
+    "preArmed",
+    "armed",
+    "alarmed"
+};
 
 [NoInterfaceObject]
 interface Alarm : VehicleCommonDataType {
-	attribute AlarmStatus status;
+                attribute AlarmStatus status;
 };
 
-enum ParkingBrakeStatus {"inactive", "active", "error"};
+enum ParkingBrakeStatus {
+    "inactive",
+    "active",
+    "error"
+};
 
 [NoInterfaceObject]
 interface ParkingBrake : VehicleCommonDataType {
-	readonly attribute ParkingBrakeStatus status;
+    readonly    attribute ParkingBrakeStatus status;
 };
 
 [NoInterfaceObject]
 interface ParkingLights : VehicleCommonDataType {
-	readonly attribute boolean status;
-		     attribute boolean setting;
+    readonly    attribute boolean status;
+                attribute boolean setting;
 };
 

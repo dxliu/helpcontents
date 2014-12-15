@@ -1,32 +1,40 @@
-
 <!DOCTYPE html>
 <html>
   <head>
     <title>Vehicle Information Access API</title>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
-    <script src='./respec-w3c-common.js'
-            class='remove'></script>
+    <link href="base.css" rel="StyleSheet" type="text/css">
+    <script type="text/javascript" src="respec-w3c-common.js"></script>
     <style type="text/css">
-      
       #respec-ui
       {
-      display: none;
+        display: none;
       }
-    </style> 
+    </style>
   </head>
   
   <body>
-    
+  <div class="head" role="contentinfo" id="respecHeader">
+    <h1 class="title p-name" id="title" property="dcterms:title">Vehicle Information Access API</h1>
+    <hr>
+  </div>
+
 <!----------------------------- Introduction --------------------------------->
 
 <h2>Introduction</h2>
- <p>
-   The Vehicle Information API provides operations to get access to the vehicle data
-   (henceforth "properties") available from vehicle systems and also to change (write) a number of
-   properties.  Vehicle data types are available in the <a href="data_spec.html">Vehicle Data specification</a>.
-   Each data type is accessed through a <a href="vehicle_spec.html#vehicleinterface-interface">VehicleInterface</a> attribute available on the <a href="vehicle_spec.html#vehicle-interface">navigator.vehicle</a> object.  The attribute name corresponds with the Vehicle Type. For example, the attribute <a href="#widl-Vehicle-vehicleSpeed">"vehicle.vehicleSpeed"</a> is the interface to the data type <a href="#vehiclespeed-interface">"VehicleSpeed"</a>.
- </p>
-
+<p>
+  <em>This section is non-normative.</em>
+</p>
+<p>
+  The Vehicle Information API provides operations to get access to the vehicle data
+  (henceforth "properties") available from vehicle systems and also to change (write) a number of
+  properties.
+</p>
+<p>
+  Vehicle data types are available in the <a href="#vehiclecommondatatype-interface">VehicleCommonDataTypeInterface</a>.
+  Each data type is accessed through a <a href="#vehicle-interface">VehicleInterface</a> attribute available on the <a href="#navigator-interface">navigator.vehicle</a> object.
+  The attribute name corresponds with the Vehicle Type. For example, the attribute <a href="#widl-Vehicle-vehicleSpeed">"vehicle.vehicleSpeed"</a> is the interface to the data type <a href="#vehiclespeed-interface">"VehicleSpeed"</a>.
+</p>
 
 <!---------------------------- Conformance ----------------------------------->
 <h2>Conformance</h2>
@@ -36,7 +44,7 @@ contains.
 
 <p>Implementations that use ECMAScript to implement the APIs defined in this
 specification MUST implement them in a manner consistent with the ECMAScript
-Bindings defined in the Web IDL specification [[!WEBIDL]], as this
+Bindings defined in the Web IDL specification <a href="http://www.w3.org/TR/WebIDL/">[WEBIDL]</a>, as this
 specification uses that specification and terminology.
 
 
@@ -336,7 +344,7 @@ Promise</a></code> provide a convenient way to get access to the result of an op
   define new data types that this specification does not define.  This section provides some
   general guidlines on how extending the API should be done.</p>
 
-  <p>All new data types must have two parts: a <a href="vehicle_spec.html#vehicleinterface-interface">VehicleInterface</a>
+  <p>All new data types must have two parts: a <a href="#vehicle-interface">VehicleInterface</a>
   attributed on the navigator.vehicle object and an interface definition that defines the 
   data type.  The following example describes how one would extend the specification to add
   a "whizzer" data feature.</p>

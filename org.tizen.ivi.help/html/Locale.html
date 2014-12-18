@@ -16,18 +16,24 @@
         </div>
         <h2>Table of Contents</h2>
         <ul class="toc">
-            <li>1. <a href="#interfaces">Interfaces</a>
-                <ul class="toc">
-                    <li>1.1. <a href="#::Locale::LocaleManagerObject">LocaleManagerObject</a>
+            <li>1. <a href="#typedefs">Type Definitions</a>
+	        <ul class="toc">
+		    <li>1.1. <a href="#::SystemSetting::SystemSettingType">SystemSettingType</a>
                     </li>
-                    <li>1.2. <a href="#::Locale::Locale">Locale</a>
+		</ul>
+	    </li>
+            <li>2. <a href="#interfaces">Interfaces</a>
+	        <ul class="toc">
+		    <li>2.1. <a href="#::Locale::LocaleManagerObject">SystemSettingObject</a>
                     </li>
-                    <li>1.3. <a href="#::Locale::LocaleChangedCallback">LocaleChangedCallback</a>
+                    <li>2.2. <a href="#::Locale::Locale">SystemSettingManager</a>
                     </li>
-                </ul>
+                    <li>2.3. <a href="#::Locale::LocaleChangedCallback">SystemSettingSuccessCallback</a>
+                    </li>
+		</ul>
             </li>
-            <li>2. <a href="#full-webidl">Full WebIDL</a>
-            </li>
+            <li>3. <a href="#full-webidl">Full WebIDL</a>
+	    </li>
         </ul>
 
         <hr>
@@ -40,51 +46,65 @@
                     <th>Method</th>
                 </tr>
                 <tr>
-                    <td><a href="#::Locale::LocaleManagerObject"> LocaleManagerObject</a></td>
+                    <td><a href="#::Locale::LocaleManagerObject"> SystemSettingObject</a></td>
                     <td></td>
                 </tr>
                 <tr>
-                    <td><a href="#::Locale::Locale"> Locale</a></td>
-                    <td>DOMString <a href="#::Locale::Locale::getLocale">getLocale()</a>; <br>
-                        void <a href="#::Locale::Locale::setLocale">setLocale</a>(DOMString
-                            newLocale); <br> void <a href="#::Locale::Locale::localeChanged">
-                            localeChanged</a>(<a href="#::Locale::LocaleChangedCallback"><span class="typ">LocaleChangedCallback</span></a> changeCallback); <br></td>
+                    <td><a href="#::Locale::Locale"> SystemSettingManager</a></td>
+                    <td>void <a href="#::Locale::Locale::setLocale">setProperty() </a>(<a href="#::SystemSetting::SystemSettingType">SystemSettingType</a> type, DOMString value, <a href="tizen.html#::Tizen::SuccessCallback">SuccessCallback</a> successCallback, optional <a href="tizen.html#::Tizen::ErrorCallback">ErrorCallback</a>? errorCallback) <br>
+                        void <a href="#::Locale::Locale::getLocale">getProperty </a>(<a href="#::SystemSetting::SystemSettingType">SystemSettingType</a> type, <a href="#::Locale::LocaleChangedCallback">SystemSettingSuccessCallback</a> successCallback, optional <a href="tizen.html#::Tizen::ErrorCallback">ErrorCallback?</a> errorCallback)<br> </td>
                 </tr>
                 <tr>
-                    <td><a href="#::Locale::LocaleChangedCallback"> LocaleChangedCallback</a></td>
-                    <td></td>
+                    <td><a href="#::Locale::LocaleChangedCallback"> SystemSettingSuccessCallback</a></td>
+                    <td>void <a href="">onsuccess</a> (DOMString value)</td>
                 </tr>
             </thead>
             <tbody></tbody>
         </table>
+	<!--Type Definitions-------------------->
+	<div class="typedefs" id="typedefs">
+	    <h2>1. Type Definitions</h2>
+	    <div class="enum" id="::SystemSetting::SystemSettingType">
+	        <h3>1.1. SystemSettingType</h3>
+		<div class="brief">
+		    This enumerator indicates the type of supported system setting. The following values are supported in this release:
+		</div>
+		<pre class="webidl prettyprint">  enum SystemSettingType {"LOCALE"};</pre>
+	    </div>
+	</div>
         <!-- -------------------------------- -->
         <div class="interfaces" id="interfaces">
-            <h2>1. Interfaces</h2>
+            <h2>2. Interfaces</h2>
 
             <div class="interface" id="::Locale::LocaleManagerObject">
-                <h3>1.1. LocaleManagerObject</h3>
-                <div class="brief"></div>
+                <h3>2.1. SystemSettingObject</h3>
+                <div class="brief">
+		    This interface defines what is instantiated by the Tizen object from the Tizen Platform.
+		</div>
 <pre class="webidl prettyprint">
-[NoInterfaceObject] interface LocaleManagerObject {
-    readonly attribute <a href="#::Locale::Locale"><span class="typ">Locale</span></a> locale;
+[NoInterfaceObject] interface SystemSettingObject {
+    readonly attribute <a href="#::Locale::Locale"><span class="typ">SystemSettingManager</span></a> systemsetting;
 };
 </pre>
 <pre class="webidl prettyprint">
-Tizen implements Locale;
+Tizen implements SystemSettingObject;
 </pre>
             </div>
 
             <div class="interface" id="::Locale::Locale">
-                <h3>1.2. Locale</h3>
+                <h3>2.2. SystemSettingManager</h3>
                 <div class="brief">The Vehicle interface defines access to locale functionality.</div>
 <pre class="webidl prettyprint">
-[NoInterfaceObject] interface Locale  {
+[NoInterfaceObject] interface SystemSettingManager  {
 
-    DOMString getLocale();
+    void setProperty(<a href="#::SystemSetting::SystemSettingType">SystemSettingType</a> type,
+             DOMString value,
+             <a href="tizen.html#::Tizen::SuccessCallback">SuccessCallback</a> successCallback,
+             optional <a href="tizen.html#::Tizen::ErrorCallback">ErrorCallback?</a> errorCallback);
 
-    void setLocale(DOMString newLocale);
-
-    void localeChanged(<a href="#::Locale::LocaleChangedCallback"><span class="typ">LocaleChangedCallback</span></a> changeCallback);
+    void getProperty(<a href="#::SystemSetting::SystemSettingType">SystemSettingType</a> type,
+             <a href="#::Locale::LocaleChangedCallback">SystemSettingSuccessCallback</a> successCallback,
+	     optional <a href="tizen.html#::Tizen::ErrorCallback">ErrorCallback?</a> errorCallback);
 
 };
 </pre>
@@ -92,13 +112,13 @@ Tizen implements Locale;
                     <h4>Methods</h4>
                     <dl>
                         <dt class="method" id="::Locale::Locale::getLocale">
-                            <span class="methodName">getLocale</span>
+                            <span class="methodName">getProperty</span>
                         </dt>
                         <dd>
                             <div class="brief">Gets the current locale.</div>
                             <div class="synopsis">
 <pre class="signature prettyprint">
-DOMString getLocale();
+void getProperty(<a href="#::SystemSetting::SystemSettingType">SystemSettingType</a> type, <a href="#::Locale::LocaleChangedCallback">SystemSettingSuccessCallback</a> successCallback, optional <a href="tizen.html#::Tizen::ErrorCallback">ErrorCallback</a>? errorCallback);
 <span class="pln"></span>
 </pre>
                             </div>
@@ -110,13 +130,13 @@ DOMString getLocale();
                             </div>
                         </dd>
                         <dt class="method" id="::Locale::Locale::setLocale">
-                            <span class="methodName">setLocale</span>
+                            <span class="methodName">setProperty</span>
                         </dt>
                         <dd>
                             <div class="brief">Sets the system locale.</div>
                             <div class="synopsis">
 <pre class="signature prettyprint">
-void setLocale(DOMString newLocale);
+void setProperty(<a href="#::SystemSetting::SystemSettingType">SystemSettingType</a> type, DOMString value, <a href="tizen.html#::Tizen::SuccessCallback">SuccessCallback</a> successCallback, optional <a href="tizen.html#::Tizen::ErrorCallback">ErrorCallback?</a> errorCallback);
 <span class="pln"></span>
 </pre>
                             </div>
@@ -130,128 +150,74 @@ void setLocale(DOMString newLocale);
                                 </ul>
                             </div>
                         </dd>
-                        <dt class="method" id="::Locale::Locale::localeChanged">
-                            <span class="methodName">localeChanged</span>
-                        </dt>
-                        <dd>
-                            <div class="brief">Subscribes a callback function to be invoked when locale changes.</div>
-                            <div class="synopsis">
-<pre class="signature prettyprint">
-void localeChanged(<a href="#::LocaleChangedCallback"><span class="typ">LocaleChangedCallback</span></a> changeCallback);
-<span class="pln"></span>
-</pre>
-                            </div>
-                            <div class="parameters">
-                                <p>
-                                    <span class="param">Parameters:</span>
-                                </p>
-                                <ul>
-                                    <li class="param"><span class="name">changeCallback</span>: Callback
-                                        to be called when this event occurs.</li>
-                                </ul>
-                            </div>
-                        </dd>
                     </dl>
                 </div>
 
                 <div class="interface" id="::Locale::LocaleChangedCallback">
-                <h3>1.3. LocaleChangedCallback</h3>
-                <div class="brief">This interface specified a success callback that is invoked when current locale is changed.</div>
+                <h3>2.3. SystemSettingSuccessCallback</h3>
+                <div class="brief">The success callback for getProperty().</div>
 <pre class="webidl prettyprint">
-[Callback=FunctionOnly, NoInterfaceObject] interface LocaleChangedCallback {
+[Callback=FunctionOnly, NoInterfaceObject] interface SystemSettingSuccessCallback {
 
     void onsuccess(DOMString newLocale);
 
 };
 </pre>
-                <div class="methods">
-                    <h4>Methods</h4>
-
-                    <dl>
-                        <dt class="method" id="::Locale::LocaleChangedCallback::onsuccess">
-                            <span class="methodName">onsuccess</span>
-                        </dt>
-                        <dd>
-                            <div class="brief">The callback function used to return a new locale. Called when current locale is changed successfully.</div>
-                            <div class="synopsis">
-<pre class="signature prettyprint">
-void onsuccess(DOMString newLocale);
-<span class="pln"></span>
-</pre>
-                            </div>
-                            <div class="parameters">
-                                <p>
-                                    <span class="param">Parameters:</span>
-                                </p>
-                                <ul>
-                                    <li class="param"><span class="name">newLocale</span>: A new locale.</li>
-                                </ul>
-                            </div>
-                        </dd>
-                    </dl>
                 </div>
             </div>
         </div>
-        </div>
 
                 <!-- -------------------------------- -->
-                <h2 id="full-webidl">2. Full WebIDL</h2>
+                <h2 id="full-webidl">3. Full WebIDL</h2>
 <pre class="webidl prettyprint">
 module Locale {
-
-    [NoInterfaceObject] interface LocaleManagerObject {
-        readonly attribute Locale locale;
+    
+    [NoInterfaceObject] interface SystemSettingObject {
+        readonly attribute <a href="#::Locale::Locale"><span class="typ">SystemSettingManager</span></a> systemsetting;
     };
+    
+    Tizen implements SystemSettingObject;
 
-    Tizen implements Locale;
+    enum SystemSettingType {"LOCALE"};
 
-    [NoInterfaceObject] interface Locale  {
+    [NoInterfaceObject] interface SystemSettingManager  {
 
-        DOMString getLocale();
+    void setProperty(<a href="#::SystemSetting::SystemSettingType">SystemSettingType</a> type,
+             DOMString value,
+             <a href="tizen.html#::Tizen::SuccessCallback">SuccessCallback</a> successCallback,
+             optional <a href="tizen.html#::Tizen::ErrorCallback">ErrorCallback?</a> errorCallback);
 
-        void setLocale(DOMString newLocale);
+    void getProperty(<a href="#::SystemSetting::SystemSettingType">SystemSettingType</a> type,
+             <a href="#::Locale::LocaleChangedCallback">SystemSettingSuccessCallback</a> successCallback,
+	     optional <a href="tizen.html#::Tizen::ErrorCallback">ErrorCallback?</a> errorCallback);
 
-        void localeChanged(LocaleChangedCallback changeCallback);
-
-    };
-
-    [Callback=FunctionOnly, NoInterfaceObject] interface LocaleChangedCallback {
-
+    };    
+    
+    [Callback=FunctionOnly, NoInterfaceObject] interface SystemSettingSuccessCallback {
         void onsuccess(DOMString newLocale);
-
     };
+    
 };
 </pre>
-                <div id="footer">
-                    <div class="copyright" align="center">
-                        Except as noted, this content - excluding the Code Examples - is
-                        licensed under <a
-                            href="http://creativecommons.org/licenses/by/3.0/legalcode"
-                            target="_blank">Creative Commons Attribution 3.0</a> and all of
-                        the Code Examples contained herein are licensed under <a
-                            href="https://www.tizen.org/bsd-3-clause-license" target="_blank">BSD-3-Clause</a>.
-                        <br>For details, see the <a
-                            href="https://www.tizen.org/content-license" target="_blank">Content
-                            License</a>.
-                    </div>
-                </div>
-                    <script type="text/javascript">
-                        var _gaq = _gaq || [];
-                        _gaq.push([ '_setAccount', 'UA-25976949-1' ]);
-                        _gaq.push([ '_setDomainName', 'tizen.org' ]);
-                        _gaq.push([ '_trackPageview' ]);
-
-                        (function() {
-                            var ga = document.createElement('script');
-                            ga.type = 'text/javascript';
-                            ga.async = true;
-                            ga.src = ('https:' == document.location.protocol ? 'https://ssl'
-                                    : 'http://www')
-                                    + '.google-analytics.com/ga.js';
-                            var s = document.getElementsByTagName('script')[0];
-                            s.parentNode.insertBefore(ga, s);
-                        })();
-                    </script>
-             </div>
+<div id="footer">
+    <div class="copyright" align="center">
+        Except as noted, this content - excluding the Code Examples - is licensed under <a href="http://creativecommons.org/licenses/by/3.0/legalcode" target="_blank">Creative Commons Attribution 3.0</a> and all of the Code Examples contained herein are licensed under <a href="https://www.tizen.org/bsd-3-clause-license" target="_blank">BSD-3-Clause</a>.<br>For details, see the <a href="https://www.tizen.org/content-license" target="_blank">Content License</a>.
+    </div>
+</div>
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push([ '_setAccount', 'UA-25976949-1' ]);
+    _gaq.push([ '_setDomainName', 'tizen.org' ]);
+    _gaq.push([ '_trackPageview' ]);
+    (function() {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+</div>
 </body>
 </html>

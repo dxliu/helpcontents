@@ -22,7 +22,7 @@
             }
 
             dfn {
-                font-weight: bold;
+                    font-weight: bold;
             }
 
             a.internalDFN {
@@ -505,15 +505,15 @@
               <em>This section is non-normative.</em>
             </p>
             <p>
-	      The Vehicle Information API provides operations to get access to the vehicle data
-	      (henceforth "properties") available from vehicle systems and also to change (write) a number of
-	      properties.
-	    </p>
-	    <p>
-	      Vehicle data types are available in the <a href="#vehiclecommondatatype-interface">VehicleCommonDataTypeInterface</a>.
-	      Each data type is accessed through a <a href="#vehicle-interface">VehicleInterface</a> attribute available on the <a href="#navigator-interface">navigator.vehicle</a> object.
-	      The attribute name corresponds with the Vehicle Type. For example, the attribute <a href="#widl-Vehicle-vehicleSpeed">"vehicle.vehicleSpeed"</a> is the interface to the data type <a href="#vehiclespeed-interface">"VehicleSpeed"</a>.
-	    </p>
+              The Vehicle Information API provides operations to get access to the vehicle data
+              (henceforth "properties") available from vehicle systems and also to change (write) a number of
+              properties.
+            </p>
+            <p>
+              Vehicle data types are available in the <a href="#vehiclecommondatatype-interface">VehicleCommonDataTypeInterface</a>.
+              Each data type is accessed through a <a href="#vehicle-interface">VehicleInterface</a> attribute available on the <a href="#navigator-interface">navigator.vehicle</a> object.
+              The attribute name corresponds with the Vehicle Type. For example, the attribute <a href="#widl-Vehicle-vehicleSpeed">"vehicle.vehicleSpeed"</a> is the interface to the data type <a href="#vehiclespeed-interface">"VehicleSpeed"</a>.
+            </p>
             <h2 aria-level="1" role="heading">Conformance</h2>
             <p>
                 As well as sections marked as non-normative, all authoring guidelines, diagrams, examples,
@@ -564,7 +564,7 @@
             <h2 class="introductory" aria-level="1" role="heading" id="h2_toc">Table of Contents</h2>
             <ul class="toc" role="directory" id="respecContents">
               <li class="tocline">
-		<a href="#navigator-interface" class="tocxref"><span class="secno">1. </span><span class="formerLink">
+                <a href="#navigator-interface" class="tocxref"><span class="secno">1. </span><span class="formerLink">
                     <code>
                       Navigator
                   </code></span> Interface</a>
@@ -574,7 +574,7 @@
                   </li>
                 </ul>
               </li>
-	      <li class="tocline">
+              <li class="tocline">
                     <a href="#vehicle-interface" class="tocxref"><span class="secno">2. </span><span class="formerLink">
                         <code>
                             Vehicle
@@ -673,7 +673,7 @@
                         </li>
                     </ul>
                 </li>
-	        <li class="tocline">
+                <li class="tocline">
                     <a href="#Extending-the-Vehicle-Data-API" class="tocxref"><span class="secno">12. </span>Extending the Vehicle Data API</a>
                     <ul class="toc">
                         <li class="tocline">
@@ -1041,7 +1041,7 @@
                                     <a href="#attributes-33" class="tocxref"><span class="secno">15.25.1 </span>Attributes</a>
                                 </li>
                             </ul>
-			    <ul class="toc">
+                            <ul class="toc">
                                 <li class="tocline">
                                   <a href="#attributes-33.2" class="tocxref"><span class="secno">15.25.2 </span>Attributes</a>
                                 </li>
@@ -1613,7 +1613,7 @@ interface <span class="idlInterfaceID">Vehicle</span> {
                     <tr>
                         <td>
                         <code id="idl-def-ZonePosition.xFront----Front">
-			  front
+                          front
                         </code></td><td>middle</td>
                     </tr>
                     <tr>
@@ -2486,57 +2486,57 @@ vehicle</span><span class="pun">.</span><span class="pln">vehicleSpeed</span><sp
 </span><span class="pun">}</span></pre>
             </div>
         </section>
-	<!------------------------ Extending the Vehicle Data API ------------------------>
-	<section id="Extending-the-Vehicle-Data-API">
-	  <!--OddPage--><h2 aria-level="1" role="heading" id="h2_Extending-the-Vehicle-Data-API"><span class="secno">12.Extending the Vehicle Data API </span></h2>
-	  <p>
-	    This specification anticipates that implementors may desire to extend this API and define new data types that this specification does not define. This section provides some general guidlines on how extending the API should be done.
+            <!------------------------ Extending the Vehicle Data API ------------------------>
+            <section id="Extending-the-Vehicle-Data-API">
+                <!--OddPage--><h2 aria-level="1" role="heading" id="h2_Extending-the-Vehicle-Data-API"><span class="secno">12.Extending the Vehicle Data API </span></h2>
+                <p>
+                   This specification anticipates that implementors may desire to extend this API and define new data types that this specification does not define. This section provides some general guidlines on how extending the API should be done.
 
-	  </p>
-	  <p>
-	    All new data types must have two parts: a <a href="#vehicle-interface">VehicleInterface</a> attributed on the navigator.vehicle object and an interface definition that defines the data type. The following example describes how one would extend the specification to add a "whizzer" data feature.
-	  </p>
-	  <div class="example">
-	      <div class="example-title">
-		  <span>Example 6</span>
-	      </div>
-	      <pre class="example highlight prettyprint prettyprinted"><span class="kwd">partial interface </span><span class="typ">Vehicle </span><span class="pun">{</span><span class="pln">
+                </p>
+                <p>
+                   All new data types must have two parts: a <a href="#vehicle-interface">VehicleInterface</a> attributed on the navigator.vehicle object and an interface definition that defines the data type. The following example describes how one would extend the specification to add a "whizzer" data feature.
+                </p>
+                <div class="example">
+                    <div class="example-title">
+                            <span>Example 6</span>
+                    </div>
+                    <pre class="example highlight prettyprint prettyprinted"><span class="kwd">partial interface </span><span class="typ">Vehicle </span><span class="pun">{</span><span class="pln">
    </span><span class="kwd">readonly </span><span class="pln">attribute VehicleSignalInterface whizzer; </span><span class="com">/// returns an interface to the Whizzer type</span><span class="pln">
 </span><span class="pun">}</span><span class="pln">
 
 </span><span class="kwd">interface </span><span class="typ">Whizzer </span><span class="pun">{</span><span class="pln">
     </span><span class="kwd">readonly </span><span class="pln">attribute boolean isWhizzing; </span><span class="pln">
 </span><span class="pun">}</span></pre>
-	  </div>
-	  <section id="Extending-type">
-	      <h3 aria-level="2" role="heading" id="h3_attributes"><span class="secno">12.1 </span>Extending the Vehicle Data API</h3>
-	      <p>
-		There may also be attributes of a data type interface that an implementor may wish to extend. The general guideline here is to add attributes to interfaces that are logically related. For example, lets say an implementor wishes to add support for a new type of light. The implementor would extend the already existing Light interface and add the attribute there.
-	      </p>
-	      <div class="example">
-		<div class="example-title">
-		  <span>Example 7</span>
-		</div>
-		<pre class="example highlight prettyprint prettyprinted"><span class="kwd">partial interface </span><span class="typ">Light </span><span class="pun">{</span><span class="pln">
+                </div>
+                <section id="Extending-type">
+                    <h3 aria-level="2" role="heading" id="h3_attributes"><span class="secno">12.1 </span>Extending the Vehicle Data API</h3>
+                    <p>
+                           There may also be attributes of a data type interface that an implementor may wish to extend. The general guideline here is to add attributes to interfaces that are logically related. For example, lets say an implementor wishes to add support for a new type of light. The implementor would extend the already existing Light interface and add the attribute there.
+                    </p>
+                    <div class="example">
+                            <div class="example-title">
+                                <span>Example 7</span>
+                            </div>
+                            <pre class="example highlight prettyprint prettyprinted"><span class="kwd">partial interface </span><span class="typ">Light </span><span class="pun">{</span><span class="pln">
    </span><span class="pln">attribute boolean superBeam; </span><span class="pln">
 </span><span class="pun">}</span></pre>
-	      </div>
-	  </section>
-	  <section id="Extending-vs">
-              <h3 aria-level="2" role="heading" id="h3_attributes"><span class="secno">12.2 </span>Mapping vs. Extending</h3>
-	      <p>
-		Because vehicle data may be different in a system than what is defined in the specication, it is preferable to perform post-processing to translate and map the system data to the defined type. It is NOT preferable to create a new type if one has already been defined by this specification.
-	      </p>
-	  </section>
-	</section>
+                    </div>
+                </section>
+                <section id="Extending-vs">
+                <h3 aria-level="2" role="heading" id="h3_attributes"><span class="secno">12.2 </span>Mapping vs. Extending</h3>
+                    <p>
+                            Because vehicle data may be different in a system than what is defined in the specication, it is preferable to perform post-processing to translate and map the system data to the defined type. It is NOT preferable to create a new type if one has already been defined by this specification.
+                    </p>
+                </section>
+            </section>
         <!------------------------ Interface VehicleCommonDataType ------------------------>
         <section id="vehiclecommondatatype-interface">
             <!--OddPage--><h2 aria-level="1" role="heading" id="h2_vehiclecommondatatype-interface"><span class="secno">13. </span><a href="#idl-def-VehicleCommonDataType" class="idlType">
-            <code>
-                VehicleCommonDataType
-            </code></a> Interface</h2>
+                <code>
+                    VehicleCommonDataType
+              </code></a> Interface</h2>
             <p>
-                The <a href="#idl-def-VehicleCommonDataType" class="idlType">
+              The <a href="#idl-def-VehicleCommonDataType" class="idlType">
                 <code>
                     VehicleCommonDataType
                 </code></a>
@@ -3107,7 +3107,7 @@ interface <span class="idlInterfaceID">WheelConfiguration</span> : <span class="
 
                     information information about a vehicle.
                 </p> 
-		<pre class="idl"><span class="idlInterface" id="idl-def-SteeringWheel-1">[<span class="extAttr">NoInterfaceObject</span>
+                <pre class="idl"><span class="idlInterface" id="idl-def-SteeringWheel-1">[<span class="extAttr">NoInterfaceObject</span>
 interface <span class="idlInterfaceID">SteeringWheelConfiguration</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">boolean?       </span> <span class="idlAttrName"><a href="#widl-SteeringWheelConfiguration-steeringWheelLeft">steeringWheelLeft</a></span>;</span>
 <span class="idlAttribute">                attribute <span class="idlAttrType">unsigned short?</span> <span class="idlAttrName"><a href="#widl-SteeringWheel-steeringWheelTelescopingPosition">steeringWheelTelescopingPosition</a></span>;</span>
@@ -3116,7 +3116,7 @@ interface <span class="idlInterfaceID">SteeringWheelConfiguration</span> : <span
                 <section id="attributes-51">
                   <h4 aria-level="3" role="heading" id="h4_attributes-51"><span class="secno">14.7.1 </span>Attributes</h4>
                   <dl class="attributes">
-		    <dt id="widl-SteeringWheelConfiguration-steeringWheelLeft">
+                    <dt id="widl-SteeringWheelConfiguration-steeringWheelLeft">
                             <code>
                                 steeringWheelLeft
                             </code>
@@ -3840,10 +3840,10 @@ interface <span class="idlInterfaceID">TripMeters</span> : <span class="idlSuper
                                 <code>
                                     Trip
                                 </code></a></span>, readonly
-			</dt>
-			<dd>
-			  <em class="rfc2119" title="MUST">MUST</em> return trip meters
-			</dd>
+                                    </dt>
+                                    <dd>
+                                        <em class="rfc2119" title="MUST">MUST</em> return trip meters
+                                    </dd>
                     </dl>
                 </section>
             </section>
@@ -4857,13 +4857,13 @@ interface <span class="idlInterfaceID">VehicleButton</span> : <span class="idlSu
                     </dl>
                 </section>
 
-		<pre class="idl"><span class="idlInterface" id="idl-def-ButtonEvent">[<span class="extAttr">NoInterfaceObject</span>]
+                <pre class="idl"><span class="idlInterface" id="idl-def-ButtonEvent">[<span class="extAttr">NoInterfaceObject</span>]
 interface <span class="idlInterfaceID">ButtonEvent</span> : <span class="idlSuperclass"><a href="#idl-def-VehicleCommonDataType" class="idlType"><code>VehicleCommonDataType</code></a></span> {
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType"><a href="#idl-def-VehicleButton" class="idlType"><code>VehicleButton[]</code></a></span> <span class="idlAttrName"><a href="#widl-VehiclefunButton">button</a></span>;</span>
 };</span></pre>
-		<section id="attributes-33.2">
-		  <h4 aria-level="3" role="heading" id="h4_attributes-33"><span class="secno">15.25.2 </span>Attributes</h4>
-		  <dl class="attributes">
+                <section id="attributes-33.2">
+                  <h4 aria-level="3" role="heading" id="h4_attributes-33"><span class="secno">15.25.2 </span>Attributes</h4>
+                  <dl class="attributes">
                         <dt id="widl-VehiclefunButton">
                           <code>
                             button
@@ -4876,9 +4876,9 @@ interface <span class="idlInterfaceID">ButtonEvent</span> : <span class="idlSupe
                         <dd>
                           <em class="rfc2119" title="MUST">MUST</em> return the button events that occured. This supports multiple simultanious button events.
                         </dd>
-		  </dl>
-		</section>
-	    </section>
+                  </dl>
+                </section>
+            </section>
 
             <!------------------------ Interface DrivingMode ------------------------------>
             <section id="drivingmode-interface">
@@ -8553,7 +8553,7 @@ module Vehicle {
     <span class="idlAttribute">             attribute <span class="idlAttrType">boolean</span> <span class="idlAttrName">setting</span>;</span>
     };
 };
-	    </span></pre>
+            </span></pre>
         </section>
     </body>
 </html>

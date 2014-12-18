@@ -502,14 +502,18 @@
         <section class="informative">
             <h2 aria-level="1" role="heading">Introduction</h2>
             <p>
-                <em>This section is non-normative.</em>
+              <em>This section is non-normative.</em>
             </p>
             <p>
-                The Vehicle Information API provides operations to get access to the vehicle data
-                (henceforth "properties") available from vehicle systems and also to change (write) a number of
-                properties.
-		Each data type is accessed through a VehicleInterface attribute available on the navigator.vehicle object. The attribute name corresponds with the Vehicle Type. For example, the attribute "vehicle.vehicleSpeed" is the interface to the data type "VehicleSpeed".
-            </p>
+	      The Vehicle Information API provides operations to get access to the vehicle data
+	      (henceforth "properties") available from vehicle systems and also to change (write) a number of
+	      properties.
+	    </p>
+	    <p>
+	      Vehicle data types are available in the <a href="#vehiclecommondatatype-interface">VehicleCommonDataTypeInterface</a>.
+	      Each data type is accessed through a <a href="#vehicle-interface">VehicleInterface</a> attribute available on the <a href="#navigator-interface">navigator.vehicle</a> object.
+	      The attribute name corresponds with the Vehicle Type. For example, the attribute <a href="#widl-Vehicle-vehicleSpeed">"vehicle.vehicleSpeed"</a> is the interface to the data type <a href="#vehiclespeed-interface">"VehicleSpeed"</a>.
+	    </p>
             <h2 aria-level="1" role="heading">Conformance</h2>
             <p>
                 As well as sections marked as non-normative, all authoring guidelines, diagrams, examples,
@@ -529,7 +533,7 @@
             <p>
                 Implementations that use ECMAScript to implement the APIs defined in this
                 specification <em class="rfc2119" title="MUST">MUST</em> implement them in a manner consistent with the ECMAScript
-                Bindings defined in the Web IDL specification [<cite><a class="bibref" href="#bib-WEBIDL">WEBIDL</a></cite>], as this
+                Bindings defined in the Web IDL specification [<cite><a class="bibref" href="http://www.w3.org/TR/WebIDL/">WEBIDL</a></cite>], as this
                 specification uses that specification and terminology.
             </p>
             <h2 aria-level="1" role="heading">Terminology</h2>
@@ -669,853 +673,864 @@
                         </li>
                     </ul>
                 </li>
+	        <li class="tocline">
+                    <a href="#Extending-the-Vehicle-Data-API" class="tocxref"><span class="secno">12. </span>Extending the Vehicle Data API</a>
+                    <ul class="toc">
+                        <li class="tocline">
+                            <a href="#Extending-type" class="tocxref"><span class="secno">12.1 </span>Extending Existing Data Types</a>
+                        </li>
+                        <li class="tocline">
+                            <a href="#Extending-vs" class="tocxref"><span class="secno">12.2 </span>Mapping vs. Extending</a>
+                        </li>
+                    </ul>
+                </li>
                 <li class="tocline">
-                    <a href="#vehiclecommondatatype-interface" class="tocxref"><span class="secno">12. </span><span class="formerLink">
+                    <a href="#vehiclecommondatatype-interface" class="tocxref"><span class="secno">13. </span><span class="formerLink">
                         <code>
                             VehicleCommonDataType
                         </code></span> Interface</a>
                     <ul class="toc">
                         <li class="tocline">
-                            <a href="#attributes" class="tocxref"><span class="secno">12.1 </span>Attributes</a>
+                            <a href="#attributes" class="tocxref"><span class="secno">13.1 </span>Attributes</a>
                         </li>
                     </ul>
                 </li>
                 <li class="tocline">
-                    <a href="#configuration-identification-interfaces" class="tocxref"><span class="secno">13. </span>Configuration and Identification Interfaces</a>
+                    <a href="#configuration-identification-interfaces" class="tocxref"><span class="secno">14. </span>Configuration and Identification Interfaces</a>
                     <ul class="toc">
                         <li class="tocline">
-                            <a href="#attributes-1" class="tocxref"><span class="secno">13.1 </span>Attributes</a>
+                            <a href="#attributes-1" class="tocxref"><span class="secno">14.1 </span>Attributes</a>
                         </li>
                         <li class="tocline">
-                            <a href="#identification-interface" class="tocxref"><span class="secno">13.2 </span><span class="formerLink">
+                            <a href="#identification-interface" class="tocxref"><span class="secno">14.2 </span><span class="formerLink">
                                 <code>
                                     Identification
                                 </code></span> Interface</a>
                             <ul class="toc">
                                 <li class="tocline">
-                                    <a href="#attributes-2" class="tocxref"><span class="secno">13.2.1 </span>Attributes</a>
+                                    <a href="#attributes-2" class="tocxref"><span class="secno">14.2.1 </span>Attributes</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="tocline">
-                            <a href="#sizeconfiguration-interface" class="tocxref"><span class="secno">13.3 </span><span class="formerLink">
+                            <a href="#sizeconfiguration-interface" class="tocxref"><span class="secno">14.3 </span><span class="formerLink">
                                 <code>
                                     SizeConfiguration
                                 </code></span> Interface</a>
                             <ul class="toc">
                                 <li class="tocline">
-                                    <a href="#attributes-3" class="tocxref"><span class="secno">13.3.1 </span>Attributes</a>
+                                    <a href="#attributes-3" class="tocxref"><span class="secno">14.3.1 </span>Attributes</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="tocline">
-                            <a href="#fuelconfiguration-interface" class="tocxref"><span class="secno">13.4 </span><span class="formerLink">
+                            <a href="#fuelconfiguration-interface" class="tocxref"><span class="secno">14.4 </span><span class="formerLink">
                                 <code>
                                     FuelConfiguration
                                 </code></span> Interface</a>
                             <ul class="toc">
                                 <li class="tocline">
-                                    <a href="#attributes-4" class="tocxref"><span class="secno">13.4.1 </span>Attributes</a>
+                                    <a href="#attributes-4" class="tocxref"><span class="secno">14.4.1 </span>Attributes</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="tocline">
-                            <a href="#transmissionconfiguration-interface" class="tocxref"><span class="secno">13.5 </span><span class="formerLink">
+                            <a href="#transmissionconfiguration-interface" class="tocxref"><span class="secno">14.5 </span><span class="formerLink">
                                 <code>
                                     TransmissionConfiguration
                                 </code></span> Interface</a>
                             <ul class="toc">
                                 <li class="tocline">
-                                    <a href="#attributes-5" class="tocxref"><span class="secno">13.5.1 </span>Attributes</a>
+                                    <a href="#attributes-5" class="tocxref"><span class="secno">14.5.1 </span>Attributes</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="tocline">
-                            <a href="#wheelconfiguration-interface" class="tocxref"><span class="secno">13.6 </span><span class="formerLink">
+                            <a href="#wheelconfiguration-interface" class="tocxref"><span class="secno">14.6 </span><span class="formerLink">
                                 <code>
                                     WheelConfiguration
                                 </code></span> Interface</a>
                             <ul class="toc">
                                 <li class="tocline">
-                                    <a href="#attributes-6" class="tocxref"><span class="secno">13.6.1 </span>Attributes</a>
+                                    <a href="#attributes-6" class="tocxref"><span class="secno">14.6.1 </span>Attributes</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="tocline">
-                            <a href="#steeringwheelconfiguration-interface" class="tocxref"><span class="secno">13.7 </span><span class="formerLink">
+                            <a href="#steeringwheelconfiguration-interface" class="tocxref"><span class="secno">14.7 </span><span class="formerLink">
                                 <code>
                                     SteeringWheelConfiguration
                                 </code></span> Interface</a>
                             <ul class="toc">
                                 <li class="tocline">
-                                    <a href="#attributes-7" class="tocxref"><span class="secno">13.7.1 </span>Attributes</a>
+                                    <a href="#attributes-7" class="tocxref"><span class="secno">14.7.1 </span>Attributes</a>
                                 </li>
                             </ul>
                         </li>
                     </ul>
                 </li>
                 <li class="tocline">
-                    <a href="#runningstatus-interfaces" class="tocxref"><span class="secno">14. </span>Running Status Interfaces</a>
+                    <a href="#runningstatus-interfaces" class="tocxref"><span class="secno">15. </span>Running Status Interfaces</a>
                     <ul class="toc">
                         <li class="tocline">
-                            <a href="#attributes-8" class="tocxref"><span class="secno">14.1 </span>Attributes</a>
+                            <a href="#attributes-8" class="tocxref"><span class="secno">15.1 </span>Attributes</a>
                         </li>
                         <li class="tocline">
-                            <a href="#vehiclespeed-interface" class="tocxref"><span class="secno">14.2 </span><span class="formerLink">
+                            <a href="#vehiclespeed-interface" class="tocxref"><span class="secno">15.2 </span><span class="formerLink">
                                 <code>
                                     VehicleSpeed
                                 </code></span> Interface</a>
                             <ul class="toc">
                                 <li class="tocline">
-                                    <a href="#attributes-9" class="tocxref"><span class="secno">14.2.1 </span>Attributes</a>
+                                    <a href="#attributes-9" class="tocxref"><span class="secno">15.2.1 </span>Attributes</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="tocline">
-                            <a href="#wheelspeed-interface" class="tocxref"><span class="secno">14.3 </span><span class="formerLink">
+                            <a href="#wheelspeed-interface" class="tocxref"><span class="secno">15.3 </span><span class="formerLink">
                                 <code>
                                     WheelSpeed
                                 </code></span> Interface</a>
                             <ul class="toc">
                                 <li class="tocline">
-                                    <a href="#attributes-10" class="tocxref"><span class="secno">14.3.1 </span>Attributes</a>
+                                    <a href="#attributes-10" class="tocxref"><span class="secno">15.3.1 </span>Attributes</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="tocline">
-                            <a href="#enginespeed-interface" class="tocxref"><span class="secno">14.4 </span><span class="formerLink">
+                            <a href="#enginespeed-interface" class="tocxref"><span class="secno">15.4 </span><span class="formerLink">
                                 <code>
                                     EngineSpeed
                                 </code></span> Interface</a>
                             <ul class="toc">
                                 <li class="tocline">
-                                    <a href="#attributes-11" class="tocxref"><span class="secno">14.4.1 </span>Attributes</a>
+                                    <a href="#attributes-11" class="tocxref"><span class="secno">15.4.1 </span>Attributes</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="tocline">
-                            <a href="#vehiclepowermodetype-interface" class="tocxref"><span class="secno">14.5 </span><span class="formerLink">
+                            <a href="#vehiclepowermodetype-interface" class="tocxref"><span class="secno">15.5 </span><span class="formerLink">
                                 <code>
                                     VehiclePowerModeType
                                 </code></span> Interface</a>
                             <ul class="toc">
                                 <li class="tocline">
-                                    <a href="#attributes-12" class="tocxref"><span class="secno">14.5.1 </span>Attributes</a>
+                                    <a href="#attributes-12" class="tocxref"><span class="secno">15.5.1 </span>Attributes</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="tocline">
-                            <a href="#powertraintorque-interface" class="tocxref"><span class="secno">14.6 </span><span class="formerLink">
+                            <a href="#powertraintorque-interface" class="tocxref"><span class="secno">15.6 </span><span class="formerLink">
                                 <code>
                                     PowerTrainTorque
                                 </code></span> Interface</a>
                             <ul class="toc">
                                 <li class="tocline">
-                                    <a href="#attributes-13" class="tocxref"><span class="secno">14.6.1 </span>Attributes</a>
+                                    <a href="#attributes-13" class="tocxref"><span class="secno">15.6.1 </span>Attributes</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="tocline">
-                            <a href="#acceleratorpedalposition-interface" class="tocxref"><span class="secno">14.7 </span><span class="formerLink">
+                            <a href="#acceleratorpedalposition-interface" class="tocxref"><span class="secno">15.7 </span><span class="formerLink">
                                 <code>
                                     AcceleratorPedalPosition
                                 </code></span> Interface</a>
                             <ul class="toc">
                                 <li class="tocline">
-                                    <a href="#attributes-14" class="tocxref"><span class="secno">14.7.1 </span>Attributes</a>
+                                    <a href="#attributes-14" class="tocxref"><span class="secno">15.7.1 </span>Attributes</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="tocline">
-                            <a href="#throttleposition-interface" class="tocxref"><span class="secno">14.8 </span><span class="formerLink">
+                            <a href="#throttleposition-interface" class="tocxref"><span class="secno">15.8 </span><span class="formerLink">
                                 <code>
                                     ThrottlePosition
                                 </code></span> Interface</a>
                             <ul class="toc">
                                 <li class="tocline">
-                                    <a href="#attributes-15" class="tocxref"><span class="secno">14.8.1 </span>Attributes</a>
+                                    <a href="#attributes-15" class="tocxref"><span class="secno">15.8.1 </span>Attributes</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="tocline">
-                            <a href="#trip-interface" class="tocxref"><span class="secno">14.9 </span><span class="formerLink">
+                            <a href="#trip-interface" class="tocxref"><span class="secno">15.9 </span><span class="formerLink">
                                 <code>
                                     Trip
                                 </code></span> Interface</a>
                             <ul class="toc">
                                 <li class="tocline">
-                                    <a href="#attributes-16" class="tocxref"><span class="secno">14.9.1 </span>Attributes</a>
+                                    <a href="#attributes-16" class="tocxref"><span class="secno">15.9.1 </span>Attributes</a>
                                 </li>
                                 <li class="tocline">
-                                    <a href="#attributes-17" class="tocxref"><span class="secno">14.9.2 </span>Attributes</a>
+                                    <a href="#attributes-17" class="tocxref"><span class="secno">15.9.2 </span>Attributes</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="tocline">
-                            <a href="#transmission-interface" class="tocxref"><span class="secno">14.10 </span><span class="formerLink">
+                            <a href="#transmission-interface" class="tocxref"><span class="secno">15.10 </span><span class="formerLink">
                                 <code>
                                     Transmission
                                 </code></span> Interface</a>
                             <ul class="toc">
                                 <li class="tocline">
-                                    <a href="#attributes-18" class="tocxref"><span class="secno">14.10.1 </span>Attributes</a>
+                                    <a href="#attributes-18" class="tocxref"><span class="secno">15.10.1 </span>Attributes</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="tocline">
-                            <a href="#cruisecontrolstatus-interface" class="tocxref"><span class="secno">14.11 </span><span class="formerLink">
+                            <a href="#cruisecontrolstatus-interface" class="tocxref"><span class="secno">15.11 </span><span class="formerLink">
                                 <code>
                                     CruiseControlStatus
                                 </code></span> Interface</a>
                             <ul class="toc">
                                 <li class="tocline">
-                                    <a href="#attributes-19" class="tocxref"><span class="secno">14.11.1 </span>Attributes</a>
+                                    <a href="#attributes-19" class="tocxref"><span class="secno">15.11.1 </span>Attributes</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="tocline">
-                            <a href="#lightstatus-interface" class="tocxref"><span class="secno">14.12 </span><span class="formerLink">
+                            <a href="#lightstatus-interface" class="tocxref"><span class="secno">15.12 </span><span class="formerLink">
                                 <code>
                                     LightStatus
                                 </code></span> Interface</a>
                             <ul class="toc">
                                 <li class="tocline">
-                                    <a href="#attributes-20" class="tocxref"><span class="secno">14.12.1 </span>Attributes</a>
+                                    <a href="#attributes-20" class="tocxref"><span class="secno">15.12.1 </span>Attributes</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="tocline">
-                            <a href="#interiorlightstatus-interface" class="tocxref"><span class="secno">14.13 </span><span class="formerLink">
+                            <a href="#interiorlightstatus-interface" class="tocxref"><span class="secno">15.13 </span><span class="formerLink">
                                 <code>
                                     InteriorLightStatus
                                 </code></span> Interface</a>
                             <ul class="toc">
                                 <li class="tocline">
-                                    <a href="#attributes-21" class="tocxref"><span class="secno">14.13.1 </span>Attributes</a>
+                                    <a href="#attributes-21" class="tocxref"><span class="secno">15.13.1 </span>Attributes</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="tocline">
-                            <a href="#horn-interface" class="tocxref"><span class="secno">14.14 </span><span class="formerLink">
+                            <a href="#horn-interface" class="tocxref"><span class="secno">15.14 </span><span class="formerLink">
                                 <code>
                                     Horn
                                 </code></span> Interface</a>
                             <ul class="toc">
                                 <li class="tocline">
-                                    <a href="#attributes-22" class="tocxref"><span class="secno">14.14.1 </span>Attributes</a>
+                                    <a href="#attributes-22" class="tocxref"><span class="secno">15.14.1 </span>Attributes</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="tocline">
-                            <a href="#chime-interface" class="tocxref"><span class="secno">14.15 </span><span class="formerLink">
+                            <a href="#chime-interface" class="tocxref"><span class="secno">15.15 </span><span class="formerLink">
                                 <code>
                                     Chime
                                 </code></span> Interface</a>
                             <ul class="toc">
                                 <li class="tocline">
-                                    <a href="#attributes-23" class="tocxref"><span class="secno">14.15.1 </span>Attributes</a>
+                                    <a href="#attributes-23" class="tocxref"><span class="secno">15.15.1 </span>Attributes</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="tocline">
-                            <a href="#fuel-interface" class="tocxref"><span class="secno">14.16 </span><span class="formerLink">
+                            <a href="#fuel-interface" class="tocxref"><span class="secno">15.16 </span><span class="formerLink">
                                 <code>
                                     Fuel
                                 </code></span> Interface</a>
                             <ul class="toc">
                                 <li class="tocline">
-                                    <a href="#attributes-24" class="tocxref"><span class="secno">14.16.1 </span>Attributes</a>
+                                    <a href="#attributes-24" class="tocxref"><span class="secno">15.16.1 </span>Attributes</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="tocline">
-                            <a href="#engineoil-interface" class="tocxref"><span class="secno">14.17 </span><span class="formerLink">
+                            <a href="#engineoil-interface" class="tocxref"><span class="secno">15.17 </span><span class="formerLink">
                                 <code>
                                     EngineOil
                                 </code></span> Interface</a>
                             <ul class="toc">
                                 <li class="tocline">
-                                    <a href="#attributes-25" class="tocxref"><span class="secno">14.17.1 </span>Attributes</a>
+                                    <a href="#attributes-25" class="tocxref"><span class="secno">15.17.1 </span>Attributes</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="tocline">
-                            <a href="#acceleration-interface" class="tocxref"><span class="secno">14.18 </span><span class="formerLink">
+                            <a href="#acceleration-interface" class="tocxref"><span class="secno">15.18 </span><span class="formerLink">
                                 <code>
                                     Acceleration
                                 </code></span> Interface</a>
                             <ul class="toc">
                                 <li class="tocline">
-                                    <a href="#attributes-26" class="tocxref"><span class="secno">14.18.1 </span>Attributes</a>
+                                    <a href="#attributes-26" class="tocxref"><span class="secno">15.18.1 </span>Attributes</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="tocline">
-                            <a href="#enginecoolant-interface" class="tocxref"><span class="secno">14.19 </span><span class="formerLink">
+                            <a href="#enginecoolant-interface" class="tocxref"><span class="secno">15.19 </span><span class="formerLink">
                                 <code>
                                     EngineCoolant
                                 </code></span> Interface</a>
                             <ul class="toc">
                                 <li class="tocline">
-                                    <a href="#attributes-27" class="tocxref"><span class="secno">14.19.1 </span>Attributes</a>
+                                    <a href="#attributes-27" class="tocxref"><span class="secno">15.19.1 </span>Attributes</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="tocline">
-                            <a href="#steeringwheel-interface" class="tocxref"><span class="secno">14.20 </span><span class="formerLink">
+                            <a href="#steeringwheel-interface" class="tocxref"><span class="secno">15.20 </span><span class="formerLink">
                                 <code>
                                     SteeringWheel
                                 </code></span> Interface</a>
                             <ul class="toc">
                                 <li class="tocline">
-                                    <a href="#attributes-28" class="tocxref"><span class="secno">14.20.1 </span>Attributes</a>
+                                    <a href="#attributes-28" class="tocxref"><span class="secno">15.20.1 </span>Attributes</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="tocline">
-                            <a href="#wheeltick-interface" class="tocxref"><span class="secno">14.21 </span><span class="formerLink">
+                            <a href="#wheeltick-interface" class="tocxref"><span class="secno">15.21 </span><span class="formerLink">
                                 <code>
                                     WheelTick
                                 </code></span> Interface</a>
                             <ul class="toc">
                                 <li class="tocline">
-                                    <a href="#attributes-29" class="tocxref"><span class="secno">14.21.1 </span>Attributes</a>
+                                    <a href="#attributes-29" class="tocxref"><span class="secno">15.21.1 </span>Attributes</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="tocline">
-                            <a href="#ignitiontime-interface" class="tocxref"><span class="secno">14.22 </span><span class="formerLink">
+                            <a href="#ignitiontime-interface" class="tocxref"><span class="secno">15.22 </span><span class="formerLink">
                                 <code>
                                     IgnitionTime
                                 </code></span> Interface</a>
                             <ul class="toc">
                                 <li class="tocline">
-                                    <a href="#attributes-30" class="tocxref"><span class="secno">14.22.1 </span>Attributes</a>
+                                    <a href="#attributes-30" class="tocxref"><span class="secno">15.22.1 </span>Attributes</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="tocline">
-                            <a href="#yawrate-interface" class="tocxref"><span class="secno">14.23 </span><span class="formerLink">
+                            <a href="#yawrate-interface" class="tocxref"><span class="secno">15.23 </span><span class="formerLink">
                                 <code>
                                     YawRate
                                 </code></span> Interface</a>
                             <ul class="toc">
                                 <li class="tocline">
-                                    <a href="#attributes-31" class="tocxref"><span class="secno">14.23.1 </span>Attributes</a>
+                                    <a href="#attributes-31" class="tocxref"><span class="secno">15.23.1 </span>Attributes</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="tocline">
-                            <a href="#brakeoperation-interface" class="tocxref"><span class="secno">14.24 </span><span class="formerLink">
+                            <a href="#brakeoperation-interface" class="tocxref"><span class="secno">15.24 </span><span class="formerLink">
                                 <code>
                                     BrakeOperation
                                 </code></span> Interface</a>
                             <ul class="toc">
                                 <li class="tocline">
-                                    <a href="#attributes-32" class="tocxref"><span class="secno">14.24.1 </span>Attributes</a>
+                                    <a href="#attributes-32" class="tocxref"><span class="secno">15.24.1 </span>Attributes</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="tocline">
-                            <a href="#buttonevent-interface" class="tocxref"><span class="secno">14.25 </span><span class="formerLink">
+                            <a href="#buttonevent-interface" class="tocxref"><span class="secno">15.25 </span><span class="formerLink">
                                 <code>
                                     ButtonEvent
                                 </code></span> Interface</a>
                             <ul class="toc">
                                 <li class="tocline">
-                                    <a href="#attributes-33" class="tocxref"><span class="secno">14.25.1 </span>Attributes</a>
+                                    <a href="#attributes-33" class="tocxref"><span class="secno">15.25.1 </span>Attributes</a>
                                 </li>
                             </ul>
 			    <ul class="toc">
                                 <li class="tocline">
-                                  <a href="#attributes-33.2" class="tocxref"><span class="secno">14.25.2 </span>Attributes</a>
+                                  <a href="#attributes-33.2" class="tocxref"><span class="secno">15.25.2 </span>Attributes</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="tocline">
-                            <a href="#drivingmode-interface" class="tocxref"><span class="secno">14.26 </span><span class="formerLink">
+                            <a href="#drivingmode-interface" class="tocxref"><span class="secno">15.26 </span><span class="formerLink">
                                 <code>
                                     DrivingMode
                                 </code></span> Interface</a>
                             <ul class="toc">
                                 <li class="tocline">
-                                    <a href="#attributes-34" class="tocxref"><span class="secno">14.26.1 </span>Attributes</a>
+                                    <a href="#attributes-34" class="tocxref"><span class="secno">15.26.1 </span>Attributes</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="tocline">
-                            <a href="#nightmode-interface" class="tocxref"><span class="secno">14.27 </span><span class="formerLink">
+                            <a href="#nightmode-interface" class="tocxref"><span class="secno">15.27 </span><span class="formerLink">
                                 <code>
                                     NightMode
                                 </code></span> Interface</a>
                             <ul class="toc">
                                 <li class="tocline">
-                                    <a href="#attributes-35" class="tocxref"><span class="secno">14.27.1 </span>Attributes</a>
+                                    <a href="#attributes-35" class="tocxref"><span class="secno">15.27.1 </span>Attributes</a>
                                 </li>
                             </ul>
                         </li>
                     </ul>
                 </li>
                 <li class="tocline">
-                    <a href="#maintenance-interfaces" class="tocxref"><span class="secno">15. </span>Maintenance Interfaces</a>
+                    <a href="#maintenance-interfaces" class="tocxref"><span class="secno">16. </span>Maintenance Interfaces</a>
                     <ul class="toc">
                         <li class="tocline">
-                            <a href="#attributes-36" class="tocxref"><span class="secno">15.1 </span>Attributes</a>
+                            <a href="#attributes-36" class="tocxref"><span class="secno">16.1 </span>Attributes</a>
                         </li>
                         <li class="tocline">
-                            <a href="#odometer-interface" class="tocxref"><span class="secno">15.2 </span><span class="formerLink">
+                            <a href="#odometer-interface" class="tocxref"><span class="secno">16.2 </span><span class="formerLink">
                                 <code>
                                     Odometer
                                 </code></span> Interface</a>
                             <ul class="toc">
                                 <li class="tocline">
-                                    <a href="#attributes-37" class="tocxref"><span class="secno">15.2.1 </span>Attributes</a>
+                                    <a href="#attributes-37" class="tocxref"><span class="secno">16.2.1 </span>Attributes</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="tocline">
-                            <a href="#transmissionoil-interface" class="tocxref"><span class="secno">15.3 </span><span class="formerLink">
+                            <a href="#transmissionoil-interface" class="tocxref"><span class="secno">16.3 </span><span class="formerLink">
                                 <code>
                                     TransmissionOil
                                 </code></span> Interface</a>
                             <ul class="toc">
                                 <li class="tocline">
-                                    <a href="#attributes-38" class="tocxref"><span class="secno">15.3.1 </span>Attributes</a>
+                                    <a href="#attributes-38" class="tocxref"><span class="secno">16.3.1 </span>Attributes</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="tocline">
-                            <a href="#transmissionclutch-interface" class="tocxref"><span class="secno">15.4 </span><span class="formerLink">
+                            <a href="#transmissionclutch-interface" class="tocxref"><span class="secno">16.4 </span><span class="formerLink">
                                 <code>
                                     TransmissionClutch
                                 </code></span> Interface</a>
                             <ul class="toc">
                                 <li class="tocline">
-                                    <a href="#attributes-39" class="tocxref"><span class="secno">15.4.1 </span>Attributes</a>
+                                    <a href="#attributes-39" class="tocxref"><span class="secno">16.4.1 </span>Attributes</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="tocline">
-                            <a href="#brakemaintenance-interface" class="tocxref"><span class="secno">15.5 </span><span class="formerLink">
+                            <a href="#brakemaintenance-interface" class="tocxref"><span class="secno">16.5 </span><span class="formerLink">
                                 <code>
                                     BrakeMaintenance
                                 </code></span> Interface</a>
                             <ul class="toc">
                                 <li class="tocline">
-                                    <a href="#attributes-40" class="tocxref"><span class="secno">15.5.1 </span>Attributes</a>
+                                    <a href="#attributes-40" class="tocxref"><span class="secno">16.5.1 </span>Attributes</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="tocline">
-                            <a href="#washerfluid-interface" class="tocxref"><span class="secno">15.6 </span><span class="formerLink">
+                            <a href="#washerfluid-interface" class="tocxref"><span class="secno">16.6 </span><span class="formerLink">
                                 <code>
                                     WasherFluid
                                 </code></span> Interface</a>
                             <ul class="toc">
                                 <li class="tocline">
-                                    <a href="#attributes-41" class="tocxref"><span class="secno">15.6.1 </span>Attributes</a>
+                                    <a href="#attributes-41" class="tocxref"><span class="secno">16.6.1 </span>Attributes</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="tocline">
-                            <a href="#malfunctionindicator-interface" class="tocxref"><span class="secno">15.7 </span><span class="formerLink">
+                            <a href="#malfunctionindicator-interface" class="tocxref"><span class="secno">16.7 </span><span class="formerLink">
                                 <code>
                                     MalfunctionIndicator
                                 </code></span> Interface</a>
                             <ul class="toc">
                                 <li class="tocline">
-                                    <a href="#attributes-42" class="tocxref"><span class="secno">15.7.1 </span>Attributes</a>
+                                    <a href="#attributes-42" class="tocxref"><span class="secno">16.7.1 </span>Attributes</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="tocline">
-                            <a href="#batterystatus-interface" class="tocxref"><span class="secno">15.8 </span><span class="formerLink">
+                            <a href="#batterystatus-interface" class="tocxref"><span class="secno">16.8 </span><span class="formerLink">
                                 <code>
                                     BatteryStatus
                                 </code></span> Interface</a>
                             <ul class="toc">
                                 <li class="tocline">
-                                    <a href="#attributes-43" class="tocxref"><span class="secno">15.8.1 </span>Attributes</a>
+                                    <a href="#attributes-43" class="tocxref"><span class="secno">16.8.1 </span>Attributes</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="tocline">
-                            <a href="#tire-interface" class="tocxref"><span class="secno">15.9 </span><span class="formerLink">
+                            <a href="#tire-interface" class="tocxref"><span class="secno">16.9 </span><span class="formerLink">
                                 <code>
                                     Tire
                                 </code></span> Interface</a>
                             <ul class="toc">
                                 <li class="tocline">
-                                    <a href="#attributes-44" class="tocxref"><span class="secno">15.9.1 </span>Attributes</a>
+                                    <a href="#attributes-44" class="tocxref"><span class="secno">16.9.1 </span>Attributes</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="tocline">
-                            <a href="#diagnostic-interface" class="tocxref"><span class="secno">15.10 </span><span class="formerLink">
+                            <a href="#diagnostic-interface" class="tocxref"><span class="secno">16.10 </span><span class="formerLink">
                                 <code>
                                     Diagnostic
                                 </code></span> Interface</a>
                             <ul class="toc">
                                 <li class="tocline">
-                                    <a href="#attributes-45" class="tocxref"><span class="secno">15.10.1 </span>Attributes</a>
+                                    <a href="#attributes-45" class="tocxref"><span class="secno">16.10.1 </span>Attributes</a>
                                 </li>
                             </ul>
                         </li>
                     </ul>
                 </li>
                 <li class="tocline">
-                    <a href="#personalization-interfaces" class="tocxref"><span class="secno">16. </span>Personalization Interfaces</a>
+                    <a href="#personalization-interfaces" class="tocxref"><span class="secno">17. </span>Personalization Interfaces</a>
                     <ul class="toc">
                         <li class="tocline">
-                            <a href="#attributes-46" class="tocxref"><span class="secno">16.1 </span>Attributes</a>
+                            <a href="#attributes-46" class="tocxref"><span class="secno">17.1 </span>Attributes</a>
                         </li>
                         <li class="tocline">
-                            <a href="#languageconfiguration-interface" class="tocxref"><span class="secno">16.2 </span><span class="formerLink">
+                            <a href="#languageconfiguration-interface" class="tocxref"><span class="secno">17.2 </span><span class="formerLink">
                                 <code>
                                     LanguageConfiguration
                                 </code></span> Interface</a>
                             <ul class="toc">
                                 <li class="tocline">
-                                    <a href="#attributes-47" class="tocxref"><span class="secno">16.2.1 </span>Attributes</a>
+                                    <a href="#attributes-47" class="tocxref"><span class="secno">17.2.1 </span>Attributes</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="tocline">
-                            <a href="#unitsofmeasure-interface" class="tocxref"><span class="secno">16.3 </span><span class="formerLink">
+                            <a href="#unitsofmeasure-interface" class="tocxref"><span class="secno">17.3 </span><span class="formerLink">
                                 <code>
                                     UnitsOfMeasure
                                 </code></span> Interface</a>
                             <ul class="toc">
                                 <li class="tocline">
-                                    <a href="#attributes-48" class="tocxref"><span class="secno">16.3.1 </span>Attributes</a>
+                                    <a href="#attributes-48" class="tocxref"><span class="secno">17.3.1 </span>Attributes</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="tocline">
-                            <a href="#mirror-interface" class="tocxref"><span class="secno">16.4 </span><span class="formerLink">
+                            <a href="#mirror-interface" class="tocxref"><span class="secno">17.4 </span><span class="formerLink">
                                 <code>
                                     Mirror
                                 </code></span> Interface</a>
                             <ul class="toc">
                                 <li class="tocline">
-                                    <a href="#attributes-49" class="tocxref"><span class="secno">16.4.1 </span>Attributes</a>
+                                    <a href="#attributes-49" class="tocxref"><span class="secno">17.4.1 </span>Attributes</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="tocline">
-                            <a href="#seatadjustment-interface" class="tocxref"><span class="secno">16.5 </span><span class="formerLink">
+                            <a href="#seatadjustment-interface" class="tocxref"><span class="secno">17.5 </span><span class="formerLink">
                                 <code>
                                     SeatAdjustment
                                 </code></span> Interface</a>
                             <ul class="toc">
                                 <li class="tocline">
-                                    <a href="#attributes-50" class="tocxref"><span class="secno">16.5.1 </span>Attributes</a>
+                                    <a href="#attributes-50" class="tocxref"><span class="secno">17.5.1 </span>Attributes</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="tocline">
-                            <a href="#drivemode-interface" class="tocxref"><span class="secno">16.6 </span><span class="formerLink">
+                            <a href="#drivemode-interface" class="tocxref"><span class="secno">17.6 </span><span class="formerLink">
                                 <code>
                                     DriveMode
                                 </code></span> Interface</a>
                             <ul class="toc">
                                 <li class="tocline">
-                                    <a href="#attributes-52" class="tocxref"><span class="secno">16.6.1 </span>Attributes</a>
+                                    <a href="#attributes-52" class="tocxref"><span class="secno">17.6.1 </span>Attributes</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="tocline">
-                            <a href="#dashboardillumination-interface" class="tocxref"><span class="secno">16.7 </span><span class="formerLink">
+                            <a href="#dashboardillumination-interface" class="tocxref"><span class="secno">17.7 </span><span class="formerLink">
                                 <code>
                                     DashboardIllumination
                                 </code></span> Interface</a>
                             <ul class="toc">
                                 <li class="tocline">
-                                    <a href="#attributes-53" class="tocxref"><span class="secno">16.7.1 </span>Attributes</a>
+                                    <a href="#attributes-53" class="tocxref"><span class="secno">17.7.1 </span>Attributes</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="tocline">
-                            <a href="#vehiclesound-interface" class="tocxref"><span class="secno">16.8 </span><span class="formerLink">
+                            <a href="#vehiclesound-interface" class="tocxref"><span class="secno">17.8 </span><span class="formerLink">
                                 <code>
                                     VehicleSound
                                 </code></span> Interface</a>
                             <ul class="toc">
                                 <li class="tocline">
-                                    <a href="#attributes-54" class="tocxref"><span class="secno">16.8.1 </span>Attributes</a>
+                                    <a href="#attributes-54" class="tocxref"><span class="secno">17.8.1 </span>Attributes</a>
                                 </li>
                             </ul>
                         </li>
                     </ul>
                 </li>
                 <li class="tocline">
-                    <a href="#drivingsafety-interfaces" class="tocxref"><span class="secno">17. </span>DrivingSafety Interfaces</a>
+                    <a href="#drivingsafety-interfaces" class="tocxref"><span class="secno">18. </span>DrivingSafety Interfaces</a>
                     <ul class="toc">
                         <li class="tocline">
-                            <a href="#attributes-55" class="tocxref"><span class="secno">17.1 </span>Attributes</a>
+                            <a href="#attributes-55" class="tocxref"><span class="secno">18.1 </span>Attributes</a>
                         </li>
                         <li class="tocline">
-                            <a href="#antilockbrakingsystem-interface" class="tocxref"><span class="secno">17.2 </span><span class="formerLink">
+                            <a href="#antilockbrakingsystem-interface" class="tocxref"><span class="secno">18.2 </span><span class="formerLink">
                                 <code>
                                     AntilockBrakingSystem
                                 </code></span> Interface</a>
                             <ul class="toc">
                                 <li class="tocline">
-                                    <a href="#attributes-56" class="tocxref"><span class="secno">17.2.1 </span>Attributes</a>
+                                    <a href="#attributes-56" class="tocxref"><span class="secno">18.2.1 </span>Attributes</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="tocline">
-                            <a href="#tractioncontrolsystem-interface" class="tocxref"><span class="secno">17.3 </span><span class="formerLink">
+                            <a href="#tractioncontrolsystem-interface" class="tocxref"><span class="secno">18.3 </span><span class="formerLink">
                                 <code>
                                     TractionControlSystem
                                 </code></span> Interface</a>
                             <ul class="toc">
                                 <li class="tocline">
-                                    <a href="#attributes-57" class="tocxref"><span class="secno">17.3.1 </span>Attributes</a>
+                                    <a href="#attributes-57" class="tocxref"><span class="secno">18.3.1 </span>Attributes</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="tocline">
-                            <a href="#electronicstabilitycontrol-interface" class="tocxref"><span class="secno">17.4 </span><span class="formerLink">
+                            <a href="#electronicstabilitycontrol-interface" class="tocxref"><span class="secno">18.4 </span><span class="formerLink">
                                 <code>
                                     ElectronicStabilityControl
                                 </code></span> Interface</a>
                             <ul class="toc">
                                 <li class="tocline">
-                                    <a href="#attributes-58" class="tocxref"><span class="secno">17.4.1 </span>Attributes</a>
+                                    <a href="#attributes-58" class="tocxref"><span class="secno">18.4.1 </span>Attributes</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="tocline">
-                            <a href="#topspeedlimit-interface" class="tocxref"><span class="secno">17.5 </span><span class="formerLink">
+                            <a href="#topspeedlimit-interface" class="tocxref"><span class="secno">18.5 </span><span class="formerLink">
                                 <code>
                                     TopSpeedLimit
                                 </code></span> Interface</a>
                             <ul class="toc">
                                 <li class="tocline">
-                                    <a href="#attributes-59" class="tocxref"><span class="secno">17.5.1 </span>Attributes</a>
+                                    <a href="#attributes-59" class="tocxref"><span class="secno">18.5.1 </span>Attributes</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="tocline">
-                            <a href="#airbagstatus-interface" class="tocxref"><span class="secno">17.6 </span><span class="formerLink">
+                            <a href="#airbagstatus-interface" class="tocxref"><span class="secno">18.6 </span><span class="formerLink">
                                 <code>
                                     AirbagStatus
                                 </code></span> Interface</a>
                             <ul class="toc">
                                 <li class="tocline">
-                                    <a href="#attributes-60" class="tocxref"><span class="secno">17.6.1 </span>Attributes</a>
+                                    <a href="#attributes-60" class="tocxref"><span class="secno">18.6.1 </span>Attributes</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="tocline">
-                            <a href="#door-interface" class="tocxref"><span class="secno">17.7 </span><span class="formerLink">
+                            <a href="#door-interface" class="tocxref"><span class="secno">18.7 </span><span class="formerLink">
                                 <code>
                                     Door
                                 </code></span> Interface</a>
                             <ul class="toc">
-                                <li class="tocline">
-                                    <a href="#attributes-61" class="tocxref"><span class="secno">17.7.1 </span>Attributes</a>
+                                <li class="tocline">%
+                                    <a href="#attributes-61" class="tocxref"><span class="secno">18.7.1 </span>Attributes</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="tocline">
-                            <a href="#childsafetylock-interface" class="tocxref"><span class="secno">17.8 </span><span class="formerLink">
+                            <a href="#childsafetylock-interface" class="tocxref"><span class="secno">18.8 </span><span class="formerLink">
                                 <code>
                                     ChildSafetyLock
                                 </code></span> Interface</a>
                             <ul class="toc">
                                 <li class="tocline">
-                                    <a href="#attributes-62" class="tocxref"><span class="secno">17.8.1 </span>Attributes</a>
+                                    <a href="#attributes-62" class="tocxref"><span class="secno">18.8.1 </span>Attributes</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="tocline">
-                            <a href="#seat-interface" class="tocxref"><span class="secno">17.9 </span><span class="formerLink">
+                            <a href="#seat-interface" class="tocxref"><span class="secno">18.9 </span><span class="formerLink">
                                 <code>
                                     Seat
                                 </code></span> Interface</a>
                             <ul class="toc">
                                 <li class="tocline">
-                                    <a href="#attributes-63" class="tocxref"><span class="secno">17.9.1 </span>Attributes</a>
+                                    <a href="#attributes-63" class="tocxref"><span class="secno">18.9.1 </span>Attributes</a>
                                 </li>
                             </ul>
                         </li>
                     </ul>
                 </li>
                 <li class="tocline">
-                    <a href="#Climate-interfaces" class="tocxref"><span class="secno">18. </span>Climate Interfaces</a>
+                    <a href="#Climate-interfaces" class="tocxref"><span class="secno">19. </span>Climate Interfaces</a>
                     <ul class="toc">
                         <li class="tocline">
-                            <a href="#attributes-64" class="tocxref"><span class="secno">18.1 </span>Attributes</a>
+                            <a href="#attributes-64" class="tocxref"><span class="secno">19.1 </span>Attributes</a>
                         </li>
                         <li class="tocline">
-                            <a href="#temperature-interface" class="tocxref"><span class="secno">18.2 </span><span class="formerLink">
+                            <a href="#temperature-interface" class="tocxref"><span class="secno">19.2 </span><span class="formerLink">
                                 <code>
                                     Temperature
                                 </code></span> Interface</a>
                             <ul class="toc">
                                 <li class="tocline">
-                                    <a href="#attributes-65" class="tocxref"><span class="secno">18.2.1 </span>Attributes</a>
+                                    <a href="#attributes-65" class="tocxref"><span class="secno">19.2.1 </span>Attributes</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="tocline">
-                            <a href="#rainsensor-interface" class="tocxref"><span class="secno">18.3 </span><span class="formerLink">
+                            <a href="#rainsensor-interface" class="tocxref"><span class="secno">19.3 </span><span class="formerLink">
                                 <code>
                                     RainSensor
                                 </code></span> Interface</a>
                             <ul class="toc">
                                 <li class="tocline">
-                                    <a href="#attributes-66" class="tocxref"><span class="secno">18.3.1 </span>Attributes</a>
+                                    <a href="#attributes-66" class="tocxref"><span class="secno">19.3.1 </span>Attributes</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="tocline">
-                            <a href="#wiperstatus-interface" class="tocxref"><span class="secno">18.4 </span><span class="formerLink">
+                            <a href="#wiperstatus-interface" class="tocxref"><span class="secno">19.4 </span><span class="formerLink">
                                 <code>
                                     WiperStatus
                                 </code></span> Interface</a>
                             <ul class="toc">
                                 <li class="tocline">
-                                    <a href="#attributes-67" class="tocxref"><span class="secno">18.4.1 </span>Attributes</a>
+                                    <a href="#attributes-67" class="tocxref"><span class="secno">19.4.1 </span>Attributes</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="tocline">
-                            <a href="#wipersetting-interface" class="tocxref"><span class="secno">18.5 </span><span class="formerLink">
+                            <a href="#wipersetting-interface" class="tocxref"><span class="secno">19.5 </span><span class="formerLink">
                                 <code>
                                     WiperSetting
                                 </code></span> Interface</a>
                             <ul class="toc">
                                 <li class="tocline">
-                                    <a href="#attributes-68" class="tocxref"><span class="secno">18.5.1 </span>Attributes</a>
+                                    <a href="#attributes-68" class="tocxref"><span class="secno">19.5.1 </span>Attributes</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="tocline">
-                            <a href="#defrost-interface" class="tocxref"><span class="secno">18.6 </span><span class="formerLink">
+                            <a href="#defrost-interface" class="tocxref"><span class="secno">19.6 </span><span class="formerLink">
                                 <code>
                                     Defrost
                                 </code></span> Interface</a>
                             <ul class="toc">
                                 <li class="tocline">
-                                    <a href="#attributes-69" class="tocxref"><span class="secno">18.6.1 </span>Attributes</a>
+                                    <a href="#attributes-69" class="tocxref"><span class="secno">19.6.1 </span>Attributes</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="tocline">
-                            <a href="#sunroof-interface" class="tocxref"><span class="secno">18.7 </span><span class="formerLink">
+                            <a href="#sunroof-interface" class="tocxref"><span class="secno">19.7 </span><span class="formerLink">
                                 <code>
                                     Sunroof
                                 </code></span> Interface</a>
                             <ul class="toc">
                                 <li class="tocline">
-                                    <a href="#attributes-70" class="tocxref"><span class="secno">18.7.1 </span>Attributes</a>
+                                    <a href="#attributes-70" class="tocxref"><span class="secno">19.7.1 </span>Attributes</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="tocline">
-                            <a href="#convertibleroof-interface" class="tocxref"><span class="secno">18.8 </span><span class="formerLink">
+                            <a href="#convertibleroof-interface" class="tocxref"><span class="secno">19.8 </span><span class="formerLink">
                                 <code>
                                     ConvertibleRoof
                                 </code></span> Interface</a>
                             <ul class="toc">
                                 <li class="tocline">
-                                    <a href="#attributes-71" class="tocxref"><span class="secno">18.8.1 </span>Attributes</a>
+                                    <a href="#attributes-71" class="tocxref"><span class="secno">19.8.1 </span>Attributes</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="tocline">
-                            <a href="#sidewindow-interface" class="tocxref"><span class="secno">18.9 </span><span class="formerLink">
+                            <a href="#sidewindow-interface" class="tocxref"><span class="secno">19.9 </span><span class="formerLink">
                                 <code>
                                     SideWindow
                                 </code></span> Interface</a>
                             <ul class="toc">
                                 <li class="tocline">
-                                    <a href="#attributes-72" class="tocxref"><span class="secno">18.9.1 </span>Attributes</a>
+                                    <a href="#attributes-72" class="tocxref"><span class="secno">19.9.1 </span>Attributes</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="tocline">
-                            <a href="#climatecontrol-interface" class="tocxref"><span class="secno">18.10 </span><span class="formerLink">
+                            <a href="#climatecontrol-interface" class="tocxref"><span class="secno">19.10 </span><span class="formerLink">
                                 <code>
                                     ClimateControl
                                 </code></span> Interface</a>
                             <ul class="toc">
                                 <li class="tocline">
-                                    <a href="#attributes-73" class="tocxref"><span class="secno">18.10.1 </span>Attributes</a>
+                                    <a href="#attributes-73" class="tocxref"><span class="secno">19.10.1 </span>Attributes</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="tocline">
-                            <a href="#atmosphericpressure-interface" class="tocxref"><span class="secno">18.11 </span><span class="formerLink">
+                            <a href="#atmosphericpressure-interface" class="tocxref"><span class="secno">19.11 </span><span class="formerLink">
                                 <code>
                                     AtmosphericPressure
                                 </code></span> Interface</a>
                             <ul class="toc">
                                 <li class="tocline">
-                                    <a href="#attributes-74" class="tocxref"><span class="secno">18.11.1 </span>Attributes</a>
+                                    <a href="#attributes-74" class="tocxref"><span class="secno">19.11.1 </span>Attributes</a>
                                 </li>
                             </ul>
                         </li>
                     </ul>
                 </li>
                 <li class="tocline">
-                    <a href="#vision-parking-interfaces" class="tocxref"><span class="secno">19. </span>Vision and Parking Interfaces</a>
+                    <a href="#vision-parking-interfaces" class="tocxref"><span class="secno">20. </span>Vision and Parking Interfaces</a>
                     <ul class="toc">
                         <li class="tocline">
-                            <a href="#attributes-75" class="tocxref"><span class="secno">19.1 </span>Attributes</a>
+                            <a href="#attributes-75" class="tocxref"><span class="secno">20.1 </span>Attributes</a>
                         </li>
                         <li class="tocline">
-                            <a href="#lanedeparturedetection-interface" class="tocxref"><span class="secno">19.2 </span><span class="formerLink">
+                            <a href="#lanedeparturedetection-interface" class="tocxref"><span class="secno">20.2 </span><span class="formerLink">
                                 <code>
                                     LaneDepartureDetection
                                 </code></span> Interface</a>
                             <ul class="toc">
                                 <li class="tocline">
-                                    <a href="#attributes-76" class="tocxref"><span class="secno">19.2.1 </span>Attributes</a>
+                                    <a href="#attributes-76" class="tocxref"><span class="secno">20.2.1 </span>Attributes</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="tocline">
-                            <a href="#alarm-interface" class="tocxref"><span class="secno">19.3 </span><span class="formerLink">
+                            <a href="#alarm-interface" class="tocxref"><span class="secno">20.3 </span><span class="formerLink">
                                 <code>
                                     Alarm
                                 </code></span> Interface</a>
                             <ul class="toc">
                                 <li class="tocline">
-                                    <a href="#attributes-77" class="tocxref"><span class="secno">19.3.1 </span>Attributes</a>
+                                    <a href="#attributes-77" class="tocxref"><span class="secno">20.3.1 </span>Attributes</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="tocline">
-                            <a href="#parkingbrake-interface" class="tocxref"><span class="secno">19.4 </span><span class="formerLink">
+                            <a href="#parkingbrake-interface" class="tocxref"><span class="secno">20.4 </span><span class="formerLink">
                                 <code>
                                     ParkingBrake
                                 </code></span> Interface</a>
                             <ul class="toc">
                                 <li class="tocline">
-                                    <a href="#attributes-78" class="tocxref"><span class="secno">19.4.1 </span>Attributes</a>
+                                    <a href="#attributes-78" class="tocxref"><span class="secno">20.4.1 </span>Attributes</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="tocline">
-                            <a href="#parkinglights-interface" class="tocxref"><span class="secno">19.5 </span><span class="formerLink">
+                            <a href="#parkinglights-interface" class="tocxref"><span class="secno">20.5 </span><span class="formerLink">
                                 <code>
                                     ParkingLights
                                 </code></span> Interface</a>
                             <ul class="toc">
                                 <li class="tocline">
-                                    <a href="#attributes-79" class="tocxref"><span class="secno">19.5.1 </span>Attributes</a>
+                                    <a href="#attributes-79" class="tocxref"><span class="secno">20.5.1 </span>Attributes</a>
                                 </li>
                             </ul>
                         </li>
                     </ul>
                 </li>
                 <li class="tocline">
-                    <a href="#full-webidl" class="tocxref"><span class="secno">20. </span>Full WebIDL</a>
+                    <a href="#full-webidl" class="tocxref"><span class="secno">21. </span>Full WebIDL</a>
                 </li>
             </ul>
         </section>
@@ -1921,7 +1936,7 @@ interface <span class="idlInterfaceID">VehicleInterface</span> {
 
             <div class="example">
                 <div class="example-title">
-                    <span>Example 2</span>
+                    <span>Example 1</span>
                 </div>
                 <pre class="example highlight prettyprint prettyprinted"><span class="pln">vehicle</span><span class="pun">.</span><span class="pln">vehicleSpeed</span><span class="pun">.</span><span class="kwd">get</span><span class="pun">().</span><span class="kwd">then</span><span class="pun">(</span><span class="pln">resolve</span><span class="pun">);</span><span class="pln">
 
@@ -2076,7 +2091,7 @@ interface <span class="idlInterfaceID">VehicleSignalInterface</span> : <span cla
 
             <div class="example">
                 <div class="example-title">
-                    <span>Example 3</span>
+                    <span>Example 2</span>
                 </div>
                 <pre class="example highlight prettyprint prettyprinted"><span class="kwd">var</span><span class="pln"> zone </span><span class="pun">=</span><span class="pln"> </span><span class="typ">Zone</span><span class="pln">
 vehicle</span><span class="pun">.</span><span class="pln">door</span><span class="pun">.</span><span class="kwd">set</span><span class="pun">({</span><span class="str">"lock"</span><span class="pln"> </span><span class="pun">:</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">},</span><span class="pln"> zone</span><span class="pun">.</span><span class="pln">driver</span><span class="pun">).</span><span class="kwd">then</span><span class="pun">(</span><span class="pln">resolve</span><span class="pun">,</span><span class="pln"> reject</span><span class="pun">);</span><span class="pln">
@@ -2258,7 +2273,7 @@ vehicle</span><span class="pun">.</span><span class="pln">door</span><span class
 
             <div class="example">
                 <div class="example-title">
-                    <span>Example 4</span>
+                    <span>Example 3</span>
                 </div>
                 <pre class="example highlight prettyprint prettyprinted"><span class="kwd">if</span><span class="pun">(</span><span class="pln"> </span><span class="pun">(</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> a </span><span class="pun">=</span><span class="pln"> vehicle</span><span class="pun">.</span><span class="pln">vehicleSpeed</span><span class="pun">.</span><span class="pln">availableForRetrieval</span><span class="pun">("speed")</span><span class="pln"> </span><span class="pun">)</span><span class="pln"> </span><span class="pun">===</span><span class="pln"> </span><span class="str">"available"</span><span class="pln"> </span><span class="pun">)</span><span class="pln">
 </span><span class="pun">{</span><span class="pln">
@@ -2336,7 +2351,7 @@ vehicle</span><span class="pun">.</span><span class="pln">door</span><span class
 
             <div class="example">
                 <div class="example-title">
-                    <span>Example 5</span>
+                    <span>Example 4</span>
                 </div>
                 <pre class="example highlight prettyprint prettyprinted"><span class="kwd">var</span><span class="pln"> canHasVehicleSpeed </span><span class="pun">=</span><span class="pln"> vehicle</span><span class="pun">.</span><span class="pln">vehicleSpeed</span><span class="pun">.</span><span class="pln">availableForSubscription</span><span class="pun">(</span><span class="str">"speed"</span><span class="pun">)</span><span class="pln"> </span><span class="pun">===</span><span class="pln"> </span><span class="str">"available"</span><span class="pun">;</span><span class="pln">
 
@@ -2459,7 +2474,7 @@ vehicle</span><span class="pun">.</span><span class="pln">vehicleSpeed</span><sp
 
             <div class="example">
                 <div class="example-title">
-                    <span>Example 6</span>
+                    <span>Example 5</span>
                 </div>
                 <pre class="example highlight prettyprint prettyprinted"><span class="com">/// check if there is data being logged for vehicleSpeed:</span><span class="pln">
 </span><span class="kwd">if</span><span class="pun">(</span><span class="pln">vehicle</span><span class="pun">.</span><span class="pln">vehicleSpeed</span><span class="pun">.</span><span class="pln">isLogged</span><span class="pun">)</span><span class="pln">
@@ -2471,10 +2486,52 @@ vehicle</span><span class="pun">.</span><span class="pln">vehicleSpeed</span><sp
 </span><span class="pun">}</span></pre>
             </div>
         </section>
+	<!------------------------ Extending the Vehicle Data API ------------------------>
+	<section id="Extending-the-Vehicle-Data-API">
+	  <!--OddPage--><h2 aria-level="1" role="heading" id="h2_Extending-the-Vehicle-Data-API"><span class="secno">12.Extending the Vehicle Data API </span></h2>
+	  <p>
+	    This specification anticipates that implementors may desire to extend this API and define new data types that this specification does not define. This section provides some general guidlines on how extending the API should be done.
 
+	  </p>
+	  <p>
+	    All new data types must have two parts: a <a href="#vehicle-interface">VehicleInterface</a> attributed on the navigator.vehicle object and an interface definition that defines the data type. The following example describes how one would extend the specification to add a "whizzer" data feature.
+	  </p>
+	  <div class="example">
+	      <div class="example-title">
+		  <span>Example 6</span>
+	      </div>
+	      <pre class="example highlight prettyprint prettyprinted"><span class="kwd">partial interface </span><span class="typ">Vehicle </span><span class="pun">{</span><span class="pln">
+   </span><span class="kwd">readonly </span><span class="pln">attribute VehicleSignalInterface whizzer; </span><span class="com">/// returns an interface to the Whizzer type</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+</span><span class="kwd">interface </span><span class="typ">Whizzer </span><span class="pun">{</span><span class="pln">
+    </span><span class="kwd">readonly </span><span class="pln">attribute boolean isWhizzing; </span><span class="pln">
+</span><span class="pun">}</span></pre>
+	  </div>
+	  <section id="Extending-type">
+	      <h3 aria-level="2" role="heading" id="h3_attributes"><span class="secno">12.1 </span>Extending the Vehicle Data API</h3>
+	      <p>
+		There may also be attributes of a data type interface that an implementor may wish to extend. The general guideline here is to add attributes to interfaces that are logically related. For example, lets say an implementor wishes to add support for a new type of light. The implementor would extend the already existing Light interface and add the attribute there.
+	      </p>
+	      <div class="example">
+		<div class="example-title">
+		  <span>Example 7</span>
+		</div>
+		<pre class="example highlight prettyprint prettyprinted"><span class="kwd">partial interface </span><span class="typ">Light </span><span class="pun">{</span><span class="pln">
+   </span><span class="pln">attribute boolean superBeam; </span><span class="pln">
+</span><span class="pun">}</span></pre>
+	      </div>
+	  </section>
+	  <section id="Extending-vs">
+              <h3 aria-level="2" role="heading" id="h3_attributes"><span class="secno">12.2 </span>Mapping vs. Extending</h3>
+	      <p>
+		Because vehicle data may be different in a system than what is defined in the specication, it is preferable to perform post-processing to translate and map the system data to the defined type. It is NOT preferable to create a new type if one has already been defined by this specification.
+	      </p>
+	  </section>
+	</section>
         <!------------------------ Interface VehicleCommonDataType ------------------------>
         <section id="vehiclecommondatatype-interface">
-            <!--OddPage--><h2 aria-level="1" role="heading" id="h2_vehiclecommondatatype-interface"><span class="secno">12. </span><a href="#idl-def-VehicleCommonDataType" class="idlType">
+            <!--OddPage--><h2 aria-level="1" role="heading" id="h2_vehiclecommondatatype-interface"><span class="secno">13. </span><a href="#idl-def-VehicleCommonDataType" class="idlType">
             <code>
                 VehicleCommonDataType
             </code></a> Interface</h2>
@@ -2490,7 +2547,7 @@ interface <span class="idlInterfaceID">VehicleCommonDataType</span> {
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">DOMTimeStamp?</span> <span class="idlAttrName"><a href="#widl-VehicleCommonDataType-timeStamp">timeStamp</a></span>;</span>
 };</span></pre>
             <section id="attributes">
-                <h3 aria-level="2" role="heading" id="h3_attributes"><span class="secno">12.1 </span>Attributes</h3>
+                <h3 aria-level="2" role="heading" id="h3_attributes"><span class="secno">13.1 </span>Attributes</h3>
                 <dl class="attributes">
                     <dt id="widl-VehicleCommonDataType-timeStamp">
                         <code>
@@ -2522,7 +2579,7 @@ interface <span class="idlInterfaceID">VehicleCommonDataType</span> {
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">VehicleSignalInterface</span> <span class="idlAttrName"><a href="#widl-Vehicle-steeringWheelConfiguration">steeringWheelConfiguration</a></span>;</span>
 };</span></pre>
             <section id="attributes-1">
-                <h3 aria-level="2" role="heading" id="h3_attributes-1"><span class="secno">13.1 </span>Attributes</h3>
+                <h3 aria-level="2" role="heading" id="h3_attributes-1"><span class="secno">14.1 </span>Attributes</h3>
                 <dl class="attributes">
                     <dt id="widl-Vehicle-fuelConfiguration">
                         <code>
@@ -2601,7 +2658,7 @@ interface <span class="idlInterfaceID">VehicleCommonDataType</span> {
 
             <!------------------------ Interface Identification ------------------------------>
             <section id="identification-interface">
-                <h3 aria-level="2" role="heading" id="h3_identification-interface"><span class="secno">13.2 </span><a href="#idl-def-Identification" class="idlType">
+                <h3 aria-level="2" role="heading" id="h3_identification-interface"><span class="secno">14.2 </span><a href="#idl-def-Identification" class="idlType">
                 <code>
                     Identification
                 </code></a> Interface</h3>
@@ -2688,7 +2745,7 @@ interface <span class="idlInterfaceID">Identification</span> : <span class="idlS
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">unsigned short?</span>  <span class="idlAttrName"><a href="#widl-Identification-year">year</a></span>;</span>
 };</span></pre>
                 <section id="attributes-2">
-                    <h4 aria-level="3" role="heading" id="h4_attributes-2"><span class="secno">13.2.1 </span>Attributes</h4>
+                    <h4 aria-level="3" role="heading" id="h4_attributes-2"><span class="secno">14.2.1 </span>Attributes</h4>
                     <dl class="attributes">
                         <dt id="widl-Identification-VIN">
                             <code>
@@ -2753,7 +2810,7 @@ interface <span class="idlInterfaceID">Identification</span> : <span class="idlS
 
             <!------------------------ Interface Size Configuration --------------------------->
             <section id="sizeconfiguration-interface">
-                <h3 aria-level="2" role="heading" id="h3_sizeconfiguration-interface"><span class="secno">13.3 </span><a href="#idl-def-SizeConfiguration" class="idlType">
+                <h3 aria-level="2" role="heading" id="h3_sizeconfiguration-interface"><span class="secno">14.3 </span><a href="#idl-def-SizeConfiguration" class="idlType">
                 <code>
                     SizeConfiguration
                 </code></a> Interface</h3>
@@ -2773,7 +2830,7 @@ interface <span class="idlInterfaceID">SizeConfiguration</span> : <span class="i
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">unsigned short?</span>   <span class="idlAttrName"><a href="#widl-SizeConfiguration-totalDoors">totalDoors</a></span>;</span>
 };</span></pre>
                 <section id="attributes-3">
-                    <h4 aria-level="3" role="heading" id="h4_attributes-3"><span class="secno">13.3.1 </span>Attributes</h4>
+                    <h4 aria-level="3" role="heading" id="h4_attributes-3"><span class="secno">14.3.1 </span>Attributes</h4>
                     <dl class="attributes">
                         <dt id="widl-SizeConfiguration-doorsCount">
                             <code>
@@ -2831,7 +2888,7 @@ interface <span class="idlInterfaceID">SizeConfiguration</span> : <span class="i
 
             <!-------------------- Interface Fuel Configuration --------------------------->
             <section id="fuelconfiguration-interface">
-                <h3 aria-level="2" role="heading" id="h3_fuelconfiguration-interface"><span class="secno">13.4 </span><a href="#idl-def-FuelConfiguration" class="idlType">
+                <h3 aria-level="2" role="heading" id="h3_fuelconfiguration-interface"><span class="secno">14.4 </span><a href="#idl-def-FuelConfiguration" class="idlType">
                 <code>
                     FuelConfiguration
                 </code></a> Interface</h3>
@@ -2906,7 +2963,7 @@ interface <span class="idlInterfaceID">FuelConfiguration</span> : <span class="i
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">Zone?</span>           <span class="idlAttrName"><a href="#widl-FuelConfiguration-refuelPosition">refuelPosition</a></span>;</span>
 };</span></pre>
                 <section id="attributes-4">
-                    <h4 aria-level="3" role="heading" id="h4_attributes-4"><span class="secno">13.4.1 </span>Attributes</h4>
+                    <h4 aria-level="3" role="heading" id="h4_attributes-4"><span class="secno">14.4.1 </span>Attributes</h4>
                     <dl class="attributes">
                         <dt id="widl-FuelConfiguration-fuelType">
                             <code>
@@ -2935,7 +2992,7 @@ interface <span class="idlInterfaceID">FuelConfiguration</span> : <span class="i
 
             <!----------------- Interface Transmission Configuration ------------------->
             <section id="transmissionconfiguration-interface">
-                <h3 aria-level="2" role="heading" id="h3_transmissionconfiguration-interface"><span class="secno">13.5 </span><a href="#idl-def-TransmissionConfiguration" class="idlType">
+                <h3 aria-level="2" role="heading" id="h3_transmissionconfiguration-interface"><span class="secno">14.5 </span><a href="#idl-def-TransmissionConfiguration" class="idlType">
                 <code>
                     TransmissionConfiguration
                 </code></a> Interface</h3>
@@ -2974,7 +3031,7 @@ interface <span class="idlInterfaceID">TransmissionConfiguration</span> : <span 
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType"><a href="#idl-def-TransmissionGearTypeEnum" class="idlType"><code>TransmissionGearTypeEnum</code></a>?</span> <span class="idlAttrName"><a href="#widl-TransmissionConfiguration-transmissionGearType">transmissionGearType</a></span>;</span>
 };</span></pre>
                 <section id="attributes-5">
-                    <h4 aria-level="3" role="heading" id="h4_attributes-5"><span class="secno">13.5.1 </span>Attributes</h4>
+                    <h4 aria-level="3" role="heading" id="h4_attributes-5"><span class="secno">14.5.1 </span>Attributes</h4>
                     <dl class="attributes">
                         <dt id="widl-TransmissionConfiguration-transmissionGearType">
                             <code>
@@ -2994,7 +3051,7 @@ interface <span class="idlInterfaceID">TransmissionConfiguration</span> : <span 
 
             <!------------------------ Interface Wheel Configuration ------------------------>
             <section id="wheelconfiguration-interface">
-                <h3 aria-level="2" role="heading" id="h3_wheelconfiguration-interface"><span class="secno">13.6 </span><a href="#idl-def-WheelConfiguration" class="idlType">
+                <h3 aria-level="2" role="heading" id="h3_wheelconfiguration-interface"><span class="secno">14.6 </span><a href="#idl-def-WheelConfiguration" class="idlType">
                 <code>
                     WheelConfiguration
                 </code></a> Interface</h3>
@@ -3012,7 +3069,7 @@ interface <span class="idlInterfaceID">WheelConfiguration</span> : <span class="
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">Zone?</span>           <span class="idlAttrName"><a href="#widl-WheelConfiguration-zone">zone</a></span>;</span>
 };</span></pre>
                 <section id="attributes-6">
-                    <h4 aria-level="3" role="heading" id="h4_attributes-6"><span class="secno">13.6.1 </span>Attributes</h4>
+                    <h4 aria-level="3" role="heading" id="h4_attributes-6"><span class="secno">14.6.1 </span>Attributes</h4>
                     <dl class="attributes">
                         <dt id="widl-WheelConfiguration-wheelRadius">
                             <code>
@@ -3038,7 +3095,7 @@ interface <span class="idlInterfaceID">WheelConfiguration</span> : <span class="
 
             <!------------------ Interface Steering Wheel Configuration --------------------->
             <section id="steeringwheelconfiguration-interface">
-                <h3 aria-level="2" role="heading" id="h3_steeringwheelconfiguration-interface"><span class="secno">13.7 </span><a href="#idl-def-SteeringWheelConfiguration" class="idlType">
+                <h3 aria-level="2" role="heading" id="h3_steeringwheelconfiguration-interface"><span class="secno">14.7 </span><a href="#idl-def-SteeringWheelConfiguration" class="idlType">
                 <code>
                     SteeringWheelConfiguration
                 </code></a> Interface</h3>
@@ -3057,7 +3114,7 @@ interface <span class="idlInterfaceID">SteeringWheelConfiguration</span> : <span
 <span class="idlAttribute">                attribute <span class="idlAttrType">unsigned short?</span> <span class="idlAttrName"><a href="#widl-SteeringWheel-steeringWheelPositionTilt">steeringWheelPositionTilt</a></span>;</span>
 };</span></pre>
                 <section id="attributes-51">
-                  <h4 aria-level="3" role="heading" id="h4_attributes-51"><span class="secno">13.7.1 </span>Attributes</h4>
+                  <h4 aria-level="3" role="heading" id="h4_attributes-51"><span class="secno">14.7.1 </span>Attributes</h4>
                   <dl class="attributes">
 		    <dt id="widl-SteeringWheelConfiguration-steeringWheelLeft">
                             <code>
@@ -3098,7 +3155,7 @@ interface <span class="idlInterfaceID">SteeringWheelConfiguration</span> : <span
         <!----------------------------------------------------------------------------->
         <!---------------------- Running Status Interfaces ---------------------------->
         <section id="runningstatus-interfaces" typeof="bibo:Chapter" resource="#runningstatus-interfaces" rel="bibo:Chapter">
-            <!--OddPage--><h2 aria-level="1" role="heading" id="h2_runningstatus-interfaces"><span class="secno">14. </span>Running Status Interfaces</h2>
+            <!--OddPage--><h2 aria-level="1" role="heading" id="h2_runningstatus-interfaces"><span class="secno">15. </span>Running Status Interfaces</h2>
             <p>
                 Interfaces relating to the running/operation of a vehicle including:  speed, temperatures, acceleration,
                 etc...
@@ -3131,7 +3188,7 @@ interface <span class="idlInterfaceID">SteeringWheelConfiguration</span> : <span
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">VehicleSignalInterface</span> <span class="idlAttrName"><a href="#widl-Vehicle-nightMode">nightMode</a></span>;</span>
 };</span></pre>
             <section id="attributes-8">
-                <h3 aria-level="2" role="heading" id="h3_attributes-8"><span class="secno">14.1 </span>Attributes</h3>
+                <h3 aria-level="2" role="heading" id="h3_attributes-8"><span class="secno">15.1 </span>Attributes</h3>
                 <dl class="attributes">
                     <dt id="widl-Vehicle-acceleration">
                         <code>
@@ -3439,7 +3496,7 @@ interface <span class="idlInterfaceID">SteeringWheelConfiguration</span> : <span
             <!------------------------ Interface VehicleSpeed ------------------------>
             <section id="vehiclespeed-interface">
 
-                <h3 aria-level="2" role="heading" id="h3_vehiclespeed-interface"><span class="secno">14.2 </span><a href="#idl-def-VehicleSpeed" class="idlType">
+                <h3 aria-level="2" role="heading" id="h3_vehiclespeed-interface"><span class="secno">15.2 </span><a href="#idl-def-VehicleSpeed" class="idlType">
                 <code>
                     VehicleSpeed
                 </code></a> Interface</h3>
@@ -3454,7 +3511,7 @@ interface <span class="idlInterfaceID">VehicleSpeed</span> : <span class="idlSup
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">unsigned short</span> <span class="idlAttrName"><a href="#widl-VehicleSpeed-speed">speed</a></span>;</span>
 };</span></pre>
                 <section id="attributes-9">
-                    <h4 aria-level="3" role="heading" id="h4_attributes-9"><span class="secno">14.2.1 </span>Attributes</h4>
+                    <h4 aria-level="3" role="heading" id="h4_attributes-9"><span class="secno">15.2.1 </span>Attributes</h4>
                     <dl class="attributes">
                         <dt id="widl-VehicleSpeed-speed">
                             <code>
@@ -3471,7 +3528,7 @@ interface <span class="idlInterfaceID">VehicleSpeed</span> : <span class="idlSup
 
             <!------------------------ Interface WheelSpeed ------------------------>
             <section id="wheelspeed-interface">
-                <h3 aria-level="2" role="heading" id="h3_wheelspeed-interface"><span class="secno">14.3 </span><a href="#idl-def-WheelSpeed" class="idlType">
+                <h3 aria-level="2" role="heading" id="h3_wheelspeed-interface"><span class="secno">15.3 </span><a href="#idl-def-WheelSpeed" class="idlType">
                 <code>
                     WheelSpeed
                 </code></a> Interface</h3>
@@ -3487,7 +3544,7 @@ interface <span class="idlInterfaceID">WheelSpeed</span> : <span class="idlSuper
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">Zone?</span>          <span class="idlAttrName"><a href="#widl-WheelSpeed-zone">zone</a></span>;</span>
 };</span></pre>
                 <section id="attributes-10">
-                    <h4 aria-level="3" role="heading" id="h4_attributes-10"><span class="secno">14.3.1 </span>Attributes</h4>
+                    <h4 aria-level="3" role="heading" id="h4_attributes-10"><span class="secno">15.3.1 </span>Attributes</h4>
                     <dl class="attributes">
                         <dt id="widl-WheelSpeed-speed">
                             <code>
@@ -3514,7 +3571,7 @@ interface <span class="idlInterfaceID">WheelSpeed</span> : <span class="idlSuper
             <!------------------------ Interface EngineSpeed ------------------------>
             <section id="enginespeed-interface">
 
-                <h3 aria-level="2" role="heading" id="h3_enginespeed-interface"><span class="secno">14.4 </span><a href="#idl-def-EngineSpeed" class="idlType">
+                <h3 aria-level="2" role="heading" id="h3_enginespeed-interface"><span class="secno">15.4 </span><a href="#idl-def-EngineSpeed" class="idlType">
                 <code>
                     EngineSpeed
                 </code></a> Interface</h3>
@@ -3529,7 +3586,7 @@ interface <span class="idlInterfaceID">EngineSpeed</span> : <span class="idlSupe
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">unsigned long</span> <span class="idlAttrName"><a href="#widl-EngineSpeed-speed">speed</a></span>;</span>
 };</span></pre>
                 <section id="attributes-11">
-                    <h4 aria-level="3" role="heading" id="h4_attributes-11"><span class="secno">14.4.1 </span>Attributes</h4>
+                    <h4 aria-level="3" role="heading" id="h4_attributes-11"><span class="secno">15.4.1 </span>Attributes</h4>
                     <dl class="attributes">
                         <dt id="widl-EngineSpeed-speed">
                             <code>
@@ -3546,7 +3603,7 @@ interface <span class="idlInterfaceID">EngineSpeed</span> : <span class="idlSupe
 
             <!------------------------ Interface VehiclePowerModeType ------------------------>
             <section id="vehiclepowermodetype-interface">
-                <h3 aria-level="2" role="heading" id="h3_vehiclepowermodetype-interface"><span class="secno">14.5 </span><a href="#idl-def-VehiclePowerModeType" class="idlType">
+                <h3 aria-level="2" role="heading" id="h3_vehiclepowermodetype-interface"><span class="secno">15.5 </span><a href="#idl-def-VehiclePowerModeType" class="idlType">
                 <code>
                     VehiclePowerModeType
                 </code></a> Interface</h3>
@@ -3598,7 +3655,7 @@ interface <span class="idlInterfaceID">VehiclePowerModeType</span> : <span class
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType"><a href="#idl-def-VehiclePowerMode" class="idlType"><code>VehiclePowerMode</code></a></span> <span class="idlAttrName"><a href="#widl-VehiclePowerModeType-value">value</a></span>;</span>
 };</span></pre>
                 <section id="attributes-12">
-                    <h4 aria-level="3" role="heading" id="h4_attributes-12"><span class="secno">14.5.1 </span>Attributes</h4>
+                    <h4 aria-level="3" role="heading" id="h4_attributes-12"><span class="secno">15.5.1 </span>Attributes</h4>
                     <dl class="attributes">
                         <dt id="widl-VehiclePowerModeType-value">
                             <code>
@@ -3619,7 +3676,7 @@ interface <span class="idlInterfaceID">VehiclePowerModeType</span> : <span class
             <!------------------------ Interface PowerTrainTorque ------------------------>
             <section id="powertraintorque-interface">
 
-                <h3 aria-level="2" role="heading" id="h3_powertraintorque-interface"><span class="secno">14.6 </span><a href="#idl-def-PowerTrainTorque" class="idlType">
+                <h3 aria-level="2" role="heading" id="h3_powertraintorque-interface"><span class="secno">15.6 </span><a href="#idl-def-PowerTrainTorque" class="idlType">
                 <code>
                     PowertrainTorque
                 </code></a> Interface</h3>
@@ -3634,7 +3691,7 @@ interface <span class="idlInterfaceID">PowerTrainTorque</span> : <span class="id
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">short</span> <span class="idlAttrName"><a href="#widl-PowerTrainTorque-value">value</a></span>;</span>
 };</span></pre>
                 <section id="attributes-13">
-                    <h4 aria-level="3" role="heading" id="h4_attributes-13"><span class="secno">14.6.1 </span>Attributes</h4>
+                    <h4 aria-level="3" role="heading" id="h4_attributes-13"><span class="secno">15.6.1 </span>Attributes</h4>
                     <dl class="attributes">
                         <dt id="widl-PowerTrainTorque-value">
                             <code>
@@ -3651,7 +3708,7 @@ interface <span class="idlInterfaceID">PowerTrainTorque</span> : <span class="id
 
             <!------------------------ Interface AcceleratorPedalPosition ------------------------>
             <section id="acceleratorpedalposition-interface">
-                <h3 aria-level="2" role="heading" id="h3_acceleratorpedalposition-interface"><span class="secno">14.7 </span><a href="#idl-def-AcceleratorPedalPosition" class="idlType">
+                <h3 aria-level="2" role="heading" id="h3_acceleratorpedalposition-interface"><span class="secno">15.7 </span><a href="#idl-def-AcceleratorPedalPosition" class="idlType">
                 <code>
                     AcceleratorPedalPosition
                 </code></a> Interface</h3>
@@ -3668,7 +3725,7 @@ interface <span class="idlInterfaceID">AcceleratorPedalPosition</span> : <span c
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">unsigned short</span> <span class="idlAttrName"><a href="#widl-AcceleratorPedalPosition-value">value</a></span>;</span>
 };</span></pre>
                 <section id="attributes-14">
-                    <h4 aria-level="3" role="heading" id="h4_attributes-14"><span class="secno">14.7.1 </span>Attributes</h4>
+                    <h4 aria-level="3" role="heading" id="h4_attributes-14"><span class="secno">15.7.1 </span>Attributes</h4>
                     <dl class="attributes">
                         <dt id="widl-AcceleratorPedalPosition-value">
                             <code>
@@ -3685,7 +3742,7 @@ interface <span class="idlInterfaceID">AcceleratorPedalPosition</span> : <span c
 
             <!------------------------ Interface ThrottlePosition ------------------------>
             <section id="throttleposition-interface">
-                <h3 aria-level="2" role="heading" id="h3_throttleposition-interface"><span class="secno">14.8 </span><a href="#idl-def-ThrottlePosition" class="idlType">
+                <h3 aria-level="2" role="heading" id="h3_throttleposition-interface"><span class="secno">15.8 </span><a href="#idl-def-ThrottlePosition" class="idlType">
                 <code>
                     ThrottlePosition
                 </code></a> Interface</h3>
@@ -3702,7 +3759,7 @@ interface <span class="idlInterfaceID">ThrottlePosition</span> : <span class="id
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">unsigned short</span> <span class="idlAttrName"><a href="#widl-ThrottlePosition-value">value</a></span>;</span>
 };</span></pre>
                 <section id="attributes-15">
-                    <h4 aria-level="3" role="heading" id="h4_attributes-15"><span class="secno">14.8.1 </span>Attributes</h4>
+                    <h4 aria-level="3" role="heading" id="h4_attributes-15"><span class="secno">15.8.1 </span>Attributes</h4>
                     <dl class="attributes">
                         <dt id="widl-ThrottlePosition-value">
                             <code>
@@ -3719,7 +3776,7 @@ interface <span class="idlInterfaceID">ThrottlePosition</span> : <span class="id
 
             <!------------------------ Interface TripMeters ------------------------>
             <section id="trip-interface">
-                <h3 aria-level="2" role="heading" id="h3_trip-interface"><span class="secno">14.9 </span><a href="#idl-def-Trip" class="idlType">
+                <h3 aria-level="2" role="heading" id="h3_trip-interface"><span class="secno">15.9 </span><a href="#idl-def-Trip" class="idlType">
                 <code>
                     Trip
                 </code></a> Interface</h3>
@@ -3737,7 +3794,7 @@ interface <span class="idlInterfaceID">Trip</span> {
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">unsigned short?</span> <span class="idlAttrName"><a href="#widl-Trip-fuelConsumption">fuelConsumption</a></span>;</span>
 };</span></pre>
                 <section id="attributes-16">
-                    <h4 aria-level="3" role="heading" id="h4_attributes-16"><span class="secno">14.9.1 </span>Attributes</h4>
+                    <h4 aria-level="3" role="heading" id="h4_attributes-16"><span class="secno">15.9.1 </span>Attributes</h4>
                     <dl class="attributes">
                         <dt id="widl-Trip-averageSpeed">
                             <code>
@@ -3773,7 +3830,7 @@ interface <span class="idlInterfaceID">TripMeters</span> : <span class="idlSuper
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType"><a href="#idl-def-Trip" class="idlType"><code>Trip</code></a>[]</span> <span class="idlAttrName"><a href="#widl-TripMeters-meters">meters;</a></span>;</span>
 };</span></pre>
                 <section id="attributes-17">
-                    <h4 aria-level="3" role="heading" id="h4_attributes-17"><span class="secno">14.9.2 </span>Attributes</h4>
+                    <h4 aria-level="3" role="heading" id="h4_attributes-17"><span class="secno">15.9.2 </span>Attributes</h4>
                     <dl class="attributes">
                         <dt id="widl-TripMeters-meters">
                             <code>
@@ -3793,7 +3850,7 @@ interface <span class="idlInterfaceID">TripMeters</span> : <span class="idlSuper
 
             <!------------------------ Interface Transmission ------------------------------>
             <section id="transmission-interface">
-                <h3 aria-level="2" role="heading" id="h3_transmission-interface"><span class="secno">14.10 </span><a href="#idl-def-Transmission" class="idlType">
+                <h3 aria-level="2" role="heading" id="h3_transmission-interface"><span class="secno">15.10 </span><a href="#idl-def-Transmission" class="idlType">
                 <code>
                     Transmission
                 </code></a> Interface</h3>
@@ -3861,7 +3918,7 @@ interface <span class="idlInterfaceID">Transmission</span> : <span class="idlSup
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType"><a href="#idl-def-TransmissionMode" class="idlType"><code>TransmissionMode</code></a>?</span> <span class="idlAttrName"><a href="#widl-Transmission-mode">mode</a></span>;</span>
 };</span></pre>
                 <section id="attributes-18">
-                    <h4 aria-level="3" role="heading" id="h4_attributes-18"><span class="secno">14.10.1 </span>Attributes</h4>
+                    <h4 aria-level="3" role="heading" id="h4_attributes-18"><span class="secno">15.10.1 </span>Attributes</h4>
                     <dl class="attributes">
                         <dt id="widl-Transmission-gear">
                             <code>
@@ -3893,7 +3950,7 @@ interface <span class="idlInterfaceID">Transmission</span> : <span class="idlSup
 
             <!------------------------ Interface CruiseControlStatus ------------------------------>
             <section id="cruisecontrolstatus-interface">
-                <h3 aria-level="2" role="heading" id="h3_cruisecontrolstatus-interface"><span class="secno">14.11 </span><a href="#idl-def-CruiseControlStatus" class="idlType">
+                <h3 aria-level="2" role="heading" id="h3_cruisecontrolstatus-interface"><span class="secno">15.11 </span><a href="#idl-def-CruiseControlStatus" class="idlType">
                 <code>
                     CruiseControlStatus
                 </code></a> Interface</h3>
@@ -3909,7 +3966,7 @@ interface <span class="idlInterfaceID">CruiseControlStatus</span> : <span class=
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">unsigned short</span> <span class="idlAttrName"><a href="#widl-CruiseControlStatus-speed">speed</a></span>;</span>
 };</span></pre>
                 <section id="attributes-19">
-                    <h4 aria-level="3" role="heading" id="h4_attributes-19"><span class="secno">14.11.1 </span>Attributes</h4>
+                    <h4 aria-level="3" role="heading" id="h4_attributes-19"><span class="secno">15.11.1 </span>Attributes</h4>
                     <dl class="attributes">
                         <dt id="widl-CruiseControlStatus-speed">
                             <code>
@@ -3935,7 +3992,7 @@ interface <span class="idlInterfaceID">CruiseControlStatus</span> : <span class=
 
             <!------------------------ Interface LightStatus ------------------------------>
             <section id="lightstatus-interface">
-                <h3 aria-level="2" role="heading" id="h3_lightstatus-interface"><span class="secno">14.12 </span><a href="#idl-def-LightStatus" class="idlType">
+                <h3 aria-level="2" role="heading" id="h3_lightstatus-interface"><span class="secno">15.12 </span><a href="#idl-def-LightStatus" class="idlType">
                 <code>
                     LightStatus
                 </code></a> Interface</h3>
@@ -3960,7 +4017,7 @@ interface <span class="idlInterfaceID">LightStatus</span> : <span class="idlSupe
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">Zone?</span>    <span class="idlAttrName"><a href="#widl-LightStatus-zone">zone</a></span>;</span>
 };</span></pre>
                 <section id="attributes-20">
-                    <h4 aria-level="3" role="heading" id="h4_attributes-20"><span class="secno">14.12.1 </span>Attributes</h4>
+                    <h4 aria-level="3" role="heading" id="h4_attributes-20"><span class="secno">15.12.1 </span>Attributes</h4>
                     <dl class="attributes">
                         <dt id="widl-LightStatus-automaticHeadlights">
                             <code>
@@ -4067,7 +4124,7 @@ interface <span class="idlInterfaceID">LightStatus</span> : <span class="idlSupe
 
             <!------------------------ Interface InteriorLightStatus ------------------------------>
             <section id="interiorlightstatus-interface">
-                <h3 aria-level="2" role="heading" id="h3_interiorlightstatus-interface"><span class="secno">14.13 </span><a href="#idl-def-InteriorLightStatus" class="idlType">
+                <h3 aria-level="2" role="heading" id="h3_interiorlightstatus-interface"><span class="secno">15.13 </span><a href="#idl-def-InteriorLightStatus" class="idlType">
                 <code>
                     InteriorLightStatus
                 </code></a> Interface</h3>
@@ -4083,7 +4140,7 @@ interface <span class="idlInterfaceID">InteriorLightStatus</span> : <span class=
 <span class="idlAttribute">    readponly   attribute <span class="idlAttrType">Zone?</span>   <span class="idlAttrName"><a href="#widl-InteriorLightStatus-zone">zone</a></span>;</span>
 };</span></pre>
                 <section id="attributes-21">
-                    <h4 aria-level="3" role="heading" id="h4_attributes-21"><span class="secno">14.13.1 </span>Attributes</h4>
+                    <h4 aria-level="3" role="heading" id="h4_attributes-21"><span class="secno">15.13.1 </span>Attributes</h4>
                     <dl class="attributes">
                         <dt id="widl-InteriorLightStatus-status">
                             <code>
@@ -4109,7 +4166,7 @@ interface <span class="idlInterfaceID">InteriorLightStatus</span> : <span class=
 
             <!------------------------ Interface Horn ------------------------------>
             <section id="horn-interface">
-                <h3 aria-level="2" role="heading" id="h3_horn-interface"><span class="secno">14.14 </span><a href="#idl-def-Horn" class="idlType">
+                <h3 aria-level="2" role="heading" id="h3_horn-interface"><span class="secno">15.14 </span><a href="#idl-def-Horn" class="idlType">
                 <code>
                     Horn
                 </code></a> Interface</h3>
@@ -4124,7 +4181,7 @@ interface <span class="idlInterfaceID">Horn</span> : <span class="idlSuperclass"
 <span class="idlAttribute">                attribute <span class="idlAttrType">boolean</span> <span class="idlAttrName"><a href="#widl-Horn-status">status</a></span>;</span>
 };</span></pre>
                 <section id="attributes-22">
-                    <h4 aria-level="3" role="heading" id="h4_attributes-22"><span class="secno">14.14.1 </span>Attributes</h4>
+                    <h4 aria-level="3" role="heading" id="h4_attributes-22"><span class="secno">15.14.1 </span>Attributes</h4>
                     <dl class="attributes">
                         <dt id="widl-Horn-status">
                             <code>
@@ -4141,7 +4198,7 @@ interface <span class="idlInterfaceID">Horn</span> : <span class="idlSuperclass"
 
             <!------------------------ Interface Chime ------------------------------>
             <section id="chime-interface">
-                <h3 aria-level="2" role="heading" id="h3_chime-interface"><span class="secno">14.15 </span><a href="#idl-def-Chime" class="idlType">
+                <h3 aria-level="2" role="heading" id="h3_chime-interface"><span class="secno">15.15 </span><a href="#idl-def-Chime" class="idlType">
                 <code>
                     Chime
                 </code></a> Interface</h3>
@@ -4156,7 +4213,7 @@ interface <span class="idlInterfaceID">Chime</span> : <span class="idlSuperclass
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">boolean</span> <span class="idlAttrName"><a href="#widl-Chime-status">status</a></span>;</span>
 };</span></pre>
                 <section id="attributes-23">
-                    <h4 aria-level="3" role="heading" id="h4_attributes-23"><span class="secno">14.15.1 </span>Attributes</h4>
+                    <h4 aria-level="3" role="heading" id="h4_attributes-23"><span class="secno">15.15.1 </span>Attributes</h4>
                     <dl class="attributes">
                         <dt id="widl-Chime-status">
                             <code>
@@ -4173,7 +4230,7 @@ interface <span class="idlInterfaceID">Chime</span> : <span class="idlSuperclass
 
             <!------------------------ Interface Fuel ------------------------------>
             <section id="fuel-interface">
-                <h3 aria-level="2" role="heading" id="h3_fuel-interface"><span class="secno">14.16 </span><a href="#idl-def-Fuel" class="idlType">
+                <h3 aria-level="2" role="heading" id="h3_fuel-interface"><span class="secno">15.16 </span><a href="#idl-def-Fuel" class="idlType">
                 <code>
                     Fuel
                 </code></a> Interface</h3>
@@ -4193,7 +4250,7 @@ interface <span class="idlInterfaceID">Fuel</span> : <span class="idlSuperclass"
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">unsigned long?</span>  <span class="idlAttrName"><a href="#widl-Fuel-vehicleTimeSinceRestart">timeSinceRestart</a></span>;</span>
 };</span></pre>
                 <section id="attributes-24">
-                    <h4 aria-level="3" role="heading" id="h4_attributes-24"><span class="secno">14.16.1 </span>Attributes</h4>
+                    <h4 aria-level="3" role="heading" id="h4_attributes-24"><span class="secno">15.16.1 </span>Attributes</h4>
                     <dl class="attributes">
                         <dt id="widl-Fuel-averageConsumption">
                             <code>
@@ -4255,7 +4312,7 @@ interface <span class="idlInterfaceID">Fuel</span> : <span class="idlSuperclass"
 
             <!------------------------ Interface EngineOil ------------------------------>
             <section id="engineoil-interface">
-                <h3 aria-level="2" role="heading" id="h3_engineoil-interface"><span class="secno">14.17 </span><a href="#idl-def-EngineOil" class="idlType">
+                <h3 aria-level="2" role="heading" id="h3_engineoil-interface"><span class="secno">15.17 </span><a href="#idl-def-EngineOil" class="idlType">
                 <code>
                     EngineOil
                 </code></a> Interface</h3>
@@ -4274,7 +4331,7 @@ interface <span class="idlInterfaceID">EngineOil</span> : <span class="idlSuperc
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">boolean</span>        <span class="idlAttrName"><a href="#widl-EngineOil-change">change</a></span>;</span>
 };</span></pre>
                 <section id="attributes-25">
-                    <h4 aria-level="3" role="heading" id="h4_attributes-25"><span class="secno">14.17.1 </span>Attributes</h4>
+                    <h4 aria-level="3" role="heading" id="h4_attributes-25"><span class="secno">15.17.1 </span>Attributes</h4>
                     <dl class="attributes">
                         <dt id="widl-EngineOil-change">
                             <code>
@@ -4327,7 +4384,7 @@ interface <span class="idlInterfaceID">EngineOil</span> : <span class="idlSuperc
 
             <!------------------------ Interface Acceleration ------------------------------>
             <section id="acceleration-interface">
-                <h3 aria-level="2" role="heading" id="h3_acceleration-interface"><span class="secno">14.18 </span><a href="#idl-def-Acceleration" class="idlType">
+                <h3 aria-level="2" role="heading" id="h3_acceleration-interface"><span class="secno">15.18 </span><a href="#idl-def-Acceleration" class="idlType">
                 <code>
                     Acceleration
                 </code></a> Interface</h3>
@@ -4344,7 +4401,7 @@ interface <span class="idlInterfaceID">Acceleration</span> : <span class="idlSup
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">long</span> <span class="idlAttrName"><a href="#widl-Acceleration-z">z</a></span>;</span>
 };</span></pre>
                 <section id="attributes-26">
-                    <h4 aria-level="3" role="heading" id="h4_attributes-26"><span class="secno">14.18.1 </span>Attributes</h4>
+                    <h4 aria-level="3" role="heading" id="h4_attributes-26"><span class="secno">15.18.1 </span>Attributes</h4>
                     <dl class="attributes">
                         <dt id="widl-Acceleration-x">
                             <code>
@@ -4379,7 +4436,7 @@ interface <span class="idlInterfaceID">Acceleration</span> : <span class="idlSup
 
             <!------------------------ Interface EngineCoolant ------------------------>
             <section id="enginecoolant-interface">
-                <h3 aria-level="2" role="heading" id="h3_enginecoolant-interface"><span class="secno">14.19 </span><a href="#idl-def-EngineCoolant" class="idlType">
+                <h3 aria-level="2" role="heading" id="h3_enginecoolant-interface"><span class="secno">15.19 </span><a href="#idl-def-EngineCoolant" class="idlType">
                 <code>
                     EngineCoolant
                 </code></a> Interface</h3>
@@ -4397,7 +4454,7 @@ interface <span class="idlInterfaceID">EngineCoolant</span> : <span class="idlSu
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">short</span> <span class="idlAttrName"><a href="#widl-EngineCoolant-temperature">temperature</a></span>;</span>
 };</span></pre>
                 <section id="attributes-27">
-                    <h4 aria-level="3" role="heading" id="h4_attributes-27"><span class="secno">14.19.1 </span>Attributes</h4>
+                    <h4 aria-level="3" role="heading" id="h4_attributes-27"><span class="secno">15.19.1 </span>Attributes</h4>
                     <dl class="attributes">
                         <dt id="widl-EngineCoolant-level">
                             <code>
@@ -4423,7 +4480,7 @@ interface <span class="idlInterfaceID">EngineCoolant</span> : <span class="idlSu
 
             <!------------------------ Interface SteeringWheel ------------------------>
             <section id="steeringwheel-interface">
-                <h3 aria-level="2" role="heading" id="h3_steeringwheel-interface"><span class="secno">14.20 </span><a href="#idl-def-SteeringWheel" class="idlType">
+                <h3 aria-level="2" role="heading" id="h3_steeringwheel-interface"><span class="secno">15.20 </span><a href="#idl-def-SteeringWheel" class="idlType">
                 <code>
                     SteeringWheel
                 </code></a> Interface</h3>
@@ -4440,7 +4497,7 @@ interface <span class="idlInterfaceID">SteeringWheel</span> : <span class="idlSu
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">short</span> <span class="idlAttrName"><a href="#widl-SteeringWheel-angle">angle</a></span>;</span>
 };</span></pre>
                 <section id="attributes-28">
-                    <h4 aria-level="3" role="heading" id="h4_attributes-28"><span class="secno">14.20.1 </span>Attributes</h4>
+                    <h4 aria-level="3" role="heading" id="h4_attributes-28"><span class="secno">15.20.1 </span>Attributes</h4>
                     <dl class="attributes">
                         <dt id="widl-SteeringWheel-angle">
                             <code>
@@ -4457,7 +4514,7 @@ interface <span class="idlInterfaceID">SteeringWheel</span> : <span class="idlSu
 
             <!------------------------ Interface WheelTick ------------------------>
             <section id="wheeltick-interface">
-                <h3 aria-level="2" role="heading" id="h3_wheeltick-interface"><span class="secno">14.21 </span><a href="#idl-def-WheelTick" class="idlType">
+                <h3 aria-level="2" role="heading" id="h3_wheeltick-interface"><span class="secno">15.21 </span><a href="#idl-def-WheelTick" class="idlType">
                 <code>
                     WheelTick
                 </code></a> Interface</h3>
@@ -4475,7 +4532,7 @@ interface <span class="idlInterfaceID">WheelTick</span> : <span class="idlSuperc
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">Zone?</span>         <span class="idlAttrName"><a href="#widl-WheelTick-zone">zone</a></span>;</span>
 };</span></pre>
                 <section id="attributes-29">
-                    <h4 aria-level="3" role="heading" id="h4_attributes-29"><span class="secno">14.21.1 </span>Attributes</h4>
+                    <h4 aria-level="3" role="heading" id="h4_attributes-29"><span class="secno">15.21.1 </span>Attributes</h4>
                     <dl class="attributes">
                         <dt id="widl-WheelTick-value">
                             <code>
@@ -4501,7 +4558,7 @@ interface <span class="idlInterfaceID">WheelTick</span> : <span class="idlSuperc
 
             <!------------------------ Interface IgnitionTime ------------------------>
             <section id="ignitiontime-interface">
-                <h3 aria-level="2" role="heading" id="h3_ignitiontime-interface"><span class="secno">14.22 </span><a href="#idl-def-IgnitionTime" class="idlType">
+                <h3 aria-level="2" role="heading" id="h3_ignitiontime-interface"><span class="secno">15.22 </span><a href="#idl-def-IgnitionTime" class="idlType">
                 <code>
                     IgnitionTime
                 </code></a> Interface</h3>
@@ -4518,7 +4575,7 @@ interface <span class="idlInterfaceID">IgnitionTime</span> : <span class="idlSup
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">DOMTimeStamp</span> <span class="idlAttrName"><a href="#widl-IgnitionTime-ignitionOffTime">ignitionOffTime</a></span>;</span>
 };</span></pre>
                 <section id="attributes-30">
-                    <h4 aria-level="3" role="heading" id="h4_attributes-30"><span class="secno">14.22.1 </span>Attributes</h4>
+                    <h4 aria-level="3" role="heading" id="h4_attributes-30"><span class="secno">15.22.1 </span>Attributes</h4>
                     <dl class="attributes">
                         <dt id="widl-IgnitionTime-ignitionOffTime">
                             <code>
@@ -4544,7 +4601,7 @@ interface <span class="idlInterfaceID">IgnitionTime</span> : <span class="idlSup
 
             <!------------------------ Interface YawRate ------------------------>
             <section id="yawrate-interface">
-                <h3 aria-level="2" role="heading" id="h3_yawrate-interface"><span class="secno">14.23 </span><a href="#idl-def-YawRate" class="idlType">
+                <h3 aria-level="2" role="heading" id="h3_yawrate-interface"><span class="secno">15.23 </span><a href="#idl-def-YawRate" class="idlType">
                 <code>
                     YawRate
                 </code></a> Interface</h3>
@@ -4560,7 +4617,7 @@ interface <span class="idlInterfaceID">YawRate</span> : <span class="idlSupercla
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">short</span> <span class="idlAttrName"><a href="#widl-YawRate-value">value</a></span>;</span>
 };</span></pre>
                 <section id="attributes-31">
-                    <h4 aria-level="3" role="heading" id="h4_attributes-31"><span class="secno">14.23.1 </span>Attributes</h4>
+                    <h4 aria-level="3" role="heading" id="h4_attributes-31"><span class="secno">15.23.1 </span>Attributes</h4>
                     <dl class="attributes">
                         <dt id="widl-YawRate-value">
                             <code>
@@ -4577,7 +4634,7 @@ interface <span class="idlInterfaceID">YawRate</span> : <span class="idlSupercla
 
             <!------------------------ Interface BrakeOperation ------------------------>
             <section id="brakeoperation-interface">
-                <h3 aria-level="2" role="heading" id="h3_brakeoperation-interface"><span class="secno">14.24 </span><a href="#idl-def-BrakeOperation" class="idlType">
+                <h3 aria-level="2" role="heading" id="h3_brakeoperation-interface"><span class="secno">15.24 </span><a href="#idl-def-BrakeOperation" class="idlType">
                 <code>
                     BrakeOperation
                 </code></a> Interface</h3>
@@ -4593,7 +4650,7 @@ interface <span class="idlInterfaceID">BrakeOperation</span> : <span class="idlS
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">boolean</span> <span class="idlAttrName"><a href="#widl-BrakeOperation-brakePedalDepressed">brakePedalDepressed</a></span>;</span>
 };</span></pre>
                 <section id="attributes-32">
-                    <h4 aria-level="3" role="heading" id="h4_attributes-32"><span class="secno">14.24.1 </span>Attributes</h4>
+                    <h4 aria-level="3" role="heading" id="h4_attributes-32"><span class="secno">15.24.1 </span>Attributes</h4>
                     <dl class="attributes">
                         <dt id="widl-BrakeOperation-brakePedalDepressed">
                             <code>
@@ -4610,7 +4667,7 @@ interface <span class="idlInterfaceID">BrakeOperation</span> : <span class="idlS
 
             <!------------------------ Interface ButtonEvent ------------------------>
             <section id="buttonevent-interface">
-                <h3 aria-level="2" role="heading" id="h3_buttonevent-interface"><span class="secno">14.25 </span><a href="#idl-def-ButtonEvent" class="idlType">
+                <h3 aria-level="2" role="heading" id="h3_buttonevent-interface"><span class="secno">15.25 </span><a href="#idl-def-ButtonEvent" class="idlType">
                 <code>
                     ButtonEvent
                 </code></a> Interface</h3>
@@ -4771,7 +4828,7 @@ interface <span class="idlInterfaceID">VehicleButton</span> : <span class="idlSu
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType"><a href="#idl-def-PressType" class="idlType"><code>ButtonEventType</code></a></span>       <span class="idlAttrName"><a href="#widl-ButtonEvent-state">state</a></span>;</span>
 };</span></pre>
                 <section id="attributes-33">
-                    <h4 aria-level="3" role="heading" id="h4_attributes-33"><span class="secno">14.25.1 </span>Attributes</h4>
+                    <h4 aria-level="3" role="heading" id="h4_attributes-33"><span class="secno">15.25.1 </span>Attributes</h4>
                     <dl class="attributes">
                         <dt id="widl-ButtonEvent-button">
                             <code>
@@ -4805,7 +4862,7 @@ interface <span class="idlInterfaceID">ButtonEvent</span> : <span class="idlSupe
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType"><a href="#idl-def-VehicleButton" class="idlType"><code>VehicleButton[]</code></a></span> <span class="idlAttrName"><a href="#widl-VehiclefunButton">button</a></span>;</span>
 };</span></pre>
 		<section id="attributes-33.2">
-		  <h4 aria-level="3" role="heading" id="h4_attributes-33"><span class="secno">14.25.2 </span>Attributes</h4>
+		  <h4 aria-level="3" role="heading" id="h4_attributes-33"><span class="secno">15.25.2 </span>Attributes</h4>
 		  <dl class="attributes">
                         <dt id="widl-VehiclefunButton">
                           <code>
@@ -4825,7 +4882,7 @@ interface <span class="idlInterfaceID">ButtonEvent</span> : <span class="idlSupe
 
             <!------------------------ Interface DrivingMode ------------------------------>
             <section id="drivingmode-interface">
-                <h3 aria-level="2" role="heading" id="h3_drivingmode-interface"><span class="secno">14.26 <a href="#idl-def-DrivingMode" class="idlType">
+                <h3 aria-level="2" role="heading" id="h3_drivingmode-interface"><span class="secno">15.26 <a href="#idl-def-DrivingMode" class="idlType">
                     <code>
                         DrivingMode
                     </code></a> Interface</h3>
@@ -4842,7 +4899,7 @@ interface <span class="idlInterfaceID">DrivingMode</span> : <span class="idlSupe
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">boolean</span> <span class="idlAttrName"><a href="#widl-DrivingMode-mode">mode</a></span>;</span>
 };</span></pre>
                 <section id="attributes-34">
-                    <h4 aria-level="3" role="heading" id="h4_attributes-34"><span class="secno">14.26.1 </span>Attributes</h4>
+                    <h4 aria-level="3" role="heading" id="h4_attributes-34"><span class="secno">15.26.1 </span>Attributes</h4>
                     <dl class="attributes">
                         <dt id="widl-DrivingMode-mode">
                             <code>
@@ -4860,7 +4917,7 @@ interface <span class="idlInterfaceID">DrivingMode</span> : <span class="idlSupe
 
             <!------------------------ Interface NightMode ------------------------------>
             <section id="nightmode-interface">
-                <h3 aria-level="2" role="heading" id="h3_nightmode-interface"><span class="secno">14.27 </span><a href="#idl-def-NightMode" class="idlType">
+                <h3 aria-level="2" role="heading" id="h3_nightmode-interface"><span class="secno">15.27 </span><a href="#idl-def-NightMode" class="idlType">
                 <code>
                     NightMode
                 </code></a> Interface</h3>
@@ -4877,7 +4934,7 @@ interface <span class="idlInterfaceID">NightMode</span> : <span class="idlSuperc
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">boolean</span> <span class="idlAttrName"><a href="#widl-NightMode-mode">mode</a></span>;</span>
 };</span></pre>
                 <section id="attributes-35">
-                    <h4 aria-level="3" role="heading" id="h4_attributes-35"><span class="secno">14.27.1 </span>Attributes</h4>
+                    <h4 aria-level="3" role="heading" id="h4_attributes-35"><span class="secno">15.27.1 </span>Attributes</h4>
                     <dl class="attributes">
                         <dt id="widl-NightMode-mode">
                             <code>
@@ -4900,7 +4957,7 @@ interface <span class="idlInterfaceID">NightMode</span> : <span class="idlSuperc
         <!--------------------------------------------------------------------------->
         <!---------------------- Maintenance Interfaces ----------------------------->
         <section id="maintenance-interfaces" typeof="bibo:Chapter" resource="#maintenance-interfaces" rel="bibo:Chapter">
-            <!--OddPage--><h2 aria-level="1" role="heading" id="h2_maintenance-interfaces"><span class="secno">15. </span>Maintenance Interfaces</h2>
+            <!--OddPage--><h2 aria-level="1" role="heading" id="h2_maintenance-interfaces"><span class="secno">16. </span>Maintenance Interfaces</h2>
 
             <p>
                 Interfaces relating to vehicle maintenance, the act of inspecting or testing the condition of vehicle
@@ -4918,7 +4975,7 @@ interface <span class="idlInterfaceID">NightMode</span> : <span class="idlSuperc
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">VehicleSignalInterface</span> <span class="idlAttrName"><a href="#widl-Vehicle-diagnostic">diagnostic</a></span>;</span>
 };</span></pre>
             <section id="attributes-36">
-                <h3 aria-level="2" role="heading" id="h3_attributes-36"><span class="secno">15.1 </span>Attributes</h3>
+                <h3 aria-level="2" role="heading" id="h3_attributes-36"><span class="secno">16.1 </span>Attributes</h3>
                 <dl class="attributes">
                     <dt id="widl-Vehicle-batteryStatus">
                         <code>
@@ -5033,7 +5090,7 @@ interface <span class="idlInterfaceID">NightMode</span> : <span class="idlSuperc
 
             <!------------------------ Interface Odometer ------------------------------>
             <section id="odometer-interface">
-                <h3 aria-level="2" role="heading" id="h3_odometer-interface"><span class="secno">15.2 </span><a href="#idl-def-Odometer" class="idlType">
+                <h3 aria-level="2" role="heading" id="h3_odometer-interface"><span class="secno">16.2 </span><a href="#idl-def-Odometer" class="idlType">
                 <code>
                     Odometer
                 </code></a> Interface</h3>
@@ -5050,7 +5107,7 @@ interface <span class="idlInterfaceID">Odometer</span> : <span class="idlSupercl
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">unsigned long</span>  <span class="idlAttrName"><a href="#widl-Odometer-distanceTotal">distanceTotal</a></span>;</span>
 };</span></pre>
                 <section id="attributes-37">
-                    <h4 aria-level="3" role="heading" id="h4_attributes-37"><span class="secno">15.2.1 </span>Attributes</h4>
+                    <h4 aria-level="3" role="heading" id="h4_attributes-37"><span class="secno">16.2.1 </span>Attributes</h4>
                     <dl class="attributes">
                         <dt id="widl-Odometer-distanceSinceStart">
                             <code>
@@ -5076,7 +5133,7 @@ interface <span class="idlInterfaceID">Odometer</span> : <span class="idlSupercl
 
             <!------------------------ Interface Transmission Oil ------------------------------>
             <section id="transmissionoil-interface">
-                <h3 aria-level="2" role="heading" id="h3_transmissionoil-interface"><span class="secno">15.3 </span><a href="#idl-def-TransmissionOil" class="idlType">
+                <h3 aria-level="2" role="heading" id="h3_transmissionoil-interface"><span class="secno">16.3 </span><a href="#idl-def-TransmissionOil" class="idlType">
                 <code>
                     TransmissionOil
                 </code></a> Interface</h3>
@@ -5093,7 +5150,7 @@ interface <span class="idlInterfaceID">TransmissionOil</span> : <span class="idl
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">byte?</span> <span class="idlAttrName"><a href="#widl-TransmissionOil-temperature">temperature</a></span>;</span>
 };</span></pre>
                 <section id="attributes-38">
-                    <h4 aria-level="3" role="heading" id="h4_attributes-38"><span class="secno">15.3.1 </span>Attributes</h4>
+                    <h4 aria-level="3" role="heading" id="h4_attributes-38"><span class="secno">16.3.1 </span>Attributes</h4>
                     <dl class="attributes">
                         <dt id="widl-TransmissionOil-temperature">
                             <code>
@@ -5119,7 +5176,7 @@ interface <span class="idlInterfaceID">TransmissionOil</span> : <span class="idl
 
             <!------------------------ Interface Transmission Clutch ------------------------------>
             <section id="transmissionclutch-interface">
-                <h3 aria-level="2" role="heading" id="h3_transmissionclutch-interface"><span class="secno">15.4 </span><a href="#idl-def-TransmissionClutch" class="idlType">
+                <h3 aria-level="2" role="heading" id="h3_transmissionclutch-interface"><span class="secno">16.4 </span><a href="#idl-def-TransmissionClutch" class="idlType">
                 <code>
                     TransmissionClutch
                 </code></a> Interface</h3>
@@ -5135,7 +5192,7 @@ interface <span class="idlInterfaceID">TransmissionClutch</span> : <span class="
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">octet</span> <span class="idlAttrName"><a href="#widl-TransmissionClutch-wear">wear</a></span>;</span>
 };</span></pre>
                 <section id="attributes-39">
-                    <h4 aria-level="3" role="heading" id="h4_attributes-39"><span class="secno">15.4.1 </span>Attributes</h4>
+                    <h4 aria-level="3" role="heading" id="h4_attributes-39"><span class="secno">16.4.1 </span>Attributes</h4>
                     <dl class="attributes">
                         <dt id="widl-TransmissionClutch-wear">
                             <code>
@@ -5152,7 +5209,7 @@ interface <span class="idlInterfaceID">TransmissionClutch</span> : <span class="
 
             <!------------------------ Interface BrakeMaintenance ------------------------------>
             <section id="brakemaintenance-interface">
-                <h3 aria-level="2" role="heading" id="h3_brakemaintenance-interface"><span class="secno">15.5 </span><a href="#idl-def-BrakeMaintenance" class="idlType">
+                <h3 aria-level="2" role="heading" id="h3_brakemaintenance-interface"><span class="secno">16.5 </span><a href="#idl-def-BrakeMaintenance" class="idlType">
                 <code>
                     BrakeMaintenance
                 </code></a> Interface</h3>
@@ -5172,7 +5229,7 @@ interface <span class="idlInterfaceID">BrakeMaintenance</span> : <span class="id
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">Zone?</span>          <span class="idlAttrName"><a href="#widl-BrakeMaintenance-zone">zone</a></span>;</span>
 };</span></pre>
                 <section id="attributes-40">
-                    <h4 aria-level="3" role="heading" id="h4_attributes-40"><span class="secno">15.5.1 </span>Attributes</h4>
+                    <h4 aria-level="3" role="heading" id="h4_attributes-40"><span class="secno">16.5.1 </span>Attributes</h4>
                     <dl class="attributes">
                         <dt id="widl-BrakeMaintenance-brakesWorn">
                             <code>
@@ -5226,7 +5283,7 @@ interface <span class="idlInterfaceID">BrakeMaintenance</span> : <span class="id
 
             <!------------------------ Interface Washer Fluid ------------------------------>
             <section id="washerfluid-interface">
-                <h3 aria-level="2" role="heading" id="h3_washerfluid-interface"><span class="secno">15.6 </span><a href="#idl-def-WasherFluid" class="idlType">
+                <h3 aria-level="2" role="heading" id="h3_washerfluid-interface"><span class="secno">16.6 </span><a href="#idl-def-WasherFluid" class="idlType">
                 <code>
                     WasherFluid
                 </code></a> Interface</h3>
@@ -5244,7 +5301,7 @@ interface <span class="idlInterfaceID">WasherFluid</span> : <span class="idlSupe
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">boolean?</span>        <span class="idlAttrName"><a href="#widl-WasherFluid-levelLow">levelLow</a></span>;</span>
 };</span></pre>
                 <section id="attributes-41">
-                    <h4 aria-level="3" role="heading" id="h4_attributes-41"><span class="secno">15.6.1 </span>Attributes</h4>
+                    <h4 aria-level="3" role="heading" id="h4_attributes-41"><span class="secno">16.6.1 </span>Attributes</h4>
                     <dl class="attributes">
                         <dt id="widl-WasherFluid-level">
                             <code>
@@ -5270,7 +5327,7 @@ interface <span class="idlInterfaceID">WasherFluid</span> : <span class="idlSupe
 
             <!------------------------ Interface Malfunction Indicator ------------------------------>
             <section id="malfunctionindicator-interface">
-                <h3 aria-level="2" role="heading" id="h3_malfunctionindicator-interface"><span class="secno">15.7 </span><a href="#idl-def-MalfunctionIndicator" class="idlType">
+                <h3 aria-level="2" role="heading" id="h3_malfunctionindicator-interface"><span class="secno">16.7 </span><a href="#idl-def-MalfunctionIndicator" class="idlType">
                 <code>
                     MalfunctionIndicator
                 </code></a> Interface</h3>
@@ -5287,7 +5344,7 @@ interface <span class="idlInterfaceID">MalfunctionIndicator</span> : <span class
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">boolean</span> <span class="idlAttrName"><a href="#widl-MalfunctionIndicator-on">on</a></span>;</span>
 };</span></pre>
                 <section id="attributes-42">
-                    <h4 aria-level="3" role="heading" id="h4_attributes-42"><span class="secno">15.7.1 </span>Attributes</h4>
+                    <h4 aria-level="3" role="heading" id="h4_attributes-42"><span class="secno">16.7.1 </span>Attributes</h4>
                     <dl class="attributes">
                         <dt id="widl-MalfunctionIndicator-on">
                             <code>
@@ -5304,7 +5361,7 @@ interface <span class="idlInterfaceID">MalfunctionIndicator</span> : <span class
 
             <!------------------------ Interface Battery Status ------------------------------>
             <section id="batterystatus-interface">
-                <h3 aria-level="2" role="heading" id="h3_batterystatus-interface"><span class="secno">15.8 </span><a href="#idl-def-BatteryStatus" class="idlType">
+                <h3 aria-level="2" role="heading" id="h3_batterystatus-interface"><span class="secno">16.8 </span><a href="#idl-def-BatteryStatus" class="idlType">
                 <code>
                     BatteryStatus
                 </code></a> Interface</h3>
@@ -5324,7 +5381,7 @@ interface <span class="idlInterfaceID">BatteryStatus</span> : <span class="idlSu
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">Zone?</span>           <span class="idlAttrName"><a href="#widl-BatteryStatus-zone">zone</a></span>;</span>
 };</span></pre>
                 <section id="attributes-43">
-                    <h4 aria-level="3" role="heading" id="h4_attributes-43"><span class="secno">15.8.1 </span>Attributes</h4>
+                    <h4 aria-level="3" role="heading" id="h4_attributes-43"><span class="secno">16.8.1 </span>Attributes</h4>
                     <dl class="attributes">
                         <dt id="widl-BatteryStatus-chargeLevel">
                             <code>
@@ -5368,7 +5425,7 @@ interface <span class="idlInterfaceID">BatteryStatus</span> : <span class="idlSu
 
             <!------------------------ Interface Tire ------------------------------>
             <section id="tire-interface">
-                <h3 aria-level="2" role="heading" id="h3_tire-interface"><span class="secno">15.9 </span><a href="#idl-def-Tire" class="idlType">
+                <h3 aria-level="2" role="heading" id="h3_tire-interface"><span class="secno">16.9 </span><a href="#idl-def-Tire" class="idlType">
                 <code>
                     Tire
                 </code></a> Interface</h3>
@@ -5388,7 +5445,7 @@ interface <span class="idlInterfaceID">Tire</span> : <span class="idlSuperclass"
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">Zone?</span>           <span class="idlAttrName"><a href="#widl-Tire-zone">zone</a></span>;</span>
 };</span></pre>
                 <section id="attributes-44">
-                    <h4 aria-level="3" role="heading" id="h4_attributes-44"><span class="secno">15.9.1 </span>Attributes</h4>
+                    <h4 aria-level="3" role="heading" id="h4_attributes-44"><span class="secno">16.9.1 </span>Attributes</h4>
                     <dl class="attributes">
                         <dt id="widl-Tire-pressure">
                             <code>
@@ -5433,7 +5490,7 @@ interface <span class="idlInterfaceID">Tire</span> : <span class="idlSuperclass"
             <!------------------------ Interface  Diagnostic ------------------------>
             <section id="diagnostic-interface">
 
-                <h3 aria-level="2" role="heading" id="h3_diagnostic-interface"><span class="secno">15.10 </span><a href="#idl-def-Diagnostic" class="idlType">
+                <h3 aria-level="2" role="heading" id="h3_diagnostic-interface"><span class="secno">16.10 </span><a href="#idl-def-Diagnostic" class="idlType">
                 <code>
                     Diagnostic
                 </code></a> Interface</h3>
@@ -5453,7 +5510,7 @@ interface <span class="idlInterfaceID">Diagnostic</span> : <span class="idlSuper
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">unsigned long</span> <span class="idlAttrName"><a href="#widl-Diagnostic-timeTroubleCodeClear">timeTroubleCodeClear</a></span>;</span>
 };</span></pre>
                 <section id="attributes-45">
-                    <h4 aria-level="3" role="heading" id="h4_attributes-45"><span class="secno">15.10.1 </span>Attributes</h4>
+                    <h4 aria-level="3" role="heading" id="h4_attributes-45"><span class="secno">16.10.1 </span>Attributes</h4>
                     <dl class="attributes">
                         <dt id="widl-Diagnostic-accumulatedEngineRuntime">
                             <code>
@@ -5512,7 +5569,7 @@ interface <span class="idlInterfaceID">Diagnostic</span> : <span class="idlSuper
         <!---------------------- Personalization  Interfaces ---------------------->
 
         <section id="personalization-interfaces" typeof="bibo:Chapter" resource="#personalization-interfaces" rel="bibo:Chapter">
-            <!--OddPage--><h2 aria-level="1" role="heading" id="h2_personalization-interfaces"><span class="secno">16. </span>Personalization Interfaces</h2>
+            <!--OddPage--><h2 aria-level="1" role="heading" id="h2_personalization-interfaces"><span class="secno">17. </span>Personalization Interfaces</h2>
 
             <p>
                 Interfaces relating personalization the settings of vehicle
@@ -5529,7 +5586,7 @@ interface <span class="idlInterfaceID">Diagnostic</span> : <span class="idlSuper
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">VehicleSignalInterface</span>  <span class="idlAttrName"><a href="#widl-Vehicle-vehicleSound">vehicleSound</a></span>;</span>
 };</span></pre>
             <section id="attributes-46">
-                <h3 aria-level="2" role="heading" id="h3_attributes-46"><span class="secno">16.1 </span>Attributes</h3>
+                <h3 aria-level="2" role="heading" id="h3_attributes-46"><span class="secno">17.1 </span>Attributes</h3>
                 <dl class="attributes">
                     <dt id="widl-Vehicle-dashboardIllumination">
                         <code>
@@ -5632,7 +5689,7 @@ interface <span class="idlInterfaceID">Diagnostic</span> : <span class="idlSuper
 
             <!------------------------ Interface Language ------------------------------>
             <section id="languageconfiguration-interface">
-                <h3 aria-level="2" role="heading" id="h3_languageconfiguration-interface"><span class="secno">16.2 </span><a href="#idl-def-LanguageConfiguration" class="idlType">
+                <h3 aria-level="2" role="heading" id="h3_languageconfiguration-interface"><span class="secno">17.2 </span><a href="#idl-def-LanguageConfiguration" class="idlType">
                 <code>
                     LanguageConfiguration
                 </code></a> Interface</h3>
@@ -5648,7 +5705,7 @@ interface <span class="idlInterfaceID">LanguageConfiguration</span> : <span clas
 <span class="idlAttribute">                attribute <span class="idlAttrType">DOMString?</span> <span class="idlAttrName"><a href="#widl-LanguageConfiguration-language">language</a></span>;</span>
 };</span></pre>
                 <section id="attributes-47">
-                    <h4 aria-level="3" role="heading" id="h4_attributes-47"><span class="secno">16.2.1 </span>Attributes</h4>
+                    <h4 aria-level="3" role="heading" id="h4_attributes-47"><span class="secno">17.2.1 </span>Attributes</h4>
                     <dl class="attributes">
                         <dt id="widl-LanguageConfiguration-language">
                             <code>
@@ -5665,7 +5722,7 @@ interface <span class="idlInterfaceID">LanguageConfiguration</span> : <span clas
 
             <!------------------------ Interface Units Of Measure ------------------------------>
             <section id="unitsofmeasure-interface">
-                <h3 aria-level="2" role="heading" id="h3_unitsofmeasure-interface"><span class="secno">16.3 </span><a href="#idl-def-UnitsOfMeasure" class="idlType">
+                <h3 aria-level="2" role="heading" id="h3_unitsofmeasure-interface"><span class="secno">17.3 </span><a href="#idl-def-UnitsOfMeasure" class="idlType">
                 <code>
                     UnitsOfMeasure
                 </code></a> Interface</h3>
@@ -5685,7 +5742,7 @@ interface <span class="idlInterfaceID">UnitsOfMeasure</span> : <span class="idlS
 <span class="idlAttribute">                attribute <span class="idlAttrType">DOMString?</span> <span class="idlAttrName"><a href="#widl-UnitsOfMeasure-unitsFuelConsumption">unitsFuelConsumption</a></span>;</span>
 };</span></pre>
                 <section id="attributes-48">
-                    <h4 aria-level="3" role="heading" id="h4_attributes-48"><span class="secno">16.3.1 </span>Attributes</h4>
+                    <h4 aria-level="3" role="heading" id="h4_attributes-48"><span class="secno">17.3.1 </span>Attributes</h4>
                     <dl class="attributes">
                         <dt id="widl-UnitsOfMeasure-isMKSSystem">
                             <code>
@@ -5741,7 +5798,7 @@ interface <span class="idlInterfaceID">UnitsOfMeasure</span> : <span class="idlS
 
             <!------------------------ Interface Mirror ------------------------------>
             <section id="mirror-interface">
-                <h3 aria-level="2" role="heading" id="h3_mirror-interface"><span class="secno">16.4 </span><a href="#idl-def-Mirror" class="idlType">
+                <h3 aria-level="2" role="heading" id="h3_mirror-interface"><span class="secno">17.4 </span><a href="#idl-def-Mirror" class="idlType">
                 <code>
                     Mirror
                 </code></a> Interface</h3>
@@ -5759,7 +5816,7 @@ interface <span class="idlInterfaceID">Mirror</span> : <span class="idlSuperclas
 <span class="idlAttribute">  readonly      attribute <span class="idlAttrType">Zone?</span>           <span class="idlAttrName"><a href="#widl-Mirror-zone">zone</a></span>;</span>
 };</span></pre>
                 <section id="attributes-49">
-                    <h4 aria-level="3" role="heading" id="h4_attributes-49"><span class="secno">16.4.1 </span>Attributes</h4>
+                    <h4 aria-level="3" role="heading" id="h4_attributes-49"><span class="secno">17.4.1 </span>Attributes</h4>
                     <dl class="attributes">
                         <dt id="widl-Mirror-mirrorPan">
                             <code>
@@ -5796,7 +5853,7 @@ interface <span class="idlInterfaceID">Mirror</span> : <span class="idlSuperclas
 
             <!--------------------- Interface SeatAdjustment -------------------------->
             <section id="seatadjustment-interface">
-                <h3 aria-level="2" role="heading" id="h3_seatadjustment-interface"><span class="secno">16.5 </span><a href="#idl-def-SeatAdjustment" class="idlType">
+                <h3 aria-level="2" role="heading" id="h3_seatadjustment-interface"><span class="secno">17.5 </span><a href="#idl-def-SeatAdjustment" class="idlType">
                 <code>
                     SeatAdjustment
                 </code></a> Interface</h3>
@@ -5818,7 +5875,7 @@ interface <span class="idlInterfaceID">SeatAdjustment</span> : <span class="idlS
 <span class="idlAttribute">   readonly     attribute <span class="idlAttrType">Zone?</span>           <span class="idlAttrName"><a href="#widl-SeatAdjustment-zone">zone</a></span>;</span>
 };</span></pre>
                 <section id="attributes-50">
-                    <h4 aria-level="3" role="heading" id="h4_attributes-50"><span class="secno">16.5.1 </span>Attributes</h4>
+                    <h4 aria-level="3" role="heading" id="h4_attributes-50"><span class="secno">17.5.1 </span>Attributes</h4>
                     <dl class="attributes">
                         <dt id="widl-SeatAdjustment-reclineSeatBack">
                             <code>
@@ -5894,7 +5951,7 @@ interface <span class="idlInterfaceID">SeatAdjustment</span> : <span class="idlS
             </section>
             <!------------------------ Interface Drive Mode ------------------------------>
             <section id="drivemode-interface">
-                <h3 aria-level="2" role="heading" id="h3_drivemode-interface"><span class="secno">16.6 </span><a href="#idl-def-DriveMode" class="idlType">
+                <h3 aria-level="2" role="heading" id="h3_drivemode-interface"><span class="secno">17.6 </span><a href="#idl-def-DriveMode" class="idlType">
                 <code>
                     DriveMode
                 </code></a> Interface</h3>
@@ -5961,7 +6018,7 @@ interface <span class="idlInterfaceID">DriveMode</span> : <span class="idlSuperc
 <span class="idlAttribute">                attribute <span class="idlAttrType"><a href="#idl-def-DriveModeEnum" class="idlType"><code>DriveModeEnum</code></a>?</span> <span class="idlAttrName"><a href="#widl-DriveMode-driveMode">driveMode</a></span>;</span>
 };</span></pre>
                 <section id="attributes-52">
-                    <h4 aria-level="3" role="heading" id="h4_attributes-52"><span class="secno">16.6.1 </span>Attributes</h4>
+                    <h4 aria-level="3" role="heading" id="h4_attributes-52"><span class="secno">17.6.1 </span>Attributes</h4>
                     <dl class="attributes">
                         <dt id="widl-DriveMode-driveMode">
                             <code>
@@ -5981,7 +6038,7 @@ interface <span class="idlInterfaceID">DriveMode</span> : <span class="idlSuperc
 
             <!------------------------ Interface Dashboard Illumination ------------------------------>
             <section id="dashboardillumination-interface">
-                <h3 aria-level="2" role="heading" id="h3_dashboardillumination-interface"><span class="secno">16.8 </span><a href="#idl-def-DashboardIllumination" class="idlType">
+                <h3 aria-level="2" role="heading" id="h3_dashboardillumination-interface"><span class="secno">17.8 </span><a href="#idl-def-DashboardIllumination" class="idlType">
                 <code>
                     DashboardIllumination
                 </code></a> Interface</h3>
@@ -5997,7 +6054,7 @@ interface <span class="idlInterfaceID">DashboardIllumination</span> : <span clas
 <span class="idlAttribute">                attribute <span class="idlAttrType">DOMString?</span> <span class="idlAttrName"><a href="#widl-DashboardIllumination-dashboardIllumination">dashboardIllumination</a></span>;</span>
 };</span></pre>
                 <section id="attributes-53">
-                    <h4 aria-level="3" role="heading" id="h4_attributes-53"><span class="secno">16.8.1 </span>Attributes</h4>
+                    <h4 aria-level="3" role="heading" id="h4_attributes-53"><span class="secno">17.8.1 </span>Attributes</h4>
                     <dl class="attributes">
                         <dt id="widl-DashboardIllumination-dashboardIllumination">
                             <code>
@@ -6016,7 +6073,7 @@ interface <span class="idlInterfaceID">DashboardIllumination</span> : <span clas
 
             <!------------------------ Interface Vehicle Sound ------------------------------>
             <section id="vehiclesound-interface">
-                <h3 aria-level="2" role="heading" id="h3_vehiclesound-interface"><span class="secno">16.9 </span><a href="#idl-def-VehicleSound" class="idlType">
+                <h3 aria-level="2" role="heading" id="h3_vehiclesound-interface"><span class="secno">17.9 </span><a href="#idl-def-VehicleSound" class="idlType">
                 <code>
                     VehicleSound
                 </code></a> Interface</h3>
@@ -6032,7 +6089,7 @@ interface <span class="idlInterfaceID">VehicleSound</span> : <span class="idlSup
 <span class="idlAttribute">                attribute <span class="idlAttrType">DOMString?</span> <span class="idlAttrName"><a href="#widl-VehicleSound-engineSoundEnhancementMode">engineSoundEnhancementMode</a></span>;</span>
 };</span></pre>
                 <section id="attributes-54">
-                    <h4 aria-level="3" role="heading" id="h4_attributes-54"><span class="secno">16.9.1 </span>Attributes</h4>
+                    <h4 aria-level="3" role="heading" id="h4_attributes-54"><span class="secno">17.9.1 </span>Attributes</h4>
                     <dl class="attributes">
                         <dt id="widl-VehicleSound-activeNoiseControlMode">
                             <code>
@@ -6065,7 +6122,7 @@ interface <span class="idlInterfaceID">VehicleSound</span> : <span class="idlSup
         <!------------------------ DrivingSafety Interfaces ----------------------->
 
         <section id="drivingsafety-interfaces" typeof="bibo:Chapter" resource="#drivingsafety-interfaces" rel="bibo:Chapter">
-            <!--OddPage--><h2 aria-level="1" role="heading" id="h2_drivingsafety-interfaces"><span class="secno">17. </span>DrivingSafety Interfaces</h2>
+            <!--OddPage--><h2 aria-level="1" role="heading" id="h2_drivingsafety-interfaces"><span class="secno">18. </span>DrivingSafety Interfaces</h2>
             <p>
                 Interfaces related to driving safety such as anti-lock braking and airbag status.
             </p>
@@ -6080,7 +6137,7 @@ interface <span class="idlInterfaceID">VehicleSound</span> : <span class="idlSup
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">VehicleSignalInterface</span> <span class="idlAttrName"><a href="#widl-Vehicle-seat">seat</a></span>;</span>
 };</span></pre>
             <section id="attributes-55">
-                <h3 aria-level="2" role="heading" id="h3_attributes-55"><span class="secno">17.1 </span>Attributes</h3>
+                <h3 aria-level="2" role="heading" id="h3_attributes-55"><span class="secno">18.1 </span>Attributes</h3>
                 <dl class="attributes">
                     <dt id="widl-Vehicle-airbagStatus">
                         <code>
@@ -6183,7 +6240,7 @@ interface <span class="idlInterfaceID">VehicleSound</span> : <span class="idlSup
 
             <!------------------- AntilockBrakingSystem Interface  -------------------->
             <section id="antilockbrakingsystem-interface">
-                <h3 aria-level="2" role="heading" id="h3_antilockbrakingsystem-interface"><span class="secno">17.2 </span><a href="#idl-def-AntilockBrakingSystem" class="idlType">
+                <h3 aria-level="2" role="heading" id="h3_antilockbrakingsystem-interface"><span class="secno">18.2 </span><a href="#idl-def-AntilockBrakingSystem" class="idlType">
                 <code>
                     AntilockBrakingSystem
                 </code></a> Interface</h3>
@@ -6200,7 +6257,7 @@ interface <span class="idlInterfaceID">AntilockBrakingSystem</span> : <span clas
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">boolean</span> <span class="idlAttrName"><a href="#widl-AntilockBrakingSystem-engaged">engaged</a></span>;</span>
 };</span></pre>
                 <section id="attributes-56">
-                    <h4 aria-level="3" role="heading" id="h4_attributes-56"><span class="secno">17.2.1 </span>Attributes</h4>
+                    <h4 aria-level="3" role="heading" id="h4_attributes-56"><span class="secno">18.2.1 </span>Attributes</h4>
                     <dl class="attributes">
                         <dt id="widl-AntilockBrakingSystem-enabled">
                             <code>
@@ -6226,7 +6283,7 @@ interface <span class="idlInterfaceID">AntilockBrakingSystem</span> : <span clas
 
             <!------------------- TractionControlSystem Interface  -------------------->
             <section id="tractioncontrolsystem-interface">
-                <h3 aria-level="2" role="heading" id="h3_tractioncontrolsystem-interface"><span class="secno">17.3 </span><a href="#idl-def-TractionControlSystem" class="idlType">
+                <h3 aria-level="2" role="heading" id="h3_tractioncontrolsystem-interface"><span class="secno">18.3 </span><a href="#idl-def-TractionControlSystem" class="idlType">
                 <code>
                     TractionControlSystem
                 </code></a> Interface</h3>
@@ -6243,7 +6300,7 @@ interface <span class="idlInterfaceID">TractionControlSystem</span> : <span clas
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">boolean</span> <span class="idlAttrName"><a href="#widl-TractionControlSystem-engaged">engaged</a></span>;</span>
 };</span></pre>
                 <section id="attributes-57">
-                    <h4 aria-level="3" role="heading" id="h4_attributes-57"><span class="secno">17.3.1 </span>Attributes</h4>
+                    <h4 aria-level="3" role="heading" id="h4_attributes-57"><span class="secno">18.3.1 </span>Attributes</h4>
                     <dl class="attributes">
                         <dt id="widl-TractionControlSystem-enabled">
                             <code>
@@ -6269,7 +6326,7 @@ interface <span class="idlInterfaceID">TractionControlSystem</span> : <span clas
 
             <!------------------- ElectronicStabilityControl Interface  -------------------->
             <section id="electronicstabilitycontrol-interface">
-                <h3 aria-level="2" role="heading" id="h3_electronicstabilitycontrol-interface"><span class="secno">17.4 </span><a href="#idl-def-ElectronicStabilityControl" class="idlType">
+                <h3 aria-level="2" role="heading" id="h3_electronicstabilitycontrol-interface"><span class="secno">18.4 </span><a href="#idl-def-ElectronicStabilityControl" class="idlType">
                 <code>
                     ElectronicStabilityControl
                 </code></a> Interface</h3>
@@ -6286,7 +6343,7 @@ interface <span class="idlInterfaceID">ElectronicStabilityControl</span> : <span
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">boolean</span> <span class="idlAttrName"><a href="#widl-ElectronicStabilityControl-engaged">engaged</a></span>;</span>
 };</span></pre>
                 <section id="attributes-58">
-                    <h4 aria-level="3" role="heading" id="h4_attributes-58"><span class="secno">17.4.1 </span>Attributes</h4>
+                    <h4 aria-level="3" role="heading" id="h4_attributes-58"><span class="secno">18.4.1 </span>Attributes</h4>
                     <dl class="attributes">
                         <dt id="widl-ElectronicStabilityControl-enabled">
                             <code>
@@ -6312,7 +6369,7 @@ interface <span class="idlInterfaceID">ElectronicStabilityControl</span> : <span
 
             <!---------------------------- TopSpeedLimit Interface  ------------------------>
             <section id="topspeedlimit-interface">
-                <h3 aria-level="2" role="heading" id="h3_topspeedlimit-interface"><span class="secno">17.5 </span><a href="#idl-def-TopSpeedLimit" class="idlType">
+                <h3 aria-level="2" role="heading" id="h3_topspeedlimit-interface"><span class="secno">18.5 </span><a href="#idl-def-TopSpeedLimit" class="idlType">
                 <code>
                     TopSpeedLimit
                 </code></a> Interface</h3>
@@ -6328,7 +6385,7 @@ interface <span class="idlInterfaceID">TopSpeedLimit</span> : <span class="idlSu
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">unsigned short</span> <span class="idlAttrName"><a href="#widl-TopSpeedLimit-speed">speed</a></span>;</span>
 };</span></pre>
                 <section id="attributes-59">
-                    <h4 aria-level="3" role="heading" id="h4_attributes-59"><span class="secno">17.5.1 </span>Attributes</h4>
+                    <h4 aria-level="3" role="heading" id="h4_attributes-59"><span class="secno">18.5.1 </span>Attributes</h4>
                     <dl class="attributes">
                         <dt id="widl-TopSpeedLimit-speed">
                             <code>
@@ -6345,7 +6402,7 @@ interface <span class="idlInterfaceID">TopSpeedLimit</span> : <span class="idlSu
 
             <!---------------------------- AirbagStatus Interface  ------------------------>
             <section id="airbagstatus-interface">
-                <h3 aria-level="2" role="heading" id="h3_airbagstatus-interface"><span class="secno">17.6 </span><a href="#idl-def-AirbagStatus" class="idlType">
+                <h3 aria-level="2" role="heading" id="h3_airbagstatus-interface"><span class="secno">18.6 </span><a href="#idl-def-AirbagStatus" class="idlType">
                 <code>
                     AirbagStatus
                 </code></a> Interface</h3>
@@ -6363,7 +6420,7 @@ interface <span class="idlInterfaceID">AirbagStatus</span> : <span class="idlSup
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">Zone?</span>   <span class="idlAttrName"><a href="#widl-AirbagStatus-zone">zone</a></span>;</span>
 };</span></pre>
                 <section id="attributes-60">
-                    <h4 aria-level="3" role="heading" id="h4_attributes-60"><span class="secno">17.6.1 </span>Attributes</h4>
+                    <h4 aria-level="3" role="heading" id="h4_attributes-60"><span class="secno">18.6.1 </span>Attributes</h4>
                     <dl class="attributes">
                         <dt id="widl-AirbagStatus-activated">
                             <code>
@@ -6398,7 +6455,7 @@ interface <span class="idlInterfaceID">AirbagStatus</span> : <span class="idlSup
 
             <!---------------------------- Door Interface  ------------------------>
             <section id="door-interface">
-                <h3 aria-level="2" role="heading" id="h3_door-interface"><span class="secno">17.7 </span><a href="#idl-def-Door" class="idlType">
+                <h3 aria-level="2" role="heading" id="h3_door-interface"><span class="secno">18.7 </span><a href="#idl-def-Door" class="idlType">
                 <code>
                     Door
                 </code></a> Interface</h3>
@@ -6446,7 +6503,7 @@ interface <span class="idlInterfaceID">Door</span> : <span class="idlSuperclass"
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">Zone?</span>          <span class="idlAttrName"><a href="#widl-Door-zone">zone</a></span>;</span>
 };</span></pre>
                 <section id="attributes-61">
-                    <h4 aria-level="3" role="heading" id="h4_attributes-61"><span class="secno">17.7.1 </span>Attributes</h4>
+                    <h4 aria-level="3" role="heading" id="h4_attributes-61"><span class="secno">18.7.1 </span>Attributes</h4>
                     <dl class="attributes">
                         <dt id="widl-Door-lock">
                             <code>
@@ -6485,7 +6542,7 @@ interface <span class="idlInterfaceID">Door</span> : <span class="idlSuperclass"
 
             <!--------------------- ChildSafetyLock Interface  --------------------->
             <section id="childsafetylock-interface">
-                <h3 aria-level="2" role="heading" id="h3_childsafetylock-interface"><span class="secno">17.8 </span><a href="#idl-def-ChildSafetyLock" class="idlType">
+                <h3 aria-level="2" role="heading" id="h3_childsafetylock-interface"><span class="secno">18.8 </span><a href="#idl-def-ChildSafetyLock" class="idlType">
                 <code>
                     ChildSafetyLock
                 </code></a> Interface</h3>
@@ -6502,7 +6559,7 @@ interface <span class="idlInterfaceID">ChildSafetyLock</span> : <span class="idl
 <span class="idlAttribute">   readonly     attribute <span class="idlAttrType">Zone?</span>   <span class="idlAttrName"><a href="#widl-ChildSafetyLock-zone">zone</a></span>;</span>
 };</span></pre>
                 <section id="attributes-62">
-                    <h4 aria-level="3" role="heading" id="h4_attributes-62"><span class="secno">17.8.1 </span>Attributes</h4>
+                    <h4 aria-level="3" role="heading" id="h4_attributes-62"><span class="secno">18.8.1 </span>Attributes</h4>
                     <dl class="attributes">
                         <dt id="widl-ChildSafetyLock-lock">
                             <code>
@@ -6528,7 +6585,7 @@ interface <span class="idlInterfaceID">ChildSafetyLock</span> : <span class="idl
 
             <!---------------------------- Seat Interface  ------------------------>
             <section id="seat-interface">
-                <h3 aria-level="2" role="heading" id="h3_seat-interface"><span class="secno">17.9 </span><a href="#idl-def-Seat" class="idlType">
+                <h3 aria-level="2" role="heading" id="h3_seat-interface"><span class="secno">18.9 </span><a href="#idl-def-Seat" class="idlType">
                 <code>
                     Seat
                 </code></a> Interface</h3>
@@ -6637,7 +6694,7 @@ interface <span class="idlInterfaceID">Seat</span> : <span class="idlSuperclass"
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">Zone?</span>              <span class="idlAttrName"><a href="#widl-Seat-zone">zone</a></span>;</span>
 };</span></pre>
                 <section id="attributes-63">
-                    <h4 aria-level="3" role="heading" id="h4_attributes-63"><span class="secno">17.9.1 </span>Attributes</h4>
+                    <h4 aria-level="3" role="heading" id="h4_attributes-63"><span class="secno">18.9.1 </span>Attributes</h4>
                     <dl class="attributes">
                         <dt id="widl-Seat-identificationType">
                             <code>
@@ -6702,7 +6759,7 @@ interface <span class="idlInterfaceID">Seat</span> : <span class="idlSuperclass"
         <!------------------------------------------------------------------------->
         <!---------------------- Climate Interfaces ------------------------------->
         <section id="Climate-interfaces" typeof="bibo:Chapter" resource="#Climate-interfaces" rel="bibo:Chapter">
-            <!--OddPage--><h2 aria-level="1" role="heading" id="h2_Climate-interfaces"><span class="secno">18. </span>Climate Interfaces</h2>
+            <!--OddPage--><h2 aria-level="1" role="heading" id="h2_Climate-interfaces"><span class="secno">19. </span>Climate Interfaces</h2>
             <p>
                 Interfaces related to vehicle climate (interior and exterior) such as temperature and rain.
             </p>
@@ -6719,7 +6776,7 @@ interface <span class="idlInterfaceID">Seat</span> : <span class="idlSuperclass"
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">VehicleSignalInterface</span> <span class="idlAttrName"><a href="#widl-Vehicle-atmosphericPressure">atmosphericPressure</a></span>;</span>
 };</span></pre>
             <section id="attributes-64">
-                <h3 aria-level="2" role="heading" id="h3_attributes-64"><span class="secno">18.1 </span>Attributes</h3>
+                <h3 aria-level="2" role="heading" id="h3_attributes-64"><span class="secno">19.1 </span>Attributes</h3>
                 <dl class="attributes">
                     <dt id="widl-Vehicle-atmosphericPressure">
                         <code>
@@ -6846,7 +6903,7 @@ interface <span class="idlInterfaceID">Seat</span> : <span class="idlSuperclass"
 
             <!------------------------ Interface Temperature ------------------------------>
             <section id="temperature-interface">
-                <h3 aria-level="2" role="heading" id="h3_temperature-interface"><span class="secno">18.2 </span><a href="#idl-def-Temperature" class="idlType">
+                <h3 aria-level="2" role="heading" id="h3_temperature-interface"><span class="secno">19.2 </span><a href="#idl-def-Temperature" class="idlType">
                 <code>
                     Temperature
                 </code></a> Interface</h3>
@@ -6862,7 +6919,7 @@ interface <span class="idlInterfaceID">Temperature</span> : <span class="idlSupe
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">float</span> <span class="idlAttrName"><a href="#widl-Temperature-exteriorTemperature">exteriorTemperature</a></span>;</span>
 };</span></pre>
                 <section id="attributes-65">
-                    <h4 aria-level="3" role="heading" id="h4_attributes-65"><span class="secno">18.2.1 </span>Attributes</h4>
+                    <h4 aria-level="3" role="heading" id="h4_attributes-65"><span class="secno">19.2.1 </span>Attributes</h4>
                     <dl class="attributes">
                         <dt id="widl-Temperature-exteriorTemperature">
                             <code>
@@ -6888,7 +6945,7 @@ interface <span class="idlInterfaceID">Temperature</span> : <span class="idlSupe
 
             <!------------------------ Interface RainSensor ------------------------------>
             <section id="rainsensor-interface">
-                <h3 aria-level="2" role="heading" id="h3_rainsensor-interface"><span class="secno">18.3 </span><a href="#idl-def-RainSensor" class="idlType">
+                <h3 aria-level="2" role="heading" id="h3_rainsensor-interface"><span class="secno">19.3 </span><a href="#idl-def-RainSensor" class="idlType">
                 <code>
                     RainSensor
                 </code></a> Interface</h3>
@@ -6904,7 +6961,7 @@ interface <span class="idlInterfaceID">RainSensor</span> : <span class="idlSuper
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">Zone?</span>         <span class="idlAttrName"><a href="#widl-RainSensor-zone">zone</a></span>;</span>
 };</span></pre>
                 <section id="attributes-66">
-                    <h4 aria-level="3" role="heading" id="h4_attributes-66"><span class="secno">18.3.1 </span>Attributes</h4>
+                    <h4 aria-level="3" role="heading" id="h4_attributes-66"><span class="secno">19.3.1 </span>Attributes</h4>
                     <dl class="attributes">
                         <dt id="widl-RainSensor-rain">
                             <code>
@@ -6930,7 +6987,7 @@ interface <span class="idlInterfaceID">RainSensor</span> : <span class="idlSuper
 
             <!------------------------ Interface WiperStatus ------------------------------>
             <section id="wiperstatus-interface">
-                <h3 aria-level="2" role="heading" id="h3_wiperstatus-interface"><span class="secno">18.4 </span><a href="#idl-def-WiperStatus" class="idlType">
+                <h3 aria-level="2" role="heading" id="h3_wiperstatus-interface"><span class="secno">19.4 </span><a href="#idl-def-WiperStatus" class="idlType">
                 <code>
                     WiperStatus
                 </code></a> Interface</h3>
@@ -6946,7 +7003,7 @@ interface <span class="idlInterfaceID">WiperStatus</span> : <span class="idlSupe
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">Zone?</span>         <span class="idlAttrName"><a href="#widl-WiperStatus-zone">zone</a></span>;</span>
 };</span></pre>
                 <section id="attributes-67">
-                    <h4 aria-level="3" role="heading" id="h4_attributes-67"><span class="secno">18.4.1 </span>Attributes</h4>
+                    <h4 aria-level="3" role="heading" id="h4_attributes-67"><span class="secno">19.4.1 </span>Attributes</h4>
                     <dl class="attributes">
                         <dt id="widl-WiperStatus-wiperSpeed">
                             <code>
@@ -6972,7 +7029,7 @@ interface <span class="idlInterfaceID">WiperStatus</span> : <span class="idlSupe
 
             <!------------------------ Interface WiperSetting ------------------------------>
             <section id="wipersetting-interface">
-                <h3 aria-level="2" role="heading" id="h3_wipersetting-interface"><span class="secno">18.5 </span><a href="#idl-def-WiperSetting" class="idlType">
+                <h3 aria-level="2" role="heading" id="h3_wipersetting-interface"><span class="secno">19.5 </span><a href="#idl-def-WiperSetting" class="idlType">
                 <code>
                     WiperSetting
                 </code></a> Interface</h3>
@@ -7054,7 +7111,7 @@ interface <span class="idlInterfaceID">WiperSetting</span> : <span class="idlSup
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">Zone?</span>        <span class="idlAttrName"><a href="#widl-WiperSetting-zone">zone</a></span>;</span>
 };</span></pre>
                 <section id="attributes-68">
-                    <h4 aria-level="3" role="heading" id="h4_attributes-68"><span class="secno">18.5.1 </span>Attributes</h4>
+                    <h4 aria-level="3" role="heading" id="h4_attributes-68"><span class="secno">19.5.1 </span>Attributes</h4>
                     <dl class="attributes">
                         <dt id="widl-WiperSetting-wiperControl">
                             <code>
@@ -7083,7 +7140,7 @@ interface <span class="idlInterfaceID">WiperSetting</span> : <span class="idlSup
 
             <!------------------------ Interface Defrost ------------------------------>
             <section id="defrost-interface">
-                <h3 aria-level="2" role="heading" id="h3_defrost-interface"><span class="secno">18.6 </span><a href="#idl-def-Defrost" class="idlType">
+                <h3 aria-level="2" role="heading" id="h3_defrost-interface"><span class="secno">19.6 </span><a href="#idl-def-Defrost" class="idlType">
                 <code>
                     Defrost
                 </code></a> Interface</h3>
@@ -7100,7 +7157,7 @@ interface <span class="idlInterfaceID">Defrost</span> : <span class="idlSupercla
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">Zone?</span>    <span class="idlAttrName"><a href="#widl-Defrost-zone">zone</a></span>;</span>
 };</span></pre>
                 <section id="attributes-69">
-                    <h4 aria-level="3" role="heading" id="h4_attributes-69"><span class="secno">18.6.1 </span>Attributes</h4>
+                    <h4 aria-level="3" role="heading" id="h4_attributes-69"><span class="secno">19.6.1 </span>Attributes</h4>
                     <dl class="attributes">
                         <dt id="widl-Defrost-defrostMirrors">
                             <code>
@@ -7135,7 +7192,7 @@ interface <span class="idlInterfaceID">Defrost</span> : <span class="idlSupercla
 
             <!------------------------ Interface Sunroof ------------------------------>
             <section id="sunroof-interface">
-                <h3 aria-level="2" role="heading" id="h3_sunroof-interface"><span class="secno">18.7 </span><a href="#idl-def-Sunroof" class="idlType">
+                <h3 aria-level="2" role="heading" id="h3_sunroof-interface"><span class="secno">19.7 </span><a href="#idl-def-Sunroof" class="idlType">
                 <code>
                     Sunroof
                 </code></a> Interface</h3>
@@ -7152,7 +7209,7 @@ interface <span class="idlInterfaceID">Sunroof</span> : <span class="idlSupercla
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">Zone?</span>         <span class="idlAttrName"><a href="#widl-Sunroof-zone">zone</a></span>;</span>
 };</span></pre>
                 <section id="attributes-70">
-                    <h4 aria-level="3" role="heading" id="h4_attributes-70"><span class="secno">18.7.1 </span>Attributes</h4>
+                    <h4 aria-level="3" role="heading" id="h4_attributes-70"><span class="secno">19.7.1 </span>Attributes</h4>
                     <dl class="attributes">
                         <dt id="widl-Sunroof-openness">
                             <code>
@@ -7190,7 +7247,7 @@ interface <span class="idlInterfaceID">Sunroof</span> : <span class="idlSupercla
 
             <!------------------------ Interface ConvertibleRoof ------------------------------>
             <section id="convertibleroof-interface">
-                <h3 aria-level="2" role="heading" id="h3_convertibleroof-interface"><span class="secno">18.8 </span><a href="#idl-def-ConvertibleRoof" class="idlType">
+                <h3 aria-level="2" role="heading" id="h3_convertibleroof-interface"><span class="secno">19.8 </span><a href="#idl-def-ConvertibleRoof" class="idlType">
                 <code>
                     ConvertibleRoof
                 </code></a> Interface</h3>
@@ -7243,7 +7300,7 @@ interface <span class="idlInterfaceID">ConvertibleRoof</span> : <span class="idl
 <span class="idlAttribute">                attribute <span class="idlAttrType"><a href="#idl-def-ConvertibleRoofStatus" class="idlType"><code>ConvertibleRoofStatus</code></a></span> <span class="idlAttrName"><a href="#widl-ConvertibleRoof-status">status</a></span>;</span>
 };</span></pre>
                 <section id="attributes-71">
-                    <h4 aria-level="3" role="heading" id="h4_attributes-71"><span class="secno">18.8.1 </span>Attributes</h4>
+                    <h4 aria-level="3" role="heading" id="h4_attributes-71"><span class="secno">19.8.1 </span>Attributes</h4>
                     <dl class="attributes">
                         <dt id="widl-ConvertibleRoof-status">
                             <code>
@@ -7266,7 +7323,7 @@ interface <span class="idlInterfaceID">ConvertibleRoof</span> : <span class="idl
 
             <!------------------------ Interface SideWindow ------------------------------>
             <section id="sidewindow-interface">
-                <h3 aria-level="2" role="heading" id="h3_sidewindow-interface"><span class="secno">18.9 </span><a href="#idl-def-SideWindow" class="idlType">
+                <h3 aria-level="2" role="heading" id="h3_sidewindow-interface"><span class="secno">19.9 </span><a href="#idl-def-SideWindow" class="idlType">
                 <code>
                     SideWindow
                 </code></a> Interface</h3>
@@ -7284,7 +7341,7 @@ interface <span class="idlInterfaceID">SideWindow</span> : <span class="idlSuper
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">Zone?</span>             <span class="idlAttrName"><a href="#widl-SideWindow-zone">zone</a></span>;</span>
 };</span></pre>
                 <section id="attributes-72">
-                    <h4 aria-level="3" role="heading" id="h4_attributes-72"><span class="secno">18.9.1 </span>Attributes</h4>
+                    <h4 aria-level="3" role="heading" id="h4_attributes-72"><span class="secno">19.9.1 </span>Attributes</h4>
                     <dl class="attributes">
                         <dt id="widl-SideWindow-lock">
                             <code>
@@ -7319,7 +7376,7 @@ interface <span class="idlInterfaceID">SideWindow</span> : <span class="idlSuper
 
             <!------------------------ Interface ClimateControl ------------------------------>
             <section id="climatecontrol-interface">
-                <h3 aria-level="2" role="heading" id="h3_climatecontrol-interface"><span class="secno">18.10 </span><a href="#idl-def-ClimateControl" class="idlType">
+                <h3 aria-level="2" role="heading" id="h3_climatecontrol-interface"><span class="secno">19.10 </span><a href="#idl-def-ClimateControl" class="idlType">
                 <code>
                     ClimateControl
                 </code></a> Interface</h3>
@@ -7381,7 +7438,7 @@ interface <span class="idlInterfaceID">ClimateControl</span> : <span class="idlS
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">Zone?</span>            <span class="idlAttrName"><a href="#widl-ClimateControl-zone">zone</a></span>;</span>
 };</span></pre>
                 <section id="attributes-73">
-                    <h4 aria-level="3" role="heading" id="h4_attributes-73"><span class="secno">18.10.1 </span>Attributes</h4>
+                    <h4 aria-level="3" role="heading" id="h4_attributes-73"><span class="secno">19.10.1 </span>Attributes</h4>
                     <dl class="attributes">
                         <dt id="widl-ClimateControl-airConditioning">
                             <code>
@@ -7488,7 +7545,7 @@ interface <span class="idlInterfaceID">ClimateControl</span> : <span class="idlS
 
             <!------------------------ Interface AtmosphericPressure ------------------------------>
             <section id="atmosphericpressure-interface">
-                <h3 aria-level="2" role="heading" id="h3_atmosphericpressure-interface"><span class="secno">18.11 </span><a href="#idl-def-AtmosphericPressure" class="idlType">
+                <h3 aria-level="2" role="heading" id="h3_atmosphericpressure-interface"><span class="secno">19.11 </span><a href="#idl-def-AtmosphericPressure" class="idlType">
                 <code>
                     AtmosphericPressure
                 </code></a> Interface</h3>
@@ -7503,7 +7560,7 @@ interface <span class="idlInterfaceID">AtmosphericPressure</span> : <span class=
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">unsigned short</span> <span class="idlAttrName"><a href="#widl-AtmosphericPressure-pressure">pressure</a></span>;</span>
 };</span></pre>
                 <section id="attributes-74">
-                    <h4 aria-level="3" role="heading" id="h4_attributes-74"><span class="secno">18.11.1 </span>Attributes</h4>
+                    <h4 aria-level="3" role="heading" id="h4_attributes-74"><span class="secno">19.11.1 </span>Attributes</h4>
                     <dl class="attributes">
                         <dt id="widl-AtmosphericPressure-pressure">
                             <code>
@@ -7524,7 +7581,7 @@ interface <span class="idlInterfaceID">AtmosphericPressure</span> : <span class=
         <!--------------------------------------------------------------------------->
         <!---------------------- Vision and Parking Interfaces ----------------------------->
         <section id="vision-parking-interfaces" typeof="bibo:Chapter" resource="#vision-parking-interfaces" rel="bibo:Chapter">
-            <!--OddPage--><h2 aria-level="1" role="heading" id="h2_vision-parking-interfaces"><span class="secno">19. </span>Vision and Parking Interfaces</h2>
+            <!--OddPage--><h2 aria-level="1" role="heading" id="h2_vision-parking-interfaces"><span class="secno">20. </span>Vision and Parking Interfaces</h2>
 
             <p>
                 Interfaces relating to vision and parking such as lane departure and parking brake.
@@ -7536,7 +7593,7 @@ interface <span class="idlInterfaceID">AtmosphericPressure</span> : <span class=
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType">VehicleSignalInterface</span> <span class="idlAttrName"><a href="#widl-Vehicle-parkingLights">parkingLights</a></span>;</span>
 };</span></pre>
             <section id="attributes-75">
-                <h3 aria-level="2" role="heading" id="h3_attributes-75"><span class="secno">19.1 </span>Attributes</h3>
+                <h3 aria-level="2" role="heading" id="h3_attributes-75"><span class="secno">20.1 </span>Attributes</h3>
                 <dl class="attributes">
                     <dt id="widl-Vehicle-alarm">
                         <code>
@@ -7591,7 +7648,7 @@ interface <span class="idlInterfaceID">AtmosphericPressure</span> : <span class=
 
             <!------------------------ Interface LaneDepartureDetection (Vision) ------------------------------>
             <section id="lanedeparturedetection-interface">
-                <h3 aria-level="2" role="heading" id="h3_lanedeparturedetection-interface"><span class="secno">19.2 </span><a href="#idl-def-LaneDepartureDetection" class="idlType">
+                <h3 aria-level="2" role="heading" id="h3_lanedeparturedetection-interface"><span class="secno">20.2 </span><a href="#idl-def-LaneDepartureDetection" class="idlType">
                 <code>
                     LaneDepartureDetection
                 </code></a> Interface</h3>
@@ -7637,7 +7694,7 @@ interface <span class="idlInterfaceID">LaneDepartureDetection</span> : <span cla
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType"><a href="#idl-def-LaneDepartureStatus" class="idlType"><code>LaneDepartureStatus</code></a></span> <span class="idlAttrName"><a href="#widl-LaneDepartureDetection-status">status</a></span>;</span>
 };</span></pre>
                 <section id="attributes-76">
-                    <h4 aria-level="3" role="heading" id="h4_attributes-76"><span class="secno">19.2.1 </span>Attributes</h4>
+                    <h4 aria-level="3" role="heading" id="h4_attributes-76"><span class="secno">20.2.1 </span>Attributes</h4>
                     <dl class="attributes">
                         <dt id="widl-LaneDepartureDetection-status">
                             <code>
@@ -7657,7 +7714,7 @@ interface <span class="idlInterfaceID">LaneDepartureDetection</span> : <span cla
 
             <!------------------------ Interface Alarm (Parking)------------------------------>
             <section id="alarm-interface">
-                <h3 aria-level="2" role="heading" id="h3_alarm-interface"><span class="secno">19.3 </span><a href="#idl-def-Alarm" class="idlType">
+                <h3 aria-level="2" role="heading" id="h3_alarm-interface"><span class="secno">20.3 </span><a href="#idl-def-Alarm" class="idlType">
                 <code>
                     Alarm
                 </code></a> Interface</h3>
@@ -7710,7 +7767,7 @@ interface <span class="idlInterfaceID">Alarm</span> : <span class="idlSuperclass
 <span class="idlAttribute">                attribute <span class="idlAttrType"><a href="#idl-def-AlarmStatus" class="idlType"><code>AlarmStatus</code></a></span> <span class="idlAttrName"><a href="#widl-Alarm-status">status</a></span>;</span>
 };</span></pre>
                 <section id="attributes-77">
-                    <h4 aria-level="3" role="heading" id="h4_attributes-77"><span class="secno">19.3.1 </span>Attributes</h4>
+                    <h4 aria-level="3" role="heading" id="h4_attributes-77"><span class="secno">20.3.1 </span>Attributes</h4>
                     <dl class="attributes">
                         <dt id="widl-Alarm-status">
                             <code>
@@ -7730,7 +7787,7 @@ interface <span class="idlInterfaceID">Alarm</span> : <span class="idlSuperclass
 
             <!------------------------ Interface ParkingBrake (Parking)------------------------------>
             <section id="parkingbrake-interface">
-                <h3 aria-level="2" role="heading" id="h3_parkingbrake-interface"><span class="secno">19.4 </span><a href="#idl-def-ParkingBrake" class="idlType">
+                <h3 aria-level="2" role="heading" id="h3_parkingbrake-interface"><span class="secno">20.4 </span><a href="#idl-def-ParkingBrake" class="idlType">
                 <code>
                     ParkingBrake
                 </code></a> Interface</h3>
@@ -7775,7 +7832,7 @@ interface <span class="idlInterfaceID">ParkingBrake</span> : <span class="idlSup
 <span class="idlAttribute">    readonly    attribute <span class="idlAttrType"><a href="#idl-def-ParkingBrakeStatus" class="idlType"><code>ParkingBrakeStatus</code></a></span> <span class="idlAttrName"><a href="#widl-ParkingBrake-status">status</a></span>;</span>
 };</span></pre>
                 <section id="attributes-78">
-                    <h4 aria-level="3" role="heading" id="h4_attributes-78"><span class="secno">19.4.1 </span>Attributes</h4>
+                    <h4 aria-level="3" role="heading" id="h4_attributes-78"><span class="secno">20.4.1 </span>Attributes</h4>
                     <dl class="attributes">
                         <dt id="widl-ParkingBrake-status">
                             <code>
@@ -7795,7 +7852,7 @@ interface <span class="idlInterfaceID">ParkingBrake</span> : <span class="idlSup
 
             <!------------------------ Interface ParkingLights ------------------------------>
             <section id="parkinglights-interface">
-                <h3 aria-level="2" role="heading" id="h3_parkinglights-interface"><span class="secno">19.5 </span><a href="#idl-def-ParkingLights" class="idlType">
+                <h3 aria-level="2" role="heading" id="h3_parkinglights-interface"><span class="secno">20.5 </span><a href="#idl-def-ParkingLights" class="idlType">
                 <code>
                     ParkingLights
                 </code></a> Interface</h3>
@@ -7812,7 +7869,7 @@ interface <span class="idlInterfaceID">ParkingLights</span> : <span class="idlSu
 <span class="idlAttribute">                attribute <span class="idlAttrType">boolean</span> <span class="idlAttrName"><a href="#widl-ParkingLights-setting">setting</a></span>;</span>
 };</span></pre>
                 <section id="attributes-79">
-                    <h4 aria-level="3" role="heading" id="h4_attributes-79"><span class="secno">19.5.1 </span>Attributes</h4>
+                    <h4 aria-level="3" role="heading" id="h4_attributes-79"><span class="secno">20.5.1 </span>Attributes</h4>
                     <dl class="attributes">
                         <dt id="widl-ParkingLights-setting">
                             <code>
@@ -7844,7 +7901,7 @@ interface <span class="idlInterfaceID">ParkingLights</span> : <span class="idlSu
 
         <!------------------------ Full WebIDL ------------------------------>
         <section id="full-webidl">
-            <h3 aria-level="2" role="heading"><span class="secno">20 </span>Full WebIDL</h3>
+            <h3 aria-level="2" role="heading"><span class="secno">21. </span>Full WebIDL</h3>
             <pre class="idl"><span class="idlInterface">
 module Vehicle {
     [<span class="extAttr">NoInterfaceObject</span>]

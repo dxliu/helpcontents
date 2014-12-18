@@ -17,23 +17,23 @@
         <h2>Table of Contents</h2>
         <ul class="toc">
             <li>1. <a href="#typedefs">Type Definitions</a>
-	        <ul class="toc">
-		    <li>1.1. <a href="#::SystemSetting::SystemSettingType">SystemSettingType</a>
+                <ul class="toc">
+                    <li>1.1. <a href="#::SystemSetting::SystemSettingType">SystemSettingType</a>
                     </li>
-		</ul>
-	    </li>
+                </ul>
+            </li>
             <li>2. <a href="#interfaces">Interfaces</a>
-	        <ul class="toc">
-		    <li>2.1. <a href="#::Locale::LocaleManagerObject">SystemSettingObject</a>
+                <ul class="toc">
+                    <li>2.1. <a href="#::Locale::LocaleManagerObject">SystemSettingObject</a>
                     </li>
                     <li>2.2. <a href="#::Locale::Locale">SystemSettingManager</a>
                     </li>
                     <li>2.3. <a href="#::Locale::LocaleChangedCallback">SystemSettingSuccessCallback</a>
                     </li>
-		</ul>
+                </ul>
             </li>
             <li>3. <a href="#full-webidl">Full WebIDL</a>
-	    </li>
+            </li>
         </ul>
 
         <hr>
@@ -61,17 +61,17 @@
             </thead>
             <tbody></tbody>
         </table>
-	<!--Type Definitions-------------------->
-	<div class="typedefs" id="typedefs">
-	    <h2>1. Type Definitions</h2>
-	    <div class="enum" id="::SystemSetting::SystemSettingType">
-	        <h3>1.1. SystemSettingType</h3>
-		<div class="brief">
-		    This enumerator indicates the type of supported system setting. The following values are supported in this release:
-		</div>
-		<pre class="webidl prettyprint">  enum SystemSettingType {"LOCALE"};</pre>
-	    </div>
-	</div>
+        <!--Type Definitions-------------------->
+        <div class="typedefs" id="typedefs">
+            <h2>1. Type Definitions</h2>
+            <div class="enum" id="::SystemSetting::SystemSettingType">
+                <h3>1.1. SystemSettingType</h3>
+                <div class="brief">
+                    This enumerator indicates the type of supported system setting. The following values are supported in this release:
+                </div>
+                <pre class="webidl prettyprint">  enum SystemSettingType {"LOCALE"};</pre>
+            </div>
+        </div>
         <!-- -------------------------------- -->
         <div class="interfaces" id="interfaces">
             <h2>2. Interfaces</h2>
@@ -79,8 +79,8 @@
             <div class="interface" id="::Locale::LocaleManagerObject">
                 <h3>2.1. SystemSettingObject</h3>
                 <div class="brief">
-		    This interface defines what is instantiated by the Tizen object from the Tizen Platform.
-		</div>
+                    This interface defines what is instantiated by the Tizen object from the Tizen Platform.
+                </div>
 <pre class="webidl prettyprint">
 [NoInterfaceObject] interface SystemSettingObject {
     readonly attribute <a href="#::Locale::Locale"><span class="typ">SystemSettingManager</span></a> systemsetting;
@@ -104,8 +104,7 @@ Tizen implements SystemSettingObject;
 
     void getProperty(<a href="#::SystemSetting::SystemSettingType">SystemSettingType</a> type,
              <a href="#::Locale::LocaleChangedCallback">SystemSettingSuccessCallback</a> successCallback,
-	     optional <a href="tizen.html#::Tizen::ErrorCallback">ErrorCallback?</a> errorCallback);
-
+             optional <a href="tizen.html#::Tizen::ErrorCallback">ErrorCallback?</a> errorCallback);
 };
 </pre>
                 <div class="methods">
@@ -171,7 +170,7 @@ void setProperty(<a href="#::SystemSetting::SystemSettingType">SystemSettingType
                 <h2 id="full-webidl">3. Full WebIDL</h2>
 <pre class="webidl prettyprint">
 module Locale {
-    
+
     [NoInterfaceObject] interface SystemSettingObject {
         readonly attribute <a href="#::Locale::Locale"><span class="typ">SystemSettingManager</span></a> systemsetting;
     };
@@ -189,7 +188,7 @@ module Locale {
 
     void getProperty(<a href="#::SystemSetting::SystemSettingType">SystemSettingType</a> type,
              <a href="#::Locale::LocaleChangedCallback">SystemSettingSuccessCallback</a> successCallback,
-	     optional <a href="tizen.html#::Tizen::ErrorCallback">ErrorCallback?</a> errorCallback);
+             optional <a href="tizen.html#::Tizen::ErrorCallback">ErrorCallback?</a> errorCallback);
 
     };    
     

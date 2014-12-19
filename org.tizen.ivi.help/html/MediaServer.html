@@ -83,8 +83,8 @@
             <div class="interface" id="::MediaServerManagerObject">
                 <h3>1.1. MediaServerManagerObject</h3>
                 <div class="brief">This interface defines what is instantiated
-                    by the Tizen object by the Tizen Platform. There will be a
-                    tizen.mediaserver object that allows access to the functionality of the
+                    by the Navigator object. There will be a navigator.mediaserver
+                    object that allows access to the functionality of the
                     MediaServerManager API.</div>
 <pre class="webidl prettyprint">
 [NoInterfaceObject] interface MediaServerManagerObject {
@@ -92,7 +92,7 @@
 };
 </pre>
 <pre class="webidl prettyprint">
-Tizen implements MediaServerManagerObject;
+Navigator implements MediaServerManagerObject;
 </pre>
             </div>
             <div class="interface" id="::MediaServerManager">
@@ -448,7 +448,7 @@ module MediaServer {
         readonly attribute MediaServerManager mediaserver;
     };
 
-    Tizen implements MediaServerManagerObject;
+    Navigator implements MediaServerManagerObject;
 
     [NoInterfaceObject] interface MediaServerManager  {
 

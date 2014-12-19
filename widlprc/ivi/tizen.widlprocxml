@@ -6,7 +6,7 @@
 [NoInterfaceObject] interface VehicleManagerObject {
     readonly    attribute <ref>Vehicle</ref> vehicle;
 };
-  
+
 <ref>Navigator</ref> implements <ref>VehicleManagerObject</ref>;
 
 [NoInterfaceObject]
@@ -3796,22 +3796,22 @@ interface ParkingLights : <ref>VehicleCommonDataType</ref> {
   [NoInterfaceObject] interface MediaServerManagerObject {
                 readonly attribute <ref>MediaServerManager</ref> mediaserver;
 };
- 
+
 <ref>Navigator</ref> implements <ref>MediaServerManagerObject</ref>;
-    
-[NoInterfaceObject] interface MediaServerManager  { 
+
+[NoInterfaceObject] interface MediaServerManager  {
             void scanNetwork(<ref>MediaServerFoundServerCallback</ref> successCallback, optional <ref>MediaServerErrorCallback</ref> errorCallback);
-};    
+};
 
 [NoInterfaceObject] interface MediaServer {
             readonly attribute DOMString id;
             readonly attribute DOMString friendlyName;
             readonly attribute object root;
-                                            
+
             void browse(DOMString containerId, DOMString sortMode, unsigned long count, unsigned long offset, <ref>MediaServerBrowseFindCallback</ref> successCallback, optional <ref>MediaServerErrorCallback</ref> errorCallback);
                 void find(DOMString containerId, DOMString searchFilter, DOMString sortMode, unsigned long count, unsigned long offset, <ref>MediaServerBrowseFindCallback</ref> successCallback, optional <ref>MediaServerErrorCallback</ref> errorCallback);
 };
-            
+
 [NoInterfaceObject] interface MediaServerError {
              const unsigned short GENERIC = 1;
              attribute unsigned short code;
@@ -3847,7 +3847,7 @@ interface ParkingLights : <ref>VehicleCommonDataType</ref> {
     <webidl><ref>Navigator</ref> implements <ref>MediaServerManagerObject</ref>;</webidl>
   </Implements>
   <Interface name="MediaServerManager" id="::MediaServerManager">
-    <webidl>[NoInterfaceObject] interface MediaServerManager  { 
+    <webidl>[NoInterfaceObject] interface MediaServerManager  {
             void scanNetwork(<ref>MediaServerFoundServerCallback</ref> successCallback, optional <ref>MediaServerErrorCallback</ref> errorCallback);
 };</webidl>
     <ExtendedAttributeList>

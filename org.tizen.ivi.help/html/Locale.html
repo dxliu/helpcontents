@@ -3,35 +3,52 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="stylesheet" type="text/css" href="tizen.css" media="screen">
-<script type="text/javascript" src="snippet.js"></script>
-<title>Locale API</title>
+<script type="text/javascript" src="snippet.js"></script><title>SystemSetting API</title>
 </head>
 <body id="content" onload="prettyPrint()">
-    <div class="api" id="::Locale">
+    <div class="api" id="::SystemSetting">
         <div class="title">
-            <h1>Locale API</h1>
+            <h1>SystemSetting API</h1></div>
+        <div class="brief">
+            This API provides interfaces and methods provided by locale API.
         </div>
         <div class="description">
-            <p>Allows access to the Locale API.</p>
+            <p>
+                This API provides an interface and method through features such as:
+            </p>
+            <ul>
+                <li>HOME_SCREEN</li>
+                <li>LOCK_SCREEN</li>
+                <li>INCOMING_CALL</li>
+                <li>NOTIFICATION_EMAIL</li>
+                <li>LOCALE</li>
+            </ul>
+            <p>
+                For more information on the SystemSetting features, see <a href="../../org.tizen.web.appprogramming/html/guide/sys_guide/systemsetting.htm">System Setting Guide</a>.
+            </p>
         </div>
         <h2>Table of Contents</h2>
         <ul class="toc">
-            <li>1. <a href="#interfaces">Interfaces</a>
+            <li>1. <a href="#typedefs">Type Definitions</a>
                 <ul class="toc">
-                    <li>1.1. <a href="#::Locale::LocaleManagerObject">LocaleManagerObject</a>
-                    </li>
-                    <li>1.2. <a href="#::Locale::Locale">Locale</a>
-                    </li>
-                    <li>1.3. <a href="#::Locale::LocaleChangedCallback">LocaleChangedCallback</a>
+                    <li>1.1. <a href="#::SystemSetting::SystemSettingType">SystemSettingType</a>
                     </li>
                 </ul>
             </li>
-            <li>2. <a href="#full-webidl">Full WebIDL</a>
+            <li>2. <a href="#interfaces">Interfaces</a>
+                <ul class="toc">
+                    <li>2.1. <a href="#::SystemSetting::SystemSettingObject">SystemSettingObject</a>
+                    </li>
+                    <li>2.2. <a href="#::SystemSetting::SystemSettingManager">SystemSettingManager</a>
+                    </li>
+                    <li>2.3. <a href="#::SystemSetting::SystemSettingSuccessCallback">SystemSettingSuccessCallback</a>
+                    </li>
+                </ul>
+            </li>
+            <li>3. <a href="#full-webidl">Full WebIDL</a>
             </li>
         </ul>
-
         <hr>
-
         <h2 id="method-summary">Summary of Interfaces and Methods</h2>
         <table class="informaltable">
             <thead>
@@ -39,219 +56,363 @@
                     <th>Interface</th>
                     <th>Method</th>
                 </tr>
-                <tr>
-                    <td><a href="#::Locale::LocaleManagerObject"> LocaleManagerObject</a></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td><a href="#::Locale::Locale"> Locale</a></td>
-                    <td>DOMString <a href="#::Locale::Locale::getLocale">getLocale()</a>; <br>
-                        void <a href="#::Locale::Locale::setLocale">setLocale</a>(DOMString
-                            newLocale); <br> void <a href="#::Locale::Locale::localeChanged">
-                            localeChanged</a>(<a href="#::Locale::LocaleChangedCallback"><span class="typ">LocaleChangedCallback</span></a> changeCallback); <br></td>
-                </tr>
-                <tr>
-                    <td><a href="#::Locale::LocaleChangedCallback"> LocaleChangedCallback</a></td>
-                    <td></td>
-                </tr>
             </thead>
-            <tbody></tbody>
+            <tbody>
+                <tr>
+                    <td><a href="#::SystemSetting::SystemSettingObject">SystemSettingObject</a></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><a href="#::SystemSetting::SystemSettingManager">SystemSettingManager</a></td>
+                    <td>void <a href="#setPropertyidp89480">setProperty</a> (<a href="#::SystemSetting::SystemSettingType">SystemSettingType</a> type, DOMString value, <a href="tizen.html#::Tizen::SuccessCallback">SuccessCallback</a> successCallback, optional <a href="tizen.html#::Tizen::ErrorCallback">ErrorCallback</a>? errorCallback)<br>void <a href="#getPropertyidp106296">getProperty</a> (<a href="#::SystemSetting::SystemSettingType">SystemSettingType</a> type, <a href="#::SystemSetting::SystemSettingSuccessCallback">SystemSettingSuccessCallback</a> successCallback, optional <a href="tizen.html#::Tizen::ErrorCallback">ErrorCallback</a>? errorCallback)</td>
+                </tr>
+                <tr>
+                    <td><a href="#::SystemSetting::SystemSettingSuccessCallback">SystemSettingSuccessCallback</a></td>
+                    <td>void <a href="#onsuccessidp120232">onsuccess</a> (DOMString value)</td>
+                </tr>
+            </tbody>
         </table>
-        <!-- -------------------------------- -->
+        <div class="typedefs" id="typedefs">
+            <h2>1. Type Definitions</h2>
+           <div class="enum" id="::SystemSetting::SystemSettingType">
+                <h3>1.1. SystemSettingType</h3>
+                <div class="brief">
+                    This enumerator indicates the type of supported system setting.
+                    The following values are supported in this release:
+                </div>
+                <pre class="webidl prettyprint">  enum SystemSettingType {"HOME_SCREEN", "LOCK_SCREEN", "INCOMING_CALL", "NOTIFICATION_EMAIL", "LOCALE"};</pre>
+                <div class="description">
+                    <ul>
+                        <li>HOME_SCREEN - For homescreen background image.</li>
+                        <li>LOCK_SCREEN - For lockscreen background image.</li>
+                        <li>INCOMING_CALL - For incoming call ringtone. </li>
+                        <li>NOTIFICATION_EMAIL - For email notification alert tone.</li>
+                        <li>LOCALE</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
         <div class="interfaces" id="interfaces">
-            <h2>1. Interfaces</h2>
-
-            <div class="interface" id="::Locale::LocaleManagerObject">
-                <h3>1.1. LocaleManagerObject</h3>
-                <div class="brief"></div>
+            <h2>2. Interfaces</h2>
+            <div class="interface" id="::SystemSetting::SystemSettingObject">
+                <h3>2.1. SystemSettingObject</h3>
+                <div class="brief">
+                    This interface defines what is instantiated by the <em>Tizen </em>object from the Tizen Platform.
+                </div>
 <pre class="webidl prettyprint">
-[NoInterfaceObject] interface LocaleManagerObject {
-    readonly attribute <a href="#::Locale::Locale"><span class="typ">Locale</span></a> locale;
+[NoInterfaceObject] interface SystemSettingObject {
+    readonly attribute <a href="#::SystemSetting::SystemSettingManager">SystemSettingManager</a> systemsetting;
 };
 </pre>
 <pre class="webidl prettyprint">
-Tizen implements Locale;
+<a href="tizen.html#::Tizen::Tizen">Tizen</a> implements <a href="#::SystemSetting::SystemSettingObject">SystemSettingObject</a>;
 </pre>
+                <div class="description">
+                    <p>
+                        There will be a <em>tizen.systemsetting </em>object that allows accessing the functionality of the SystemSetting API.
+                    </p>
+                </div>
             </div>
-
-            <div class="interface" id="::Locale::Locale">
-                <h3>1.2. Locale</h3>
-                <div class="brief">The Vehicle interface defines access to locale functionality.</div>
+            <div class="interface" id="::SystemSetting::SystemSettingManager">
+                <h3>2.2. SystemSettingManager</h3>
+                <div class="brief">
+                    This is the top-level interface for the SystemSetting API that provides
+                    access to the module functionalities.
+                </div>
 <pre class="webidl prettyprint">
-[NoInterfaceObject] interface Locale  {
+[NoInterfaceObject] interface SystemSettingManager {
 
-    DOMString getLocale();
+    void setProperty(<a href="#::SystemSetting::SystemSettingType">SystemSettingType</a> type,
+             DOMString value,
+             <a href="tizen.html#::Tizen::SuccessCallback">SuccessCallback</a> successCallback,
+             optional <a href="tizen.html#::Tizen::ErrorCallback">ErrorCallback</a>? errorCallback);
 
-    void setLocale(DOMString newLocale);
-
-    void localeChanged(<a href="#::Locale::LocaleChangedCallback"><span class="typ">LocaleChangedCallback</span></a> changeCallback);
+    void getProperty(<a href="#::SystemSetting::SystemSettingType">SystemSettingType</a> type,
+             <a href="#::SystemSetting::SystemSettingSuccessCallback">SystemSettingSuccessCallback</a> successCallback,
+             optional <a href="tizen.html#::Tizen::ErrorCallback">ErrorCallback</a>? errorCallback);
 
 };
 </pre>
                 <div class="methods">
                     <h4>Methods</h4>
                     <dl>
-                        <dt class="method" id="::Locale::Locale::getLocale">
-                            <span class="methodName">getLocale</span>
+                        <dt class="method" id="setPropertyidp89480">
+                            <code>
+                                <b><span class="methodName">setProperty</span></b>
+                            </code>
                         </dt>
                         <dd>
-                            <div class="brief">Gets the current locale.</div>
+                            <div class="brief">
+                                Sets the property of a device.
+                            </div>
                             <div class="synopsis">
 <pre class="signature prettyprint">
-DOMString getLocale();
-<span class="pln"></span>
+void setProperty(<a href="#::SystemSetting::SystemSettingType">SystemSettingType</a> type, DOMString value, <a href="tizen.html#::Tizen::SuccessCallback">SuccessCallback</a> successCallback, optional <a href="tizen.html#::Tizen::ErrorCallback">ErrorCallback</a>? errorCallback);
 </pre>
                             </div>
-                            <div class="returntype">
+                            <div class="description">
                                 <p>
-                                    <span class="return">Return value:</span>
+                                    This method allows the user to set the image or sound file specified as an input parameter as the wallpaper or ringtone of a device.
                                 </p>
-                                Current locale in ISO 639-2 format (i.e., en_US for English US).
                             </div>
-                        </dd>
-                        <dt class="method" id="::Locale::Locale::setLocale">
-                            <span class="methodName">setLocale</span>
-                        </dt>
-                        <dd>
-                            <div class="brief">Sets the system locale.</div>
-                            <div class="synopsis">
-<pre class="signature prettyprint">
-void setLocale(DOMString newLocale);
-<span class="pln"></span>
-</pre>
-                            </div>
-                            <div class="parameters">
+                            <div class="description">
                                 <p>
-                                    <span class="param">Parameters:</span>
+                                    The ErrorCallback is launched with these error types:
                                 </p>
                                 <ul>
-                                    <li class="param"><span class="name">newLocale</span>:
-                                        Locale to set in ISO 639-2 format.</li>
+                                    <li>
+                                        TypeMismatchError - If any input parameter is not compatible with the expected type for that parameter.
+                                    </li>
+                                    <li>
+                                        InvalidValuesError - If any of the input parameters contain an invalid value.
+                                    </li>
+                                    <li>
+                                        UnknownError - If any other error occurs.
+                                    </li>
                                 </ul>
+                            </div>
+                            <p>
+                                <span class="privilegelevel">
+                                    Privilege level:
+                                </span>
+                                public
+                            </p>
+                            <p>
+                                <span class="privilege">
+                                    Privilege:
+                                </span>
+                                http://tizen.org/privilege/setting
+                            </p>
+                            <div class="parameters">
+                                <p><span class="param">Parameters:</span></p>
+                                <ul>
+                                    <li class="param">
+                                        <span class="name">type</span>:
+                                        The setting type to set.
+                                    </li>
+                                    <li class="param">
+                                        <span class="name">value</span>:
+                                        The value of locale.
+                                    </li>
+                                    <li class="param">
+                                        <span class="name">successCallback</span>:
+                                        To be invoked if the setting value is successfully set.
+                                    </li>
+                                    <li class="param">
+                                        <span class="name">errorCallback</span><span class="optional"> [optional]</span><span class="optional"> [nullable]</span>:
+                                        To be invoked if the setting value cannot be set.
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="exceptionlist">
+                                <p><span class="except">Exceptions:</span></p>
+                                <ul class="exception">
+                                    <li>WebAPIException
+                                        <ul>
+                                            <li class="list">
+                                                <p>
+                                                    with error type InvalidValuesError, if any of the input parameters contain an invalid value.
+                                                </p>
+                                            </li>
+                                            <li class="list">
+                                                <p>
+                                                    with error type NotSupportedError, if this feature is not supported.
+                                                </p>
+                                            </li>
+                                            <li class="list">
+                                                <p>
+                                                    with error type TypeMismatchError, if any input parameter is not compatible with the expected type for that parameter.
+                                                </p>
+                                            </li>
+                                            <li class="list">
+                                                <p>
+                                                    with error type SecurityError, if this functionality is not allowed.
+                                                </p>
+                                            </li>
+                                            <li class="list">
+                                                <p>
+                                                    with error type UnknownError in any other error case.
+                                                </p>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="example">
+                                <span class="example">
+                                    <p>Code example:</p>
+                                </span>
+<pre name="code" class="examplecode prettyprint">
+ // Define the success callback
+ function successCallback() {
+   console.log("Success to setProperty");
+ }
+
+ // Define the error callback.
+ function errorCallback(error) {
+   console.log("Fail to setProperty" + error.message);
+ }
+
+ tizen.systemsetting.setProperty("HOME_SCREEN", "/opt/usr/media/Images/image1.jpg", successCallback, errorCallback);
+
+</pre>
                             </div>
                         </dd>
-                        <dt class="method" id="::Locale::Locale::localeChanged">
-                            <span class="methodName">localeChanged</span>
+                        <dt class="method" id="getPropertyidp106296">
+                            <code>
+                                <b><span class="methodName">getProperty</span></b>
+                            </code>
                         </dt>
                         <dd>
-                            <div class="brief">Subscribes a callback function to be invoked when locale changes.</div>
+                            <div class="brief">
+                                Gets the value of the property of a device.
+                            </div>
                             <div class="synopsis">
 <pre class="signature prettyprint">
-void localeChanged(<a href="#::LocaleChangedCallback"><span class="typ">LocaleChangedCallback</span></a> changeCallback);
-<span class="pln"></span>
+void getProperty(<a href="#::SystemSetting::SystemSettingType">SystemSettingType</a> type, <a href="#::SystemSetting::SystemSettingSuccessCallback">SystemSettingSuccessCallback</a> successCallback, optional <a href="tizen.html#::Tizen::ErrorCallback">ErrorCallback</a>? errorCallback);
 </pre>
                             </div>
-                            <div class="parameters">
+                            <div class="description">
                                 <p>
-                                    <span class="param">Parameters:</span>
+                                    This method allows the user to get the value of the specified system property as wallpaper or ringtone of a device.
+                                </p>
+                            </div>
+                            <div class="description">
+                                <p>
+                                    The ErrorCallback is launched with these error types:
                                 </p>
                                 <ul>
-                                    <li class="param"><span class="name">changeCallback</span>: Callback
-                                        to be called when this event occurs.</li>
+                                    <li>
+                                        TypeMismatchError - If any input parameter is not compatible with the expected type for that parameter.
+                                    </li>
+                                    <li>
+                                        InvalidValuesError - If any of the input parameters contain an invalid value.
+                                    </li>
+                                    <li>
+                                        UnknownError - If any other error occurs.
+                                    </li>
                                 </ul>
-                            </div>
-                        </dd>
-                    </dl>
-                </div>
-
-                <div class="interface" id="::Locale::LocaleChangedCallback">
-                <h3>1.3. LocaleChangedCallback</h3>
-                <div class="brief">This interface specified a success callback that is invoked when current locale is changed.</div>
-<pre class="webidl prettyprint">
-[Callback=FunctionOnly, NoInterfaceObject] interface LocaleChangedCallback {
-
-    void onsuccess(DOMString newLocale);
-
-};
-</pre>
-                <div class="methods">
-                    <h4>Methods</h4>
-
-                    <dl>
-                        <dt class="method" id="::Locale::LocaleChangedCallback::onsuccess">
-                            <span class="methodName">onsuccess</span>
-                        </dt>
-                        <dd>
-                            <div class="brief">The callback function used to return a new locale. Called when current locale is changed successfully.</div>
-                            <div class="synopsis">
-<pre class="signature prettyprint">
-void onsuccess(DOMString newLocale);
-<span class="pln"></span>
-</pre>
                             </div>
                             <div class="parameters">
-                                <p>
-                                    <span class="param">Parameters:</span>
-                                </p>
+                                <p><span class="param">Parameters:</span></p>
                                 <ul>
-                                    <li class="param"><span class="name">newLocale</span>: A new locale.</li>
+                                    <li class="param">
+                                        <span class="name">type</span>:
+                                        The type of the property to get.
+                                    </li>
+                                    <li class="param">
+                                        <span class="name">successCallback</span>:
+                                        To be invoked if the setting value is successfully retrieved.
+                                    </li>
+                                    <li class="param">
+                                        <span class="name">errorCallback</span><span class="optional"> [optional]</span><span class="optional"> [nullable]</span>:
+                                        To be invoked if the setting value cannot be retrieved.
+                                    </li>
                                 </ul>
+                            </div>
+                            <div class="exceptionlist">
+                                <p><span class="except">Exceptions:</span></p>
+                                <ul class="exception">
+                                    <li>WebAPIException
+                                        <ul>
+                                            <li class="list">
+                                                <p>with error type InvalidValuesError, if any of the input parameters contain an invalid value.</p>
+                                            </li>
+                                            <li class="list">
+                                                <p>with error type NotSupportedError, if this feature is not supported.</p>
+                                            </li>
+                                            <li class="list">
+                                                <p>with error type TypeMismatchError, if any input parameter is not compatible with the expected type for that parameter.</p>
+                                            </li>
+                                            <li class="list">
+                                                <p>with error type UnknownError in any other error case.</p>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="example">
+                              <span class="example"><p>Code example:</p></span>
+<pre name="code" class="examplecode prettyprint">
+  // Define the success callback
+  function getPropertySuccessCallback(value) {
+    console.log("Success to getProperty : " + value);
+  }
+
+  // Define the error callback.
+  function errorCallback(error) {
+    console.log("Fail to getProperty" + error.message);
+  }
+
+  tizen.systemsetting.getProperty("LOCALE", getPropertySuccessCallback, errorCallback);
+
+</pre>
                             </div>
                         </dd>
                     </dl>
                 </div>
             </div>
-        </div>
-        </div>
-
-                <!-- -------------------------------- -->
-                <h2 id="full-webidl">2. Full WebIDL</h2>
-<pre class="webidl prettyprint">
-module Locale {
-
-    [NoInterfaceObject] interface LocaleManagerObject {
-        readonly attribute Locale locale;
-    };
-
-    Tizen implements Locale;
-
-    [NoInterfaceObject] interface Locale  {
-
-        DOMString getLocale();
-
-        void setLocale(DOMString newLocale);
-
-        void localeChanged(LocaleChangedCallback changeCallback);
-
-    };
-
-    [Callback=FunctionOnly, NoInterfaceObject] interface LocaleChangedCallback {
-
-        void onsuccess(DOMString newLocale);
-
-    };
-};
-</pre>
-                <div id="footer">
-                    <div class="copyright" align="center">
-                        Except as noted, this content - excluding the Code Examples - is
-                        licensed under <a
-                            href="http://creativecommons.org/licenses/by/3.0/legalcode"
-                            target="_blank">Creative Commons Attribution 3.0</a> and all of
-                        the Code Examples contained herein are licensed under <a
-                            href="https://www.tizen.org/bsd-3-clause-license" target="_blank">BSD-3-Clause</a>.
-                        <br>For details, see the <a
-                            href="https://www.tizen.org/content-license" target="_blank">Content
-                            License</a>.
-                    </div>
+            <div class="interface" id="::SystemSetting::SystemSettingSuccessCallback">
+                <h3>2.3. SystemSettingSuccessCallback</h3>
+                <div class="brief">
+                    The success callback for getProperty().
                 </div>
-                    <script type="text/javascript">
-                        var _gaq = _gaq || [];
-                        _gaq.push([ '_setAccount', 'UA-25976949-1' ]);
-                        _gaq.push([ '_setDomainName', 'tizen.org' ]);
-                        _gaq.push([ '_trackPageview' ]);
+<pre class="webidl prettyprint">
+  [Callback=FunctionOnly, NoInterfaceObject] interface SystemSettingSuccessCallback {
+    void onsuccess(DOMString value);
+  };
+</pre>
+            </div>
+        </div>
+        <h2 id="full-webidl">3. Full WebIDL</h2>
+<pre class="webidl prettyprint">
+module SystemSetting {
 
-                        (function() {
-                            var ga = document.createElement('script');
-                            ga.type = 'text/javascript';
-                            ga.async = true;
-                            ga.src = ('https:' == document.location.protocol ? 'https://ssl'
-                                    : 'http://www')
-                                    + '.google-analytics.com/ga.js';
-                            var s = document.getElementsByTagName('script')[0];
-                            s.parentNode.insertBefore(ga, s);
-                        })();
-                    </script>
-             </div>
+    [NoInterfaceObject] interface SystemSettingObject {
+        readonly attribute <a href="#::SystemSetting::SystemSettingManager">SystemSettingManager</a> systemsetting;
+    };
+    <a href="tizen.html#::Tizen::Tizen">Tizen</a> implements <a href="#::SystemSetting::SystemSettingObject">SystemSettingObject</a>;
+
+    enum SystemSettingType {"LOCALE"};
+
+    [NoInterfaceObject] interface SystemSettingManager {
+
+       void setProperty(<a href="#::SystemSetting::SystemSettingType">SystemSettingType</a> type,
+                DOMString value,
+                <a href="tizen.html#::Tizen::SuccessCallback">SuccessCallback</a> successCallback,
+                optional <a href="tizen.html#::Tizen::ErrorCallback">ErrorCallback</a>? errorCallback);
+
+       void getProperty(<a href="#::SystemSetting::SystemSettingType">SystemSettingType</a> type,
+                <a href="#::SystemSetting::SystemSettingSuccessCallback">SystemSettingSuccessCallback</a> successCallback,
+                optional <a href="tizen.html#::Tizen::ErrorCallback">ErrorCallback</a>? errorCallback);
+
+    };
+
+    [Callback=FunctionOnly, NoInterfaceObject] interface SystemSettingSuccessCallback {
+        void onsuccess(DOMString value);
+    };
+
+ };
+</pre>
+    </div>
+    <div id="footer">
+        <div class="copyright" align="center">
+            Except as noted, this content - excluding the Code Examples - is licensed under <a href="http://creativecommons.org/licenses/by/3.0/legalcode" target="_blank">Creative Commons Attribution 3.0</a> and all of the Code Examples contained herein are licensed under <a href="https://www.tizen.org/bsd-3-clause-license" target="_blank">BSD-3-Clause</a>. <br>For details, see the <a href="https://www.tizen.org/content-license" target="_blank">Content License</a>.
+        </div>
+        <script type="text/javascript">
+
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-25976949-1']);
+            _gaq.push(['_setDomainName', 'tizen.org']);
+            _gaq.push(['_trackPageview']);
+
+            (function() {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+
+        </script>
+    </div>
 </body>
 </html>

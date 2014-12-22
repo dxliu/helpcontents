@@ -17,6 +17,10 @@
                 This API provides an interface and method through features such as:
             </p>
             <ul>
+                <li>HOME_SCREEN</li>
+                <li>LOCK_SCREEN</li>
+                <li>INCOMING_CALL</li>
+                <li>NOTIFICATION_EMAIL</li>
                 <li>LOCALE</li>
             </ul>
             <p>
@@ -76,12 +80,14 @@
                     This enumerator indicates the type of supported system setting.
                     The following values are supported in this release:
                 </div>
-                <pre class="webidl prettyprint">  enum SystemSettingType {"LOCALE"};</pre>
+                <pre class="webidl prettyprint">  enum SystemSettingType {"HOME_SCREEN", "LOCK_SCREEN", "INCOMING_CALL", "NOTIFICATION_EMAIL", "LOCALE"};</pre>
                 <div class="description">
                     <ul>
-                        <li>
-                            LOCALE
-                        </li>
+                        <li>HOME_SCREEN - For homescreen background image.</li>
+                        <li>LOCK_SCREEN - For lockscreen background image.</li>
+                        <li>INCOMING_CALL - For incoming call ringtone. </li>
+                        <li>NOTIFICATION_EMAIL - For email notification alert tone.</li>
+                        <li>LOCALE</li>
                     </ul>
                 </div>
             </div>
@@ -247,7 +253,7 @@ void setProperty(<a href="#::SystemSetting::SystemSettingType">SystemSettingType
    console.log("Fail to setProperty" + error.message);
  }
 
- tizen.systemsetting.setProperty("LOCALE", "eng", successCallback, errorCallback);
+ tizen.systemsetting.setProperty("HOME_SCREEN", "/opt/usr/media/Images/image1.jpg", successCallback, errorCallback);
 
 </pre>
                             </div>
@@ -393,20 +399,20 @@ module SystemSetting {
         <div class="copyright" align="center">
             Except as noted, this content - excluding the Code Examples - is licensed under <a href="http://creativecommons.org/licenses/by/3.0/legalcode" target="_blank">Creative Commons Attribution 3.0</a> and all of the Code Examples contained herein are licensed under <a href="https://www.tizen.org/bsd-3-clause-license" target="_blank">BSD-3-Clause</a>. <br>For details, see the <a href="https://www.tizen.org/content-license" target="_blank">Content License</a>.
         </div>
-	<script type="text/javascript">
+        <script type="text/javascript">
 
-	    var _gaq = _gaq || [];
-	    _gaq.push(['_setAccount', 'UA-25976949-1']);
-	    _gaq.push(['_setDomainName', 'tizen.org']);
-	    _gaq.push(['_trackPageview']);
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-25976949-1']);
+            _gaq.push(['_setDomainName', 'tizen.org']);
+            _gaq.push(['_trackPageview']);
 
-	    (function() {
+            (function() {
                 var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
                 ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
                 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-	    })();
+            })();
 
-	</script>
+        </script>
     </div>
 </body>
 </html>

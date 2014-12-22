@@ -33,19 +33,11 @@
             </li>
             <li>2. <a href="#interfaces">Interfaces</a>
                 <ul class="toc">
-<<<<<<< HEAD
                     <li>2.1. <a href="#::SystemSetting::SystemSettingObject">SystemSettingObject</a>
                     </li>
                     <li>2.2. <a href="#::SystemSetting::SystemSettingManager">SystemSettingManager</a>
                     </li>
                     <li>2.3. <a href="#::SystemSetting::SystemSettingSuccessCallback">SystemSettingSuccessCallback</a>
-=======
-                    <li>2.1. <a href="#::Locale::LocaleManagerObject">SystemSettingObject</a>
-                    </li>
-                    <li>2.2. <a href="#::Locale::Locale">SystemSettingManager</a>
-                    </li>
-                    <li>2.3. <a href="#::Locale::LocaleChangedCallback">SystemSettingSuccessCallback</a>
->>>>>>> c78d3088d1999f7c290db88b5a93f683c2e370a8
                     </li>
                 </ul>
             </li>
@@ -63,7 +55,6 @@
             </thead>
             <tbody>
                 <tr>
-<<<<<<< HEAD
                     <td><a href="#::SystemSetting::SystemSettingObject">SystemSettingObject</a></td>
                     <td></td>
                 </tr>
@@ -74,23 +65,9 @@
                 <tr>
                     <td><a href="#::SystemSetting::SystemSettingSuccessCallback">SystemSettingSuccessCallback</a></td>
                     <td>void <a href="#onsuccessidp120232">onsuccess</a> (DOMString value)</td>
-=======
-                    <td><a href="#::Locale::LocaleManagerObject"> SystemSettingObject</a></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td><a href="#::Locale::Locale"> SystemSettingManager</a></td>
-                    <td>void <a href="#::Locale::Locale::setLocale">setProperty() </a>(<a href="#::SystemSetting::SystemSettingType">SystemSettingType</a> type, DOMString value, <a href="tizen.html#::Tizen::SuccessCallback">SuccessCallback</a> successCallback, optional <a href="tizen.html#::Tizen::ErrorCallback">ErrorCallback</a>? errorCallback) <br>
-                        void <a href="#::Locale::Locale::getLocale">getProperty </a>(<a href="#::SystemSetting::SystemSettingType">SystemSettingType</a> type, <a href="#::Locale::LocaleChangedCallback">SystemSettingSuccessCallback</a> successCallback, optional <a href="tizen.html#::Tizen::ErrorCallback">ErrorCallback?</a> errorCallback)<br> </td>
-                </tr>
-                <tr>
-                    <td><a href="#::Locale::LocaleChangedCallback"> SystemSettingSuccessCallback</a></td>
-                    <td>void <a href="">onsuccess</a> (DOMString value)</td>
->>>>>>> c78d3088d1999f7c290db88b5a93f683c2e370a8
                 </tr>
             </tbody>
         </table>
-<<<<<<< HEAD
         <div class="typedefs" id="typedefs">
             <h2>1. Type Definitions</h2>
            <div class="enum" id="::SystemSetting::SystemSettingType">
@@ -123,35 +100,6 @@
 </pre>
 <pre class="webidl prettyprint">
 <a href="tizen.html#::Tizen::Tizen">Tizen</a> implements <a href="#::SystemSetting::SystemSettingObject">SystemSettingObject</a>;
-=======
-        <!--Type Definitions-------------------->
-        <div class="typedefs" id="typedefs">
-            <h2>1. Type Definitions</h2>
-            <div class="enum" id="::SystemSetting::SystemSettingType">
-                <h3>1.1. SystemSettingType</h3>
-                <div class="brief">
-                    This enumerator indicates the type of supported system setting. The following values are supported in this release:
-                </div>
-                <pre class="webidl prettyprint">  enum SystemSettingType {"LOCALE"};</pre>
-            </div>
-        </div>
-        <!-- -------------------------------- -->
-        <div class="interfaces" id="interfaces">
-            <h2>2. Interfaces</h2>
-
-            <div class="interface" id="::Locale::LocaleManagerObject">
-                <h3>2.1. SystemSettingObject</h3>
-                <div class="brief">
-                    This interface defines what is instantiated by the Tizen object from the Tizen Platform.
-                </div>
-<pre class="webidl prettyprint">
-[NoInterfaceObject] interface SystemSettingObject {
-    readonly attribute <a href="#::Locale::Locale"><span class="typ">SystemSettingManager</span></a> systemsetting;
-};
-</pre>
-<pre class="webidl prettyprint">
-Tizen implements SystemSettingObject;
->>>>>>> c78d3088d1999f7c290db88b5a93f683c2e370a8
 </pre>
                 <div class="description">
                     <p>
@@ -159,7 +107,6 @@ Tizen implements SystemSettingObject;
                     </p>
                 </div>
             </div>
-<<<<<<< HEAD
             <div class="interface" id="::SystemSetting::SystemSettingManager">
                 <h3>2.2. SystemSettingManager</h3>
                 <div class="brief">
@@ -168,45 +115,25 @@ Tizen implements SystemSettingObject;
                 </div>
 <pre class="webidl prettyprint">
 [NoInterfaceObject] interface SystemSettingManager {
-=======
-
-            <div class="interface" id="::Locale::Locale">
-                <h3>2.2. SystemSettingManager</h3>
-                <div class="brief">The Vehicle interface defines access to locale functionality.</div>
-<pre class="webidl prettyprint">
-[NoInterfaceObject] interface SystemSettingManager  {
->>>>>>> c78d3088d1999f7c290db88b5a93f683c2e370a8
 
     void setProperty(<a href="#::SystemSetting::SystemSettingType">SystemSettingType</a> type,
              DOMString value,
              <a href="tizen.html#::Tizen::SuccessCallback">SuccessCallback</a> successCallback,
-<<<<<<< HEAD
              optional <a href="tizen.html#::Tizen::ErrorCallback">ErrorCallback</a>? errorCallback);
 
     void getProperty(<a href="#::SystemSetting::SystemSettingType">SystemSettingType</a> type,
              <a href="#::SystemSetting::SystemSettingSuccessCallback">SystemSettingSuccessCallback</a> successCallback,
              optional <a href="tizen.html#::Tizen::ErrorCallback">ErrorCallback</a>? errorCallback);
-=======
-             optional <a href="tizen.html#::Tizen::ErrorCallback">ErrorCallback?</a> errorCallback);
->>>>>>> c78d3088d1999f7c290db88b5a93f683c2e370a8
 
-    void getProperty(<a href="#::SystemSetting::SystemSettingType">SystemSettingType</a> type,
-             <a href="#::Locale::LocaleChangedCallback">SystemSettingSuccessCallback</a> successCallback,
-             optional <a href="tizen.html#::Tizen::ErrorCallback">ErrorCallback?</a> errorCallback);
 };
 </pre>
                 <div class="methods">
                     <h4>Methods</h4>
                     <dl>
-<<<<<<< HEAD
                         <dt class="method" id="setPropertyidp89480">
                             <code>
                                 <b><span class="methodName">setProperty</span></b>
                             </code>
-=======
-                        <dt class="method" id="::Locale::Locale::getLocale">
-                            <span class="methodName">getProperty</span>
->>>>>>> c78d3088d1999f7c290db88b5a93f683c2e370a8
                         </dt>
                         <dd>
                             <div class="brief">
@@ -214,12 +141,7 @@ Tizen implements SystemSettingObject;
                             </div>
                             <div class="synopsis">
 <pre class="signature prettyprint">
-<<<<<<< HEAD
 void setProperty(<a href="#::SystemSetting::SystemSettingType">SystemSettingType</a> type, DOMString value, <a href="tizen.html#::Tizen::SuccessCallback">SuccessCallback</a> successCallback, optional <a href="tizen.html#::Tizen::ErrorCallback">ErrorCallback</a>? errorCallback);
-=======
-void getProperty(<a href="#::SystemSetting::SystemSettingType">SystemSettingType</a> type, <a href="#::Locale::LocaleChangedCallback">SystemSettingSuccessCallback</a> successCallback, optional <a href="tizen.html#::Tizen::ErrorCallback">ErrorCallback</a>? errorCallback);
-<span class="pln"></span>
->>>>>>> c78d3088d1999f7c290db88b5a93f683c2e370a8
 </pre>
                             </div>
                             <div class="description">
@@ -227,23 +149,7 @@ void getProperty(<a href="#::SystemSetting::SystemSettingType">SystemSettingType
                                     This method allows the user to set the image or sound file specified as an input parameter as the wallpaper or ringtone of a device.
                                 </p>
                             </div>
-<<<<<<< HEAD
                             <div class="description">
-=======
-                        </dd>
-                        <dt class="method" id="::Locale::Locale::setLocale">
-                            <span class="methodName">setProperty</span>
-                        </dt>
-                        <dd>
-                            <div class="brief">Sets the system locale.</div>
-                            <div class="synopsis">
-<pre class="signature prettyprint">
-void setProperty(<a href="#::SystemSetting::SystemSettingType">SystemSettingType</a> type, DOMString value, <a href="tizen.html#::Tizen::SuccessCallback">SuccessCallback</a> successCallback, optional <a href="tizen.html#::Tizen::ErrorCallback">ErrorCallback?</a> errorCallback);
-<span class="pln"></span>
-</pre>
-                            </div>
-                            <div class="parameters">
->>>>>>> c78d3088d1999f7c290db88b5a93f683c2e370a8
                                 <p>
                                     The ErrorCallback is launched with these error types:
                                 </p>
@@ -259,7 +165,6 @@ void setProperty(<a href="#::SystemSetting::SystemSettingType">SystemSettingType
                                     </li>
                                 </ul>
                             </div>
-<<<<<<< HEAD
                             <p>
                                 <span class="privilegelevel">
                                     Privilege level:
@@ -341,22 +246,10 @@ void setProperty(<a href="#::SystemSetting::SystemSettingType">SystemSettingType
  function errorCallback(error) {
    console.log("Fail to setProperty" + error.message);
  }
-=======
-                        </dd>
-                    </dl>
-                </div>
-
-                <div class="interface" id="::Locale::LocaleChangedCallback">
-                <h3>2.3. SystemSettingSuccessCallback</h3>
-                <div class="brief">The success callback for getProperty().</div>
-<pre class="webidl prettyprint">
-[Callback=FunctionOnly, NoInterfaceObject] interface SystemSettingSuccessCallback {
->>>>>>> c78d3088d1999f7c290db88b5a93f683c2e370a8
 
  tizen.systemsetting.setProperty("LOCALE", "eng", successCallback, errorCallback);
 
 </pre>
-<<<<<<< HEAD
                             </div>
                         </dd>
                         <dt class="method" id="getPropertyidp106296">
@@ -451,8 +344,6 @@ void getProperty(<a href="#::SystemSetting::SystemSettingType">SystemSettingType
                             </div>
                         </dd>
                     </dl>
-=======
->>>>>>> c78d3088d1999f7c290db88b5a93f683c2e370a8
                 </div>
             </div>
             <div class="interface" id="::SystemSetting::SystemSettingSuccessCallback">
@@ -467,18 +358,11 @@ void getProperty(<a href="#::SystemSetting::SystemSettingType">SystemSettingType
 </pre>
             </div>
         </div>
-<<<<<<< HEAD
         <h2 id="full-webidl">3. Full WebIDL</h2>
-=======
-
-                <!-- -------------------------------- -->
-                <h2 id="full-webidl">3. Full WebIDL</h2>
->>>>>>> c78d3088d1999f7c290db88b5a93f683c2e370a8
 <pre class="webidl prettyprint">
 module SystemSetting {
 
     [NoInterfaceObject] interface SystemSettingObject {
-<<<<<<< HEAD
         readonly attribute <a href="#::SystemSetting::SystemSettingManager">SystemSettingManager</a> systemsetting;
     };
     <a href="tizen.html#::Tizen::Tizen">Tizen</a> implements <a href="#::SystemSetting::SystemSettingObject">SystemSettingObject</a>;
@@ -524,53 +408,5 @@ module SystemSetting {
 
 	</script>
     </div>
-=======
-        readonly attribute <a href="#::Locale::Locale"><span class="typ">SystemSettingManager</span></a> systemsetting;
-    };
-    
-    Tizen implements SystemSettingObject;
-
-    enum SystemSettingType {"LOCALE"};
-
-    [NoInterfaceObject] interface SystemSettingManager  {
-
-    void setProperty(<a href="#::SystemSetting::SystemSettingType">SystemSettingType</a> type,
-             DOMString value,
-             <a href="tizen.html#::Tizen::SuccessCallback">SuccessCallback</a> successCallback,
-             optional <a href="tizen.html#::Tizen::ErrorCallback">ErrorCallback?</a> errorCallback);
-
-    void getProperty(<a href="#::SystemSetting::SystemSettingType">SystemSettingType</a> type,
-             <a href="#::Locale::LocaleChangedCallback">SystemSettingSuccessCallback</a> successCallback,
-             optional <a href="tizen.html#::Tizen::ErrorCallback">ErrorCallback?</a> errorCallback);
-
-    };    
-    
-    [Callback=FunctionOnly, NoInterfaceObject] interface SystemSettingSuccessCallback {
-        void onsuccess(DOMString newLocale);
-    };
-    
-};
-</pre>
-<div id="footer">
-    <div class="copyright" align="center">
-        Except as noted, this content - excluding the Code Examples - is licensed under <a href="http://creativecommons.org/licenses/by/3.0/legalcode" target="_blank">Creative Commons Attribution 3.0</a> and all of the Code Examples contained herein are licensed under <a href="https://www.tizen.org/bsd-3-clause-license" target="_blank">BSD-3-Clause</a>.<br>For details, see the <a href="https://www.tizen.org/content-license" target="_blank">Content License</a>.
-    </div>
-</div>
-<script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push([ '_setAccount', 'UA-25976949-1' ]);
-    _gaq.push([ '_setDomainName', 'tizen.org' ]);
-    _gaq.push([ '_trackPageview' ]);
-    (function() {
-        var ga = document.createElement('script');
-        ga.type = 'text/javascript';
-        ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0];
-        s.parentNode.insertBefore(ga, s);
-    })();
-</script>
-</div>
->>>>>>> c78d3088d1999f7c290db88b5a93f683c2e370a8
 </body>
 </html>

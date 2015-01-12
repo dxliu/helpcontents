@@ -3793,7 +3793,7 @@ interface ParkingLights : <ref>VehicleCommonDataType</ref> {
 </Module>
 <Module name="MediaServer" id="::MediaServer">
   <webidl>  module MediaServer {
-  [NoInterfaceObject]
+[NoInterfaceObject]
 interface MediaContainer : <ref>MediaObject</ref> {
     readonly    attribute unsigned long? childCount;
     readonly    attribute boolean        canCreateContainer;

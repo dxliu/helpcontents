@@ -45,6 +45,18 @@
                     </li>
                     <li>2.10. <a href="#::SpeechGrammarList">SpeechGrammarList</a>
                     </li>
+                    <li>2.11. <a href="#::SpeechSynthesis">SpeechSynthesis</a>
+                    </li>
+                    <li>2.12. <a href="#::SpeechSynthesisUtterance">SpeechSynthesisUtterance</a>
+                    </li>
+                    <li>2.13. <a href="#::SpeechSynthesisUtteranceEvent">SpeechSynthesisUtteranceEvent</a>
+                    </li>
+                    <li>2.14. <a href="#::SpeechSynthesisEvent">SpeechSynthesisEvent</a>
+                    </li>
+                    <li>2.15. <a href="#::SpeechSynthesisVoice">SpeechSynthesisVoice</a>
+                    </li>
+                    <li>2.16. <a href="#::SpeechSynthesisVoiceList">SpeechSynthesisVoiceList</a>
+                    </li>
                 </ul>
             </li>
             <li>3. <a href="#full-webidl">Full WebIDL</a>
@@ -114,6 +126,31 @@
                             addFromURI</a>(DOMString src, optional float weight); <br> void <a
                         href="#::SpeechGrammarList::addFromString">
                             addFromString</a>(DOMString string, optional float weight); <br></td>
+                </tr>
+                <tr>
+                    <td><a href="#::SpeechSynthesis"> SpeechSynthesis</a></td>
+                    <td>void <a href="#::speak">speak(<a href="#::SpeechSynthesisUtterance">SpeechSynthesisUtterance</a> utterance);<br> void <a href="#::cancel">cancel()</a>; <br> void <a href="#::pause">pause()</a>; <br> void <a href="#::resume">resume()</a>; <br> SpeechSynthesisVoiceList <a href="#::getVoices">getVoices()</a>;
+                    </td>
+                </tr>
+                <tr>
+                    <td><a href="#::SpeechSynthesisUtterance">  SpeechSynthesisUtterance</a></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><a href="#::SpeechSynthesisUtteranceEvent">  SpeechSynthesisUtteranceEvent</a></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><a href="#::SpeechSynthesisEvent">  SpeechSynthesisEvent</a></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><a href="#::SpeechSynthesisVoice">  SpeechSynthesisVoice</a></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><a href="#::SpeechSynthesisVoiceList">  SpeechSynthesisVoiceList</a></td>
+                    <td>getter <a href="#::SpeechSynthesisVoice">SpeechSynthesisVoice</a> <a href="#::item">item</a>(in unsigned long index);</td>
                 </tr>
             </thead>
             <tbody></tbody>
@@ -287,19 +324,19 @@ interface SpeechRecognition : EventTarget {
                             </div></li>
                          <li class="attribute" id="::SpeechRecognition::speechend"><span
                             class="attrName"><span class="type">EventHandler </span><span
-                                class="name">speechend</span></span>
+                                class="name">onspeechend</span></span>
                             <div class="brief">Fired when the speech that will be used for speech recognition has ended.
                             The speechstart event must always have been fire before speechend.
                             </div></li>
                          <li class="attribute" id="::SpeechRecognition::soundend"><span
                             class="attrName"><span class="type">EventHandler </span><span
-                                class="name">soundend</span></span>
+                                class="name">onsoundend</span></span>
                             <div class="brief">Fired when some sound is no longer detected.
                             The soundstart event must always have been fired before soundend.
                             </div></li>
                         <li class="attribute" id="::SpeechRecognition::audioend"><span
                             class="attrName"><span class="type">EventHandler </span><span
-                                class="name">audioend</span></span>
+                                class="name">onaudioend</span></span>
                             <div class="brief">Fired when the user agent has finished capturing audio.
                             The audiostart event must always have been fired before audioend.
                             </div></li>
@@ -406,7 +443,7 @@ void abort();
                 <div class="brief">The SpeechRecognitionError event is the
                     interface used for the error event.</div>
 <pre class="webidl prettyprint">
-[NoInterfaceObject] interface SpeechRecognitionError : Event {
+interface SpeechRecognitionError : Event {
 
     readonly attribute <a href="#::ErrorCode"><span class="typ">ErrorCode</span></a> error;
 
@@ -428,14 +465,13 @@ void abort();
                     </ul>
                 </div>
             </div>
-        </div>
 
         <div class="interface" id="::SpeechRecognitionAlternative">
             <h3>2.5. SpeechRecognitionAlternative</h3>
             <div class="brief">The SpeechRecognitionAlternative represents
                 a simple view of the response that gets used in a n-best list.</div>
 <pre class="webidl prettyprint">
-[NoInterfaceObject] interface SpeechRecognitionAlternative {
+interface SpeechRecognitionAlternative {
 
     readonly attribute DOMString transcript;
 
@@ -463,7 +499,6 @@ void abort();
                 </ul>
             </div>
         </div>
-    </div>
 
     <div class="interface" id="::SpeechRecognitionResult">
         <h3>2.6. SpeechRecognitionResult</h3>
@@ -472,11 +507,11 @@ void abort();
             continuous recognition or as the complete return result of a
             non-continuous recognition.</div>
 <pre class="webidl prettyprint">
-[NoInterfaceObject] interface SpeechRecognitionResult {
+interface SpeechRecognitionResult {
 
     readonly attribute unsigned long length;
 
-    <a href="#::SpeechRecognitionAlternative"><span class="typ">SpeechRecognitionAlternative</span></a> item(unsigned long index);
+    <a href="#::SpeechRecognitionAlternative"><span class="typ">getter SpeechRecognitionAlternative</span></a> item(in unsigned long index);
 
     readonly attribute boolean final;
 
@@ -511,7 +546,7 @@ void abort();
                         than or equal to length, returns null.</div>
                     <div class="synopsis">
 <pre class="signature prettyprint">
-SpeechRecognitionAlternative item(unsigned long index);
+getter SpeechRecognitionAlternative item(unsigned long index);
 <span class="pln"></span>
 </pre>
 </div>
@@ -533,7 +568,6 @@ SpeechRecognitionAlternative item(unsigned long index);
             </dl>
         </div>
     </div>
-    </div>
 
     <div class="interface" id="::SpeechRecognitionResultList">
         <h3>2.7. SpeechRecognitionResultList</h3>
@@ -542,11 +576,11 @@ SpeechRecognitionAlternative item(unsigned long index);
             continuous recognition or as the complete return result of a
             non-continuous recognition.</div>
 <pre class="webidl prettyprint">
-[NoInterfaceObject] interface SpeechRecognitionResultList {
+interface SpeechRecognitionResultList {
 
     readonly attribute unsigned long length;
 
-    <a href="#::SpeechRecognitionResult"><span class="typ">SpeechRecognitionResult</span></a> item(unsigned long index);
+    <a href="#::SpeechRecognitionResult"><span class="typ">getter SpeechRecognitionResult</span></a> item(unsigned long index);
 
 };
 </pre>
@@ -574,7 +608,7 @@ SpeechRecognitionAlternative item(unsigned long index);
                         equal to length, returns null.</div>
                     <div class="synopsis">
 <pre class="signature prettyprint">
-SpeechRecognitionResult item(unsigned long index);
+getter SpeechRecognitionResult item(unsigned long index);
 <span class="pln"></span>
 </pre>
                     </div>
@@ -596,7 +630,6 @@ SpeechRecognitionResult item(unsigned long index);
             </dl>
         </div>
     </div>
-    </div>
 
     <div class="interface" id="::SpeechRecognitionEvent">
         <h3>2.8. SpeechRecognitionEvent</h3>
@@ -604,7 +637,7 @@ SpeechRecognitionResult item(unsigned long index);
             is raised each time there are any changes to interim or final
             results.</div>
 <pre class="webidl prettyprint">
-[NoInterfaceObject] interface SpeechRecognitionEvent : Event {
+interface SpeechRecognitionEvent : Event {
 
     readonly attribute unsigned long resultIndex;
 
@@ -641,7 +674,6 @@ SpeechRecognitionResult item(unsigned long index);
             </ul>
         </div>
     </div>
-    </div>
 
     <div class="interface" id="::SpeechGrammar">
         <h3>2.9. SpeechGrammar</h3>
@@ -675,7 +707,6 @@ interface SpeechGrammar {
             </ul>
         </div>
     </div>
-    </div>
 
     <div class="interface" id="::SpeechGrammarList">
         <h3>2.10. SpeechGrammarList</h3>
@@ -688,7 +719,7 @@ interface SpeechGrammarList {
 
     readonly attribute unsigned long length;
 
-    <a href="#::SpeechGrammar"><span class="typ">SpeechGrammar</span></a> item(unsigned long index);
+    <a href="#::SpeechGrammar"><span class="typ">getter SpeechGrammar</span></a> item(unsigned long index);
 
     void addFromURI(DOMString src, optional float weight);
 
@@ -719,7 +750,7 @@ interface SpeechGrammarList {
                         into an array of grammars.</div>
                     <div class="synopsis">
 <pre class="signature prettyprint">
-SpeechGrammar item(unsigned long index);
+getter SpeechGrammar item(unsigned long index);
 <span class="pln"></span>
 </pre>
                     </div>
@@ -785,6 +816,280 @@ void addFromString(DOMString string, optional float weight);
             </dl>
         </div>
     </div>
+
+    <div class="interface" id="::SpeechSynthesis">
+        <h3>2.11. SpeechSynthesis</h3>
+        <div class="brief">The SpeechSynthesis interface is the scripted web API for controlling a text-to-speech output.</div>
+<pre class="webidl prettyprint">
+interface SpeechSynthesis {
+
+    readonly attribute boolean pending;
+
+    readonly attribute boolean speaking;
+
+    readonly attribute boolean paused;
+
+    void speak(SpeechSynthesisUtterance utterance);
+
+    void cancel();
+
+    void pause();
+
+    void resume();
+
+    SpeechSynthesisVoiceList getVoices();
+
+};
+</pre>
+        <div class="attributes">
+            <h4>Attributes</h4>
+            <ul>
+                <li class="attribute" id="::pending"><span class="typ">pending</span>
+                    <div class="brief">This attribute is true if the queue for the global SpeechSynthesis instance contains any utterances which have not started speaking.</div></li>
+                <li class="attribute" id="::speaking"><span class="typ">speaking</span>
+                    <div class="brief">This attribute is true if an utterance is being spoken. Specifically if an utterance has begun being spoken and has not completed being spoken. This is independent of whether the global SpeechSynthesis instance is in the paused state.</div></li>
+                <li class="attribute" id="::paused"><span class="typ">paused</span>
+                    <div class="brief">This attribute is true when the global SpeechSynthesis instance is in the paused state. This state is independent of whether anything is in the queue. The default state of a the global SpeechSynthesis instance for a new window is the non-paused state.</div></li>
+            </ul>
+        </div>
+
+        <div class="methods">
+            <h4>Methods</h4>
+            <dl>
+                <dt class="method" id="::speak">
+                    <span class="methodName">speak</span>
+                </dt>
+                <dd>
+                    <div class="brief">This method appends the SpeechSynthesisUtterance object to the end of the queue for the global SpeechSynthesis instance. It does not change the paused state of the SpeechSynthesis instance. If the SpeechSynthesis instance is paused, it remains paused. If it is not paused and no other utterances are in the queue, then this utterance is spoken immediately, else this utterance is queued to begin speaking after the other utterances in the queue have been spoken. If changes are made to the SpeechSynthesisUtterance object after calling this method and prior to the corresponding <a href="#::end">end</a> or <a href="#::error">error</a> event, it is not defined whether those changes will affect what is spoken, and those changes may cause an error to be returned.</div>
+                    <div class="synopsis">
+<pre class="signature prettyprint">
+void speak(SpeechSynthesisUtterance utterance);
+<span class="pln"></span>
+</pre>
+                    </div>
+                </dd>
+                <dt class="method" id="::cancel">
+                    <span class="methodName">cancel</span>
+                </dt>
+                <dd>
+                    <div class="brief">This method removes all utterances from the queue. If an utterance is being spoken, speaking ceases immediately. This method does not change the paused state of the global SpeechSynthesis instance.</div>
+                    <div class="synopsis">
+<pre class="signature prettyprint">
+void cancel();
+<span class="pln"></span>
+</pre>
+                    </div>
+                </dd>
+                <dt class="method" id="::pause">
+                    <span class="methodName">pause</span>
+                </dt>
+                <dd>
+                    <div class="brief">This method removes all utterances from the queue. If an utterance is being spoken, speaking ceases immediately. This method does not change the paused state of the global SpeechSynthesis instance.</div>
+                    <div class="synopsis">
+<pre class="signature prettyprint">
+void pause();
+<span class="pln"></span>
+</pre>
+                    </div>
+                </dd>
+                <dt class="method" id="::resume">
+                    <span class="methodName">resume</span>
+                </dt>
+                <dd>
+                    <div class="brief">This method puts the global SpeechSynthesis instance into the non-paused state. If an utterance was speaking, it continues speaking the utterance at the point at which it was paused, else it begins speaking the next utterance in the queue (if any). (If called when the SpeechSynthesis instance was already in the non-paused state, it does nothing.)</div>
+                    <div class="synopsis">
+<pre class="signature prettyprint">
+void resume();
+<span class="pln"></span>
+</pre>
+                    </div>
+                </dd>
+                <dt class="method" id="::getVoices">
+                    <span class="methodName">getVoices</span>
+                </dt>
+                <dd>
+                    <div class="brief">This method returns the available voices. It is user agent dependent which voices are available.</div>
+                    <div class="synopsis">
+<pre class="signature prettyprint">
+SpeechSynthesisVoiceList getVoices();
+<span class="pln"></span>
+</pre>
+                    </div>
+                </dd>
+            </dl>
+        </div>
+    </div>
+
+    <div class="interface" id="::SpeechSynthesisUtterance">
+        <h3>2.12. SpeechSynthesisUtterance</h3>
+<pre class="webidl prettyprint">
+[Constructor,
+     Constructor(DOMString text)]
+    interface SpeechSynthesisUtterance : EventTarget {
+
+        attribute DOMString text;
+
+        attribute DOMString lang;
+
+        attribute DOMString voiceURI;
+
+        attribute float volume;
+
+        attribute float rate;
+
+        attribute float pitch;
+
+        attribute EventHandler onstart;
+
+        attribute EventHandler onend;
+
+        attribute EventHandler onerror;
+
+        attribute EventHandler onpause;
+
+        attribute EventHandler onresume;
+
+        attribute EventHandler onmark;
+
+        attribute EventHandler onboundary;
+
+    };
+</pre>
+        <div class="attributes">
+            <h4>Attributes</h4>
+            <ul>
+                <li class="attribute" id="::text"><span class="typ">text</span>
+                    <div class="brief">This attribute specifies the text to be synthesized and spoken for this utterance. This may be either plain text or a complete, well-formed SSML document.[SSML] For speech synthesis engines that do not support SSML, or only support certain tags, the user agent or speech engine must strip away the tags they do not support and speak the text. There may be a maximum length of the text, it may be limited to 32,767 characters.</div></li>
+                <li class="attribute" id="::lang"><span class="typ">lang</span>
+                    <div class="brief">This attribute specifies the language of the speech synthesis for the utterance, using a valid BCP 47 language tag. [BCP47] If unset it remains unset for getting in script, but will default to use the lang of the html document root element and associated hierachy. This default value is computed and used when the input request opens a connection to the recognition service.</div></li>
+                <li class="attribute" id="::voiceURI"><span class="typ">voiceURI</span>
+                    <div class="brief">The voiceURI attribute specifies speech synthesis voice and the location of the speech synthesis service that the web application wishes to use. If this attribute is unset at the time of the play method call, then the user agent must use the user agent default speech service. Note that the voiceURI is a generic URI and can thus point to local services either through use of a URN with meaning to the user agent or by specifying a URL that the user agent recognizes as a local service. Additionally, the user agent default can be local or remote and can incorporate end user choices via interfaces provided by the user agent such as browser configuration parameters. </div></li>
+                <li class="attribute" id="::volume"><span class="typ">volume</span>
+                    <div class="brief">This attribute specifies the speaking volume for the utterance. It ranges between 0 and 1 inclusive, with 0 being the lowest volume and 1 the highest volume, with a default of 1. If SSML is used, this value will be overridden by prosody tags in the markup.</div></li>
+                <li class="attribute" id="::rate"><span class="typ">rate</span>
+                    <div class="brief">This attribute specifies the speaking rate for the utterance. It is relative to the default rate for this voice. 1 is the default rate supported by the speech synthesis engine or specific voice (which should correspond to a normal speaking rate). 2 is twice as fast, and 0.5 is half as fast. Values below 0.1 or above 10 are strictly disallowed, but speech synthesis engines or specific voices may constrain the minimum and maximum rates further, for example, a particular voice may not actually speak faster than 3 times normal even if you specify a value larger than 3. If SSML is used, this value will be overridden by prosody tags in the markup.</div></li>
+                <li class="attribute" id="::pitch"><span class="typ">pitch</span>
+                    <div class="brief">This attribute specifies the speaking pitch for the utterance. It ranges between 0 and 2 inclusive, with 0 being the lowest pitch and 2 the highest pitch. 1 corresponds to the default pitch of the speech synthesis engine or specific voice. Speech synthesis engines or voices may constrain the minimum and maximum rates further. If SSML is used, this value will be overridden by prosody tags in the markup.</div></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="interface" id="::SpeechSynthesisUtteranceEvent">
+        <h3>2.13. SpeechSynthesisUtterance Event</h3>
+        <div class="brief">Each of these events <span class="typ">must</span> use the <a href="#::SpeechSynthesisEvent">SpeechSynthesisEvent</a> interface. </div>
+        <div class="attributes">
+            <h4>event</h4>
+            <ul>
+                <li class="attribute" id="::start"><span class="typ">start</span>
+                    <div class="brief">Fired when this utterance has begun to be spoken.</div></li>
+                <li class="attribute" id="::end"><span class="typ">end</span>
+                    <div class="brief">Fired when this utterance has completed being spoken. If this event fires, the <a href="#::error">error</a> event must not be fired for this utterance.</div></li>
+                <li class="attribute" id="::error"><span class="typ">error</span>
+                    <div class="brief">Fired if there was an error that prevented successful speaking of this utterance. If this event fires, the <a href="#::end">end</a> event must not be fired for this utterance.</div></li>
+                <li class="attribute" id="::pause"><span class="typ">pause</span>
+                    <div class="brief">Fired when and if this utterance is paused mid-utterance.</div></li>
+                <li class="attribute" id="::resumeevent"><span class="typ">resume</span>
+                    <div class="brief">Fired when and if this utterance is resumed after being paused mid-utterance. Adding the utterance to the queue while the global SpeechSynthesis instance is in the paused state, and then calling the resume method does not cause the resume event to be fired, in this case the utterance's start event will be called when the utterance <a href="#::start">starts</a>.</div></li>
+                <li class="attribute" id="::mark"><span class="typ">mark</span>
+                    <div class="brief">Fired when the spoken utterance reaches a named "mark" tag in SSML. [SSML] The user agent must fire this event if the speech synthesis engine provides the event.</div></li>
+                <li class="attribute" id="::boundary"><span class="typ">boundary</span>
+                    <div class="brief">Fired when the spoken utterance reaches a word or sentence boundary. The user agent must fire this event if the speech synthesis engine provides the event.</div></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="interface" id="::SpeechSynthesisEvent">
+        <h3>2.14. SpeechSynthesis Event</h3>
+<pre class="webidl prettyprint">
+interface SpeechSynthesisEvent : Event {
+
+    readonly attribute unsigned long charIndex;
+
+    readonly attribute float elapsedTime;
+
+    readonly attribute DOMString name;
+
+};
+</pre>
+        <div class="attributes">
+            <h4>attributes</h4>
+            <ul>
+                <li class="attribute" id="::charIndex"><span class="typ">charIndex</span>
+                    <div class="brief">This attribute indicates the zero-based character index into the original utterance string that most closely approximates the current speaking position of the speech engine. No guarantee is given as to where charIndex will be with respect to word boundaries (such as at the end of the previous word or the beginning of the next word), only that all text before charIndex has already been spoken, and all text after charIndex has not yet been spoken. The user agent must return this value if the speech synthesis engine supports it, otherwise the user agent must return undefined.</div></li>
+                <li class="attribute" id="::elapsedTime"><span class="typ">elapsedTime</span>
+                    <div class="brief">This attribute indicates the time, in seconds, that this event triggered, relative to when this utterance has begun to be spoken. The user agent must return this value if the speech synthesis engine supports it or the user agent can otherwise determine it, otherwise the user agent must return undefined.</div></li>
+                <li class="attribute" id="::name"><span class="typ">name</span>
+                    <div class="brief">For <a href="#::mark">mark</a> events, this attribute indicates the name of the marker, as defined in SSML as the name attribute of a mark element. [SSML] For <a href="#::boundary">boundary</a> events, this attribute indicates the type of boundary that caused the event: "word" or "sentence". For all other events, this value should return undefined.</div></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="interface" id="::SpeechSynthesisVoice">
+        <h3>2.15. SpeechSynthesisVoice</h3>
+<pre class="webidl prettyprint">
+interface SpeechSynthesisVoice {
+
+    readonly attribute DOMString voiceURI;
+
+    readonly attribute DOMString name;
+
+    readonly attribute DOMString lang;
+
+    readonly attribute boolean localService;
+
+    readonly attribute boolean default;
+
+};
+</pre>
+        <div class="attributes">
+            <h4>attributes</h4>
+            <ul>
+                <li class="attribute" id="::voiceURI"><span class="typ">voiceURI</span>
+                    <div class="brief">The voiceURI attribute specifies the speech synthesis voice and the location of the speech synthesis service for this voice. Note that the voiceURI is a generic URI and can thus point to local or remote services, as described in the SpeechSynthesisUtterance voiceURI attribute.</div></li>
+                <li class="attribute" id="::namevoice"><span class="typ">name</span>
+                    <div class="brief">This attribute is a human-readable name that represents the voice. There is no guarantee that all names returned are unique.</div></li>
+                <li class="attribute" id="::lang"><span class="typ">lang</span>
+                    <div class="brief">This attribute is a BCP 47 language tag indicating the language of the voice.</div></li>
+                <li class="attribute" id="::localService"><span class="typ">localService</span>
+                    <div class="brief">This attribute is true for voices supplied by a local speech synthesizer, and is false for voices supplied by a remote speech synthesizer service. (This may be useful because remote services may imply additional latency, bandwidth or cost, whereas local voices may imply lower quality, however there is no guarantee that any of these implications are true.)</div></li>
+                <li class="attribute" id="::default"><span class="typ">default</span>
+                    <div class="brief">This attribute is true for at most one voice per language. There may be a different default for each language. It is user agent dependent how default voices are determined.</div></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="interface" id="::SpeechSynthesisVoiceList">
+        <h3>2.16. SpeechSynthesisVoiceList</h3>
+        <div class="brief">The SpeechSynthesisVoiceList object holds a collection of SpeechSynthesisVoice objects. This structure has the following attributes.</div>
+<pre class="webidl prettyprint">
+interface SpeechSynthesisVoiceList {
+
+    readonly attribute unsigned long length;
+
+    getter SpeechSynthesisVoice item(unsigned long index);
+
+};
+</pre>
+        <div class="attributes">
+            <h4>attributes</h4>
+            <ul>
+                <li class="attribute" id="::length"><span class="typ">length</span>
+                    <div class="brief">The length attribute indicates how many results are represented in the item array.</div></li>
+            </ul>
+        </div>
+
+        <div class="attributes">
+            <h4>methods</h4>
+            <ul>
+                <li class="attribute" id="::item"><span class="typ">item</span>
+                    <div class="brief">The item getter returns a SpeechSynthesisVoice from the index into an array of result values. If index is greater than or equal to length, this returns null. The user agent must ensure that the length attribute is set to the number of elements in the array.</div></li>
+<pre class="signature prettyprint">
+getter SpeechSynthesisVoice item(in unsigned long index);
+</pre>
+            </ul>
+        </div>
+    </div>
+
     </div>
 
     <!-- -------------------------------- -->
@@ -872,7 +1177,7 @@ module Speech {
 
         readonly attribute unsigned long length;
 
-        SpeechRecognitionAlternative item(unsigned long index);
+        getter SpeechRecognitionAlternative item(unsigned long index);
 
         readonly attribute boolean final;
 
@@ -882,7 +1187,7 @@ module Speech {
 
         readonly attribute unsigned long length;
 
-        SpeechRecognitionResult item(unsigned long index);
+        getter SpeechRecognitionResult item(unsigned long index);
 
     };
 
@@ -914,13 +1219,107 @@ module Speech {
 
         readonly attribute unsigned long length;
 
-        SpeechGrammar item(unsigned long index);
+        getter SpeechGrammar item(unsigned long index);
 
         void addFromURI(DOMString src, optional float weight);
 
         void addFromString(DOMString string, optional float weight);
 
     };
+
+    interface SpeechSynthesis {
+
+        readonly attribute boolean pending;
+
+        readonly attribute boolean speaking;
+
+        readonly attribute boolean paused;
+
+        void speak(SpeechSynthesisUtterance utterance);
+
+        void cancel();
+
+        void pause();
+
+        void resume();
+
+        SpeechSynthesisVoiceList getVoices();
+
+    };
+
+    [NoInterfaceObject]
+    interface SpeechSynthesisGetter {
+
+        readonly attribute SpeechSynthesis speechSynthesis;
+
+    };
+
+    Window implements SpeechSynthesisGetter;
+
+    [Constructor,
+     Constructor(DOMString text)]
+    interface SpeechSynthesisUtterance : EventTarget {
+
+        attribute DOMString text;
+
+        attribute DOMString lang;
+
+        attribute DOMString voiceURI;
+
+        attribute float volume;
+
+        attribute float rate;
+
+        attribute float pitch;
+
+        attribute EventHandler onstart;
+
+        attribute EventHandler onend;
+
+        attribute EventHandler onerror;
+
+        attribute EventHandler onpause;
+
+        attribute EventHandler onresume;
+
+        attribute EventHandler onmark;
+
+        attribute EventHandler onboundary;
+
+    };
+
+    interface SpeechSynthesisEvent : Event {
+
+        readonly attribute unsigned long charIndex;
+
+        readonly attribute float elapsedTime;
+
+        readonly attribute DOMString name;
+
+    };
+
+    interface SpeechSynthesisVoice {
+
+        readonly attribute DOMString voiceURI;
+
+        readonly attribute DOMString name;
+
+        readonly attribute DOMString lang;
+
+        readonly attribute boolean localService;
+
+        readonly attribute boolean default;
+
+    };
+
+    interface SpeechSynthesisVoiceList {
+
+        readonly attribute unsigned long length;
+
+        getter SpeechSynthesisVoice item(unsigned long index);
+
+    }
+
 };
 </pre>
     <div id="footer">

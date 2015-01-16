@@ -55,13 +55,13 @@ enum ErrorCode {
 
 [NoInterfaceObject] interface SpeechRecognitionResult {
     readonly attribute unsigned long length;
-    getter SpeechRecognitionAlternative item(unsigned long index);
+    SpeechRecognitionAlternative item(unsigned long index);
     readonly attribute boolean final;
 };
 
 [NoInterfaceObject] interface SpeechRecognitionResultList {
     readonly attribute unsigned long length;
-    getter SpeechRecognitionResult item(unsigned long index);
+    SpeechRecognitionResult item(unsigned long index);
 };
 
 [NoInterfaceObject] interface SpeechRecognitionEvent : Event {
@@ -80,7 +80,7 @@ interface SpeechGrammar {
 [Constructor()]
 interface SpeechGrammarList {
     readonly attribute unsigned long length;
-    getter SpeechGrammar item(unsigned long index);
+    SpeechGrammar item(unsigned long index);
     void addFromURI(DOMString src, optional float weight);
     void addFromString(DOMString string, optional float weight);
 };
@@ -140,5 +140,5 @@ interface SpeechSynthesisVoice {
 
 interface SpeechSynthesisVoiceList {
     readonly attribute unsigned long length;
-    getter SpeechSynthesisVoice item(unsigned long index);
+    SpeechSynthesisVoice item(unsigned long index);
 };

@@ -4219,13 +4219,13 @@ enum ErrorCode {
 
 [NoInterfaceObject] interface SpeechRecognitionResult {
     readonly attribute unsigned long length;
-    getter <ref>SpeechRecognitionAlternative</ref> item(unsigned long index);
+    <ref>SpeechRecognitionAlternative</ref> item(unsigned long index);
     readonly attribute boolean final;
 };
 
 [NoInterfaceObject] interface SpeechRecognitionResultList {
     readonly attribute unsigned long length;
-    getter <ref>SpeechRecognitionResult</ref> item(unsigned long index);
+    <ref>SpeechRecognitionResult</ref> item(unsigned long index);
 };
 
 [NoInterfaceObject] interface SpeechRecognitionEvent : <ref>Event</ref> {
@@ -4244,7 +4244,7 @@ interface SpeechGrammar {
 [Constructor()]
 interface SpeechGrammarList {
     readonly attribute unsigned long length;
-    getter <ref>SpeechGrammar</ref> item(unsigned long index);
+    <ref>SpeechGrammar</ref> item(unsigned long index);
     void addFromURI(DOMString src, optional float weight);
     void addFromString(DOMString string, optional float weight);
 };
@@ -4304,7 +4304,7 @@ interface SpeechSynthesisVoice {
 
 interface SpeechSynthesisVoiceList {
     readonly attribute unsigned long length;
-    getter <ref>SpeechSynthesisVoice</ref> item(unsigned long index);
+    <ref>SpeechSynthesisVoice</ref> item(unsigned long index);
 };</webidl>
   <Interface name="SpeechManagerObject" id="::SpeechManagerObject">
     <webidl>[NoInterfaceObject] interface SpeechManagerObject {
@@ -4539,7 +4539,7 @@ interface SpeechRecognition : <ref>EventTarget</ref> {
   <Interface name="SpeechRecognitionResult" id="::SpeechRecognitionResult">
     <webidl>[NoInterfaceObject] interface SpeechRecognitionResult {
     readonly attribute unsigned long length;
-    getter <ref>SpeechRecognitionAlternative</ref> item(unsigned long index);
+    <ref>SpeechRecognitionAlternative</ref> item(unsigned long index);
     readonly attribute boolean final;
 };</webidl>
     <ExtendedAttributeList>
@@ -4551,8 +4551,8 @@ interface SpeechRecognition : <ref>EventTarget</ref> {
       <webidl>    readonly attribute unsigned long length;</webidl>
       <Type type="unsigned long"/>
     </Attribute>
-    <Operation getter="getter" name="item" id="::SpeechRecognitionResult::item">
-      <webidl>    getter <ref>SpeechRecognitionAlternative</ref> item(unsigned long index);</webidl>
+    <Operation name="item" id="::SpeechRecognitionResult::item">
+      <webidl>    <ref>SpeechRecognitionAlternative</ref> item(unsigned long index);</webidl>
       <Type name="SpeechRecognitionAlternative"/>
       <ArgumentList>
         <Argument name="index">
@@ -4568,7 +4568,7 @@ interface SpeechRecognition : <ref>EventTarget</ref> {
   <Interface name="SpeechRecognitionResultList" id="::SpeechRecognitionResultList">
     <webidl>[NoInterfaceObject] interface SpeechRecognitionResultList {
     readonly attribute unsigned long length;
-    getter <ref>SpeechRecognitionResult</ref> item(unsigned long index);
+    <ref>SpeechRecognitionResult</ref> item(unsigned long index);
 };</webidl>
     <ExtendedAttributeList>
       <ExtendedAttribute name="NoInterfaceObject">
@@ -4579,8 +4579,8 @@ interface SpeechRecognition : <ref>EventTarget</ref> {
       <webidl>    readonly attribute unsigned long length;</webidl>
       <Type type="unsigned long"/>
     </Attribute>
-    <Operation getter="getter" name="item" id="::SpeechRecognitionResultList::item">
-      <webidl>    getter <ref>SpeechRecognitionResult</ref> item(unsigned long index);</webidl>
+    <Operation name="item" id="::SpeechRecognitionResultList::item">
+      <webidl>    <ref>SpeechRecognitionResult</ref> item(unsigned long index);</webidl>
       <Type name="SpeechRecognitionResult"/>
       <ArgumentList>
         <Argument name="index">
@@ -4646,7 +4646,7 @@ interface SpeechGrammar {
     <webidl>[Constructor()]
 interface SpeechGrammarList {
     readonly attribute unsigned long length;
-    getter <ref>SpeechGrammar</ref> item(unsigned long index);
+    <ref>SpeechGrammar</ref> item(unsigned long index);
     void addFromURI(DOMString src, optional float weight);
     void addFromString(DOMString string, optional float weight);
 };</webidl>
@@ -4660,8 +4660,8 @@ interface SpeechGrammarList {
       <webidl>    readonly attribute unsigned long length;</webidl>
       <Type type="unsigned long"/>
     </Attribute>
-    <Operation getter="getter" name="item" id="::SpeechGrammarList::item">
-      <webidl>    getter <ref>SpeechGrammar</ref> item(unsigned long index);</webidl>
+    <Operation name="item" id="::SpeechGrammarList::item">
+      <webidl>    <ref>SpeechGrammar</ref> item(unsigned long index);</webidl>
       <Type name="SpeechGrammar"/>
       <ArgumentList>
         <Argument name="index">
@@ -4908,14 +4908,14 @@ interface SpeechSynthesisUtterance : <ref>EventTarget</ref> {
   <Interface name="SpeechSynthesisVoiceList" id="::SpeechSynthesisVoiceList">
     <webidl>interface SpeechSynthesisVoiceList {
     readonly attribute unsigned long length;
-    getter <ref>SpeechSynthesisVoice</ref> item(unsigned long index);
+    <ref>SpeechSynthesisVoice</ref> item(unsigned long index);
 };</webidl>
     <Attribute readonly="readonly" name="length" id="::SpeechSynthesisVoiceList::length">
       <webidl>    readonly attribute unsigned long length;</webidl>
       <Type type="unsigned long"/>
     </Attribute>
-    <Operation getter="getter" name="item" id="::SpeechSynthesisVoiceList::item">
-      <webidl>    getter <ref>SpeechSynthesisVoice</ref> item(unsigned long index);</webidl>
+    <Operation name="item" id="::SpeechSynthesisVoiceList::item">
+      <webidl>    <ref>SpeechSynthesisVoice</ref> item(unsigned long index);</webidl>
       <Type name="SpeechSynthesisVoice"/>
       <ArgumentList>
         <Argument name="index">

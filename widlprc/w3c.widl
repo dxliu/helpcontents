@@ -1,0 +1,211 @@
+module W3CWidget
+{
+    [NoInterfaceObject]
+    interface W3CWidget {
+        /**
+         * \brief Author of widget.
+         */
+        readonly attribute DOMString     author;
+        /**
+         * \brief Author e-mail.
+         */
+        readonly attribute DOMString     authorEmail;
+        /**
+         * \brief Author web site.
+         */
+        readonly attribute DOMString     authorHref;
+        /**
+         * \brief Description of widget.
+         */
+        readonly attribute DOMString     description;
+        /**
+         * \brief Identifier of widget.
+         */
+        readonly attribute DOMString     id;
+        /**
+         * \brief Name of widget.
+         */
+        readonly attribute DOMString     name;
+        /**
+         * \brief Short name of widget.
+         */
+        readonly attribute DOMString     shortName;
+        /**
+         * \brief Preferences.
+         */
+        readonly attribute Storage       preferences;
+        /**
+         * \brief Version of widget.
+         */
+        readonly attribute DOMString     version;
+        /**
+         * \brief Height of widget.
+         */
+        readonly attribute unsigned long height;
+        /**
+         * \brief Width of widget.
+         */
+        readonly attribute unsigned long width;
+    };
+
+    [Supplemental, NoInterfaceObject]
+    interface WindowWidget {
+        /**
+         * \brief W3C Widget.
+         *
+         * The Widget Interface \<a href="http://www.w3.org/TR/widgets-apis/"\>http://www.w3.org/TR/widgets-apis/\</a\>.
+         */
+        readonly attribute W3CWidget widget;
+    };
+
+    Window implements WindowWidget;
+};
+
+    module SpeechSynthesis {
+    [Constructor]
+    interface SpeechRecognition : EventTarget {
+        // recognition parameters
+        attribute SpeechGrammarList grammars;
+        attribute DOMString lang;
+        attribute boolean continuous;
+        attribute boolean interimResults;
+        attribute unsigned long maxAlternatives;
+        attribute DOMString serviceURI;
+
+        // methods to drive the speech interaction
+        void start();
+        void stop();
+        void abort();
+
+        // event methods
+        attribute EventHandler onaudiostart;
+        attribute EventHandler onsoundstart;
+        attribute EventHandler onspeechstart;
+        attribute EventHandler onspeechend;
+        attribute EventHandler onsoundend;
+        attribute EventHandler onaudioend;
+        attribute EventHandler onresult;
+        attribute EventHandler onnomatch;
+        attribute EventHandler onerror;
+        attribute EventHandler onstart;
+        attribute EventHandler onend;
+    };
+
+    enum ErrorCode {
+        "no-speech",
+        "aborted",
+        "audio-capture",
+        "network",
+        "not-allowed",
+        "service-not-allowed",
+        "bad-grammar",
+        "language-not-supported"
+    };
+
+    interface SpeechRecognitionError : Event {
+        readonly attribute ErrorCode error;
+        readonly attribute DOMString message;
+    };
+
+    // Item in N-best list
+    interface SpeechRecognitionAlternative {
+        readonly attribute DOMString transcript;
+        readonly attribute float confidence;
+    };
+
+    // A complete one-shot simple response
+    interface SpeechRecognitionResult {
+        readonly attribute unsigned long length;
+        getter SpeechRecognitionAlternative item(unsigned long index);
+        readonly attribute boolean final;
+    };
+
+    // A collection of responses (used in continuous mode)
+    interface SpeechRecognitionResultList {
+        readonly attribute unsigned long length;
+        getter SpeechRecognitionResult item(unsigned long index);
+    };
+
+    // A full response, which could be interim or final, part of a continuous response or not
+    interface SpeechRecognitionEvent : Event {
+        readonly attribute unsigned long resultIndex;
+        readonly attribute SpeechRecognitionResultList results;
+        readonly attribute any interpretation;
+        readonly attribute Document emma;
+    };
+
+    // The object representing a speech grammar
+    [Constructor]
+    interface SpeechGrammar {
+        attribute DOMString src;
+        attribute float weight;
+    };
+
+    // The object representing a speech grammar collection
+    [Constructor]
+    interface SpeechGrammarList {
+        readonly attribute unsigned long length;
+        getter SpeechGrammar item(unsigned long index);
+        void addFromURI(DOMString src,
+                    optional float weight);
+        void addFromString(DOMString string,
+                       optional float weight);
+    };
+
+    interface SpeechSynthesis {
+        readonly attribute boolean pending;
+        readonly attribute boolean speaking;
+        readonly attribute boolean paused;
+
+        void speak(SpeechSynthesisUtterance utterance);
+        void cancel();
+        void pause();
+        void resume();
+        SpeechSynthesisVoiceList getVoices();
+    };
+
+    [NoInterfaceObject]
+    interface SpeechSynthesisGetter {
+        readonly attribute SpeechSynthesis speechSynthesis;
+    };
+
+    Window implements SpeechSynthesisGetter;
+
+    [Constructor, Constructor(DOMString text)]
+    interface SpeechSynthesisUtterance : EventTarget {
+        attribute DOMString text;
+        attribute DOMString lang;
+        attribute DOMString voiceURI;
+        attribute float volume;
+        attribute float rate;
+        attribute float pitch;
+
+        attribute EventHandler onstart;
+        attribute EventHandler onend;
+        attribute EventHandler onerror;
+        attribute EventHandler onpause;
+        attribute EventHandler onresume;
+        attribute EventHandler onmark;
+        attribute EventHandler onboundary;
+    };
+
+    interface SpeechSynthesisEvent : Event {
+        readonly attribute unsigned long charIndex;
+        readonly attribute float elapsedTime;
+        readonly attribute DOMString name;
+    };
+
+    interface SpeechSynthesisVoice {
+        readonly attribute DOMString voiceURI;
+        readonly attribute DOMString name;
+        readonly attribute DOMString lang;
+        readonly attribute boolean localService;
+        //        readonly attribute boolean default;
+    };
+
+    interface SpeechSynthesisVoiceList {
+        readonly attribute unsigned long length;
+        getter SpeechSynthesisVoice item(unsigned long index);
+    };
+};
+

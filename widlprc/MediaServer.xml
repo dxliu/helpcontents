@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Definitions SYSTEM "widlprocxml.dtd">
+<Definitions>
+  <webidl>partial interface Navigator   {
+         readonly attribute <ref>MediaServerManager</ref> mediaserver;
+};
+
+
+
+[NoInterfaceObject]
+interface MediaServerManager  {
+
+        <ref>scanNetwork</ref>(<ref>MediaServerFoundServerCallback</ref> successCallback, optional <ref>MediaServerErrorCallback</ref> errorCallback);
+};
+
+
+
+[NoInterfaceObject]
+interface MediaServer  {
+
+         readonly attribute DOMString id;
+
+         readonly attribute DOMString friendlyName;
+
+         readonly attribute object root;
+
+        <ref>browse</ref>(DOMString containerId, DOMString sortMode, unsigned long count, unsigned long offset, <ref>MediaServerBrowseFindCallback</ref> successCallback, optional <ref>MediaServerErrorCallback</ref> errorCallback);
+
+        <ref>find</ref>(DOMString containerId, DOMString searchFilter, DOMString sortMode, unsigned long count, unsigned long offset, <ref>MediaServerBrowseFindCallback</ref> successCallback, optional <ref>MediaServerErrorCallback</ref> errorCallback);
+};
+
+
+
+[NoInterfaceObject]
+interface MediaServerError   {
+        const unsigned short GENERIC = 1;
+
+         attribute unsigned short code;
+
+         attribute DOMString message;
+};
+
+
+
+callback MediaServerFoundServerCallback = void (<ref>MediaServer</ref> value);
+
+callback MediaServerBrowseFindCallback = void (sequence&lt;object> value);
+
+callback MediaServerErrorCallback = void (<ref>MediaServerError</ref> error);</webidl>
+  <Interface name="Navigator" partial="partial" id="::Navigator">
+    <webidl>partial interface Navigator   {
+         readonly attribute <ref>MediaServerManager</ref> mediaserver;
+};</webidl>
+    <descriptive>
+       <description>
+        <p>
+Details.
+        </p>
+       </description>
+        <def-api-feature identifier="http://tizen.org/api/mediaserver">
+          <descriptive>
+            <brief>
+ Allows access to the mediaserver API
+            </brief>
+           <description>
+            <p>
+module MediaServer
+            </p>
+           </description>
+          </descriptive>
+        </def-api-feature>
+    </descriptive>
+    <Attribute readonly="readonly" name="mediaserver" id="::Navigator::mediaserver">
+      <webidl>         readonly attribute <ref>MediaServerManager</ref> mediaserver;</webidl>
+      <Type name="MediaServerManager"/>
+    </Attribute>
+  </Interface>
+  <Interface name="MediaServerManager" id="::MediaServerManager">
+    <webidl>[NoInterfaceObject]
+interface MediaServerManager  {
+
+        <ref>scanNetwork</ref>(<ref>MediaServerFoundServerCallback</ref> successCallback, optional <ref>MediaServerErrorCallback</ref> errorCallback);
+};</webidl>
+    <ExtendedAttributeList>
+      <ExtendedAttribute name="NoInterfaceObject">
+        <webidl>NoInterfaceObject</webidl>
+      </ExtendedAttribute>
+    </ExtendedAttributeList>
+    <Operation>
+      <webidl>        <ref>scanNetwork</ref>(<ref>MediaServerFoundServerCallback</ref> successCallback, optional <ref>MediaServerErrorCallback</ref> errorCallback);</webidl>
+      <descriptive>
+          <brief>
+ Scans local network for MediaServers.
+          </brief>
+      </descriptive>
+      <Type name="scanNetwork"/>
+      <ArgumentList>
+        <Argument name="successCallback">
+          <descriptive>
+              <description><p>
+ callback invoqued for each MediaServer discovered.
+              </p></description>
+          </descriptive>
+          <Type name="MediaServerFoundServerCallback"/>
+        </Argument>
+        <Argument optional="optional" name="errorCallback">
+          <descriptive>
+              <description><p>
+              </p></description>
+          </descriptive>
+          <Type name="MediaServerErrorCallback"/>
+        </Argument>
+      </ArgumentList>
+    </Operation>
+  </Interface>
+  <Interface name="MediaServer" id="::MediaServer">
+    <webidl>[NoInterfaceObject]
+interface MediaServer  {
+
+         readonly attribute DOMString id;
+
+         readonly attribute DOMString friendlyName;
+
+         readonly attribute object root;
+
+        <ref>browse</ref>(DOMString containerId, DOMString sortMode, unsigned long count, unsigned long offset, <ref>MediaServerBrowseFindCallback</ref> successCallback, optional <ref>MediaServerErrorCallback</ref> errorCallback);
+
+        <ref>find</ref>(DOMString containerId, DOMString searchFilter, DOMString sortMode, unsigned long count, unsigned long offset, <ref>MediaServerBrowseFindCallback</ref> successCallback, optional <ref>MediaServerErrorCallback</ref> errorCallback);
+};</webidl>
+    <ExtendedAttributeList>
+      <ExtendedAttribute name="NoInterfaceObject">
+        <webidl>NoInterfaceObject</webidl>
+      </ExtendedAttribute>
+    </ExtendedAttributeList>
+    <Attribute readonly="readonly" name="id" id="::MediaServer::id">
+      <webidl>         readonly attribute DOMString id;</webidl>
+      <descriptive>
+         <description>
+          <p>
+id
+          </p>
+         </description>
+          <brief>
+ An opaque unique ID.
+          </brief>
+      </descriptive>
+      <Type type="DOMString"/>
+    </Attribute>
+    <Attribute readonly="readonly" name="friendlyName" id="::MediaServer::friendlyName">
+      <webidl>         readonly attribute DOMString friendlyName;</webidl>
+      <descriptive>
+         <description>
+          <p>
+friendlyName
+          </p>
+         </description>
+          <brief>
+ A user-friendly name for the device.
+          </brief>
+      </descriptive>
+      <Type type="DOMString"/>
+    </Attribute>
+    <Attribute readonly="readonly" name="root" id="::MediaServer::root">
+      <webidl>         readonly attribute object root;</webidl>
+      <descriptive>
+         <description>
+          <p>
+root
+          </p>
+         </description>
+          <brief>
+ Media Server root folder.
+          </brief>
+      </descriptive>
+      <Type type="object"/>
+    </Attribute>
+    <Operation>
+      <webidl>        <ref>browse</ref>(DOMString containerId, DOMString sortMode, unsigned long count, unsigned long offset, <ref>MediaServerBrowseFindCallback</ref> successCallback, optional <ref>MediaServerErrorCallback</ref> errorCallback);</webidl>
+      <descriptive>
+          <brief>
+ Browses for media item under a given MediaContainer.
+          </brief>
+      </descriptive>
+      <Type name="browse"/>
+      <ArgumentList>
+        <Argument name="containerId">
+          <descriptive>
+              <description><p>
+              </p></description>
+          </descriptive>
+          <Type type="DOMString"/>
+        </Argument>
+        <Argument name="sortMode">
+          <descriptive>
+              <description><p>
+              </p></description>
+          </descriptive>
+          <Type type="DOMString"/>
+        </Argument>
+        <Argument name="count">
+          <descriptive>
+              <description><p>
+              </p></description>
+          </descriptive>
+          <Type type="unsigned long"/>
+        </Argument>
+        <Argument name="offset">
+          <descriptive>
+              <description><p>
+              </p></description>
+          </descriptive>
+          <Type type="unsigned long"/>
+        </Argument>
+        <Argument name="successCallback">
+          <descriptive>
+              <description><p>
+              </p></description>
+          </descriptive>
+          <Type name="MediaServerBrowseFindCallback"/>
+        </Argument>
+        <Argument optional="optional" name="errorCallback">
+          <descriptive>
+              <description><p>
+              </p></description>
+          </descriptive>
+          <Type name="MediaServerErrorCallback"/>
+        </Argument>
+      </ArgumentList>
+    </Operation>
+    <Operation>
+      <webidl>        <ref>find</ref>(DOMString containerId, DOMString searchFilter, DOMString sortMode, unsigned long count, unsigned long offset, <ref>MediaServerBrowseFindCallback</ref> successCallback, optional <ref>MediaServerErrorCallback</ref> errorCallback);</webidl>
+      <descriptive>
+          <brief>
+ Searches for media item under a given MediaContainer.
+          </brief>
+      </descriptive>
+      <Type name="find"/>
+      <ArgumentList>
+        <Argument name="containerId">
+          <descriptive>
+              <description><p>
+              </p></description>
+          </descriptive>
+          <Type type="DOMString"/>
+        </Argument>
+        <Argument name="searchFilter">
+          <descriptive>
+              <description><p>
+              </p></description>
+          </descriptive>
+          <Type type="DOMString"/>
+        </Argument>
+        <Argument name="sortMode">
+          <descriptive>
+              <description><p>
+              </p></description>
+          </descriptive>
+          <Type type="DOMString"/>
+        </Argument>
+        <Argument name="count">
+          <descriptive>
+              <description><p>
+              </p></description>
+          </descriptive>
+          <Type type="unsigned long"/>
+        </Argument>
+        <Argument name="offset">
+          <descriptive>
+              <description><p>
+              </p></description>
+          </descriptive>
+          <Type type="unsigned long"/>
+        </Argument>
+        <Argument name="successCallback">
+          <descriptive>
+              <description><p>
+              </p></description>
+          </descriptive>
+          <Type name="MediaServerBrowseFindCallback"/>
+        </Argument>
+        <Argument optional="optional" name="errorCallback">
+          <descriptive>
+              <description><p>
+              </p></description>
+          </descriptive>
+          <Type name="MediaServerErrorCallback"/>
+        </Argument>
+      </ArgumentList>
+    </Operation>
+  </Interface>
+  <Interface name="MediaServerError" id="::MediaServerError">
+    <webidl>[NoInterfaceObject]
+interface MediaServerError   {
+        const unsigned short GENERIC = 1;
+
+         attribute unsigned short code;
+
+         attribute DOMString message;
+};</webidl>
+    <ExtendedAttributeList>
+      <ExtendedAttribute name="NoInterfaceObject">
+        <webidl>NoInterfaceObject</webidl>
+      </ExtendedAttribute>
+    </ExtendedAttributeList>
+    <Const name="GENERIC" value="1" id="::MediaServerError::GENERIC">
+      <webidl>        const unsigned short GENERIC = 1;</webidl>
+      <Type type="unsigned short"/>
+    </Const>
+    <Attribute name="code" id="::MediaServerError::code">
+      <webidl>         attribute unsigned short code;</webidl>
+      <descriptive>
+         <description>
+          <p>
+code
+MUST return error code.
+          </p>
+         </description>
+      </descriptive>
+      <Type type="unsigned short"/>
+    </Attribute>
+    <Attribute name="message" id="::MediaServerError::message">
+      <webidl>         attribute DOMString message;</webidl>
+      <descriptive>
+         <description>
+          <p>
+message
+MUST return error message
+          </p>
+         </description>
+      </descriptive>
+      <Type type="DOMString"/>
+    </Attribute>
+  </Interface>
+  <Callback name="MediaServerFoundServerCallback" id="::MediaServerFoundServerCallback">
+    <webidl>callback MediaServerFoundServerCallback = void (<ref>MediaServer</ref> value);</webidl>
+    <Type type="void"/>
+    <ArgumentList>
+      <Argument name="value">
+        <Type name="MediaServer"/>
+      </Argument>
+    </ArgumentList>
+  </Callback>
+  <Callback name="MediaServerBrowseFindCallback" id="::MediaServerBrowseFindCallback">
+    <webidl>callback MediaServerBrowseFindCallback = void (sequence&lt;object> value);</webidl>
+    <Type type="void"/>
+    <ArgumentList>
+      <Argument name="value">
+        <Type type="sequence">
+          <Type type="object"/>
+        </Type>
+      </Argument>
+    </ArgumentList>
+  </Callback>
+  <Callback name="MediaServerErrorCallback" id="::MediaServerErrorCallback">
+    <webidl>callback MediaServerErrorCallback = void (<ref>MediaServerError</ref> error);</webidl>
+    <Type type="void"/>
+    <ArgumentList>
+      <Argument name="error">
+        <Type name="MediaServerError"/>
+      </Argument>
+    </ArgumentList>
+  </Callback>
+</Definitions>

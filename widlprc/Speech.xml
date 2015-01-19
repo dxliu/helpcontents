@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Definitions SYSTEM "widlprocxml.dtd">
+<Definitions>
+  <webidl>[NoInterfaceObject] interface SpeechManagerObject {
+        readonly attribute <ref>SpeechManager</ref> speech;
+};
+
+<ref>Tizen</ref> implements <ref>SpeechManagerObject</ref>;
+
+[NoInterfaceObject] interface SpeechManager {
+    void vocalizeString(DOMString speakString);
+};</webidl>
+  <Interface name="SpeechManagerObject" id="::SpeechManagerObject">
+    <webidl>[NoInterfaceObject] interface SpeechManagerObject {
+        readonly attribute <ref>SpeechManager</ref> speech;
+};</webidl>
+    <ExtendedAttributeList>
+      <ExtendedAttribute name="NoInterfaceObject">
+        <webidl>NoInterfaceObject</webidl>
+      </ExtendedAttribute>
+    </ExtendedAttributeList>
+    <Attribute readonly="readonly" name="speech" id="::SpeechManagerObject::speech">
+      <webidl>        readonly attribute <ref>SpeechManager</ref> speech;</webidl>
+      <Type name="SpeechManager"/>
+    </Attribute>
+  </Interface>
+  <Implements name1="Tizen" name2="SpeechManagerObject">
+    <webidl><ref>Tizen</ref> implements <ref>SpeechManagerObject</ref>;</webidl>
+  </Implements>
+  <Interface name="SpeechManager" id="::SpeechManager">
+    <webidl>[NoInterfaceObject] interface SpeechManager {
+    void vocalizeString(DOMString speakString);
+};</webidl>
+    <ExtendedAttributeList>
+      <ExtendedAttribute name="NoInterfaceObject">
+        <webidl>NoInterfaceObject</webidl>
+      </ExtendedAttribute>
+    </ExtendedAttributeList>
+    <Operation name="vocalizeString" id="::SpeechManager::vocalizeString">
+      <webidl>    void vocalizeString(DOMString speakString);</webidl>
+      <Type type="void"/>
+      <ArgumentList>
+        <Argument name="speakString">
+          <Type type="DOMString"/>
+        </Argument>
+      </ArgumentList>
+    </Operation>
+  </Interface>
+</Definitions>
